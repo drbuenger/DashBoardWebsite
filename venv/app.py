@@ -20,9 +20,17 @@ cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
 app = dash.Dash()
 app.layout = html.Div(children=[
     html.Div(children='''
-    Symbol to Graph
+Pick a Hamilton
     '''),
-    dcc.Input(id='input', value='', type='text'),
+    dcc.Dropdown(
+        id='input',
+        options=[
+            {'label': 'C034', 'value': 'C034'},
+            {'label': 'D363', 'value': 'D363'},
+            {'label': 'HAM1', 'value': 'HAM1'}
+        ],
+        value='HAM1'
+    ),
     html.Div(id='output-graph')
 
 ])
