@@ -9,6 +9,8 @@ from dash.dependencies import Input, Output
 import pandas_datareader.data as web
 import pandas as pd
 import plotly.subplots as splots
+import csv
+from itertools import zip_longest as zip
 import pyodbc
 cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                       "Server=localhost;"
@@ -16,6 +18,15 @@ cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                       "Trusted_Connection=yes;")
 
 
+
+with open("C:\\Program Files (x86)\\HAMILTON\LogFiles\\Normal_Starlet_a8bbe6d7256c4704845244ab98e1a631_Trace.trc", 'r') as in_file:
+    stripped = (line.strip() for line in in_file)
+    lines = (line for line in stripped if line)
+    grouped = zip(*[lines] * 3)
+    with open('extracted.csv', 'w') as out_file:
+        writer = csv.writer(out_file)
+        writer.writerow(('title', 'intro', 'tagline'))
+        writer.writerows(grouped)
 
 app = dash.Dash()
 app.layout = html.Div(children=[
