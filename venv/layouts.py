@@ -40,54 +40,19 @@ df.dropna(axis=0, inplace=True)
 
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
+df['Duration'] = df['Time End'] - df['Time Start']
 
 unique_serial_numbers = df['Serial Number'].unique()
 
-dt_columns = ['Placement type', 'Spend TY', 'Spend - LP', 'Spend PoP (Abs)', 'Spend PoP (%)', 'Spend LY',
-              'Spend YoY (%)', \
-              'Sessions - TY', 'Sessions - LP', 'Sessions - LY', 'Sessions PoP (%)', 'Sessions YoY (%)', \
-              'Bookings - TY', 'Bookings - LP', 'Bookings PoP (%)', 'Bookings PoP (Abs)', 'Bookings - LY',
-              'Bookings YoY (%)', 'Bookings YoY (Abs)', \
-              'Revenue - TY', 'Revenue - LP', 'Revenue PoP (Abs)', 'Revenue PoP (%)', 'Revenue - LY', 'Revenue YoY (%)',
-              'Revenue YoY (Abs)', ]
+dt_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
-conditional_columns = ['Spend_PoP_abs_conditional', 'Spend_PoP_percent_conditional', 'Spend_YoY_percent_conditional',
-                       'Sessions_PoP_percent_conditional', 'Sessions_YoY_percent_conditional',
-                       'Bookings_PoP_abs_conditional', 'Bookings_YoY_abs_conditional',
-                       'Bookings_PoP_percent_conditional', 'Bookings_YoY_percent_conditional',
-                       'Revenue_PoP_abs_conditional', 'Revenue_YoY_abs_conditional', 'Revenue_PoP_percent_conditional',
-                       'Revenue_YoY_percent_conditional', ]
+conditional_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
-dt_columns_total = ['Placement type', 'Spend TY', 'Spend - LP', 'Spend PoP (Abs)', 'Spend PoP (%)', 'Spend LY',
-                    'Spend YoY (%)', \
-                    'Sessions - TY', 'Sessions - LP', 'Sessions - LY', 'Sessions PoP (%)', 'Sessions YoY (%)', \
-                    'Bookings - TY', 'Bookings - LP', 'Bookings PoP (%)', 'Bookings PoP (Abs)', 'Bookings - LY',
-                    'Bookings YoY (%)', 'Bookings YoY (Abs)', \
-                    'Revenue - TY', 'Revenue - LP', 'Revenue PoP (Abs)', 'Revenue PoP (%)', 'Revenue - LY',
-                    'Revenue YoY (%)', 'Revenue YoY (Abs)',
-                    'Spend_PoP_abs_conditional', 'Spend_PoP_percent_conditional', 'Spend_YoY_percent_conditional',
-                    'Sessions_PoP_percent_conditional', 'Sessions_YoY_percent_conditional',
-                    'Bookings_PoP_abs_conditional', 'Bookings_YoY_abs_conditional', 'Bookings_PoP_percent_conditional',
-                    'Bookings_YoY_percent_conditional',
-                    'Revenue_PoP_abs_conditional', 'Revenue_YoY_abs_conditional', 'Revenue_PoP_percent_conditional',
-                    'Revenue_YoY_percent_conditional', ]
+dt_columns_total = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
-df_columns_calculated = ['Placement type', 'CPS - TY',
-                         'CPS - LP', 'CPS PoP (Abs)', 'CPS PoP (%)',
-                         'CPS - LY', 'CPS YoY (Abs)', 'CPS YoY (%)',
-                         'CVR - TY',
-                         'CVR - LP', 'CVR PoP (Abs)', 'CVR PoP (%)',
-                         'CVR - LY', 'CVR YoY (Abs)', 'CVR YoY (%)',
-                         'CPA - TY',
-                         'CPA - LP', 'CPA PoP (Abs)', 'CPA PoP (%)',
-                         'CPA - LY', 'CPA YoY (Abs)', 'CPA YoY (%)']
+df_columns_calculated = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
-conditional_columns_calculated_calculated = ['CPS_PoP_abs_conditional', 'CPS_PoP_percent_conditional',
-                                             'CPS_YoY_abs_conditional', 'CPS_PoP_percent_conditional',
-                                             'CVR_PoP_abs_conditional', 'CVR_PoP_percent_conditional',
-                                             'CVR_YoY_abs_conditional', 'CVR_YoY_percent_conditional',
-                                             'CPA_PoP_abs_conditional', 'CPA_PoP_percent_conditional',
-                                             'CPA_YoY_abs_conditional', 'CPA_YoY_percent_conditional']
+conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
@@ -144,8 +109,8 @@ layout_hamilton = html.Div([
                 selected_rows=[0],
                 style_cell={"fontFamily": "Arial", "size": 10, 'textAlign': 'left'},
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}],
-                style_cell_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#D5DBDB'}]
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
+                #,style_cell_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#D5DBDB'}]
             ),
         ], className=" twelve columns"),
         # Download Button
