@@ -1,0 +1,4 @@
+2018-02-14 12:53:39> SYSTEM : Analyze method - start; 
+2018-02-14 12:53:39> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: C:\\Program Files\\HAMILTON\\Methods\\Codeset\\Exo-prep from Matrix to PCR v2.hsl : unable to find file (0x23 - 0x2 - 0x13) , 
+2018-02-14 12:53:39> SYSTEM : Analyze method - complete with error; 
+2018-02-14 12:55:27> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-02-14 12:55$$checksum=18b380d5$$length=136$$

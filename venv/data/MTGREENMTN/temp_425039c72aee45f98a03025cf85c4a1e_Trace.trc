@@ -1,0 +1,6 @@
+2020-01-07 14:02:51> SYSTEM : Analyze method - start; Method file C:\Users\gpadilla\AppData\Local\Temp\temp.hsl
+2020-01-07 14:02:51> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-01-07 14:02:52> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument configuration described in the instrument configuration file does not match the configuration reported by the instrument.  (Default waste for C0-RE 96 Head is missing.  ) (0x28 - 0x1 - 0x806) 
+2020-01-07 14:02:52> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument configuration described in the instrument configuration file does not match the configuration reported by the instrument.  (Default waste for C0-RE 96 Head is missing.  ) (0x28 - 0x1 - 0x806) 
+2020-01-07 14:02:52> SYSTEM : Analyze method - complete with error; 
+2020-01-07 14:03:01> SYSTEM : File checksum - written; $$author=gpadilla$$valid=0$$time=2020-01-07 14:03$$checksum=84ab0463$$length=137$$

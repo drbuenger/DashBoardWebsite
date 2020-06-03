@@ -1,0 +1,76 @@
+2019-07-23 14:53:25> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Methods Under Development\IOQ - Low Volume Dispense.hsl
+2019-07-23 14:53:26> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-07-23 14:53:27> SYSTEM : Analyze method - complete; 
+2019-07-23 14:53:28> SYSTEM : Start method - start; 
+2019-07-23 14:53:28> SYSTEM : Start method - progress; User name: gpadilla
+2019-07-23 14:53:28> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-07-23 14:53:28> SYSTEM : Start method - progress; Database version: Standard
+2019-07-23 14:53:28> SYSTEM : Start method - progress; Sample tracking: On
+2019-07-23 14:53:28> SYSTEM : Start method - progress; Vector Database: On
+2019-07-23 14:53:28> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-07-23 14:53:28> Microlab® STAR : Start method command - start;
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-07-23 14:53:28> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-07-23 14:53:30> Microlab® STAR : Start method command - complete;
+2019-07-23 14:53:30> SYSTEM : Start method - complete; 
+2019-07-23 14:53:30> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Methods Under Development\IOQ - Low Volume Dispense.hsl
+2019-07-23 14:53:30> Microlab® STAR : Initialize (Single Step) - start;
+2019-07-23 14:53:53> SYSTEM : Pause method - start; 
+2019-07-23 14:53:53> Microlab® STAR : Pause command - start;
+2019-07-23 14:54:12> Microlab® STAR : Pause command - complete;
+2019-07-23 14:54:12> SYSTEM : Pause method - complete; 
+2019-07-23 14:54:22> Microlab® STAR : Resume command - start;
+2019-07-23 14:54:22> Microlab® STAR : Resume command - complete;
+2019-07-23 14:54:22> SYSTEM : Execute method - start; 
+2019-07-23 14:54:44> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-07-23 14:54:44> SYSTEM : Pause method - start; 
+2019-07-23 14:54:44> Microlab® STAR : Pause command - start;
+2019-07-23 14:54:44> Microlab® STAR : Pause command - complete;
+2019-07-23 14:54:44> SYSTEM : Pause method - complete; 
+2019-07-23 14:56:28> SYSTEM : Method has been aborted by the user - complete; 
+2019-07-23 14:56:28> SYSTEM : Abort method - start; 
+2019-07-23 14:56:28> Microlab® STAR : Resume command - start;
+2019-07-23 14:56:28> Microlab® STAR : Resume command - complete;
+2019-07-23 14:56:28> Microlab® STAR : Abort requested command - start;
+2019-07-23 14:56:28> Microlab® STAR : Abort requested command - complete;
+2019-07-23 14:56:28> Microlab® STAR : Start Method Abort Handler command - start;
+2019-07-23 14:56:28> Microlab® STAR : Start Method Abort Handler command - complete;
+2019-07-23 14:56:28> Microlab® STAR : Abort command - start;
+2019-07-23 14:56:28> Microlab® STAR : Abort command - complete;
+2019-07-23 14:56:29> SYSTEM : Abort method - complete; 
+2019-07-23 14:56:29> SYSTEM : Execute method - complete; 
+2019-07-23 14:56:29> SYSTEM : End method - start; 
+2019-07-23 14:56:29> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\HAM_APPS_TESTING\Hamilton\Ham_DW_Rgt_96_L.rck
+2019-07-23 14:56:29> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\ML_STAR\96COREHEAD\Core96_TipSupport_300ul_Filter_L.rck
+2019-07-23 14:56:29> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\ML_STAR\MultiFlexCarrier\MFX_CAR_TipBC_2AC_Stack_AC.tml
+2019-07-23 14:56:29> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\ML_STAR\MultiFlexCarrier\MFX_CAR_TipBC_3xLowProAC.tml
+2019-07-23 14:56:29> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\NanoString\EppendorfTubes1500ul.rck
+2019-07-23 14:56:29> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Methods\Layout\MUD - IOQ - Low Volume Dispense.lay
+2019-07-23 14:56:29> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Methods\Layout\MUD - IOQ - Low Volume Dispense.res
+2019-07-23 14:56:29> Microlab® STAR : End method command - start;
+2019-07-23 14:56:29> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-07-23 14:56:29> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-07-23 14:56:30> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-07-23 14:56:32> Microlab® STAR : End method command - complete;
+2019-07-23 14:56:32> SYSTEM : End method - complete; 
+2019-07-23 14:56:32> SYSTEM : File checksum - written; $$author=gpadilla$$valid=0$$time=2019-07-23 14:56$$checksum=871d2717$$length=137$$

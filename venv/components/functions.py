@@ -5,27 +5,15 @@ import plotly.graph_objs as go
 from plotly import tools
 import numpy as np
 import pandas as pd
-
+import csv
+import os
 pd.options.mode.chained_assignment = None
 
-# Read in Travel Report Data
-df = pd.read_csv('data/performance_analytics_cost_and_ga_metrics.csv')
+# Read in Hamilton Data
+df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv')
 
-df.rename(columns={
-    'Travel Product': 'Placement type',
-    'Spend - This Year': 'Spend TY',
-    'Spend - Last Year': 'Spend LY',
-    'Sessions - This Year': 'Sessions - TY',
-    'Sessions - Last Year': 'Sessions - LY',
-    'Bookings - This Year': 'Bookings - TY',
-    'Bookings - Last Year': 'Bookings - LY',
-    'Revenue - This Year': 'Revenue - TY',
-    'Revenue - Last Year': 'Revenue - LY',
-}, inplace=True)
-
-df['Date'] = pd.to_datetime(df['Date'])
-current_year = df['Year'].max()
-current_week = df[df['Year'] == current_year]['Week'].max()
+df['Time Start'] = pd.to_datetime(df['Time Start'])
+df['Time End'] = pd.to_datetime(df['Time End'])
 
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
@@ -54,9 +42,41 @@ def formatter_percent_2_digits(x):
 def formatter_number(x):
     return "{:,.0f}".format(x) if x >= 0 else "({:,.0f})".format(abs(x))
 
+# Read Text File
+def read_trace_file(file):
+    method_name = "NA"
+    serialnumber = "NA"
+    username = "NA"
+    date_start = "NA"
+    date_end = "NA"
+    if file is not None:
+        f = open(file, 'r')
+        for readline in f:
+            if 'Analyze method - start' in readline:
+                array_read_line = readline.split("\\")
+                length = len(array_read_line)
+                method_name = array_read_line[length-1].rstrip("'\n\t’")
+            if 'Analyze method - start' in readline:
+                date_start = readline[0:19]
+            if 'User name' in readline:
+                array_read_line = readline.split(" ")
+                length = len(array_read_line)
+                username = array_read_line[length-1].rstrip("'\n\t’")
+            if 'Serial number of Instrument' in readline:
+                array_read_line = readline.split(" ")
+                length = len(array_read_line)
+                serialnumber= array_read_line[length - 1].rstrip("'\n\t’")
+            if 'End method - complete' in readline:
+                date_end = readline[0:19]
+        f.close()
+    if method_name is not None:
+        with open('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv', 'a',newline='') as file_write:
+            writer = csv.writer(file_write)
+            writer.writerow([method_name, date_start, username, serialnumber, date_end])
 
 # First Data Table Update Function
 def update_first_datatable(start_date, end_date, category, aggregation):
+
     if start_date is not None:
         start_date = dt.strptime(start_date, '%Y-%m-%d')
         start_date_string = start_date.strftime('%Y-%m-%d')
@@ -70,7 +90,7 @@ def update_first_datatable(start_date, end_date, category, aggregation):
     prior_end_date = end_date - timedelta(days_selected + 1)
     prior_end_date_string = datetime.strftime(prior_end_date, '%Y-%m-%d')
 
-    if aggregation == 'Placement type':
+    if aggregation == 'Hamilton Category':
         df1 = df[(df['Category'] == category)].groupby(['Date', aggregation]).sum()[columns].reset_index()
         df_by_date = \
         df1[(df1['Date'] >= start_date_string) & (df1['Date'] <= end_date_string)].groupby([aggregation]).sum()[
@@ -82,7 +102,7 @@ def update_first_datatable(start_date, end_date, category, aggregation):
             columns={'Spend TY': 'Spend - LP', 'Sessions - TY': 'Sessions - LP', 'Bookings - TY': 'Bookings - LP',
                      'Revenue - TY': 'Revenue - LP'}, inplace=True)
         df_by_date_combined = pd.merge(df_by_date, df_by_date_prior, on=[aggregation])
-    elif aggregation == 'GA Category':
+    elif aggregation == 'Extra Category':
         df1 = df.groupby(['Date', aggregation]).sum()[columns].reset_index()
         df_by_date = \
         df1[(df1['Date'] >= start_date_string) & (df1['Date'] <= end_date_string)].groupby([aggregation]).sum()[
@@ -95,19 +115,6 @@ def update_first_datatable(start_date, end_date, category, aggregation):
                      'Revenue - TY': 'Revenue - LP'}, inplace=True)
         df_by_date_combined = pd.merge(df_by_date, df_by_date_prior, on=[aggregation])
         df_by_date_combined.rename(columns={'GA Category': 'Placement type'}, inplace=True)
-    elif aggregation == 'Birst Category':
-        df1 = df.groupby(['Date', aggregation]).sum()[columns].reset_index()
-        df_by_date = \
-        df1[(df1['Date'] >= start_date_string) & (df1['Date'] <= end_date_string)].groupby([aggregation]).sum()[
-            columns].reset_index()
-        df_by_date_prior = \
-        df1[(df1['Date'] >= prior_start_date_string) & (df1['Date'] <= prior_end_date_string)].groupby(
-            [aggregation]).sum()[['Spend TY', 'Sessions - TY', 'Bookings - TY', 'Revenue - TY']].reset_index()
-        df_by_date_prior.rename(
-            columns={'Spend TY': 'Spend - LP', 'Sessions - TY': 'Sessions - LP', 'Bookings - TY': 'Bookings - LP',
-                     'Revenue - TY': 'Revenue - LP'}, inplace=True)
-        df_by_date_combined = pd.merge(df_by_date, df_by_date_prior, on=[aggregation])
-        df_by_date_combined.rename(columns={'Birst Category': 'Placement type'}, inplace=True)
 
     # Calculate Differences on-the-fly
     df_by_date_combined['Spend PoP (%)'] = np.nan
@@ -811,6 +818,7 @@ def update_second_datatable(start_date, end_date, category, aggregation):
 ######################## FOR GRAPHS  ########################
 
 def update_graph(filtered_df, end_date):
+
     if end_date is not None:
         end_date = dt.strptime(end_date, '%Y-%m-%d')
         end_date_string = end_date.strftime('%Y-%m-%d')

@@ -1,0 +1,155 @@
+2019-01-14 10:04:25> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep from Matrix to PCR v2 Loop.hsl
+2019-01-14 10:04:26> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-01-14 10:04:27> SYSTEM : Analyze method - complete; 
+2019-01-14 10:04:27> SYSTEM : Start method - start; 
+2019-01-14 10:04:27> SYSTEM : Start method - progress; User name: LabUser
+2019-01-14 10:04:27> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-01-14 10:04:27> SYSTEM : Start method - progress; Database version: Standard
+2019-01-14 10:04:27> SYSTEM : Start method - progress; Sample tracking: On
+2019-01-14 10:04:27> SYSTEM : Start method - progress; Vector Database: On
+2019-01-14 10:04:27> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-01-14 10:04:28> Microlab® STAR : Start method command - start;
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S e 2016-05-02
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-01-14 10:04:28> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-01-14 10:04:30> Microlab® STAR : Start method command - complete;
+2019-01-14 10:04:30> SYSTEM : Start method - complete; 
+2019-01-14 10:04:30> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep from Matrix to PCR v2 Loop.hsl
+2019-01-14 10:04:30> Microlab® STAR : Initialize (Single Step) - start;
+2019-01-14 10:04:30> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:04:30> SYSTEM : User Input Dialog - start; <Volume and Number of Plates>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please enter total number of samples to be processed>, Default value: <96>, Type: <Integer>, Minimum: <0>, Maximum: <480>,   Input row 2 - Prompt: <Please enter the volume to transfer>, Default value: <20>, Type: <Float>, Minimum: <10>, Maximum: <90>
+2019-01-14 10:08:55> SYSTEM : User Input Dialog - complete; <Volume and Number of Plates>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please enter total number of samples to be processed>, Value: <84>,   Input row 2 - Prompt: <Please enter the volume to transfer>, Value: <10>
+2019-01-14 10:08:55> SYSTEM : User Output Dialog - start; <Labware Placement>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Load Matrix rack on Deep Well Carrier (AC) beginning with the position closest to you   Load PCR plate on Deep Well Carrier (AC) directly behind Matrix rack   Load 300ul tips in Tip Carrier #1 beginning with the position closest to you   Press OK to start   >
+2019-01-14 10:08:56> SYSTEM : User Output Dialog - complete; <Labware Placement>,   Closed with: <OK (1)>
+2019-01-14 10:08:56> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please scan Matrix rack>, Default value: <>, Type: <String>, Minimum: <>, Maximum: <>
+2019-01-14 10:09:00> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please scan Matrix rack>, Value: <r00955>
+2019-01-14 10:09:00> Data Handling Steps : Set Element Barcode - start; 
+2019-01-14 10:09:00> SYSTEM : HSLMapReport::SetElementBarcode - progress;  > Set barcode 'r00955' on labware 'ML_STAR\TIP_CAR_480_A00_0001\STF_L_0001'
+2019-01-14 10:09:00> Data Handling Steps : Set Element Barcode - complete; 
+2019-01-14 10:09:00> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:09:08> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 1 > channel 2: STF_L_0001, 2 > channel 3: STF_L_0001, 3 > channel 4: STF_L_0001, 4 > channel 5: STF_L_0001, 5 > channel 6: STF_L_0001, 6 > channel 7: STF_L_0001, 7 > channel 8: STF_L_0001, 8
+2019-01-14 10:09:08> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:09:27> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A1, 10 uL > channel 2: MatrixClusterTube_0001, B1, 10 uL > channel 3: MatrixClusterTube_0001, C1, 10 uL > channel 4: MatrixClusterTube_0001, D1, 10 uL > channel 5: MatrixClusterTube_0001, E1, 10 uL > channel 6: MatrixClusterTube_0001, F1, 10 uL > channel 7: MatrixClusterTube_0001, G1, 10 uL > channel 8: MatrixClusterTube_0001, H1, 10 uL
+2019-01-14 10:09:27> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:09:44> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A1, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B1, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C1, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D1, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E1, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F1, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G1, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H1, 10 uL
+2019-01-14 10:09:44> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:09:53> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:09:53> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:10:01> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 9 > channel 2: STF_L_0001, 10 > channel 3: STF_L_0001, 11 > channel 4: STF_L_0001, 12 > channel 5: STF_L_0001, 13 > channel 6: STF_L_0001, 14 > channel 7: STF_L_0001, 15 > channel 8: STF_L_0001, 16
+2019-01-14 10:10:01> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:10:19> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A2, 10 uL > channel 2: MatrixClusterTube_0001, B2, 10 uL > channel 3: MatrixClusterTube_0001, C2, 10 uL > channel 4: MatrixClusterTube_0001, D2, 10 uL > channel 5: MatrixClusterTube_0001, E2, 10 uL > channel 6: MatrixClusterTube_0001, F2, 10 uL > channel 7: MatrixClusterTube_0001, G2, 10 uL > channel 8: MatrixClusterTube_0001, H2, 10 uL
+2019-01-14 10:10:19> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:10:36> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A2, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B2, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C2, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D2, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E2, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F2, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G2, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H2, 10 uL
+2019-01-14 10:10:36> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:10:45> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:10:45> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:10:53> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 17 > channel 2: STF_L_0001, 18 > channel 3: STF_L_0001, 19 > channel 4: STF_L_0001, 20 > channel 5: STF_L_0001, 21 > channel 6: STF_L_0001, 22 > channel 7: STF_L_0001, 23 > channel 8: STF_L_0001, 24
+2019-01-14 10:10:53> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:11:12> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A3, 10 uL > channel 2: MatrixClusterTube_0001, B3, 10 uL > channel 3: MatrixClusterTube_0001, C3, 10 uL > channel 4: MatrixClusterTube_0001, D3, 10 uL > channel 5: MatrixClusterTube_0001, E3, 10 uL > channel 6: MatrixClusterTube_0001, F3, 10 uL > channel 7: MatrixClusterTube_0001, G3, 10 uL > channel 8: MatrixClusterTube_0001, H3, 10 uL
+2019-01-14 10:11:12> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:11:29> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A3, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B3, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C3, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D3, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E3, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F3, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G3, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H3, 10 uL
+2019-01-14 10:11:29> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:11:37> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:11:37> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:11:45> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 25 > channel 2: STF_L_0001, 26 > channel 3: STF_L_0001, 27 > channel 4: STF_L_0001, 28 > channel 5: STF_L_0001, 29 > channel 6: STF_L_0001, 30 > channel 7: STF_L_0001, 31 > channel 8: STF_L_0001, 32
+2019-01-14 10:11:45> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:12:04> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A4, 10 uL > channel 2: MatrixClusterTube_0001, B4, 10 uL > channel 3: MatrixClusterTube_0001, C4, 10 uL > channel 4: MatrixClusterTube_0001, D4, 10 uL > channel 5: MatrixClusterTube_0001, E4, 10 uL > channel 6: MatrixClusterTube_0001, F4, 10 uL > channel 7: MatrixClusterTube_0001, G4, 10 uL > channel 8: MatrixClusterTube_0001, H4, 10 uL
+2019-01-14 10:12:04> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:12:21> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A4, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B4, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C4, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D4, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E4, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F4, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G4, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H4, 10 uL
+2019-01-14 10:12:21> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:12:30> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:12:30> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:12:38> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 33 > channel 2: STF_L_0001, 34 > channel 3: STF_L_0001, 35 > channel 4: STF_L_0001, 36 > channel 5: STF_L_0001, 37 > channel 6: STF_L_0001, 38 > channel 7: STF_L_0001, 39 > channel 8: STF_L_0001, 40
+2019-01-14 10:12:38> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:12:56> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A5, 10 uL > channel 2: MatrixClusterTube_0001, B5, 10 uL > channel 3: MatrixClusterTube_0001, C5, 10 uL > channel 4: MatrixClusterTube_0001, D5, 10 uL > channel 5: MatrixClusterTube_0001, E5, 10 uL > channel 6: MatrixClusterTube_0001, F5, 10 uL > channel 7: MatrixClusterTube_0001, G5, 10 uL > channel 8: MatrixClusterTube_0001, H5, 10 uL
+2019-01-14 10:12:56> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:13:13> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A5, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B5, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C5, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D5, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E5, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F5, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G5, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H5, 10 uL
+2019-01-14 10:13:13> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:13:22> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:13:22> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:13:30> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 41 > channel 2: STF_L_0001, 42 > channel 3: STF_L_0001, 43 > channel 4: STF_L_0001, 44 > channel 5: STF_L_0001, 45 > channel 6: STF_L_0001, 46 > channel 7: STF_L_0001, 47 > channel 8: STF_L_0001, 48
+2019-01-14 10:13:30> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:13:49> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A6, 10 uL > channel 2: MatrixClusterTube_0001, B6, 10 uL > channel 3: MatrixClusterTube_0001, C6, 10 uL > channel 4: MatrixClusterTube_0001, D6, 10 uL > channel 5: MatrixClusterTube_0001, E6, 10 uL > channel 6: MatrixClusterTube_0001, F6, 10 uL > channel 7: MatrixClusterTube_0001, G6, 10 uL > channel 8: MatrixClusterTube_0001, H6, 10 uL
+2019-01-14 10:13:49> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:14:06> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A6, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B6, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C6, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D6, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E6, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F6, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G6, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H6, 10 uL
+2019-01-14 10:14:06> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:14:14> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:14:14> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:14:22> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 49 > channel 2: STF_L_0001, 50 > channel 3: STF_L_0001, 51 > channel 4: STF_L_0001, 52 > channel 5: STF_L_0001, 53 > channel 6: STF_L_0001, 54 > channel 7: STF_L_0001, 55 > channel 8: STF_L_0001, 56
+2019-01-14 10:14:22> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:14:41> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A7, 10 uL > channel 2: MatrixClusterTube_0001, B7, 10 uL > channel 3: MatrixClusterTube_0001, C7, 10 uL > channel 4: MatrixClusterTube_0001, D7, 10 uL > channel 5: MatrixClusterTube_0001, E7, 10 uL > channel 6: MatrixClusterTube_0001, F7, 10 uL > channel 7: MatrixClusterTube_0001, G7, 10 uL > channel 8: MatrixClusterTube_0001, H7, 10 uL
+2019-01-14 10:14:41> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:14:58> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A7, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B7, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C7, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D7, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E7, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F7, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G7, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H7, 10 uL
+2019-01-14 10:14:58> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:15:07> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:15:07> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:15:15> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 57 > channel 2: STF_L_0001, 58 > channel 3: STF_L_0001, 59 > channel 4: STF_L_0001, 60 > channel 5: STF_L_0001, 61 > channel 6: STF_L_0001, 62 > channel 7: STF_L_0001, 63 > channel 8: STF_L_0001, 64
+2019-01-14 10:15:15> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:15:33> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A8, 10 uL > channel 2: MatrixClusterTube_0001, B8, 10 uL > channel 3: MatrixClusterTube_0001, C8, 10 uL > channel 4: MatrixClusterTube_0001, D8, 10 uL > channel 5: MatrixClusterTube_0001, E8, 10 uL > channel 6: MatrixClusterTube_0001, F8, 10 uL > channel 7: MatrixClusterTube_0001, G8, 10 uL > channel 8: MatrixClusterTube_0001, H8, 10 uL
+2019-01-14 10:15:33> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:15:51> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A8, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B8, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C8, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D8, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E8, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F8, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G8, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H8, 10 uL
+2019-01-14 10:15:51> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:15:59> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:15:59> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:16:07> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 65 > channel 2: STF_L_0001, 66 > channel 3: STF_L_0001, 67 > channel 4: STF_L_0001, 68 > channel 5: STF_L_0001, 69 > channel 6: STF_L_0001, 70 > channel 7: STF_L_0001, 71 > channel 8: STF_L_0001, 72
+2019-01-14 10:16:07> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:16:26> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A9, 10 uL > channel 2: MatrixClusterTube_0001, B9, 10 uL > channel 3: MatrixClusterTube_0001, C9, 10 uL > channel 4: MatrixClusterTube_0001, D9, 10 uL > channel 5: MatrixClusterTube_0001, E9, 10 uL > channel 6: MatrixClusterTube_0001, F9, 10 uL > channel 7: MatrixClusterTube_0001, G9, 10 uL > channel 8: MatrixClusterTube_0001, H9, 10 uL
+2019-01-14 10:16:26> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:16:43> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A9, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B9, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C9, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D9, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E9, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F9, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G9, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H9, 10 uL
+2019-01-14 10:16:43> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:16:52> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:16:52> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:17:00> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 73 > channel 2: STF_L_0001, 74 > channel 3: STF_L_0001, 75 > channel 4: STF_L_0001, 76 > channel 5: STF_L_0001, 77 > channel 6: STF_L_0001, 78 > channel 7: STF_L_0001, 79 > channel 8: STF_L_0001, 80
+2019-01-14 10:17:00> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:17:18> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A10, 10 uL > channel 2: MatrixClusterTube_0001, B10, 10 uL > channel 3: MatrixClusterTube_0001, C10, 10 uL > channel 4: MatrixClusterTube_0001, D10, 10 uL > channel 5: MatrixClusterTube_0001, E10, 10 uL > channel 6: MatrixClusterTube_0001, F10, 10 uL > channel 7: MatrixClusterTube_0001, G10, 10 uL > channel 8: MatrixClusterTube_0001, H10, 10 uL
+2019-01-14 10:17:18> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:17:35> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A10, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B10, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C10, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D10, 10 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E10, 10 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F10, 10 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G10, 10 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H10, 10 uL
+2019-01-14 10:17:35> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:17:44> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:17:44> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-01-14 10:17:52> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 81 > channel 2: STF_L_0001, 82 > channel 3: STF_L_0001, 83 > channel 4: STF_L_0001, 84
+2019-01-14 10:17:52> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-01-14 10:18:10> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A11, 10 uL > channel 2: MatrixClusterTube_0001, B11, 10 uL > channel 3: MatrixClusterTube_0001, C11, 10 uL > channel 4: MatrixClusterTube_0001, D11, 10 uL
+2019-01-14 10:18:10> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-01-14 10:18:27> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A11, 10 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B11, 10 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C11, 10 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D11, 10 uL
+2019-01-14 10:18:27> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-01-14 10:18:35> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-14 10:18:35> Data Handling Steps : Generate Mapping File - start; 
+2019-01-14 10:18:35> SYSTEM : HSLMapReport::AddFilterSequence - progress;  > Add positions underlying sequence 'MatrixClusterTube_0001'
+2019-01-14 10:18:35> SYSTEM : HSLMapReport::GenerateMappingReport - progress;  > Filtering data of labware 'ML_STAR\TIP_CAR_480_A00_0001\STF_L_0001'
+2019-01-14 10:18:35> SYSTEM : HSLMapReport::GenerateMappingReport - progress;  > Create report-mapping file 'W:\Production\DV1\code sets\Arrayed Backbones\In process\r00955_pipette.csv'
+2019-01-14 10:18:36> Data Handling Steps : Generate Mapping File - complete; 
+2019-01-14 10:18:36> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Now is an appropriate time to Cap/Decap.  Click OK to continue or abort to quit>
+2019-01-14 10:20:39> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2019-01-14 10:20:39> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Would you like to stamp another array? ('Y' or 'N')>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>
+2019-01-14 10:20:40> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Would you like to stamp another array? ('Y' or 'N')>, Value: <N>
+2019-01-14 10:20:40> SYSTEM : Execute method - complete; 
+2019-01-14 10:20:40> SYSTEM : End method - start; 
+2019-01-14 10:20:40> Microlab® STAR : End method command - start;
+2019-01-14 10:20:40> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-01-14 10:20:40> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-01-14 10:20:41> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2019-01-14 10:20:42> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-01-14 10:20:44> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2019-01-14 10:20:44> Microlab® STAR : End method command - complete;
+2019-01-14 10:20:44> SYSTEM : End method - complete; 
+2019-01-14 10:20:45> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-01-14 10:20$$checksum=770ae1ed$$length=136$$

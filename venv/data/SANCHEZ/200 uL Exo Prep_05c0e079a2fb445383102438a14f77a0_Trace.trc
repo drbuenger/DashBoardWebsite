@@ -1,0 +1,17 @@
+2020-05-27 10:26:13> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\200 uL Exo Prep.hsl
+2020-05-27 10:26:14> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-05-27 10:26:15> SYSTEM : Method has been aborted by the user - complete; 
+2020-05-27 10:26:15> SYSTEM : Abort method - start; 
+2020-05-27 10:26:15> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument has not been initialized. (0x28 - 0x1 - 0x6) 
+2020-05-27 10:26:15> SYSTEM : Analyze method - complete with error; 
+2020-05-27 10:26:15> SYSTEM : Abort method - complete; 
+2020-05-27 10:26:15> SYSTEM : End method - start; 
+2020-05-27 10:26:15> Microlab® STAR : End method command - start;
+2020-05-27 10:26:16> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-05-27 10:26:16> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-05-27 10:26:17> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2020-05-27 10:26:18> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-05-27 10:26:18> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2020-05-27 10:26:19> Microlab® STAR : End method command - complete;
+2020-05-27 10:26:19> SYSTEM : End method - complete; 
+2020-05-27 10:26:21> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-05-27 10:26$$checksum=1021693d$$length=136$$

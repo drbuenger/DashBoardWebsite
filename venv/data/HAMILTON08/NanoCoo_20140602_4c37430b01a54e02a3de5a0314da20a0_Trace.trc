@@ -1,0 +1,58 @@
+2019-09-25 15:47:03> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl
+2019-09-25 15:47:04> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-09-25 15:47:05> SYSTEM : Analyze method - complete; 
+2019-09-25 15:47:05> SYSTEM : Start method - start; 
+2019-09-25 15:47:05> SYSTEM : Start method - progress; User name: LabUser
+2019-09-25 15:47:05> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-09-25 15:47:05> SYSTEM : Start method - progress; Database version: Standard
+2019-09-25 15:47:05> SYSTEM : Start method - progress; Sample tracking: On
+2019-09-25 15:47:05> SYSTEM : Start method - progress; Vector Database: On
+2019-09-25 15:47:05> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-09-25 15:47:06> Microlab® STAR : Start method command - start;
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-09-25 15:47:06> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-09-25 15:47:16> Microlab® STAR : Start method command - complete with error;
+2019-09-25 15:47:16> SYSTEM : Start method - complete; 
+2019-09-25 15:47:16> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl
+2019-09-25 15:47:16> Microlab® STAR : Initialize (Single Step) - start;
+2019-09-25 15:47:16> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Step cannot start while a verification or maintenance is outstanding. (0x28 - 0x1 - 0x810) 
+2019-09-25 15:47:16> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Step cannot start while a verification or maintenance is outstanding. (0x28 - 0x1 - 0x810) 
+2019-09-25 15:47:16> Microlab® STAR : Initialize (Single Step) - complete with error; An error occurred while running Vector.  The error description is: Step cannot start while a verification or maintenance is outstanding. (0x28 - 0x1 - 0x810) 
+2019-09-25 15:47:16> SYSTEM : Method has been aborted by the system - complete; 
+2019-09-25 15:47:16> SYSTEM : Abort method - start; 
+2019-09-25 15:47:16> Microlab® STAR : Abort requested command - start;
+2019-09-25 15:47:16> Microlab® STAR : Abort requested command - complete;
+2019-09-25 15:47:16> Microlab® STAR : Start Method Abort Handler command - start;
+2019-09-25 15:47:16> Microlab® STAR : Start Method Abort Handler command - complete;
+2019-09-25 15:47:16> Microlab® STAR : Abort command - start;
+2019-09-25 15:47:16> Microlab® STAR : Abort command - complete;
+2019-09-25 15:47:16> SYSTEM : Abort method - complete; 
+2019-09-25 15:47:16> SYSTEM : Execute method - complete with error; 
+2019-09-25 15:47:16> SYSTEM : End method - start; 
+2019-09-25 15:47:16> Microlab® STAR : End method command - start;
+2019-09-25 15:47:17> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-09-25 15:47:17> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-09-25 15:47:17> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-09-25 15:47:18> Microlab® STAR : End method command - complete;
+2019-09-25 15:47:18> SYSTEM : End method - complete; 
+2019-09-25 15:47:24> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-09-25 15:47$$checksum=3d6a4788$$length=136$$

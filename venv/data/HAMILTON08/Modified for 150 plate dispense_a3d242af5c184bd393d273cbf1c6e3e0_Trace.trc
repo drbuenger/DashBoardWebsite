@@ -1,0 +1,6 @@
+2018-01-08 13:31:56> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Modified for 150 plate dispense.hsl
+2018-01-08 13:31:56> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: Invalid file name 'C:\Program Files\HAMILTON\Labware\ML_STAR\TIP_CAR_480_A00.tml'. (0x37 - 0x0 - 0xf) , 
+2018-01-08 13:31:56> SYSTEM : Analyze method - progress; C:\Program Files\HAMILTON\Methods\Modified for 150 plate dispense.hsl(12) : error 1344: analyzing completed with error
+2018-01-08 13:31:56> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: Method contains syntax errors (0x23 - 0x2 - 0x35) , 
+2018-01-08 13:31:56> SYSTEM : Analyze method - complete with error; 
+2018-01-08 13:32:00> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-01-08 13:32$$checksum=91be2e92$$length=136$$

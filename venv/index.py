@@ -40,9 +40,9 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/hamilton':
+    if pathname == '/Reports/Hamilton/':
         return layout_hamilton
-    elif pathname == '/extra/':
+    elif pathname == '/Reports/extra/':
         return layout_extra_category
     else:
         return noPage

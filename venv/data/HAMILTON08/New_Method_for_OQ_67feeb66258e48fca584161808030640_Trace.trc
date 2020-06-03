@@ -1,0 +1,65 @@
+2019-07-25 11:39:35> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\IOQ Created\2019 - July IOQ\New_Method_for_OQ.hsl
+2019-07-25 11:39:36> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-07-25 11:39:37> SYSTEM : Analyze method - complete; 
+2019-07-25 11:39:45> SYSTEM : Start method - start; 
+2019-07-25 11:39:45> SYSTEM : Start method - progress; User name: gpadilla
+2019-07-25 11:39:45> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-07-25 11:39:45> SYSTEM : Start method - progress; Database version: Standard
+2019-07-25 11:39:45> SYSTEM : Start method - progress; Sample tracking: On
+2019-07-25 11:39:45> SYSTEM : Start method - progress; Vector Database: On
+2019-07-25 11:39:45> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-07-25 11:39:45> Microlab® STAR : Start method command - start;
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Serial number of Instrument: 0000
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of main module: 0.0X 2002-05-08
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of X drive: 0.0X 2002-05-08
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 0.0X 2003-08-26
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-07-25 11:39:45> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-07-25 11:39:46> Microlab® STAR : Start method command - complete;
+2019-07-25 11:39:46> SYSTEM : Start method - complete; 
+2019-07-25 11:39:46> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\IOQ Created\2019 - July IOQ\New_Method_for_OQ.hsl
+2019-07-25 11:39:46> Microlab® STAR : Initialize (Single Step) - start;
+2019-07-25 11:39:46> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-07-25 11:39:46> SYSTEM : Pipette - start; 
+2019-07-25 11:39:46> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-07-25 11:39:47> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 1 > channel 2: STF_L_0001, 2 > channel 3: STF_L_0001, 3 > channel 4: STF_L_0001, 4 > channel 5: STF_L_0001, 5 > channel 6: STF_L_0001, 6 > channel 7: STF_L_0001, 7 > channel 8: STF_L_0001, 8
+2019-07-25 11:39:47> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-07-25 11:39:47> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Ham_DW_Rgt_L_0001, 1, 50 uL > channel 2: Ham_DW_Rgt_L_0001, 2, 50 uL > channel 3: Ham_DW_Rgt_L_0001, 3, 50 uL > channel 4: Ham_DW_Rgt_L_0001, 4, 50 uL > channel 5: Ham_DW_Rgt_L_0001, 5, 50 uL > channel 6: Ham_DW_Rgt_L_0001, 6, 50 uL > channel 7: Ham_DW_Rgt_L_0001, 7, 50 uL > channel 8: Ham_DW_Rgt_L_0001, 8, 50 uL
+2019-07-25 11:39:47> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-07-25 11:39:47> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Cos_96_Vb_0001, A1, 50 uL > channel 2: Cos_96_Vb_0001, B1, 50 uL > channel 3: Cos_96_Vb_0001, C1, 50 uL > channel 4: Cos_96_Vb_0001, D1, 50 uL > channel 5: Cos_96_Vb_0001, E1, 50 uL > channel 6: Cos_96_Vb_0001, F1, 50 uL > channel 7: Cos_96_Vb_0001, G1, 50 uL > channel 8: Cos_96_Vb_0001, H1, 50 uL
+2019-07-25 11:39:47> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-07-25 11:39:48> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Ham_DW_Rgt_L_0001, 9, 50 uL > channel 2: Ham_DW_Rgt_L_0001, 10, 50 uL > channel 3: Ham_DW_Rgt_L_0001, 11, 50 uL > channel 4: Ham_DW_Rgt_L_0001, 12, 50 uL > channel 5: Ham_DW_Rgt_L_0001, 13, 50 uL > channel 6: Ham_DW_Rgt_L_0001, 14, 50 uL > channel 7: Ham_DW_Rgt_L_0001, 15, 50 uL > channel 8: Ham_DW_Rgt_L_0001, 16, 50 uL
+2019-07-25 11:39:48> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-07-25 11:39:48> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Cos_96_Vb_0001, A2, 50 uL > channel 2: Cos_96_Vb_0001, B2, 50 uL > channel 3: Cos_96_Vb_0001, C2, 50 uL > channel 4: Cos_96_Vb_0001, D2, 50 uL > channel 5: Cos_96_Vb_0001, E2, 50 uL > channel 6: Cos_96_Vb_0001, F2, 50 uL > channel 7: Cos_96_Vb_0001, G2, 50 uL > channel 8: Cos_96_Vb_0001, H2, 50 uL
+2019-07-25 11:39:48> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-07-25 11:39:48> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-07-25 11:39:48> SYSTEM : Pipette - complete; 
+2019-07-25 11:39:48> SYSTEM : Execute method - complete; 
+2019-07-25 11:39:48> SYSTEM : End method - start; 
+2019-07-25 11:39:48> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\IOQ Created\2019 - July IOQ\New_Method_for_OQ.hsl
+2019-07-25 11:39:48> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\IOQ Created\2019 - July IOQ\New_Method_for_OQ.lay
+2019-07-25 11:39:48> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\IOQ Created\2019 - July IOQ\New_Method_for_OQ.res
+2019-07-25 11:39:48> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\IOQ Created\2019 - July IOQ\New_Method_for_OQ.sub
+2019-07-25 11:39:48> Microlab® STAR : End method command - start;
+2019-07-25 11:39:48> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-07-25 11:39:48> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-07-25 11:39:48> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-07-25 11:39:48> Microlab® STAR : End method command - complete;
+2019-07-25 11:39:48> SYSTEM : End method - complete; 
+2019-07-25 11:40:56> SYSTEM : File checksum - written; $$author=gpadilla$$valid=0$$time=2019-07-25 11:40$$checksum=8134663e$$length=137$$

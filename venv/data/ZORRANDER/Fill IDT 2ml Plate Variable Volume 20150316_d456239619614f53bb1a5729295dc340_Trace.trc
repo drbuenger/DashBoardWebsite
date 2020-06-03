@@ -1,0 +1,408 @@
+2020-01-10 09:53:41> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Fill IDT 2ml Plate Variable Volume 20150316.hsl
+2020-01-10 09:53:42> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-01-10 09:53:44> SYSTEM : Analyze method - complete; 
+2020-01-10 09:53:45> SYSTEM : Start method - start; 
+2020-01-10 09:53:45> SYSTEM : Start method - progress; User name: LabUser
+2020-01-10 09:53:45> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2020-01-10 09:53:45> SYSTEM : Start method - progress; Database version: Standard
+2020-01-10 09:53:45> SYSTEM : Start method - progress; Sample tracking: On
+2020-01-10 09:53:45> SYSTEM : Start method - progress; Vector Database: On
+2020-01-10 09:53:45> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2020-01-10 09:53:46> Microlab® STAR : Start method command - start;
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Serial number of Instrument: 2276
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S B 2011-10-05
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2020-01-10 09:53:46> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2020-01-10 09:53:49> Microlab® STAR : Start method command - complete;
+2020-01-10 09:53:49> SYSTEM : Start method - complete; 
+2020-01-10 09:53:49> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Fill IDT 2ml Plate Variable Volume 20150316.hsl
+2020-01-10 09:53:49> Microlab® STAR : Initialize (Single Step) - start;
+2020-01-10 09:53:50> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:53:50> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Indicate file location.>, Default value: <W:\Production\Probe Oligos\REMP Files\Normalization Worklists>, Type: <String>, Minimum: <>, Maximum: <>
+2020-01-10 09:54:28> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Indicate file location.>, Value: <W:\Production\Probe Oligos\REMP Files\Normalization Files\Normalization Files\Bridges & Tags\Tag\PO_32027_510_01-03\PO_32027_510_03\Resuspension_100uM_Rsp_PO_32027_510_03.csv>
+2020-01-10 09:54:28> USER : Trace - complete; Segment Picking File and Path = W:\Production\Probe Oligos\REMP Files\Normalization Files\Normalization Files\Bridges & Tags\Tag\PO_32027_510_01-03\PO_32027_510_03\Resuspension_100uM_Rsp_PO_32027_510_03.csv
+2020-01-10 09:54:28> SYSTEM : User Output Dialog - start; <Check File Version>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Verify the correct file is saved at W:\Production\Probe Oligos\REMP Files\Normalization Files\Normalization Files\Bridges & Tags\Tag\PO_32027_510_01-03\PO_32027_510_03\Resuspension_100uM_Rsp_PO_32027_510_03.csv.>
+2020-01-10 09:54:28> SYSTEM : User Output Dialog - complete; <Check File Version>,   Closed with: <OK (1)>
+2020-01-10 09:54:29> USER : Trace - complete; Worklist Description = RobotProtocol=Norm data from 'Normalization_CherryPickingWorklist_HS004_REB196_RP_2ndPass.csv' (this text is imported from the worklist column titled 'worklist')
+2020-01-10 09:54:33> USER : Trace - complete; name = Diluent
+2020-01-10 09:54:33> USER : Trace - complete; current = 1
+2020-01-10 09:54:33> USER : Trace - complete; count = 72
+2020-01-10 09:54:33> USER : Trace - complete; total = 72
+2020-01-10 09:54:33> USER : Trace - complete; max = 72
+2020-01-10 09:54:33> USER : Trace - complete; used = 0
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = A9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = B9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = C9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = D9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = E9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = F9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = G9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = Trough_1, positionId = H9
+2020-01-10 09:54:33> USER : Trace - complete; name = Sample
+2020-01-10 09:54:33> USER : Trace - complete; current = 1
+2020-01-10 09:54:33> USER : Trace - complete; count = 72
+2020-01-10 09:54:33> USER : Trace - complete; total = 72
+2020-01-10 09:54:33> USER : Trace - complete; max = 72
+2020-01-10 09:54:33> USER : Trace - complete; used = 0
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H9
+2020-01-10 09:54:33> USER : Trace - complete; name = Destination
+2020-01-10 09:54:33> USER : Trace - complete; current = 1
+2020-01-10 09:54:33> USER : Trace - complete; count = 72
+2020-01-10 09:54:33> USER : Trace - complete; total = 72
+2020-01-10 09:54:33> USER : Trace - complete; max = 72
+2020-01-10 09:54:33> USER : Trace - complete; used = 0
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H1
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H2
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H3
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H4
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H5
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H6
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H7
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H8
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = A9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = B9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = C9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = D9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = E9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = F9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = G9
+2020-01-10 09:54:33> USER : Trace - complete; labwareId = IDT_2ml_AC2, positionId = H9
+2020-01-10 09:54:34> SYSTEM : User Output Dialog - start; <Load Carriers>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Deck Position Check:  Verify the CAT Shaker Carrier is pushed to the back of the deck on rail 2.  Load the 1.5ml Eppendorf Tube Carrier on rail 9.  Load the Tip Carrier on rail 10.  Load the Microtiter Plate Carrier on rail 16.  Load the Deep Well Plate Carrier on rail 22.  Load the Trough Carrier on rail 28.  Load the 2nd Tip Carrier on rail 29.>
+2020-01-10 09:54:35> SYSTEM : User Output Dialog - complete; <Load Carriers>,   Closed with: <OK (1)>
+2020-01-10 09:54:35> SYSTEM : User Output Dialog - start; <Load Carriers>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Load the Tip Carrier with 1000ul tips in position 5 (CLOSEST to you). Place Tip Carrier on rail 10.>
+2020-01-10 09:54:36> SYSTEM : User Output Dialog - complete; <Load Carriers>,   Closed with: <OK (1)>
+2020-01-10 09:54:36> SYSTEM : User Output Dialog - start; <Load Carriers>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Load the Plate Carrier with plates as specified in the worklist you created. >
+2020-01-10 09:54:36> SYSTEM : User Output Dialog - complete; <Load Carriers>,   Closed with: <OK (1)>
+2020-01-10 09:54:36> SYSTEM : User Output Dialog - start; <Next Step Confirmation - Pippette Diluent>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Click OK to continue - Instrument will pippette Diluent.>
+2020-01-10 09:54:37> SYSTEM : User Output Dialog - complete; <Next Step Confirmation - Pippette Diluent>,   Closed with: <OK (1)>
+2020-01-10 09:54:37> USER : Trace - complete; TRANSFER - DILUENT
+2020-01-10 09:54:38> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:54:38> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:54:47> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 1 > channel 2: HT_L_0001, 2 > channel 3: HT_L_0001, 3 > channel 4: HT_L_0001, 4 > channel 5: HT_L_0001, 5 > channel 6: HT_L_0001, 6 > channel 7: HT_L_0001, 7 > channel 8: HT_L_0001, 8
+2020-01-10 09:54:47> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:54:58> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A1, 168.1 uL > channel 2: Trough_1, B1, 196.3 uL > channel 3: Trough_1, C1, 94.4 uL > channel 4: Trough_1, D1, 98.5 uL > channel 5: Trough_1, E1, 160 uL > channel 6: Trough_1, F1, 202 uL > channel 7: Trough_1, G1, 261.7 uL > channel 8: Trough_1, H1, 154.9 uL
+2020-01-10 09:54:58> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:54:58> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:54:58> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:55:03> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A1, 168.1 uL > channel 2: IDT_2ml_AC2, B1, 196.3 uL > channel 3: IDT_2ml_AC2, C1, 94.4 uL > channel 4: IDT_2ml_AC2, D1, 98.5 uL > channel 5: IDT_2ml_AC2, E1, 160 uL > channel 6: IDT_2ml_AC2, F1, 202 uL > channel 7: IDT_2ml_AC2, G1, 261.7 uL > channel 8: IDT_2ml_AC2, H1, 154.9 uL
+2020-01-10 09:55:03> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:55:11> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:55:11> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:55:12> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:55:12> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:55:20> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 9 > channel 2: HT_L_0001, 10 > channel 3: HT_L_0001, 11 > channel 4: HT_L_0001, 12 > channel 5: HT_L_0001, 13 > channel 6: HT_L_0001, 14 > channel 7: HT_L_0001, 15 > channel 8: HT_L_0001, 16
+2020-01-10 09:55:20> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:55:32> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A2, 197.4 uL > channel 2: Trough_1, B2, 135.7 uL > channel 3: Trough_1, C2, 140.9 uL > channel 4: Trough_1, D2, 248.1 uL > channel 5: Trough_1, E2, 131.3 uL > channel 6: Trough_1, F2, 261.7 uL > channel 7: Trough_1, G2, 255.5 uL > channel 8: Trough_1, H2, 195.1 uL
+2020-01-10 09:55:32> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:55:32> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:55:32> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:55:37> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A2, 197.4 uL > channel 2: IDT_2ml_AC2, B2, 135.7 uL > channel 3: IDT_2ml_AC2, C2, 140.9 uL > channel 4: IDT_2ml_AC2, D2, 248.1 uL > channel 5: IDT_2ml_AC2, E2, 131.3 uL > channel 6: IDT_2ml_AC2, F2, 261.7 uL > channel 7: IDT_2ml_AC2, G2, 255.5 uL > channel 8: IDT_2ml_AC2, H2, 195.1 uL
+2020-01-10 09:55:37> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:55:45> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:55:45> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:55:46> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:55:46> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:55:54> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 17 > channel 2: HT_L_0001, 18 > channel 3: HT_L_0001, 19 > channel 4: HT_L_0001, 20 > channel 5: HT_L_0001, 21 > channel 6: HT_L_0001, 22 > channel 7: HT_L_0001, 23 > channel 8: HT_L_0001, 24
+2020-01-10 09:55:54> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:56:06> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A3, 194.9 uL > channel 2: Trough_1, B3, 120.8 uL > channel 3: Trough_1, C3, 197.9 uL > channel 4: Trough_1, D3, 84.1 uL > channel 5: Trough_1, E3, 204.3 uL > channel 6: Trough_1, F3, 42.6 uL > channel 7: Trough_1, G3, 150.8 uL > channel 8: Trough_1, H3, 240.7 uL
+2020-01-10 09:56:06> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:56:06> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:56:06> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:56:11> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A3, 194.9 uL > channel 2: IDT_2ml_AC2, B3, 120.8 uL > channel 3: IDT_2ml_AC2, C3, 197.9 uL > channel 4: IDT_2ml_AC2, D3, 84.1 uL > channel 5: IDT_2ml_AC2, E3, 204.3 uL > channel 6: IDT_2ml_AC2, F3, 42.6 uL > channel 7: IDT_2ml_AC2, G3, 150.8 uL > channel 8: IDT_2ml_AC2, H3, 240.7 uL
+2020-01-10 09:56:11> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:56:19> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:56:19> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:56:19> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:56:19> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:56:28> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 25 > channel 2: HT_L_0001, 26 > channel 3: HT_L_0001, 27 > channel 4: HT_L_0001, 28 > channel 5: HT_L_0001, 29 > channel 6: HT_L_0001, 30 > channel 7: HT_L_0001, 31 > channel 8: HT_L_0001, 32
+2020-01-10 09:56:28> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:56:40> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A4, 159.9 uL > channel 2: Trough_1, B4, 103.1 uL > channel 3: Trough_1, C4, 133.2 uL > channel 4: Trough_1, D4, 190.4 uL > channel 5: Trough_1, E4, 102.5 uL > channel 6: Trough_1, F4, 100.9 uL > channel 7: Trough_1, G4, 151.6 uL > channel 8: Trough_1, H4, 231.2 uL
+2020-01-10 09:56:40> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:56:40> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:56:40> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:56:44> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A4, 159.9 uL > channel 2: IDT_2ml_AC2, B4, 103.1 uL > channel 3: IDT_2ml_AC2, C4, 133.2 uL > channel 4: IDT_2ml_AC2, D4, 190.4 uL > channel 5: IDT_2ml_AC2, E4, 102.5 uL > channel 6: IDT_2ml_AC2, F4, 100.9 uL > channel 7: IDT_2ml_AC2, G4, 151.6 uL > channel 8: IDT_2ml_AC2, H4, 231.2 uL
+2020-01-10 09:56:44> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:56:52> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:56:53> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:56:53> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:56:53> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:57:01> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 33 > channel 2: HT_L_0001, 34 > channel 3: HT_L_0001, 35 > channel 4: HT_L_0001, 36 > channel 5: HT_L_0001, 37 > channel 6: HT_L_0001, 38 > channel 7: HT_L_0001, 39 > channel 8: HT_L_0001, 40
+2020-01-10 09:57:01> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:57:13> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A5, 137.7 uL > channel 2: Trough_1, B5, 39.4 uL > channel 3: Trough_1, C5, 48.9 uL > channel 4: Trough_1, D5, 39.3 uL > channel 5: Trough_1, E5, 218.9 uL > channel 6: Trough_1, F5, 69.5 uL > channel 7: Trough_1, G5, 69 uL > channel 8: Trough_1, H5, 132.6 uL
+2020-01-10 09:57:13> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:57:13> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:57:13> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:57:18> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A5, 137.7 uL > channel 2: IDT_2ml_AC2, B5, 39.4 uL > channel 3: IDT_2ml_AC2, C5, 48.9 uL > channel 4: IDT_2ml_AC2, D5, 39.3 uL > channel 5: IDT_2ml_AC2, E5, 218.9 uL > channel 6: IDT_2ml_AC2, F5, 69.5 uL > channel 7: IDT_2ml_AC2, G5, 69 uL > channel 8: IDT_2ml_AC2, H5, 132.6 uL
+2020-01-10 09:57:18> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:57:26> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:57:26> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:57:26> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:57:26> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:57:35> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 41 > channel 2: HT_L_0001, 42 > channel 3: HT_L_0001, 43 > channel 4: HT_L_0001, 44 > channel 5: HT_L_0001, 45 > channel 6: HT_L_0001, 46 > channel 7: HT_L_0001, 47 > channel 8: HT_L_0001, 48
+2020-01-10 09:57:35> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:57:46> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A6, 144.5 uL > channel 2: Trough_1, B6, 161.3 uL > channel 3: Trough_1, C6, 194 uL > channel 4: Trough_1, D6, 206.6 uL > channel 5: Trough_1, E6, 54.7 uL > channel 6: Trough_1, F6, 251.5 uL > channel 7: Trough_1, G6, 165.9 uL > channel 8: Trough_1, H6, 79.4 uL
+2020-01-10 09:57:46> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:57:47> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:57:47> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:57:51> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A6, 144.5 uL > channel 2: IDT_2ml_AC2, B6, 161.3 uL > channel 3: IDT_2ml_AC2, C6, 194 uL > channel 4: IDT_2ml_AC2, D6, 206.6 uL > channel 5: IDT_2ml_AC2, E6, 54.7 uL > channel 6: IDT_2ml_AC2, F6, 251.5 uL > channel 7: IDT_2ml_AC2, G6, 165.9 uL > channel 8: IDT_2ml_AC2, H6, 79.4 uL
+2020-01-10 09:57:51> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:58:00> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:58:00> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:58:00> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:58:00> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:58:08> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 49 > channel 2: HT_L_0001, 50 > channel 3: HT_L_0001, 51 > channel 4: HT_L_0001, 52 > channel 5: HT_L_0001, 53 > channel 6: HT_L_0001, 54 > channel 7: HT_L_0001, 55 > channel 8: HT_L_0001, 56
+2020-01-10 09:58:08> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:58:20> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A7, 222.7 uL > channel 2: Trough_1, B7, 149.3 uL > channel 3: Trough_1, C7, 127.6 uL > channel 4: Trough_1, D7, 172.1 uL > channel 5: Trough_1, E7, 185.8 uL > channel 6: Trough_1, F7, 78.2 uL > channel 7: Trough_1, G7, 67.7 uL > channel 8: Trough_1, H7, 230.2 uL
+2020-01-10 09:58:20> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:58:20> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:58:20> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:58:25> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A7, 222.7 uL > channel 2: IDT_2ml_AC2, B7, 149.3 uL > channel 3: IDT_2ml_AC2, C7, 127.6 uL > channel 4: IDT_2ml_AC2, D7, 172.1 uL > channel 5: IDT_2ml_AC2, E7, 185.8 uL > channel 6: IDT_2ml_AC2, F7, 78.2 uL > channel 7: IDT_2ml_AC2, G7, 67.7 uL > channel 8: IDT_2ml_AC2, H7, 230.2 uL
+2020-01-10 09:58:25> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:58:33> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:58:33> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:58:33> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:58:33> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:58:42> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 57 > channel 2: HT_L_0001, 58 > channel 3: HT_L_0001, 59 > channel 4: HT_L_0001, 60 > channel 5: HT_L_0001, 61 > channel 6: HT_L_0001, 62 > channel 7: HT_L_0001, 63 > channel 8: HT_L_0001, 64
+2020-01-10 09:58:42> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:58:54> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A8, 318.6 uL > channel 2: Trough_1, B8, 176 uL > channel 3: Trough_1, C8, 356.8 uL > channel 4: Trough_1, D8, 276.6 uL > channel 5: Trough_1, E8, 135.1 uL > channel 6: Trough_1, F8, 201.5 uL > channel 7: Trough_1, G8, 276 uL > channel 8: Trough_1, H8, 257.9 uL
+2020-01-10 09:58:54> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:58:54> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:58:54> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:58:59> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A8, 318.6 uL > channel 2: IDT_2ml_AC2, B8, 176 uL > channel 3: IDT_2ml_AC2, C8, 356.8 uL > channel 4: IDT_2ml_AC2, D8, 276.6 uL > channel 5: IDT_2ml_AC2, E8, 135.1 uL > channel 6: IDT_2ml_AC2, F8, 201.5 uL > channel 7: IDT_2ml_AC2, G8, 276 uL > channel 8: IDT_2ml_AC2, H8, 257.9 uL
+2020-01-10 09:58:59> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:59:07> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:59:07> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:59:08> Microlab® STAR : 1000µl Channel Aspirate - start;
+2020-01-10 09:59:08> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-01-10 09:59:16> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: HT_L_0001, 65 > channel 2: HT_L_0001, 66 > channel 3: HT_L_0001, 67 > channel 4: HT_L_0001, 68 > channel 5: HT_L_0001, 69 > channel 6: HT_L_0001, 70 > channel 7: HT_L_0001, 71 > channel 8: HT_L_0001, 72
+2020-01-10 09:59:16> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-01-10 09:59:27> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: Trough_1, A9, 89.6 uL > channel 2: Trough_1, B9, 58 uL > channel 3: Trough_1, C9, 0 uL > channel 4: Trough_1, D9, 0 uL > channel 5: Trough_1, E9, 0 uL > channel 6: Trough_1, F9, 0 uL > channel 7: Trough_1, G9, 0 uL > channel 8: Trough_1, H9, 0 uL
+2020-01-10 09:59:27> Microlab® STAR : 1000µl Channel Aspirate - complete;
+2020-01-10 09:59:27> Microlab® STAR : 1000µl Channel Dispense - start;
+2020-01-10 09:59:27> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-01-10 09:59:32> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: IDT_2ml_AC2, A9, 89.6 uL > channel 2: IDT_2ml_AC2, B9, 58 uL > channel 3: IDT_2ml_AC2, C9, 0 uL > channel 4: IDT_2ml_AC2, D9, 0 uL > channel 5: IDT_2ml_AC2, E9, 0 uL > channel 6: IDT_2ml_AC2, F9, 0 uL > channel 7: IDT_2ml_AC2, G9, 0 uL > channel 8: IDT_2ml_AC2, H9, 0 uL
+2020-01-10 09:59:32> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-01-10 09:59:40> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-01-10 09:59:40> Microlab® STAR : 1000µl Channel Dispense - complete;
+2020-01-10 09:59:40> USER : Trace - complete; TRANSFER - SAMPLE
+2020-01-10 09:59:40> USER : Trace - complete;     ----@----@----@       METHOD CLEANUP AND REPORTING       @----@----@----   
+2020-01-10 09:59:40> SYSTEM : User Output Dialog - start; <Unload Carriers>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Remove Samples & empty tip waste.>
+2020-01-10 09:59:44> SYSTEM : User Output Dialog - complete; <Unload Carriers>,   Closed with: <OK (1)>
+2020-01-10 09:59:44> SYSTEM : Execute method - complete; 
+2020-01-10 09:59:44> SYSTEM : End method - start; 
+2020-01-10 09:59:44> Microlab® STAR : End method command - start;
+2020-01-10 09:59:45> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-01-10 09:59:45> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-01-10 09:59:45> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-01-10 09:59:48> Microlab® STAR : End method command - complete;
+2020-01-10 09:59:48> SYSTEM : End method - complete; 
+2020-01-10 09:59:50> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-01-10 09:59$$checksum=ebdc5661$$length=136$$

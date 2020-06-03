@@ -1,0 +1,4 @@
+2019-08-19 14:53:41> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Methods Under Development\IOQ - LL and Tip Test.hsl
+2019-08-19 14:53:41> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: File 'IOQ - LL and Tip Test.hsl' must not be used in routine work! (File not validated) (0x37 - 0x0 - 0x7) , 
+2019-08-19 14:53:41> SYSTEM : Analyze method - complete with error; 
+2019-08-19 14:53:44> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-08-19 14:53$$checksum=11366da5$$length=136$$

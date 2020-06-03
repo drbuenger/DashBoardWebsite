@@ -1,0 +1,6 @@
+2018-01-09 14:30:11> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Hamilton Star IQ Method.hsl
+2018-01-09 14:30:12> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2018-01-09 14:30:13> SYSTEM : Analyze method - complete; 
+2018-01-09 14:30:24> Microlab® STAR : Initialize (Single Step) - start;
+2018-01-09 14:30:32> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2018-01-09 14:30:35> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-01-09 14:30$$checksum=76821d5c$$length=136$$

@@ -1,0 +1,4 @@
+2018-10-12 14:27:41> SYSTEM : Analyze method - start; 
+2018-10-12 14:27:41> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: C:\\Program Files\\HAMILTON\\Methods\\Codeset\\Exo-prep 1mL Transfer_Final_20140411.old.hsl : unable to find file (0x23 - 0x2 - 0x13) , 
+2018-10-12 14:27:41> SYSTEM : Analyze method - complete with error; 
+2018-10-12 14:27:44> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-10-12 14:27$$checksum=07a2c6b9$$length=136$$

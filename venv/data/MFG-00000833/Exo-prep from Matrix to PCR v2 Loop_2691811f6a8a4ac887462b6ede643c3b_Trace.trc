@@ -1,0 +1,89 @@
+2020-04-19 15:07:13> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep from Matrix to PCR v2 Loop.hsl
+2020-04-19 15:07:14> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-04-19 15:07:15> SYSTEM : Analyze method - complete; 
+2020-04-19 15:07:16> SYSTEM : Start method - start; 
+2020-04-19 15:07:16> SYSTEM : Start method - progress; User name: LabUser
+2020-04-19 15:07:16> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2020-04-19 15:07:16> SYSTEM : Start method - progress; Database version: Standard
+2020-04-19 15:07:16> SYSTEM : Start method - progress; Sample tracking: On
+2020-04-19 15:07:16> SYSTEM : Start method - progress; Vector Database: On
+2020-04-19 15:07:16> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2020-04-19 15:07:16> Microlab® STAR : Start method command - start;
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Serial number of Instrument: D363
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2020-04-19 15:07:16> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2020-04-19 15:07:18> Microlab® STAR : Start method command - complete;
+2020-04-19 15:07:18> SYSTEM : Start method - complete; 
+2020-04-19 15:07:18> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep from Matrix to PCR v2 Loop.hsl
+2020-04-19 15:07:18> Microlab® STAR : Initialize (Single Step) - start;
+2020-04-19 15:07:18> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-19 15:07:18> SYSTEM : User Input Dialog - start; <Volume and Number of Plates>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please enter total number of samples to be processed>, Default value: <96>, Type: <Integer>, Minimum: <0>, Maximum: <480>,   Input row 2 - Prompt: <Please enter the volume to transfer>, Default value: <20>, Type: <Float>, Minimum: <10>, Maximum: <90>
+2020-04-19 15:08:56> SYSTEM : User Input Dialog - complete; <Volume and Number of Plates>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please enter total number of samples to be processed>, Value: <20>,   Input row 2 - Prompt: <Please enter the volume to transfer>, Value: <90>
+2020-04-19 15:08:57> SYSTEM : User Output Dialog - start; <Labware Placement>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Load Matrix rack on Deep Well Carrier (AC) beginning with the position closest to you   Load PCR plate on Deep Well Carrier (AC) directly behind Matrix rack   Load 300ul tips in Tip Carrier #1 beginning with the position closest to you   Press OK to start   >
+2020-04-19 15:08:57> SYSTEM : User Output Dialog - complete; <Labware Placement>,   Closed with: <OK (1)>
+2020-04-19 15:08:57> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please scan Matrix rack>, Default value: <>, Type: <String>, Minimum: <>, Maximum: <>
+2020-04-19 15:09:01> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please scan Matrix rack>, Value: <R01064>
+2020-04-19 15:09:01> Data Handling Steps : Set Element Barcode - start; 
+2020-04-19 15:09:02> SYSTEM : HSLMapReport::SetElementBarcode - progress;  > Set barcode 'R01064' on labware 'ML_STAR\TIP_CAR_480_A00_0001\STF_L_0001'
+2020-04-19 15:09:02> Data Handling Steps : Set Element Barcode - complete; 
+2020-04-19 15:09:02> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-19 15:09:10> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 1 > channel 2: STF_L_0001, 2 > channel 3: STF_L_0001, 3 > channel 4: STF_L_0001, 4 > channel 5: STF_L_0001, 5 > channel 6: STF_L_0001, 6 > channel 7: STF_L_0001, 7 > channel 8: STF_L_0001, 8
+2020-04-19 15:09:10> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-19 15:09:46> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A1, 90 uL > channel 2: MatrixClusterTube_0001, B1, 90 uL > channel 3: MatrixClusterTube_0001, C1, 90 uL > channel 4: MatrixClusterTube_0001, D1, 90 uL > channel 5: MatrixClusterTube_0001, E1, 90 uL > channel 6: MatrixClusterTube_0001, F1, 90 uL > channel 7: MatrixClusterTube_0001, G1, 90 uL > channel 8: MatrixClusterTube_0001, H1, 90 uL
+2020-04-19 15:09:46> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-19 15:10:06> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A1, 90 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B1, 90 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C1, 90 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D1, 90 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E1, 90 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F1, 90 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G1, 90 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H1, 90 uL
+2020-04-19 15:10:06> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-19 15:10:15> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-19 15:10:15> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-19 15:10:23> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 9 > channel 2: STF_L_0001, 10 > channel 3: STF_L_0001, 11 > channel 4: STF_L_0001, 12 > channel 5: STF_L_0001, 13 > channel 6: STF_L_0001, 14 > channel 7: STF_L_0001, 15 > channel 8: STF_L_0001, 16
+2020-04-19 15:10:23> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-19 15:10:59> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A2, 90 uL > channel 2: MatrixClusterTube_0001, B2, 90 uL > channel 3: MatrixClusterTube_0001, C2, 90 uL > channel 4: MatrixClusterTube_0001, D2, 90 uL > channel 5: MatrixClusterTube_0001, E2, 90 uL > channel 6: MatrixClusterTube_0001, F2, 90 uL > channel 7: MatrixClusterTube_0001, G2, 90 uL > channel 8: MatrixClusterTube_0001, H2, 90 uL
+2020-04-19 15:10:59> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-19 15:11:19> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A2, 90 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B2, 90 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C2, 90 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D2, 90 uL > channel 5: Twintec_PCR_in_Nunc450Adapter_0001, E2, 90 uL > channel 6: Twintec_PCR_in_Nunc450Adapter_0001, F2, 90 uL > channel 7: Twintec_PCR_in_Nunc450Adapter_0001, G2, 90 uL > channel 8: Twintec_PCR_in_Nunc450Adapter_0001, H2, 90 uL
+2020-04-19 15:11:19> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-19 15:11:27> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-19 15:11:27> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-19 15:11:35> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 17 > channel 2: STF_L_0001, 18 > channel 3: STF_L_0001, 19 > channel 4: STF_L_0001, 20
+2020-04-19 15:11:35> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-19 15:12:11> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: MatrixClusterTube_0001, A3, 90 uL > channel 2: MatrixClusterTube_0001, B3, 90 uL > channel 3: MatrixClusterTube_0001, C3, 90 uL > channel 4: MatrixClusterTube_0001, D3, 90 uL
+2020-04-19 15:12:11> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-19 15:12:31> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Twintec_PCR_in_Nunc450Adapter_0001, A3, 90 uL > channel 2: Twintec_PCR_in_Nunc450Adapter_0001, B3, 90 uL > channel 3: Twintec_PCR_in_Nunc450Adapter_0001, C3, 90 uL > channel 4: Twintec_PCR_in_Nunc450Adapter_0001, D3, 90 uL
+2020-04-19 15:12:31> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-19 15:12:39> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-19 15:12:39> Data Handling Steps : Generate Mapping File - start; 
+2020-04-19 15:12:39> SYSTEM : HSLMapReport::AddFilterSequence - progress;  > Add positions underlying sequence 'MatrixClusterTube_0001'
+2020-04-19 15:12:39> SYSTEM : HSLMapReport::GenerateMappingReport - progress;  > Filtering data of labware 'ML_STAR\TIP_CAR_480_A00_0001\STF_L_0001'
+2020-04-19 15:12:39> SYSTEM : HSLMapReport::GenerateMappingReport - progress;  > Create report-mapping file 'W:\Production\DV1\code sets\Arrayed Backbones\In process\R01064_pipette.csv'
+2020-04-19 15:12:40> Data Handling Steps : Generate Mapping File - complete; 
+2020-04-19 15:12:40> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Now is an appropriate time to Cap/Decap.  Click OK to continue or abort to quit>
+2020-04-19 15:23:18> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2020-04-19 15:23:18> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Would you like to stamp another array? ('Y' or 'N')>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>
+2020-04-19 15:23:20> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Would you like to stamp another array? ('Y' or 'N')>, Value: <N>
+2020-04-19 15:23:20> SYSTEM : Execute method - complete; 
+2020-04-19 15:23:20> SYSTEM : End method - start; 
+2020-04-19 15:23:20> Microlab® STAR : End method command - start;
+2020-04-19 15:23:20> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-04-19 15:23:21> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-04-19 15:23:21> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-04-19 15:23:23> Microlab® STAR : End method command - complete;
+2020-04-19 15:23:23> SYSTEM : End method - complete; 
+2020-04-19 15:23:24> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-04-19 15:23$$checksum=1199cbb6$$length=136$$

@@ -1,0 +1,50 @@
+2019-03-27 13:15:55> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep from Matrix to PCR v2 Loop.hsl
+2019-03-27 13:15:57> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-03-27 13:15:58> SYSTEM : Analyze method - complete; 
+2019-03-27 13:15:58> SYSTEM : Start method - start; 
+2019-03-27 13:15:58> SYSTEM : Start method - progress; User name: LabUser
+2019-03-27 13:15:58> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-03-27 13:15:58> SYSTEM : Start method - progress; Database version: Standard
+2019-03-27 13:15:58> SYSTEM : Start method - progress; Sample tracking: On
+2019-03-27 13:15:58> SYSTEM : Start method - progress; Vector Database: On
+2019-03-27 13:15:58> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-03-27 13:15:58> Microlab® STAR : Start method command - start;
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S e 2016-05-02
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-03-27 13:15:58> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-03-27 13:15:58> SYSTEM : Method has been aborted by the user - complete; 
+2019-03-27 13:15:58> SYSTEM : Abort method - start; 
+2019-03-27 13:15:58> Microlab® STAR : Abort command - start;
+2019-03-27 13:15:58> Microlab® STAR : Abort command - complete;
+2019-03-27 13:15:59> SYSTEM : Abort method - complete; 
+2019-03-27 13:15:59> SYSTEM : Execute method - complete; 
+2019-03-27 13:15:59> SYSTEM : End method - start; 
+2019-03-27 13:15:59> Microlab® STAR : End method command - start;
+2019-03-27 13:15:59> Microlab® STAR : Start method command - complete with error;
+2019-03-27 13:15:59> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-03-27 13:15:59> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-03-27 13:16:00> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2019-03-27 13:16:01> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-03-27 13:16:02> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2019-03-27 13:16:02> Microlab® STAR : End method command - complete;
+2019-03-27 13:16:02> SYSTEM : End method - complete; 
+2019-03-27 13:16:03> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-03-27 13:16$$checksum=ed8f9925$$length=136$$

@@ -1,0 +1,4 @@
+2018-01-12 15:09:40> SYSTEM : Analyze method - start; 
+2018-01-12 15:09:40> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: C:\\Program Files\\HAMILTON\\Methods\\Methods Under Development\\volume test 96 head.hsl : unable to find file (0x23 - 0x2 - 0x13) , 
+2018-01-12 15:09:40> SYSTEM : Analyze method - complete with error; 
+2018-01-12 15:09:57> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-01-12 15:09$$checksum=f310e748$$length=136$$

@@ -1,0 +1,5 @@
+2018-01-12 15:12:09> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Hamilton Star IQ Method.hsl
+2018-01-12 15:12:10> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2018-01-12 15:12:11> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument configuration described in the instrument configuration file does not match the configuration reported by the instrument.  (Wrong setting of front cover; expected 1, received 0.  ) (0x28 - 0x1 - 0x806) 
+2018-01-12 15:12:11> SYSTEM : Analyze method - complete with error; 
+2018-01-12 15:12:16> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-01-12 15:12$$checksum=d6ec97d2$$length=136$$

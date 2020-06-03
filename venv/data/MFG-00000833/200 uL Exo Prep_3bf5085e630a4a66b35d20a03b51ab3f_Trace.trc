@@ -1,0 +1,84 @@
+2020-05-19 11:23:42> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\200 uL Exo Prep.hsl
+2020-05-19 11:23:43> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-05-19 11:23:44> SYSTEM : Analyze method - complete; 
+2020-05-19 11:23:45> SYSTEM : Start method - start; 
+2020-05-19 11:23:45> SYSTEM : Start method - progress; User name: LabUser
+2020-05-19 11:23:45> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2020-05-19 11:23:45> SYSTEM : Start method - progress; Database version: Standard
+2020-05-19 11:23:45> SYSTEM : Start method - progress; Sample tracking: On
+2020-05-19 11:23:45> SYSTEM : Start method - progress; Vector Database: On
+2020-05-19 11:23:45> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2020-05-19 11:23:45> Microlab® STAR : Start method command - start;
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Serial number of Instrument: D363
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2020-05-19 11:23:45> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2020-05-19 11:23:47> Microlab® STAR : Start method command - complete;
+2020-05-19 11:23:47> SYSTEM : Start method - complete; 
+2020-05-19 11:23:47> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\200 uL Exo Prep.hsl
+2020-05-19 11:23:47> Microlab® STAR : Initialize (Single Step) - start;
+2020-05-19 11:23:47> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-05-19 11:23:48> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-05-19 11:23:52> Microlab® STAR :  - progress; User action: Message box 'Clean up instrument' message 'Please check the traverse height!   Is there any indication for a collision when moving horizontally?' was closed with button 'No'.
+2020-05-19 11:23:52> Microlab® STAR : Clean up instrument - progress; Eject picked up needle from channel
+2020-05-19 11:23:52> Microlab® STAR : Clean up instrument - progress; Eject picked up tip from channel
+2020-05-19 11:23:59> Microlab® STAR : Initialize (Single Step) - progress; Error handling waiting for manual recovery!
+2020-05-19 11:24:09> Microlab® STAR :  - progress; User action: Message box 'Cancel command' message 'If you have not specified a user-defined error handling, this action will abort the run.  Are you sure you want to do this?' was closed with button 'No'.
+2020-05-19 11:24:22> Microlab® STAR :  - progress; User action: Message box 'Abort command' message 'Are you sure you want to abort the run?' was closed with button 'Yes'.
+2020-05-19 11:24:22> Microlab® STAR : Initialize (Single Step) - error;  > channel 1: Waste, , E:P1:02/62:Abort  > channel 3: Waste, , E:P3:02/62:Abort  > channel 6: Waste, , E:P6:02/62:Abort
+2020-05-19 11:24:22> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Step aborted.  The method should be restarted.  ([P1: Z drive, Step lost on Z drive.]  [P3: Z drive, Step lost on Z drive.]  [P6: Z drive, Step lost on Z drive.]) (0x28 - 0x1 - 0x804) 
+2020-05-19 11:24:22> Microlab® STAR : Initialize (Single Step) - progress; Error manual recovered by user.
+2020-05-19 11:24:22> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Instrument error received.  ([P1: Z drive, Step lost on Z drive.]  [P3: Z drive, Step lost on Z drive.]  [P6: Z drive, Step lost on Z drive.]) (0x28 - 0x2 - 0x807) 
+2020-05-19 11:24:22> Microlab® STAR : Initialize (Single Step) - complete with error; An error occurred while running Vector.  The error description is: Instrument error received.  ([P1: Z drive, Step lost on Z drive.]  [P3: Z drive, Step lost on Z drive.]  [P6: Z drive, Step lost on Z drive.]) (0x28 - 0x2 - 0x807) 
+2020-05-19 11:24:22> SYSTEM : Method has been aborted by the system - complete; 
+2020-05-19 11:24:22> SYSTEM : Abort method - start; 
+2020-05-19 11:24:22> Microlab® STAR : Abort requested command - start;
+2020-05-19 11:24:22> Microlab® STAR : Abort requested command - complete;
+2020-05-19 11:24:22> Microlab® STAR : Start Method Abort Handler command - start;
+2020-05-19 11:24:22> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-05-19 11:24:23> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-05-19 11:24:27> Microlab® STAR :  - progress; User action: Message box 'Clean up instrument' message 'Please check the traverse height!   Is there any indication for a collision when moving horizontally?' was closed with button 'No'.
+2020-05-19 11:24:27> Microlab® STAR : Start Method Abort Handler command - complete;
+2020-05-19 11:24:27> Microlab® STAR : Abort command - start;
+2020-05-19 11:24:27> Microlab® STAR : Abort command - complete;
+2020-05-19 11:24:27> SYSTEM : Abort method - complete; 
+2020-05-19 11:24:27> SYSTEM : Execute method - complete with error; 
+2020-05-19 11:24:27> SYSTEM : End method - start; 
+2020-05-19 11:24:27> Microlab® STAR : End method command - start;
+2020-05-19 11:24:28> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-05-19 11:24:28> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-05-19 11:24:28> Microlab® STAR : Clean up instrument - progress; Eject picked up needle from channel
+2020-05-19 11:24:29> Microlab® STAR : Clean up instrument - progress; Eject picked up tip from channel
+2020-05-19 11:24:36> Microlab® STAR : Initialize (Single Step) - progress; Error handling waiting for manual recovery!
+2020-05-19 11:25:34> Microlab® STAR : Initialize (Single Step) - error;  > channel 1: Waste, , E:P1:02/62:Initialize  > channel 3: Waste, , E:P3:02/62:Initialize  > channel 6: Waste, , E:P6:02/62:Initialize
+2020-05-19 11:25:34> Microlab® STAR : Initialize (Single Step) - progress; Error manual recovered by user.
+2020-05-19 12:07:24> Microlab® STAR : Initialize (Single Step) - error;  > channel 1: Waste, , E:P1:02/62:Initialize  > channel 3: Waste, , E:P3:02/62:Initialize  > channel 6: Waste, , E:P6:02/62:Initialize
+2020-05-19 12:07:24> Microlab® STAR : Initialize (Single Step) - progress; Error manual recovered by user.
+2020-05-19 12:07:35> Microlab® STAR :  - progress; User action: Message box 'Abort command' message 'Are you sure you want to abort the run?' was closed with button 'Yes'.
+2020-05-19 12:07:35> Microlab® STAR : Initialize (Single Step) - error;  > channel 1: Waste, , E:P1:02/62:Abort  > channel 3: Waste, , E:P3:02/62:Abort  > channel 6: Waste, , E:P6:02/62:Abort
+2020-05-19 12:07:35> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Step aborted.  The method should be restarted.  ([P1: Z drive, Step lost on Z drive.]  [P3: Z drive, Step lost on Z drive.]  [P6: Z drive, Step lost on Z drive.]) (0x28 - 0x1 - 0x804) 
+2020-05-19 12:07:35> Microlab® STAR : Initialize (Single Step) - progress; Error manual recovered by user.
+2020-05-19 12:07:35> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Instrument error received.  ([P1: Z drive, Step lost on Z drive.]  [P3: Z drive, Step lost on Z drive.]  [P6: Z drive, Step lost on Z drive.]) (0x28 - 0x2 - 0x807) 
+2020-05-19 12:07:35> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-05-19 12:07:36> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-05-19 12:07:37> Microlab® STAR : End method command - complete;
+2020-05-19 12:07:37> SYSTEM : End method - complete; 
+2020-05-19 12:07:41> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-05-19 12:07$$checksum=3b7ed693$$length=136$$

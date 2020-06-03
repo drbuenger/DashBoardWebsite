@@ -1,0 +1,104 @@
+2020-04-15 10:44:17> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Daughter Plate Stamp - 50uL Tips.hsl
+2020-04-15 10:44:18> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-04-15 10:44:19> SYSTEM : Analyze method - complete; 
+2020-04-15 10:44:20> SYSTEM : Start method - start; 
+2020-04-15 10:44:20> SYSTEM : Start method - progress; User name: LabUser
+2020-04-15 10:44:20> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2020-04-15 10:44:20> SYSTEM : Start method - progress; Database version: Standard
+2020-04-15 10:44:20> SYSTEM : Start method - progress; Sample tracking: On
+2020-04-15 10:44:20> SYSTEM : Start method - progress; Vector Database: On
+2020-04-15 10:44:20> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2020-04-15 10:44:20> Microlab® STAR : Start method command - start;
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Serial number of Instrument: 1731
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S B 2011-10-05
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S b 2012-02-13
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2020-04-15 10:44:20> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2020-04-15 10:44:22> Microlab® STAR : Start method command - complete;
+2020-04-15 10:44:22> SYSTEM : Start method - complete; 
+2020-04-15 10:44:22> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Daughter Plate Stamp - 50uL Tips.hsl
+2020-04-15 10:44:22> Microlab® STAR : Initialize (Single Step) - start;
+2020-04-15 10:44:22> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-15 10:44:22> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please enter the volume to tranfer>, Default value: <6>, Type: <Float>, Minimum: <2>, Maximum: <30>,   Input row 2 - Prompt: <Please enter the number of Oligos to be transferred>, Default value: <96>, Type: <Integer>, Minimum: <1>, Maximum: <1000>
+2020-04-15 10:46:33> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please enter the volume to tranfer>, Value: <2.4>,   Input row 2 - Prompt: <Please enter the number of Oligos to be transferred>, Value: <40>
+2020-04-15 10:46:33> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Load 50ul Tips beginning with the postion closest to you in Tip Carrier #1  Load source rack on Deep (AC) Carrier in position closest to you   Load empty PCR plate nested in red adapter behind source rack on Deep (AC) carrier   >
+2020-04-15 10:46:34> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2020-04-15 10:46:34> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please scan rack>, Default value: <>, Type: <String>, Minimum: <>, Maximum: <>
+2020-04-15 10:46:39> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please scan rack>, Value: <REMP00356550>
+2020-04-15 10:46:39> Data Handling Steps : Set Element Barcode - start; 
+2020-04-15 10:46:39> SYSTEM : HSLMapReport::SetElementBarcode - progress;  > Set barcode 'REMP00356550' on labware 'ML_STAR\TIP_CAR_480_A00_0001\TIP_50ulF_L_0001'
+2020-04-15 10:46:39> Data Handling Steps : Set Element Barcode - complete; 
+2020-04-15 10:46:39> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-15 10:46:47> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: TIP_50ulF_L_0001, 1 > channel 2: TIP_50ulF_L_0001, 2 > channel 3: TIP_50ulF_L_0001, 3 > channel 4: TIP_50ulF_L_0001, 4 > channel 5: TIP_50ulF_L_0001, 5 > channel 6: TIP_50ulF_L_0001, 6 > channel 7: TIP_50ulF_L_0001, 7 > channel 8: TIP_50ulF_L_0001, 8
+2020-04-15 10:46:47> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-15 10:47:12> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: REMP_300ul_0001, A1, 2.4 uL > channel 2: REMP_300ul_0001, B1, 2.4 uL > channel 3: REMP_300ul_0001, C1, 2.4 uL > channel 4: REMP_300ul_0001, D1, 2.4 uL > channel 5: REMP_300ul_0001, E1, 2.4 uL > channel 6: REMP_300ul_0001, F1, 2.4 uL > channel 7: REMP_300ul_0001, G1, 2.4 uL > channel 8: REMP_300ul_0001, H1, 2.4 uL
+2020-04-15 10:47:12> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-15 10:47:24> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: plate_pcr_twintec_halfskirt_0001, A1, 2.4 uL > channel 2: plate_pcr_twintec_halfskirt_0001, B1, 2.4 uL > channel 3: plate_pcr_twintec_halfskirt_0001, C1, 2.4 uL > channel 4: plate_pcr_twintec_halfskirt_0001, D1, 2.4 uL > channel 5: plate_pcr_twintec_halfskirt_0001, E1, 2.4 uL > channel 6: plate_pcr_twintec_halfskirt_0001, F1, 2.4 uL > channel 7: plate_pcr_twintec_halfskirt_0001, G1, 2.4 uL > channel 8: plate_pcr_twintec_halfskirt_0001, H1, 2.4 uL
+2020-04-15 10:47:24> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-15 10:47:33> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-15 10:47:33> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-15 10:47:41> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: TIP_50ulF_L_0001, 9 > channel 2: TIP_50ulF_L_0001, 10 > channel 3: TIP_50ulF_L_0001, 11 > channel 4: TIP_50ulF_L_0001, 12 > channel 5: TIP_50ulF_L_0001, 13 > channel 6: TIP_50ulF_L_0001, 14 > channel 7: TIP_50ulF_L_0001, 15 > channel 8: TIP_50ulF_L_0001, 16
+2020-04-15 10:47:41> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-15 10:48:06> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: REMP_300ul_0001, A2, 2.4 uL > channel 2: REMP_300ul_0001, B2, 2.4 uL > channel 3: REMP_300ul_0001, C2, 2.4 uL > channel 4: REMP_300ul_0001, D2, 2.4 uL > channel 5: REMP_300ul_0001, E2, 2.4 uL > channel 6: REMP_300ul_0001, F2, 2.4 uL > channel 7: REMP_300ul_0001, G2, 2.4 uL > channel 8: REMP_300ul_0001, H2, 2.4 uL
+2020-04-15 10:48:06> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-15 10:48:17> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: plate_pcr_twintec_halfskirt_0001, A2, 2.4 uL > channel 2: plate_pcr_twintec_halfskirt_0001, B2, 2.4 uL > channel 3: plate_pcr_twintec_halfskirt_0001, C2, 2.4 uL > channel 4: plate_pcr_twintec_halfskirt_0001, D2, 2.4 uL > channel 5: plate_pcr_twintec_halfskirt_0001, E2, 2.4 uL > channel 6: plate_pcr_twintec_halfskirt_0001, F2, 2.4 uL > channel 7: plate_pcr_twintec_halfskirt_0001, G2, 2.4 uL > channel 8: plate_pcr_twintec_halfskirt_0001, H2, 2.4 uL
+2020-04-15 10:48:17> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-15 10:48:27> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-15 10:48:27> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-15 10:48:35> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: TIP_50ulF_L_0001, 17 > channel 2: TIP_50ulF_L_0001, 18 > channel 3: TIP_50ulF_L_0001, 19 > channel 4: TIP_50ulF_L_0001, 20 > channel 5: TIP_50ulF_L_0001, 21 > channel 6: TIP_50ulF_L_0001, 22 > channel 7: TIP_50ulF_L_0001, 23 > channel 8: TIP_50ulF_L_0001, 24
+2020-04-15 10:48:35> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-15 10:48:59> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: REMP_300ul_0001, A3, 2.4 uL > channel 2: REMP_300ul_0001, B3, 2.4 uL > channel 3: REMP_300ul_0001, C3, 2.4 uL > channel 4: REMP_300ul_0001, D3, 2.4 uL > channel 5: REMP_300ul_0001, E3, 2.4 uL > channel 6: REMP_300ul_0001, F3, 2.4 uL > channel 7: REMP_300ul_0001, G3, 2.4 uL > channel 8: REMP_300ul_0001, H3, 2.4 uL
+2020-04-15 10:48:59> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-15 10:49:11> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: plate_pcr_twintec_halfskirt_0001, A3, 2.4 uL > channel 2: plate_pcr_twintec_halfskirt_0001, B3, 2.4 uL > channel 3: plate_pcr_twintec_halfskirt_0001, C3, 2.4 uL > channel 4: plate_pcr_twintec_halfskirt_0001, D3, 2.4 uL > channel 5: plate_pcr_twintec_halfskirt_0001, E3, 2.4 uL > channel 6: plate_pcr_twintec_halfskirt_0001, F3, 2.4 uL > channel 7: plate_pcr_twintec_halfskirt_0001, G3, 2.4 uL > channel 8: plate_pcr_twintec_halfskirt_0001, H3, 2.4 uL
+2020-04-15 10:49:11> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-15 10:49:20> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-15 10:49:20> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-15 10:49:28> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: TIP_50ulF_L_0001, 25 > channel 2: TIP_50ulF_L_0001, 26 > channel 3: TIP_50ulF_L_0001, 27 > channel 4: TIP_50ulF_L_0001, 28 > channel 5: TIP_50ulF_L_0001, 29 > channel 6: TIP_50ulF_L_0001, 30 > channel 7: TIP_50ulF_L_0001, 31 > channel 8: TIP_50ulF_L_0001, 32
+2020-04-15 10:49:28> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-15 10:49:52> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: REMP_300ul_0001, A4, 2.4 uL > channel 2: REMP_300ul_0001, B4, 2.4 uL > channel 3: REMP_300ul_0001, C4, 2.4 uL > channel 4: REMP_300ul_0001, D4, 2.4 uL > channel 5: REMP_300ul_0001, E4, 2.4 uL > channel 6: REMP_300ul_0001, F4, 2.4 uL > channel 7: REMP_300ul_0001, G4, 2.4 uL > channel 8: REMP_300ul_0001, H4, 2.4 uL
+2020-04-15 10:49:52> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-15 10:50:04> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: plate_pcr_twintec_halfskirt_0001, A4, 2.4 uL > channel 2: plate_pcr_twintec_halfskirt_0001, B4, 2.4 uL > channel 3: plate_pcr_twintec_halfskirt_0001, C4, 2.4 uL > channel 4: plate_pcr_twintec_halfskirt_0001, D4, 2.4 uL > channel 5: plate_pcr_twintec_halfskirt_0001, E4, 2.4 uL > channel 6: plate_pcr_twintec_halfskirt_0001, F4, 2.4 uL > channel 7: plate_pcr_twintec_halfskirt_0001, G4, 2.4 uL > channel 8: plate_pcr_twintec_halfskirt_0001, H4, 2.4 uL
+2020-04-15 10:50:04> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-15 10:50:13> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-15 10:50:13> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-04-15 10:50:21> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: TIP_50ulF_L_0001, 33 > channel 2: TIP_50ulF_L_0001, 34 > channel 3: TIP_50ulF_L_0001, 35 > channel 4: TIP_50ulF_L_0001, 36 > channel 5: TIP_50ulF_L_0001, 37 > channel 6: TIP_50ulF_L_0001, 38 > channel 7: TIP_50ulF_L_0001, 39 > channel 8: TIP_50ulF_L_0001, 40
+2020-04-15 10:50:21> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2020-04-15 10:50:46> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: REMP_300ul_0001, A5, 2.4 uL > channel 2: REMP_300ul_0001, B5, 2.4 uL > channel 3: REMP_300ul_0001, C5, 2.4 uL > channel 4: REMP_300ul_0001, D5, 2.4 uL > channel 5: REMP_300ul_0001, E5, 2.4 uL > channel 6: REMP_300ul_0001, F5, 2.4 uL > channel 7: REMP_300ul_0001, G5, 2.4 uL > channel 8: REMP_300ul_0001, H5, 2.4 uL
+2020-04-15 10:50:46> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2020-04-15 10:50:58> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: plate_pcr_twintec_halfskirt_0001, A5, 2.4 uL > channel 2: plate_pcr_twintec_halfskirt_0001, B5, 2.4 uL > channel 3: plate_pcr_twintec_halfskirt_0001, C5, 2.4 uL > channel 4: plate_pcr_twintec_halfskirt_0001, D5, 2.4 uL > channel 5: plate_pcr_twintec_halfskirt_0001, E5, 2.4 uL > channel 6: plate_pcr_twintec_halfskirt_0001, F5, 2.4 uL > channel 7: plate_pcr_twintec_halfskirt_0001, G5, 2.4 uL > channel 8: plate_pcr_twintec_halfskirt_0001, H5, 2.4 uL
+2020-04-15 10:50:58> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-04-15 10:51:07> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-04-15 10:51:07> Data Handling Steps : Generate Mapping File - start; 
+2020-04-15 10:51:07> SYSTEM : HSLMapReport::AddFilterSequence - progress;  > Add positions underlying sequence 'Tips_50ulF_CAR1_01'
+2020-04-15 10:51:07> SYSTEM : HSLMapReport::AddFilterSequence - progress;  > Add positions underlying sequence 'Source_REMP1_AC1_oligo'
+2020-04-15 10:51:07> SYSTEM : HSLMapReport::GenerateMappingReport - progress;  > Filtering data of labware 'ML_STAR\TIP_CAR_480_A00_0001\TIP_50ulF_L_0001'
+2020-04-15 10:51:07> SYSTEM : HSLMapReport::GenerateMappingReport - progress;  > Create report-mapping file 'W:\PRODUCTION\Probe Oligos\Daughter Plate Files\REMP00356550_0.xls'
+2020-04-15 10:51:07> Data Handling Steps : Generate Mapping File - complete; 
+2020-04-15 10:51:07> SYSTEM : Execute method - complete; 
+2020-04-15 10:51:07> SYSTEM : End method - start; 
+2020-04-15 10:51:07> Microlab® STAR : End method command - start;
+2020-04-15 10:51:08> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-04-15 10:51:08> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-04-15 10:51:09> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2020-04-15 10:51:11> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-04-15 10:51:12> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2020-04-15 10:51:13> Microlab® STAR : End method command - complete;
+2020-04-15 10:51:13> SYSTEM : End method - complete; 
+2020-04-15 10:51:13> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-04-15 10:51$$checksum=63d05737$$length=136$$

@@ -1,0 +1,74 @@
+2019-09-04 11:01:37> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Daughter Plate Stamp - 50uL Tips.hsl
+2019-09-04 11:01:38> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-09-04 11:01:40> SYSTEM : Analyze method - complete; 
+2019-09-04 11:01:40> SYSTEM : Start method - start; 
+2019-09-04 11:01:40> SYSTEM : Start method - progress; User name: LabUser
+2019-09-04 11:01:40> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-09-04 11:01:40> SYSTEM : Start method - progress; Database version: Standard
+2019-09-04 11:01:40> SYSTEM : Start method - progress; Sample tracking: On
+2019-09-04 11:01:40> SYSTEM : Start method - progress; Vector Database: On
+2019-09-04 11:01:40> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-09-04 11:01:40> Microlab® STAR : Start method command - start;
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Serial number of Instrument: 0000
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of main module: 0.0X 2002-05-08
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of X drive: 0.0X 2002-05-08
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 0.0X 2003-08-26
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-09-04 11:01:40> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-09-04 11:01:41> Microlab® STAR : Start method command - complete;
+2019-09-04 11:01:41> SYSTEM : Start method - complete; 
+2019-09-04 11:01:41> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Daughter Plate Stamp - 50uL Tips.hsl
+2019-09-04 11:01:41> Microlab® STAR : Initialize (Single Step) - start;
+2019-09-04 11:01:41> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-04 11:01:41> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please enter the volume to tranfer>, Default value: <6>, Type: <Float>, Minimum: <2>, Maximum: <30>,   Input row 2 - Prompt: <Please enter the number of Oligos to be transferred>, Default value: <96>, Type: <Integer>, Minimum: <1>, Maximum: <1000>
+2019-09-04 11:03:16> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please enter the volume to tranfer>, Value: <6>,   Input row 2 - Prompt: <Please enter the number of Oligos to be transferred>, Value: <192>
+2019-09-04 11:03:16> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Load 50ul Tips beginning with the postion closest to you in Tip Carrier #1  Load source rack on Deep (AC) Carrier in position closest to you   Load empty PCR plate nested in red adapter behind source rack on Deep (AC) carrier   >
+2019-09-04 11:03:18> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2019-09-04 11:03:18> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please scan REMP rack>, Default value: <>, Type: <String>, Minimum: <>, Maximum: <>
+2019-09-04 11:03:38> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please scan REMP rack>, Value: <20190904_GAP-Test1>
+2019-09-04 11:03:38> Data Handling Steps : Set Element Barcode - start; 
+2019-09-04 11:03:38> SYSTEM : HSLMapReport::SetElementBarcode - progress;  > Set barcode '20190904_GAP-Test1' on labware 'ML_STAR\TIP_CAR_480_A00_0001\TIP_50ulF_L_0001'
+2019-09-04 11:03:38> Data Handling Steps : Set Element Barcode - complete; 
+2019-09-04 11:03:38> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-09-04 11:03:38> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: TIP_50ulF_L_0001, 1 > channel 2: TIP_50ulF_L_0001, 2 > channel 3: TIP_50ulF_L_0001, 3 > channel 4: TIP_50ulF_L_0001, 4 > channel 5: TIP_50ulF_L_0001, 5 > channel 6: TIP_50ulF_L_0001, 6 > channel 7: TIP_50ulF_L_0001, 7 > channel 8: TIP_50ulF_L_0001, 8
+2019-09-04 11:03:38> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-09-04 11:03:39> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The object 'Tip_50ulFilter_96COREHead_Water_DispenseSurface_NoAir' must not be used in routine work. (0x37 - 0x0 - 0x15) 
+2019-09-04 11:03:39> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete with error; An error occurred while running Vector.  The error description is: The object 'Tip_50ulFilter_96COREHead_Water_DispenseSurface_NoAir' must not be used in routine work. (0x37 - 0x0 - 0x15) 
+2019-09-04 11:03:39> SYSTEM : Method has been aborted by the system - complete; 
+2019-09-04 11:03:39> SYSTEM : Abort method - start; 
+2019-09-04 11:03:39> Microlab® STAR : Abort requested command - start;
+2019-09-04 11:03:39> Microlab® STAR : Abort requested command - complete;
+2019-09-04 11:03:39> Microlab® STAR : Start Method Abort Handler command - start;
+2019-09-04 11:03:39> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-09-04 11:03:39> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-09-04 11:03:39> Microlab® STAR : Start Method Abort Handler command - complete;
+2019-09-04 11:03:39> Microlab® STAR : Abort command - start;
+2019-09-04 11:03:39> Microlab® STAR : Abort command - complete;
+2019-09-04 11:03:39> SYSTEM : Abort method - complete; 
+2019-09-04 11:03:39> SYSTEM : Execute method - complete with error; 
+2019-09-04 11:03:39> SYSTEM : End method - start; 
+2019-09-04 11:03:39> Microlab® STAR : End method command - start;
+2019-09-04 11:03:39> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-09-04 11:03:39> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-09-04 11:03:39> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-09-04 11:03:39> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-09-04 11:03:39> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-09-04 11:03:39> Microlab® STAR : End method command - complete;
+2019-09-04 11:03:39> SYSTEM : End method - complete; 
+2019-09-04 11:03:48> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-09-04 11:03$$checksum=698356f7$$length=136$$

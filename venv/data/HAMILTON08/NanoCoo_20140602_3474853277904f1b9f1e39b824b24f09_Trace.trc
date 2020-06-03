@@ -1,0 +1,40 @@
+2019-09-25 15:25:44> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl
+2019-09-25 15:25:45> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-09-25 15:25:46> SYSTEM : Analyze method - complete; 
+2019-09-25 15:25:46> SYSTEM : Start method - start; 
+2019-09-25 15:25:46> SYSTEM : Start method - progress; User name: LabUser
+2019-09-25 15:25:46> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-09-25 15:25:46> SYSTEM : Start method - progress; Database version: Standard
+2019-09-25 15:25:46> SYSTEM : Start method - progress; Sample tracking: On
+2019-09-25 15:25:46> SYSTEM : Start method - progress; Vector Database: On
+2019-09-25 15:25:46> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-09-25 15:25:47> Microlab® STAR : Start method command - start;
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Serial number of Instrument: 0000
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of main module: 0.0X 2002-05-08
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of X drive: 0.0X 2002-05-08
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 0.0X 2003-08-26
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-09-25 15:25:47> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-09-25 15:25:48> Microlab® STAR : Start method command - complete;
+2019-09-25 15:25:48> SYSTEM : Start method - complete; 
+2019-09-25 15:25:48> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl
+2019-09-25 15:25:48> Microlab® STAR : Initialize (Single Step) - start;
+2019-09-25 15:25:48> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-25 15:25:48> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Add HindIII to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 2 - Prompt: <Add Antarctic Phosphatase to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 3 - Prompt: <Add EcoR1 to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 4 - Prompt: <Add Lambda Exonuclease to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 5 - Prompt: <How many columns do you want to process?>, Default value: <4>, Type: <Integer>, Minimum: <4>, Maximum: <12>
+2019-09-25 15:29:46> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-09-25 15:29$$checksum=71821057$$length=136$$

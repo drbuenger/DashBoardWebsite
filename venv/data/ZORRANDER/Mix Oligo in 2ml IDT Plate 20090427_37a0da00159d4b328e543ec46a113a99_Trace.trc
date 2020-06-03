@@ -1,0 +1,15 @@
+2020-02-18 13:39:01> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Mix Oligo in 2ml IDT Plate 20090427.hsl
+2020-02-18 13:39:02> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-02-18 13:39:03> SYSTEM : Method has been aborted by the user - complete; 
+2020-02-18 13:39:03> SYSTEM : Abort method - start; 
+2020-02-18 13:39:03> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument has not been initialized. (0x28 - 0x1 - 0x6) 
+2020-02-18 13:39:04> SYSTEM : Analyze method - complete with error; 
+2020-02-18 13:39:04> SYSTEM : Abort method - complete; 
+2020-02-18 13:39:04> SYSTEM : End method - start; 
+2020-02-18 13:39:04> Microlab® STAR : End method command - start;
+2020-02-18 13:39:04> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-02-18 13:39:04> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-02-18 13:39:05> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-02-18 13:39:06> Microlab® STAR : End method command - complete;
+2020-02-18 13:39:06> SYSTEM : End method - complete; 
+2020-02-18 13:39:08> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-02-18 13:39$$checksum=ca0f83b9$$length=136$$

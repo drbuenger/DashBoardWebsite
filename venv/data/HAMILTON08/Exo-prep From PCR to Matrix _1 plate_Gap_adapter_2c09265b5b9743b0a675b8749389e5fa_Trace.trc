@@ -1,0 +1,64 @@
+2019-09-04 11:21:32> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep From PCR to Matrix _1 plate_Gap_adapter.hsl
+2019-09-04 11:21:33> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-09-04 11:21:33> SYSTEM : Analyze method - complete; 
+2019-09-04 11:21:34> SYSTEM : Start method - start; 
+2019-09-04 11:21:34> SYSTEM : Start method - progress; User name: gpadilla
+2019-09-04 11:21:34> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-09-04 11:21:34> SYSTEM : Start method - progress; Database version: Standard
+2019-09-04 11:21:34> SYSTEM : Start method - progress; Sample tracking: On
+2019-09-04 11:21:34> SYSTEM : Start method - progress; Vector Database: On
+2019-09-04 11:21:34> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-09-04 11:21:34> Microlab® STAR : Start method command - start;
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Serial number of Instrument: 0000
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of main module: 0.0X 2002-05-08
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of X drive: 0.0X 2002-05-08
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 0.0X 2003-08-26
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-09-04 11:21:34> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-09-04 11:21:35> Microlab® STAR : Start method command - complete;
+2019-09-04 11:21:35> SYSTEM : Start method - complete; 
+2019-09-04 11:21:35> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep From PCR to Matrix _1 plate_Gap_adapter.hsl
+2019-09-04 11:21:35> Microlab® STAR : Initialize (Single Step) - start;
+2019-09-04 11:21:35> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-04 11:21:35> SYSTEM : User Input Dialog - start; <Number of Plates to transfer>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Please Enter Number of Plates to be Processed>, Default value: <1>, Type: <Integer>, Minimum: <1>, Maximum: <1>,   Input row 2 - Prompt: <Would you like to top-off only?>, Default value: <no>, Type: <String>, Minimum: <>, Maximum: <>
+2019-09-04 11:21:43> SYSTEM : User Input Dialog - complete; <Number of Plates to transfer>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Please Enter Number of Plates to be Processed>, Value: <1>,   Input row 2 - Prompt: <Would you like to top-off only?>, Value: <yes>
+2019-09-04 11:21:43> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <'Yes' is not a valid answer.      Please check your SOP!     Aborting method now.     >
+2019-09-04 11:21:46> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2019-09-04 11:21:46> SYSTEM : Method has been aborted by the method - complete; 
+2019-09-04 11:21:46> SYSTEM : Abort method - start; 
+2019-09-04 11:21:46> Microlab® STAR : Abort requested command - start;
+2019-09-04 11:21:46> Microlab® STAR : Abort requested command - complete;
+2019-09-04 11:21:46> Microlab® STAR : Start Method Abort Handler command - start;
+2019-09-04 11:21:46> Microlab® STAR : Start Method Abort Handler command - complete;
+2019-09-04 11:21:46> Microlab® STAR : Abort command - start;
+2019-09-04 11:21:46> Microlab® STAR : Abort command - complete;
+2019-09-04 11:21:46> SYSTEM : Abort method - complete; 
+2019-09-04 11:21:46> SYSTEM : Execute method - complete; 
+2019-09-04 11:21:46> SYSTEM : End method - start; 
+2019-09-04 11:21:46> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\Matrix\matrixclustertube.ctr
+2019-09-04 11:21:46> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\nanostring\plate_96_pcr_twintec_halfskirted.ctr
+2019-09-04 11:21:46> SYSTEM : End method - progress; Object not validated: File C:\Program Files\HAMILTON\Labware\NanoString\plate_nunc_ubottom_1000ul.ctr
+2019-09-04 11:21:46> SYSTEM : End method - progress; Object not validated: Liquid class StandardVolumeFilter_96COREHead_Water_DispenseSurface_Empty_slow_asp
+2019-09-04 11:21:46> Microlab® STAR : End method command - start;
+2019-09-04 11:21:46> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-09-04 11:21:46> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-09-04 11:21:46> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-09-04 11:21:46> Microlab® STAR : End method command - complete;
+2019-09-04 11:21:46> SYSTEM : End method - complete; 
+2019-09-04 11:21:51> SYSTEM : File checksum - written; $$author=gpadilla$$valid=0$$time=2019-09-04 11:21$$checksum=413ca739$$length=137$$

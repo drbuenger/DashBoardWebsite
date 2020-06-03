@@ -1,0 +1,6 @@
+2019-09-25 15:45:34> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl
+2019-09-25 15:45:34> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: File 'Layout_NanoCoo.res' must not be used in routine work! (File not validated) (0x37 - 0x0 - 0x7) , 
+2019-09-25 15:45:34> SYSTEM : Analyze method - progress; C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl(1) : error 1344: analyzing completed with error
+2019-09-25 15:45:34> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: Method contains syntax errors (0x23 - 0x2 - 0x35) , 
+2019-09-25 15:45:34> SYSTEM : Analyze method - complete with error; 
+2019-09-25 15:45:42> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-09-25 15:45$$checksum=13076c69$$length=136$$

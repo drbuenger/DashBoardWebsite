@@ -1,0 +1,17 @@
+2018-05-23 15:29:31> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep from Matrix to PCR v2 Loop.hsl
+2018-05-23 15:29:33> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2018-05-23 15:29:33> SYSTEM : Method has been aborted by the user - complete; 
+2018-05-23 15:29:33> SYSTEM : Abort method - start; 
+2018-05-23 15:29:33> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument has not been initialized. (0x28 - 0x1 - 0x6) 
+2018-05-23 15:29:34> SYSTEM : Analyze method - complete with error; 
+2018-05-23 15:29:34> SYSTEM : Abort method - complete; 
+2018-05-23 15:29:34> SYSTEM : End method - start; 
+2018-05-23 15:29:34> Microlab® STAR : End method command - start;
+2018-05-23 15:29:34> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2018-05-23 15:29:34> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2018-05-23 15:29:35> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2018-05-23 15:29:36> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2018-05-23 15:29:37> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2018-05-23 15:29:37> Microlab® STAR : End method command - complete;
+2018-05-23 15:29:37> SYSTEM : End method - complete; 
+2018-05-23 15:29:37> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-05-23 15:29$$checksum=fbb2dde7$$length=136$$

@@ -1,0 +1,15 @@
+2020-01-22 15:00:10> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Oligo Production\Spec 1 nunc450 plate v1.hsl
+2020-01-22 15:00:11> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-01-22 15:00:12> SYSTEM : Method has been aborted by the user - complete; 
+2020-01-22 15:00:12> SYSTEM : Abort method - start; 
+2020-01-22 15:00:12> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument has not been initialized. (0x28 - 0x1 - 0x6) 
+2020-01-22 15:00:13> SYSTEM : Analyze method - complete with error; 
+2020-01-22 15:00:13> SYSTEM : Abort method - complete; 
+2020-01-22 15:00:13> SYSTEM : End method - start; 
+2020-01-22 15:00:13> Microlab® STAR : End method command - start;
+2020-01-22 15:00:13> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-01-22 15:00:13> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-01-22 15:00:14> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-01-22 15:00:15> Microlab® STAR : End method command - complete;
+2020-01-22 15:00:15> SYSTEM : End method - complete; 
+2020-01-22 15:00:17> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-01-22 15:00$$checksum=bd91c282$$length=136$$

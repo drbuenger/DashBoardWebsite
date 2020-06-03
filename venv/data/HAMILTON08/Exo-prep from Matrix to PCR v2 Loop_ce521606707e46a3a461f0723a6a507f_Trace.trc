@@ -1,0 +1,4 @@
+2018-09-21 11:12:53> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\Exo-prep from Matrix to PCR v2 Loop.hsl
+2018-09-21 11:12:54> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Error code 0xE0001005: USB device is already configured. (0x33 - 0x1 - 0x805) 
+2018-09-21 11:12:54> SYSTEM : Analyze method - complete with error; 
+2018-09-21 11:12:56> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2018-09-21 11:12$$checksum=564a0669$$length=136$$

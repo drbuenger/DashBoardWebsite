@@ -1,0 +1,85 @@
+2019-09-04 12:44:50> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl
+2019-09-04 12:44:51> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-09-04 12:44:52> SYSTEM : Analyze method - complete; 
+2019-09-04 12:44:53> SYSTEM : Start method - start; 
+2019-09-04 12:44:53> SYSTEM : Start method - progress; User name: labuser
+2019-09-04 12:44:53> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-09-04 12:44:53> SYSTEM : Start method - progress; Database version: Standard
+2019-09-04 12:44:53> SYSTEM : Start method - progress; Sample tracking: On
+2019-09-04 12:44:53> SYSTEM : Start method - progress; Vector Database: On
+2019-09-04 12:44:53> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-09-04 12:44:53> Microlab® STAR : Start method command - start;
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Serial number of Instrument: 0000
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of main module: 0.0X 2002-05-08
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08, 0.0X 2002-05-08
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of X drive: 0.0X 2002-05-08
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of auto load: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 0.0X 2003-08-26
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-09-04 12:44:53> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-09-04 12:44:54> Microlab® STAR : Start method command - complete;
+2019-09-04 12:44:54> SYSTEM : Start method - complete; 
+2019-09-04 12:44:54> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\NanoCoo_20140602.hsl
+2019-09-04 12:44:54> Microlab® STAR : Initialize (Single Step) - start;
+2019-09-04 12:44:54> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-04 12:44:54> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Add HindIII to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 2 - Prompt: <Add Antarctic Phosphatase to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 3 - Prompt: <Add EcoR1 to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 4 - Prompt: <Add Lambda Exonuclease to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 5 - Prompt: <How many columns do you want to process?>, Default value: <4>, Type: <Integer>, Minimum: <4>, Maximum: <12>
+2019-09-04 12:44:56> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Add HindIII to the rxn?>, Value: <N>,   Input row 2 - Prompt: <Add Antarctic Phosphatase to the rxn?>, Value: <N>,   Input row 3 - Prompt: <Add EcoR1 to the rxn?>, Value: <N>,   Input row 4 - Prompt: <Add Lambda Exonuclease to the rxn?>, Value: <y>,   Input row 5 - Prompt: <How many columns do you want to process?>, Value: <4>
+2019-09-04 12:44:56> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Load 300 uL tips is position 4 (2nd closest to operator) in TIP CARRIER #2 at RAIL 35.     Transfer contents of Lambda Exonuclease master mix into COLUMN 1 of the 12-well Reservoir in POSITION 4 in the carrier at RAIL 22.     Confirm TwinTec halfskirt PCR plate in adapter is located in POSITION 5 in carrier at RAIL 28.   >
+2019-09-04 12:44:58> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2019-09-04 12:44:58> SYSTEM : Pipette - start; 
+2019-09-04 12:44:58> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-09-04 12:44:58> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 1 > channel 2: STF_L_0001, 2 > channel 3: STF_L_0001, 3 > channel 4: STF_L_0001, 4 > channel 5: STF_L_0001, 5 > channel 6: STF_L_0001, 6 > channel 7: STF_L_0001, 7 > channel 8: STF_L_0001, 8
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: _12well_deep_reservoir_0001, 1, 150 uL > channel 2: _12well_deep_reservoir_0001, 2, 150 uL > channel 3: _12well_deep_reservoir_0001, 3, 150 uL > channel 4: _12well_deep_reservoir_0001, 4, 150 uL > channel 5: _12well_deep_reservoir_0001, 5, 150 uL > channel 6: _12well_deep_reservoir_0001, 6, 150 uL > channel 7: _12well_deep_reservoir_0001, 7, 150 uL > channel 8: _12well_deep_reservoir_0001, 8, 150 uL
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Halfskirt_PCR_in_adapter_0001, A1, 150 uL > channel 2: Halfskirt_PCR_in_adapter_0001, B1, 150 uL > channel 3: Halfskirt_PCR_in_adapter_0001, C1, 150 uL > channel 4: Halfskirt_PCR_in_adapter_0001, D1, 150 uL > channel 5: Halfskirt_PCR_in_adapter_0001, E1, 150 uL > channel 6: Halfskirt_PCR_in_adapter_0001, F1, 150 uL > channel 7: Halfskirt_PCR_in_adapter_0001, G1, 150 uL > channel 8: Halfskirt_PCR_in_adapter_0001, H1, 150 uL
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 9 > channel 2: STF_L_0001, 10 > channel 3: STF_L_0001, 11 > channel 4: STF_L_0001, 12 > channel 5: STF_L_0001, 13 > channel 6: STF_L_0001, 14 > channel 7: STF_L_0001, 15 > channel 8: STF_L_0001, 16
+2019-09-04 12:44:59> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: _12well_deep_reservoir_0001, 1, 150 uL > channel 2: _12well_deep_reservoir_0001, 2, 150 uL > channel 3: _12well_deep_reservoir_0001, 3, 150 uL > channel 4: _12well_deep_reservoir_0001, 4, 150 uL > channel 5: _12well_deep_reservoir_0001, 5, 150 uL > channel 6: _12well_deep_reservoir_0001, 6, 150 uL > channel 7: _12well_deep_reservoir_0001, 7, 150 uL > channel 8: _12well_deep_reservoir_0001, 8, 150 uL
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Halfskirt_PCR_in_adapter_0001, A2, 150 uL > channel 2: Halfskirt_PCR_in_adapter_0001, B2, 150 uL > channel 3: Halfskirt_PCR_in_adapter_0001, C2, 150 uL > channel 4: Halfskirt_PCR_in_adapter_0001, D2, 150 uL > channel 5: Halfskirt_PCR_in_adapter_0001, E2, 150 uL > channel 6: Halfskirt_PCR_in_adapter_0001, F2, 150 uL > channel 7: Halfskirt_PCR_in_adapter_0001, G2, 150 uL > channel 8: Halfskirt_PCR_in_adapter_0001, H2, 150 uL
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 17 > channel 2: STF_L_0001, 18 > channel 3: STF_L_0001, 19 > channel 4: STF_L_0001, 20 > channel 5: STF_L_0001, 21 > channel 6: STF_L_0001, 22 > channel 7: STF_L_0001, 23 > channel 8: STF_L_0001, 24
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: _12well_deep_reservoir_0001, 1, 150 uL > channel 2: _12well_deep_reservoir_0001, 2, 150 uL > channel 3: _12well_deep_reservoir_0001, 3, 150 uL > channel 4: _12well_deep_reservoir_0001, 4, 150 uL > channel 5: _12well_deep_reservoir_0001, 5, 150 uL > channel 6: _12well_deep_reservoir_0001, 6, 150 uL > channel 7: _12well_deep_reservoir_0001, 7, 150 uL > channel 8: _12well_deep_reservoir_0001, 8, 150 uL
+2019-09-04 12:45:00> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Halfskirt_PCR_in_adapter_0001, A3, 150 uL > channel 2: Halfskirt_PCR_in_adapter_0001, B3, 150 uL > channel 3: Halfskirt_PCR_in_adapter_0001, C3, 150 uL > channel 4: Halfskirt_PCR_in_adapter_0001, D3, 150 uL > channel 5: Halfskirt_PCR_in_adapter_0001, E3, 150 uL > channel 6: Halfskirt_PCR_in_adapter_0001, F3, 150 uL > channel 7: Halfskirt_PCR_in_adapter_0001, G3, 150 uL > channel 8: Halfskirt_PCR_in_adapter_0001, H3, 150 uL
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: STF_L_0001, 25 > channel 2: STF_L_0001, 26 > channel 3: STF_L_0001, 27 > channel 4: STF_L_0001, 28 > channel 5: STF_L_0001, 29 > channel 6: STF_L_0001, 30 > channel 7: STF_L_0001, 31 > channel 8: STF_L_0001, 32
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - start;
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Aspirate (Single Step) - complete;  > channel 1: _12well_deep_reservoir_0001, 1, 150 uL > channel 2: _12well_deep_reservoir_0001, 2, 150 uL > channel 3: _12well_deep_reservoir_0001, 3, 150 uL > channel 4: _12well_deep_reservoir_0001, 4, 150 uL > channel 5: _12well_deep_reservoir_0001, 5, 150 uL > channel 6: _12well_deep_reservoir_0001, 6, 150 uL > channel 7: _12well_deep_reservoir_0001, 7, 150 uL > channel 8: _12well_deep_reservoir_0001, 8, 150 uL
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Dispense (Single Step) - start;
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Dispense (Single Step) - complete;  > channel 1: Halfskirt_PCR_in_adapter_0001, A4, 150 uL > channel 2: Halfskirt_PCR_in_adapter_0001, B4, 150 uL > channel 3: Halfskirt_PCR_in_adapter_0001, C4, 150 uL > channel 4: Halfskirt_PCR_in_adapter_0001, D4, 150 uL > channel 5: Halfskirt_PCR_in_adapter_0001, E4, 150 uL > channel 6: Halfskirt_PCR_in_adapter_0001, F4, 150 uL > channel 7: Halfskirt_PCR_in_adapter_0001, G4, 150 uL > channel 8: Halfskirt_PCR_in_adapter_0001, H4, 150 uL
+2019-09-04 12:45:01> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2019-09-04 12:45:02> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-09-04 12:45:02> SYSTEM : Pipette - complete; 
+2019-09-04 12:45:02> SYSTEM : Execute method - complete; 
+2019-09-04 12:45:02> SYSTEM : End method - start; 
+2019-09-04 12:45:02> Microlab® STAR : End method command - start;
+2019-09-04 12:45:02> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-09-04 12:45:02> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-09-04 12:45:02> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-09-04 12:45:02> Microlab® STAR : End method command - complete;
+2019-09-04 12:45:02> SYSTEM : End method - complete; 
+2019-09-04 12:45:02> SYSTEM : File checksum - written; $$author=labuser$$valid=0$$time=2019-09-04 12:45$$checksum=a0cb92c4$$length=136$$

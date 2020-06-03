@@ -1,0 +1,21 @@
+2019-01-07 10:10:21> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\VM\StarLineWeeklyMaintenance.hsl
+2019-01-07 10:10:21> SYSTEM : Analyze method - complete; 
+2019-01-07 10:10:22> SYSTEM : Start method - start; 
+2019-01-07 10:10:22> SYSTEM : Start method - progress; User name: LabUser
+2019-01-07 10:10:22> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-01-07 10:10:22> SYSTEM : Start method - progress; Database version: Standard
+2019-01-07 10:10:22> SYSTEM : Start method - progress; Sample tracking: On
+2019-01-07 10:10:22> SYSTEM : Start method - progress; Vector Database: On
+2019-01-07 10:10:22> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-01-07 10:10:22> SYSTEM : Start method - complete; 
+2019-01-07 10:10:22> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\VM\StarLineWeeklyMaintenance.hsl
+2019-01-07 10:10:22> SYSTEM : Get Instrument Type (no instrument passed)  - start; 
+2019-01-07 10:10:22> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Error code 0xE0001005: USB device is already configured. (0x33 - 0x1 - 0x805) 
+2019-01-07 10:10:22> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument has not been initialized. (0x28 - 0x1 - 0x6) 
+2019-01-07 10:10:22> SYSTEM : Method has been aborted by the system - complete; 
+2019-01-07 10:10:22> SYSTEM : Abort method - start; 
+2019-01-07 10:10:22> SYSTEM : Abort method - complete; 
+2019-01-07 10:10:22> SYSTEM : Execute method - complete with error; 
+2019-01-07 10:10:22> SYSTEM : End method - start; 
+2019-01-07 10:10:22> SYSTEM : End method - complete; 
+2019-01-07 10:10:25> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-01-07 10:10$$checksum=742ea4e6$$length=136$$

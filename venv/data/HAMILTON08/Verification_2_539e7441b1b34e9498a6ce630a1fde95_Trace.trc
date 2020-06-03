@@ -1,0 +1,463 @@
+2019-07-29 15:29:16> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Verification\Verification_2.hsl
+2019-07-29 15:29:17> SYSTEM : Analyze method - complete; 
+2019-07-29 15:29:17> SYSTEM : Start method - start; 
+2019-07-29 15:29:17> SYSTEM : Start method - progress; User name: gpadilla
+2019-07-29 15:29:17> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-07-29 15:29:17> SYSTEM : Start method - progress; Database version: Standard
+2019-07-29 15:29:17> SYSTEM : Start method - progress; Sample tracking: On
+2019-07-29 15:29:17> SYSTEM : Start method - progress; Vector Database: On
+2019-07-29 15:29:17> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-07-29 15:29:18> SYSTEM : Start method - complete; 
+2019-07-29 15:29:18> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Verification\Verification_2.hsl
+2019-07-29 15:29:18> SYSTEM : Get Instrument Type (no instrument passed)  - start; 
+2019-07-29 15:29:18> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-07-29 15:29:19> Microlab® STAR : Start method command - start;
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S e 2016-05-02
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-07-29 15:29:19> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-07-29 15:29:22> Microlab® STAR : Start method command - complete;
+2019-07-29 15:29:22> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:22> Microlab® STAR : Firmware Command (Single Step) - complete;  > QM: er00/00ka000003xt54xa54xw13400xl05xr00xm03500xx11400ys090xu3540xv3700yu0060kl360kc0yx0060ke00000000xn00xo00ym0060kr0km360
+2019-07-29 15:29:22> SYSTEM : Evaluated instrument type: 0 - progress; 
+2019-07-29 15:29:22> Microlab® STAR : End method command - start;
+2019-07-29 15:29:24> Microlab® STAR : End method command - complete;
+2019-07-29 15:29:24> SYSTEM : Get Instrument Type (no instrument passed)  - complete; 
+2019-07-29 15:29:25> USER : Trace - complete;  ------  64 Bit Operating Architecture is =>true<==
+2019-07-29 15:29:25> USER : Trace - complete;  ------  Operating System is =>6.1<==
+2019-07-29 15:29:25> USER : Trace - complete; Instrument Name:  ML_STAR
+2019-07-29 15:29:25> USER : Trace - complete; User Software Version:  4.3.5.4785
+2019-07-29 15:29:25> USER : Trace - complete; Operator:  gpadilla
+2019-07-29 15:29:26> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-07-29 15:29:27> Microlab® STAR : Start method command - start;
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S e 2016-05-02
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-07-29 15:29:27> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-07-29 15:29:30> Microlab® STAR : Start method command - complete;
+2019-07-29 15:29:30> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:30> Microlab® STAR : Firmware Command (Single Step) - complete;  > RI: er00/00si2017-01-31snC034
+2019-07-29 15:29:30> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:30> Microlab® STAR : Firmware Command (Single Step) - complete;  > RF: er00/00rf7.1S E 2015-04-01
+2019-07-29 15:29:30> USER : Trace - complete;  Open verification config file =>C:\Program Files\HAMILTON\System\ML_STARVer_C034.csv<== 
+2019-07-29 15:29:30> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RM: er00/00kb0Dkp08 C00000 X00000 P10000 P20000 P30000 P40000 P50000 P60000 P70000 P80000 I00000 H00000
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > QM: er00/00ka000003xt54xa54xw13400xl05xr00xm03500xx11400ys090xu3540xv3700yu0060kl360kc0yx0060ke00000000xn00xo00ym0060kr0km360
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > QG: qg2
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RV: er00/00vd2019-10-14 23:59vs1
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RV: er00/00vd2019-01-18 13:00vs1
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RV: er00/00vd2019-03-28 14:24vs1
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RV: er00/00vd2019-07-29 15:15vs1
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RV: er00/00vd2019-07-29 15:00vs1
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RV: er00/00vd2019-03-28 14:00vs1
+2019-07-29 15:29:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:29:32> Microlab® STAR : Firmware Command (Single Step) - complete;  > RV: er00/00vd2019-03-28 15:18vs1
+2019-07-29 15:29:32> Microlab® STAR : End method command - start;
+2019-07-29 15:29:33> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-07-29 15:29:33> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-07-29 15:29:33> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2019-07-29 15:29:35> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-07-29 15:29:35> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2019-07-29 15:29:36> Microlab® STAR : End method command - complete;
+2019-07-29 15:30:19> USER : Trace - complete; Dialog <Start Dialog for the ML_STAR Verification:             (Version:   FVK2: 1020)> -> button <OK> pressed.
+2019-07-29 15:30:19> User Selection: :   - complete; Selected Verification of --->  Cover Safety Verification
+2019-07-29 15:30:19> User Selection: :   - complete; Selected Verification of --->  Barcode Verification of Autoload
+2019-07-29 15:30:19> User Selection: :   - complete; Selected Verification of --->  Volume Verification CO-RE 96-Probe Head
+2019-07-29 15:30:19> User Selection: :   - complete; Selected Verification of --->  Volume Verification 1000µl Pipetting Channels
+2019-07-29 15:30:19> USER : Trace - complete; Test: VerDef::isRoche =>false<  extendedReportOption =>-1<==
+2019-07-29 15:30:21> USER : Trace - complete; Test: VerDef::isRoche =>false<  extendedReportOption =>-1<==
+2019-07-29 15:30:21> USER : Trace - complete; Dialog <Verification Environment Conditions:> -> button <OK> pressed.
+2019-07-29 15:30:23> USER : Trace - complete; Dialog <Verification Tool Definitions:> -> button <OK> pressed.
+2019-07-29 15:30:23> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-07-29 15:30:24> Microlab® STAR : Start method command - start;
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S e 2016-05-02
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-07-29 15:30:24> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-07-29 15:30:28> Microlab® STAR : Start method command - complete;
+2019-07-29 15:30:28> USER : Trace - complete; Test: instrumentNo =>0<   layoutFileName =>Verification\Verification_Star.lay<  ML-STAR instrument serial number =>C034
+2019-07-29 15:30:28> Microlab® STAR : Initialize (Single Step) - start;
+2019-07-29 15:31:37> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-07-29 15:31:37> USER : Trace - complete; Test:  Show Status Dialog  starting.   i_DialogTitle =>Balance Information:<===
+2019-07-29 15:31:38> USER : Trace - complete; Test: ShowStatusDialog: Status  dialogOpen ==>true<==
+2019-07-29 15:31:38> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:31:38> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2019-07-29 15:31:39> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:39> Dialog information: : () - complete; --User information:
+2019-07-29 15:31:39> Dialog information: : () - complete; --Balance Installation:
+2019-07-29 15:31:39> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:39> Dialog information: : () - complete; --Install the Balance 'Mettler WXS':   -----------------------------------------------  Place  - the Centering Carrier on the deck.  - the Balance (push to the rear, right position).  - the Reagent Carrier onto the Balance.  - the Weighing Platform and the Platform Ring onto the Balance.  - the Vial Windshield onto the Balance.     Connect the Balance Terminal with  - Balance  - PC on Serial Port  - Power Supply     Press 'OK' to continue the Installation.  Press 'Cancel' to stop the Installation.
+2019-07-29 15:31:39> Dialog information: : () - complete; --ATTENTION: Only define a reachable position!
+2019-07-29 15:31:39> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:41> Dialog information: : () - complete; --Place the Balance with Centering Carrier on Track
+2019-07-29 15:31:41> Dialog information: : () - complete; --
+2019-07-29 15:31:41> Dialog information: : () - complete; ==>15
+2019-07-29 15:31:41> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:41> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:31:41> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:41> Balance : Initialize the Balance - start; 
+2019-07-29 15:31:41> Balance : Terminate communication to the Balance - complete; 
+2019-07-29 15:31:41> USER : Trace - complete; Test : balance info-------->: ComPort =>4<  balanceType =>Mettler WXS<  portSettings =>9600,n,8,1<
+2019-07-29 15:31:43> Balance : Execute command on the Balance:  I2 - start; 
+2019-07-29 15:31:43> Balance : Execute command on the Balance:  I2 ==>: I2 A "WXS205SDU WXA-Bridge 220.0090 g" - complete; 
+2019-07-29 15:31:43> USER : Trace - complete; Test : balance info-------->: ComPort =>4<  balanceType =>Mettler WXS<  balance with terminal =>false<
+2019-07-29 15:31:43> Balance : Initialize the Balance - complete; Communication found at Com Port Number =>4<==
+2019-07-29 15:31:43> USER : Trace - complete; Test: AddTemplateOnDeck,  carrierName =>VER_CAR_REAGENT<  carrierType =>0< trackPosition =>9<=
+2019-07-29 15:31:43> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:31:43> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: locked
+2019-07-29 15:31:44> USER : Trace - complete; Test: HideStatusDialog starting : Status  dialogOpen ==>true<==
+2019-07-29 15:31:44> SYSTEM : Execute method - error; An error occurred while running Vector.  The error description is: C:\Program Files\HAMILTON\Library\HslVerToolsLib.hs_(5080) : failed to lookup identifier 'VerTool::OnStatusDialog_Abort' in the symbol table (0x23 - 0x1 - 0x3) , 
+2019-07-29 15:31:45> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:45> Dialog information: : () - complete; --User information:
+2019-07-29 15:31:45> Dialog information: : () - complete; --Reader384 Installation:
+2019-07-29 15:31:45> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:45> Dialog information: : () - complete; --Install the Reader384:   -----------------------------------------------     Connect the Reader384 with  - Power Supply  - USB Cable to PC     Press 'Yes' to check the Reader384 again.  Press 'No' to skip the Reader384 check.     Press 'Cancel' to stop the Verification.
+2019-07-29 15:31:45> Dialog information: : () - complete; --Note: The Reader384 was checked today.
+2019-07-29 15:31:45> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:46> Dialog information: : () - complete;  User Response ==>7<==
+2019-07-29 15:31:46> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - start; 
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - start; Available instruments:
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - progress;  0. \\?\usb#vid_04d8&pid_000c#6&5e9fbfa&0&4#{5354fa28-6d14-4e35-a1f5-75bb54e6030f}
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - progress;       DeviceType = Reader384
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - progress;       DeviceID   = 0
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - complete; 
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - progress; Reader384 connection status is : true
+2019-07-29 15:31:50> VerTool::Reader_OpenCommunication : () - complete; 
+2019-07-29 15:31:50> VerTool::Reader_TransmitCommand : () - start;  command=P0RF
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - progress;  TxB = <P0RF>, timeout = 10
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - progress;  RxB = <P0RFer00rf1.10R2011-03-06B119>
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - complete;  response ==>er00rf1.10R2011-03-06B119<==
+2019-07-29 15:31:50> VerTool::Reader_TransmitCommand : () - complete;  response ==>er00rf1.10R2011-03-06B119<==
+2019-07-29 15:31:50> VerTool::Reader_GetStatus : () - start;  Reader ID = P0
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - progress;  TxB = <P0RF>, timeout = 10
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - progress;  RxB = <P0RFer00rf1.10R2011-03-06B119>
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - complete;  response ==>er00rf1.10R2011-03-06B119<==
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - progress;  TxB = <P0RLsf1>, timeout = 10
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - progress;  RxB = <P0RLer00sf1sv001sn0000>
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - complete;  response ==>er00sf1sv001sn0000<==
+2019-07-29 15:31:50> VerTool::TxRxCommand : () - progress;  TxB = <P0RLsf2>, timeout = 10
+2019-07-29 15:31:51> VerTool::TxRxCommand : () - progress;  RxB = <P0RLer00sf2sv405sn2529>
+2019-07-29 15:31:51> VerTool::TxRxCommand : () - complete;  response ==>er00sf2sv405sn2529<==
+2019-07-29 15:31:51> VerTool::TxRxCommand : () - progress;  TxB = <P0RLsf3>, timeout = 10
+2019-07-29 15:31:51> VerTool::TxRxCommand : () - progress;  RxB = <P0RLer00sf3sv003sn0000>
+2019-07-29 15:31:51> VerTool::TxRxCommand : () - complete;  response ==>er00sf3sv003sn0000<==
+2019-07-29 15:31:51> VerTool::TxRxCommand : () - progress;  TxB = <P0RLsf4>, timeout = 10
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - progress;  RxB = <P0RLer00sf4sv004sn0000>
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - complete;  response ==>er00sf4sv004sn0000<==
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - progress;  TxB = <P0RLsf5>, timeout = 10
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - progress;  RxB = <P0RLer00sf5sv005sn0000>
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - complete;  response ==>er00sf5sv005sn0000<==
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - progress;  TxB = <P0RLsf6>, timeout = 10
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - progress;  RxB = <P0RLer00sf6sv006sn0000>
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - complete;  response ==>er00sf6sv006sn0000<==
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - progress;  TxB = <P0RS>, timeout = 10
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - progress;  RxB = <P0RSer00sn1093>
+2019-07-29 15:31:52> VerTool::TxRxCommand : () - complete;  response ==>er00sn1093<==
+2019-07-29 15:31:52> VerTool::Reader_GetStatus : () - complete; 
+2019-07-29 15:31:52> Microlab® STAR : Initialize (Single Step) - start;
+2019-07-29 15:31:53> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-07-29 15:31:53> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:31:53> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2019-07-29 15:31:53> USER : Trace - complete;  
+2019-07-29 15:31:53> USER : Trace - complete; ------------------------------------------------------------------------------
+2019-07-29 15:31:53> USER : Trace - complete;  
+2019-07-29 15:31:53> USER : Trace - complete;            Start of the Cover Safety Verification:
+2019-07-29 15:31:53> USER : Trace - complete;  
+2019-07-29 15:31:53> USER : Trace - complete; ------------------------------------------------------------------------------
+2019-07-29 15:31:53> USER : Trace - complete;  
+2019-07-29 15:31:53> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:53> Dialog information: : () - complete; --User information:
+2019-07-29 15:31:53> Dialog information: : () - complete; --Start of the Cover Safety Verification:
+2019-07-29 15:31:53> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:31:53> Dialog information: : () - complete; --Next processing steps to be performed:              - Cover Safety Verification                    Open the Front Cover.      
+2019-07-29 15:31:53> Dialog information: : () - complete; --Hint: The Front Cover should not be locked
+2019-07-29 15:31:53> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:04> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:32:04> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:04> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:04> Microlab® STAR : Firmware Command (Single Step) - complete;  > QC: er00/00qc0
+2019-07-29 15:32:05> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:05> Dialog information: : () - complete; --User information:
+2019-07-29 15:32:05> Dialog information: : () - complete; --Cover Safety Verification Steps:
+2019-07-29 15:32:05> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:05> Dialog information: : () - complete; --Close the Front Cover.
+2019-07-29 15:32:05> Dialog information: : () - complete; --
+2019-07-29 15:32:05> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:06> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:32:06> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:06> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:06> Microlab® STAR : Firmware Command (Single Step) - complete;  > QC: er00/00qc1
+2019-07-29 15:32:06> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:32:06> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: locked
+2019-07-29 15:32:07> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:07> Dialog information: : () - complete; --User information:
+2019-07-29 15:32:07> Dialog information: : () - complete; --Cover Safety Verification Steps:
+2019-07-29 15:32:07> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:07> Dialog information: : () - complete; --Manually check if:        - The Front Cover is locked.           Is the Front Cover locked properly?
+2019-07-29 15:32:07> Dialog information: : () - complete; --
+2019-07-29 15:32:07> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:15> Dialog information: : () - complete;  User Response ==>7<==
+2019-07-29 15:32:15> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:15> VerTool::CopyFile : () - complete;  Run information: File 'C:\Program Files\HAMILTON\Methods\Verification\Template\Report_CoverSafety_VerEnu.xls' copied to 'C:\Program Files\HAMILTON\System\Report_CoverSafety_Ver_C034_201907291532.xls'.
+2019-07-29 15:32:15> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:15> Dialog information: : () - complete; --User information:
+2019-07-29 15:32:15> Dialog information: : () - complete; --Cover Safety Verification of the Front Cover.
+2019-07-29 15:32:15> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:15> Dialog information: : () - complete; --===  VERIFICATION FAILED!====        Check the report and manual for detailed information.
+2019-07-29 15:32:15> Dialog information: : () - complete; --ATTENTION: Verification Status is set to 'Failed'.
+2019-07-29 15:32:15> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:17> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:32:17> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:17> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2019-07-29 15:32:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:18> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2019-07-29 15:32:18> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:32:18> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2019-07-29 15:32:18> USER : Trace - complete;  Test: Convert file with PDF Creator =>C:\Program Files\HAMILTON\System\Report_CoverSafety_Ver_C034_201907291532.xls<   into file ==>Report_CoverSafety_Ver_C034_201907291532.pdf<==
+2019-07-29 15:32:18> VerTool::GeneratePDF_File_2:  : File generation: - start; PDF file 'Report_CoverSafety_Ver_C034_201907291532.pdf' will be generated soon ...
+2019-07-29 15:32:29> VerTool::GeneratePDF_File_2:  : File generation: - complete; PDF file 'C:\Program Files\HAMILTON\System\Report_CoverSafety_Ver_C034_201907291532.pdf' generated!
+2019-07-29 15:32:30> USER : Trace - complete; VerTool::ShowReportFile: execute command  =>"C:\Program Files\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe" "c:\program files\hamilton\system\report_coversafety_ver_c034_201907291532.pdf"<==
+2019-07-29 15:32:31> Microlab® STAR : Initialize (Single Step) - start;
+2019-07-29 15:32:31> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-07-29 15:32:31> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:32:32> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: locked
+2019-07-29 15:32:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:32> Microlab® STAR : Firmware Command (Single Step) - complete;  > RU: er00/00ru00950 13400 30000 30000
+2019-07-29 15:32:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:34> Microlab® STAR : Firmware Command (Single Step) - complete;  > KX: er00/00
+2019-07-29 15:32:34> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:36> Microlab® STAR : Firmware Command (Single Step) - complete;  > YP: er00
+2019-07-29 15:32:36> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:36> Microlab® STAR : Firmware Command (Single Step) - complete;  > YO: er00
+2019-07-29 15:32:36> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:32:36> Microlab® STAR : Firmware Command (Single Step) - complete;  > XO: er00
+2019-07-29 15:32:36> Microlab® STAR : Move Auto Load (Single Step) - start;
+2019-07-29 15:32:41> Microlab® STAR : Move Auto Load (Single Step) - complete;  > position: 54
+2019-07-29 15:32:42> USER : Trace - complete;  
+2019-07-29 15:32:42> USER : Trace - complete; ------------------------------------------------------------------------------
+2019-07-29 15:32:42> USER : Trace - complete;  
+2019-07-29 15:32:42> USER : Trace - complete;            Start of the Autoload Barcode Verification:
+2019-07-29 15:32:42> USER : Trace - complete;  
+2019-07-29 15:32:42> USER : Trace - complete; ------------------------------------------------------------------------------
+2019-07-29 15:32:42> USER : Trace - complete;  
+2019-07-29 15:32:42> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:42> Dialog information: : () - complete; --User information:
+2019-07-29 15:32:42> Dialog information: : () - complete; --Start of the Autoload Barcode Verification:
+2019-07-29 15:32:42> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:42> Dialog information: : () - complete; --Next processing steps to be performed:            - Autoload Barcode Verification              Load the Verification Barcode Carrier:     Part Number: 185270  Serial Number : 3703
+2019-07-29 15:32:42> Dialog information: : () - complete; --ATTENTION: Only define a reachable position!
+2019-07-29 15:32:42> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:57> Dialog information: : () - complete; --Place the 'Verification Barcode Carrier' on Track:
+2019-07-29 15:32:57> Dialog information: : () - complete; --
+2019-07-29 15:32:57> Dialog information: : () - complete; ==>34
+2019-07-29 15:32:57> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:57> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:32:57> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:32:57> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:32:57> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: locked
+2019-07-29 15:32:57> Microlab® STAR : Load Carrier (Single Step) - start;
+2019-07-29 15:33:13> Microlab® STAR : Load Carrier (Single Step) - complete;  > horizontalBarcodeCarrier:
+2019-07-29 15:33:13> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:33:22> Microlab® STAR : Firmware Command (Single Step) - complete;  > CR: er00/00
+2019-07-29 15:33:22> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:33:23> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: locked
+2019-07-29 15:33:23> Microlab® STAR : Load Carrier (Single Step) - start;
+2019-07-29 15:33:36> Microlab® STAR : Load Carrier (Single Step) - complete;  > verticalBarcodeCarrier:
+2019-07-29 15:33:36> Microlab® STAR : Unload Carrier (Single Step) - start;
+2019-07-29 15:33:46> Microlab® STAR : Unload Carrier (Single Step) - complete;  > verticalBarcodeCarrier:
+2019-07-29 15:33:46> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:33:46> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2019-07-29 15:33:46> VerTool::CopyFile : () - complete;  Run information: File 'C:\Program Files\HAMILTON\Methods\Verification\Template\Report_Barcode_VerEnu.xls' copied to 'C:\Program Files\HAMILTON\System\Report_Barcode_Ver_C034_201907291533.xls'.
+2019-07-29 15:33:46> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:33:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2019-07-29 15:33:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2019-07-29 15:33:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2019-07-29 15:33:47> USER : Trace - complete;  Test: Convert file with PDF Creator =>C:\Program Files\HAMILTON\System\Report_Barcode_Ver_C034_201907291533.xls<   into file ==>Report_Barcode_Ver_C034_201907291533.pdf<==
+2019-07-29 15:33:47> VerTool::GeneratePDF_File_2:  : File generation: - start; PDF file 'Report_Barcode_Ver_C034_201907291533.pdf' will be generated soon ...
+2019-07-29 15:33:58> VerTool::GeneratePDF_File_2:  : File generation: - complete; PDF file 'C:\Program Files\HAMILTON\System\Report_Barcode_Ver_C034_201907291533.pdf' generated!
+2019-07-29 15:33:59> USER : Trace - complete; VerTool::ShowReportFile: execute command  =>"C:\Program Files\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe" "c:\program files\hamilton\system\report_barcode_ver_c034_201907291533.pdf"<==
+2019-07-29 15:34:00> USER : Trace - complete;  ------  Array >Test:  ----  arr Recorded Values Array ---------<   with size =>0<--------
+2019-07-29 15:34:00> USER : Trace - complete;  ------  Array >Test:  ----  arr Recorded Values Array 2---------<   with size =>0<--------
+2019-07-29 15:34:00> Balance : Execute command on the Balance:  I4 - start; 
+2019-07-29 15:34:00> Balance : Execute command on the Balance:  I4 ==>: I4 A "B328543633" - complete; 
+2019-07-29 15:34:00> Balance : Execute command on the Balance:  I3 - start; 
+2019-07-29 15:34:00> Balance : Execute command on the Balance:  I3 ==>: I3 A "1.10 18.6.4.1361.1292" - complete; 
+2019-07-29 15:34:00> VerTool::Check_Balance : () - complete;  Balance firmware version : I3 A "1.10 18.6.4.1361.1292"
+2019-07-29 15:34:00> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2019-07-29 15:34:00> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2019-07-29 15:34:01> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:34:01> Dialog information: : () - complete; --User information:
+2019-07-29 15:34:01> Dialog information: : () - complete; --Balance Function Check:
+2019-07-29 15:34:01> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:34:01> Dialog information: : () - complete; --Check the 'Mettler WXS' Balance:   -----------------------------------------------  Balance Serial Number:  B328543633   -----------------------------------------------     Prior to the Balance check:  - Remove all items from the Balance.  - Mount the Weighing Platform and the Platform Ring  Hint: Vial Windshield should be onto the Balance.     ATTENTION: The Balance needs to be checked.     Press 'OK' to check the Balance.  Press 'Cancel' to stop the Verification.
+2019-07-29 15:34:01> Dialog information: : () - complete; --ATTENTION: Warm-up time of the Balance is at least 30 minutes!
+2019-07-29 15:34:01> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:34:06> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:34:06> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:34:06> USER : Trace - complete; Test:  Show Status Dialog  starting.   i_DialogTitle =>Balance Information:<===
+2019-07-29 15:34:07> USER : Trace - complete; Test: ShowStatusDialog: Status  dialogOpen ==>true<==
+2019-07-29 15:34:07> Balance : Execute command on the Balance:  M02 2 - start; 
+2019-07-29 15:34:07> Balance : Execute command on the Balance:  M02 2 ==>: M02 A - complete; 
+2019-07-29 15:34:07> Balance : Set weighing parameter - complete; 
+2019-07-29 15:34:07> Balance : Execute command on the Balance:  M01 0 - start; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  M01 0 ==>: M01 A - complete; 
+2019-07-29 15:34:08> Balance : Set weighing parameter - complete; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  USTB 0 3.6 1.1 - start; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  USTB 0 3.6 1.1 ==>: USTB A - complete; 
+2019-07-29 15:34:08> Balance : Set weighing parameter - complete; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  M21 0 3 - start; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  M21 0 3 ==>: M21 A - complete; 
+2019-07-29 15:34:08> Balance : Set weighing parameter - complete; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  M03 0 - start; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  M03 0 ==>: M03 A - complete; 
+2019-07-29 15:34:08> Balance : Set weighing parameter - complete; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  RDB - start; 
+2019-07-29 15:34:08> Balance : Execute command on the Balance:  RDB ==>: RDB A 4 - complete; 
+2019-07-29 15:34:08> Balance : Set weighing parameter - complete; 
+2019-07-29 15:34:08> Balance : Internal Calibration - start; 
+2019-07-29 15:34:39> Balance : Internal Calibration - complete; 
+2019-07-29 15:34:39> Balance : Execute command on the Balance:  RDB - start; 
+2019-07-29 15:34:40> Balance : Execute command on the Balance:  RDB ==>: RDB A 4 - complete; 
+2019-07-29 15:34:40> Balance : Execute command on the Balance:  RDB 5 - start; 
+2019-07-29 15:34:40> Balance : Execute command on the Balance:  RDB 5 ==>: RDB A - complete; 
+2019-07-29 15:34:42> Balance : Execute command on the Balance:  SI - start; 
+2019-07-29 15:34:43> Balance : Execute command on the Balance:  SI ==>: I4 A "B328543633" - complete; 
+2019-07-29 15:34:45> Balance : Execute command on the Balance:  SI - start; 
+2019-07-29 15:34:45> Balance : Execute command on the Balance:  SI ==>: S I - complete; 
+2019-07-29 15:34:47> Balance : Execute command on the Balance:  SI - start; 
+2019-07-29 15:34:47> Balance : Execute command on the Balance:  SI ==>: S S       0.00 mg - complete; 
+2019-07-29 15:34:47> Balance : Set weighing parameter - complete; 
+2019-07-29 15:34:47> Balance : Tare - start; 
+2019-07-29 15:34:47> Balance : Execute command on the Balance:  Z - start; 
+2019-07-29 15:34:47> Balance : Execute command on the Balance:  Z ==>: Z I - complete; 
+2019-07-29 15:34:47> Balance : Tare - complete; 
+2019-07-29 15:34:47> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:34:47> Dialog information: : () - complete; --User information:
+2019-07-29 15:34:47> Dialog information: : () - complete; --Balance Function Check:
+2019-07-29 15:34:47> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:34:47> Dialog information: : () - complete; --Place the Calibration Weight onto the Balance:   -----------------------------------------------        Handle the Calibration Weight with the forceps  and place it onto the Weighing Platform.     Place the Vial Windshield onto the Balance.        Press 'OK' to continue.
+2019-07-29 15:34:47> Dialog information: : () - complete; --
+2019-07-29 15:34:47> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:35:00> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:35:00> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:35:00> USER : Trace - complete; MWPMeasure:  Balance measurement value is ==>1.999656e+007 ug
+2019-07-29 15:35:00> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:35:00> Dialog information: : () - complete; --User information:
+2019-07-29 15:35:00> Dialog information: : () - complete; --Balance Function Check:
+2019-07-29 15:35:00> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:35:00> Dialog information: : () - complete; --Balance Check Results:   -----------------------------------------------     Measured the Weight:  19.99656 g     Acceptance Range : 19.99966 g .. 20.00034 g     --> Deviation:  -3440 µg (Acceptance Range: +/-340 µg)     Remove the Calibration Weight with the forceps  from the Balance.        Press 'OK' to check the Balance again.  Press 'Cancel' to stop the Verification.
+2019-07-29 15:35:00> Dialog information: : () - complete; --WARNING: Balance check failed !
+2019-07-29 15:35:00> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:35:21> Dialog information: : () - complete;  User Response ==>1<==
+2019-07-29 15:35:21> Dialog information: : () - complete; ----------------------------------
+2019-07-29 15:35:22> USER : Trace - complete; Test: HideStatusDialog starting : Status  dialogOpen ==>true<==
+2019-07-29 15:35:22> SYSTEM : Execute method - error; An error occurred while running Vector.  The error description is: C:\Program Files\HAMILTON\Library\HslVerToolsLib.hs_(5080) : failed to lookup identifier 'VerTool::OnStatusDialog_Abort' in the symbol table (0x23 - 0x1 - 0x3) , 
+2019-07-29 15:35:23> USER : Trace - complete; Test:  Show Status Dialog  starting.   i_DialogTitle =>Balance Information:<===
+2019-07-29 15:35:24> USER : Trace - complete; Test: ShowStatusDialog: Status  dialogOpen ==>true<==
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M02 2 - start; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M02 2 ==>: M02 A - complete; 
+2019-07-29 15:35:24> Balance : Set weighing parameter - complete; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M01 0 - start; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M01 0 ==>: M01 A - complete; 
+2019-07-29 15:35:24> Balance : Set weighing parameter - complete; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  USTB 0 3.6 1.1 - start; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  USTB 0 3.6 1.1 ==>: USTB A - complete; 
+2019-07-29 15:35:24> Balance : Set weighing parameter - complete; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M21 0 3 - start; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M21 0 3 ==>: M21 A - complete; 
+2019-07-29 15:35:24> Balance : Set weighing parameter - complete; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M03 0 - start; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  M03 0 ==>: M03 A - complete; 
+2019-07-29 15:35:24> Balance : Set weighing parameter - complete; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  RDB - start; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  RDB ==>: RDB A 5 - complete; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  RDB 4 - start; 
+2019-07-29 15:35:24> Balance : Execute command on the Balance:  RDB 4 ==>: RDB A - complete; 
+2019-07-29 15:35:26> Balance : Execute command on the Balance:  SI - start; 
+2019-07-29 15:35:27> Balance : Execute command on the Balance:  SI ==>: I4 A "B328543633" - complete; 
+2019-07-29 15:35:29> Balance : Execute command on the Balance:  SI - start; 
+2019-07-29 15:35:29> Balance : Execute command on the Balance:  SI ==>: S I - complete; 
+2019-07-29 15:35:31> Balance : Execute command on the Balance:  SI - start; 
+2019-07-29 15:35:31> Balance : Execute command on the Balance:  SI ==>: S S        0.0 mg - complete; 
+2019-07-29 15:35:31> Balance : Set weighing parameter - complete; 
+2019-07-29 15:35:31> Balance : Internal Calibration - start; 
+2019-07-29 15:36:47> Balance : Internal Calibration - error; 
+2019-07-29 15:36:47> SYSTEM : Execute method - error; An error occurred while running Vector.  The error description is: Execution of the Balance command failed! (0x0 - 0x0 - 0x1) , 
+2019-07-29 15:36:47> Microlab® STAR : End method command - start;
+2019-07-29 15:36:48> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-07-29 15:36:48> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-07-29 15:36:49> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2019-07-29 15:36:50> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-07-29 15:36:51> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2019-07-29 15:36:52> Microlab® STAR : End method command - complete;
+2019-07-29 15:36:52> SYSTEM : Method has been aborted by the system - complete; 
+2019-07-29 15:36:52> SYSTEM : Abort method - start; 
+2019-07-29 15:36:54> SYSTEM : Abort method - complete; 
+2019-07-29 15:36:54> SYSTEM : Execute method - complete with error; 
+2019-07-29 15:36:54> SYSTEM : End method - start; 
+2019-07-29 15:36:54> SYSTEM : End method - complete; 
+2019-07-29 15:36:56> SYSTEM : File checksum - written; $$author=gpadilla$$valid=0$$time=2019-07-29 15:36$$checksum=07a05c10$$length=137$$

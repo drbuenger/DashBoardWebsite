@@ -1,0 +1,452 @@
+2020-02-18 11:01:06> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\VM\StarLineWeeklyMaintenance.hsl
+2020-02-18 11:01:07> SYSTEM : Analyze method - complete; 
+2020-02-18 11:01:07> SYSTEM : Start method - start; 
+2020-02-18 11:01:07> SYSTEM : Start method - progress; User name: LabUser
+2020-02-18 11:01:07> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2020-02-18 11:01:07> SYSTEM : Start method - progress; Database version: Standard
+2020-02-18 11:01:07> SYSTEM : Start method - progress; Sample tracking: On
+2020-02-18 11:01:07> SYSTEM : Start method - progress; Vector Database: On
+2020-02-18 11:01:07> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2020-02-18 11:01:07> SYSTEM : Start method - complete; 
+2020-02-18 11:01:07> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\VM\StarLineWeeklyMaintenance.hsl
+2020-02-18 11:01:07> SYSTEM : Get Instrument Type (no instrument passed)  - start; 
+2020-02-18 11:01:08> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-02-18 11:01:09> Microlab® STAR : Start method command - start;
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Serial number of Instrument: 1731
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S B 2011-10-05
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S b 2012-02-13
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2020-02-18 11:01:09> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2020-02-18 11:01:11> Microlab® STAR : Start method command - complete;
+2020-02-18 11:01:11> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:11> Microlab® STAR : Firmware Command (Single Step) - complete;  > QM: er00/00ka000003xt54xa54xw13400xl05xr00xm03500xx11400ys090xu3700xv3700yu0060kl360kc0yx0060ke00000000xn00xo00ym0060kr0km360
+2020-02-18 11:01:11> SYSTEM : Evaluated instrument type: 0 - progress; 
+2020-02-18 11:01:11> Microlab® STAR : End method command - start;
+2020-02-18 11:01:12> Microlab® STAR : End method command - complete;
+2020-02-18 11:01:12> SYSTEM : Get Instrument Type (no instrument passed)  - complete; 
+2020-02-18 11:01:13> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2020-02-18 11:01:14> Microlab® STAR : Start method command - start;
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Serial number of Instrument: 1731
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S B 2011-10-05
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27, 3.8S d 2013-08-27
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S b 2012-02-13
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2020-02-18 11:01:14> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2020-02-18 11:01:16> Microlab® STAR : Start method command - complete;
+2020-02-18 11:01:16> USER : Trace - complete; Instrument Name: ML_STAR
+2020-02-18 11:01:16> USER : Trace - complete; User Software Version: 4.3.5.4785
+2020-02-18 11:01:16> USER : Trace - complete; Operator:LabUser
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - complete;  > RI: er00/00si2006-02-16sn1731
+2020-02-18 11:01:16> USER : Trace - complete; Instrument Serial No: 1731
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - complete;  > RM: er00/00kb09kp08 C00000 X00000 P10000 P20000 P30000 P40000 P50000 P60000 P70000 P80000 I00000 H00000
+2020-02-18 11:01:16> USER : Trace - complete; Instrument Number of 1000µl Channels: 8
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - complete;  > QM: er00/00ka000003xt54xa54xw13400xl05xr00xm03500xx11400ys090xu3700xv3700yu0060kl360kc0yx0060ke00000000xn00xo00ym0060kr0km360
+2020-02-18 11:01:16> USER : Trace - complete; Instrument Number of 5ml Channels: 0
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - complete;  > QG: qg2
+2020-02-18 11:01:16> USER : Trace - complete; Instrument CO-RE 96 TADM Head: not installed
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - complete;  > RA: zh21532
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - complete;  > RA: zc23024
+2020-02-18 11:01:16> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - complete;  > RA: zi0093
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - complete;  > RA: zj0
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - complete;  > RA: zv12000
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - complete;  > RA: zl04500
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:17> Microlab® STAR : Firmware Command (Single Step) - complete;  > RA: dp00000
+2020-02-18 11:01:17> Microlab® STAR : Initialize (Single Step) - start;
+2020-02-18 11:01:17> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2020-02-18 11:01:17> SYSTEM : Message Box - start; <Weekly maintenance - deck and tip waste>,   Available button(s): <Yes>, <No>,   Default button: <Yes>,   Message: <Do you want to execute the weekly maintenance for deck and waste?>
+2020-02-18 11:01:22> SYSTEM : Message Box - complete; <Weekly maintenance - deck and tip waste>,   Closed with: <Yes (6)>
+2020-02-18 11:01:22> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:22> Microlab® STAR : Firmware Command (Single Step) - complete;  > RU: er00/00ru00950 13400 30000 30000
+2020-02-18 11:01:22> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:24> Microlab® STAR : Firmware Command (Single Step) - complete;  > KX: er00/00
+2020-02-18 11:01:24> Microlab® STAR : Move Auto Load (Single Step) - start;
+2020-02-18 11:01:30> Microlab® STAR : Move Auto Load (Single Step) - complete;  > position: 01
+2020-02-18 11:01:30> SYSTEM : Message Box - start; <Weekly maintenance - autoload tray>,   Available button(s): <OK>, <Cancel>,   Default button: <OK>,   Message: <Make sure that there is no carrier on the autoload tray and press OK to continue.  Cancel will abort the weekly maintenance.>
+2020-02-18 11:01:40> SYSTEM : Message Box - complete; <Weekly maintenance - autoload tray>,   Closed with: <OK (1)>
+2020-02-18 11:01:40> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:41> Microlab® STAR : Firmware Command (Single Step) - complete;  > RC: er00/00cd20038104104000ce00000000000020038104104000
+2020-02-18 11:01:41> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:01:52> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:01:52> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:02:02> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:02:02> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:02:12> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:02:12> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:02:23> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:02:23> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:02:33> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:02:33> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:02:43> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:02:43> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:02:52> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:02:52> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:03:03> Microlab® STAR : Firmware Command (Single Step) - complete;  > CW: er00/00
+2020-02-18 11:03:03> SYSTEM : Message Box - start; <Weekly maintenance - carriers>,   Available button(s): <OK>, <Cancel>,   Default button: <OK>,   Message: <Remove all carriers from autoload tray, clean all carriers and press OK to continue.  (See Operator's Manual for use of cleaning, disinfecting and decontaminating fluids.)  Cancel will abort the weekly maintenance.>
+2020-02-18 11:03:11> SYSTEM : Message Box - complete; <Weekly maintenance - carriers>,   Closed with: <OK (1)>
+2020-02-18 11:03:11> Microlab® STAR : Move Auto Load (Single Step) - start;
+2020-02-18 11:03:11> Microlab® STAR : Move Auto Load (Single Step) - complete;  > position: 54
+2020-02-18 11:03:11> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2020-02-18 11:03:11> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2020-02-18 11:03:11> SYSTEM : Message Box - start; <Weekly maintenance - deck>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Open the front cover, clean the deck and press OK to continue.  (See Operator's Manual for use of cleaning, disinfecting and decontaminating fluids.)>
+2020-02-18 11:03:39> SYSTEM : Message Box - complete; <Weekly maintenance - deck>,   Closed with: <OK (1)>
+2020-02-18 11:03:39> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:03:39> Microlab® STAR : Firmware Command (Single Step) - complete;  > RW: er00/00rw100
+2020-02-18 11:03:39> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2020-02-18 11:03:40> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2020-02-18 11:03:40> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:03:40> Microlab® STAR : Firmware Command (Single Step) - complete;  > RU: er00/00ru00950 13400 30000 30000
+2020-02-18 11:03:40> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:03:40> Microlab® STAR : Firmware Command (Single Step) - complete;  > KX: er00/00
+2020-02-18 11:03:40> Microlab® STAR : Move Auto Load (Single Step) - start;
+2020-02-18 11:03:46> Microlab® STAR : Move Auto Load (Single Step) - complete;  > position: 01
+2020-02-18 11:03:46> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2020-02-18 11:03:46> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2020-02-18 11:03:46> SYSTEM : Message Box - start; <Weekly maintenance - tip waste>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Open the front cover, empty and clean the tip waste and press OK to continue.  (See Operator's Manual for use of cleaning, disinfecting and decontaminating fluids.)>
+2020-02-18 11:05:01> SYSTEM : Message Box - complete; <Weekly maintenance - tip waste>,   Closed with: <OK (1)>
+2020-02-18 11:05:01> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:02> Microlab® STAR : Firmware Command (Single Step) - complete;  > RW: er00/00rw100
+2020-02-18 11:05:02> SYSTEM : Message Box - start; <Weekly maintenance - autoload>,   Available button(s): <OK>, <Cancel>,   Default button: <OK>,   Message: <Check the laser scanner window and clean it with a lint-free cloth     or Q-tips lightly soaked in Ethanol (70%).>
+2020-02-18 11:05:05> SYSTEM : Message Box - complete; <Weekly maintenance - autoload>,   Closed with: <OK (1)>
+2020-02-18 11:05:05> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:05> Microlab® STAR : Firmware Command (Single Step) - complete;  > RW: er00/00rw100
+2020-02-18 11:05:05> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2020-02-18 11:05:06> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2020-02-18 11:05:06> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:06> Microlab® STAR : Firmware Command (Single Step) - complete;  > RU: er00/00ru00950 13400 30000 30000
+2020-02-18 11:05:06> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:08> Microlab® STAR : Firmware Command (Single Step) - complete;  > KX: er00/00
+2020-02-18 11:05:08> Microlab® STAR : Move Auto Load (Single Step) - start;
+2020-02-18 11:05:14> Microlab® STAR : Move Auto Load (Single Step) - complete;  > position: 54
+2020-02-18 11:05:14> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:14> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2020-02-18 11:05:14> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:15> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2020-02-18 11:05:15> SYSTEM : Message Box - start; <Weekly Maintenance - Tightness Check 1000µl Channel>,   Available button(s): <Yes>, <No>,   Default button: <Yes>,   Message: <Do you want to execute the 1000µl Channel tightness check?   Make sure that 8 1000µl teaching needles are installed.>
+2020-02-18 11:05:17> SYSTEM : Message Box - complete; <Weekly Maintenance - Tightness Check 1000µl Channel>,   Closed with: <Yes (6)>
+2020-02-18 11:05:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:17> Microlab® STAR : Firmware Command (Single Step) - complete;  > AA: er00
+2020-02-18 11:05:17> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-02-18 11:05:30> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: teachingNeedleBlock, 1 > channel 2: teachingNeedleBlock, 2 > channel 3: teachingNeedleBlock, 3 > channel 4: teachingNeedleBlock, 4 > channel 5: teachingNeedleBlock, 5 > channel 6: teachingNeedleBlock, 6 > channel 7: teachingNeedleBlock, 7 > channel 8: teachingNeedleBlock, 8
+2020-02-18 11:05:30> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:30> Microlab® STAR : Firmware Command (Single Step) - complete;  > BP: er00
+2020-02-18 11:05:30> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4160
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4130
+2020-02-18 11:05:31> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:32> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:32> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4145
+2020-02-18 11:05:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:32> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:33> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4150
+2020-02-18 11:05:33> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:33> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:33> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:33> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4155
+2020-02-18 11:05:33> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4067
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4199
+2020-02-18 11:05:34> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:35> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:05:35> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:35> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4184
+2020-02-18 11:05:37> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:37> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4160
+2020-02-18 11:05:37> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4135
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4150
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4145
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4140
+2020-02-18 11:05:38> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:39> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4072
+2020-02-18 11:05:39> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:39> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4199
+2020-02-18 11:05:39> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:39> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4150
+2020-02-18 11:05:59> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:59> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4169
+2020-02-18 11:05:59> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:05:59> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4140
+2020-02-18 11:05:59> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4160
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4150
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4165
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4082
+2020-02-18 11:06:00> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:01> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4204
+2020-02-18 11:06:01> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:01> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp+4155
+2020-02-18 11:06:01> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-02-18 11:06:08> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: teachingNeedleBlock, 1 > channel 2: teachingNeedleBlock, 2 > channel 3: teachingNeedleBlock, 3 > channel 4: teachingNeedleBlock, 4 > channel 5: teachingNeedleBlock, 5 > channel 6: teachingNeedleBlock, 6 > channel 7: teachingNeedleBlock, 7 > channel 8: teachingNeedleBlock, 8
+2020-02-18 11:06:08> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:08> Microlab® STAR : Firmware Command (Single Step) - complete;  > AA: er00
+2020-02-18 11:06:08> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-02-18 11:06:17> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: teachingNeedleBlock, 1 > channel 2: teachingNeedleBlock, 2 > channel 3: teachingNeedleBlock, 3 > channel 4: teachingNeedleBlock, 4 > channel 5: teachingNeedleBlock, 5 > channel 6: teachingNeedleBlock, 6 > channel 7: teachingNeedleBlock, 7 > channel 8: teachingNeedleBlock, 8
+2020-02-18 11:06:17> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - complete;  > BP: er00
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4389
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:18> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:19> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4399
+2020-02-18 11:06:19> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:19> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:19> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:19> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4404
+2020-02-18 11:06:19> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4375
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4379
+2020-02-18 11:06:20> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4340
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4370
+2020-02-18 11:06:21> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:22> Microlab® STAR : Firmware Command (Single Step) - complete;  > DS: er00
+2020-02-18 11:06:22> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:22> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4355
+2020-02-18 11:06:24> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:24> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4389
+2020-02-18 11:06:24> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:24> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4399
+2020-02-18 11:06:24> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4404
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4375
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4379
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4335
+2020-02-18 11:06:25> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:26> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4370
+2020-02-18 11:06:26> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:26> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4355
+2020-02-18 11:06:46> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:46> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4389
+2020-02-18 11:06:46> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:46> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4389
+2020-02-18 11:06:46> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4404
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4375
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4379
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4321
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4370
+2020-02-18 11:06:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:48> Microlab® STAR : Firmware Command (Single Step) - complete;  > RP: rp-4355
+2020-02-18 11:06:48> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-02-18 11:06:55> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: teachingNeedleBlock, 1 > channel 2: teachingNeedleBlock, 2 > channel 3: teachingNeedleBlock, 3 > channel 4: teachingNeedleBlock, 4 > channel 5: teachingNeedleBlock, 5 > channel 6: teachingNeedleBlock, 6 > channel 7: teachingNeedleBlock, 7 > channel 8: teachingNeedleBlock, 8
+2020-02-18 11:06:55> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:06:55> Microlab® STAR : Firmware Command (Single Step) - complete;  > AA: er00
+2020-02-18 11:06:55> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:01> Microlab® STAR : Firmware Command (Single Step) - complete;  > DI: er00
+2020-02-18 11:07:01> SYSTEM : Message Box - start; <Weekly Maintenance - cLLD Check 1000µl Channel>,   Available button(s): <Yes>, <No>,   Default button: <Yes>,   Message: <Do you want to execute the 1000µl Channel cLLD check?   Make sure that 8 1000µl teaching needles are installed.>
+2020-02-18 11:07:25> SYSTEM : Message Box - complete; <Weekly Maintenance - cLLD Check 1000µl Channel>,   Closed with: <Yes (6)>
+2020-02-18 11:07:25> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - start;
+2020-02-18 11:07:32> Microlab® STAR : 1000µl Channel Tip Pick Up (Single Step) - complete;  > channel 1: teachingNeedleBlock, 1 > channel 2: teachingNeedleBlock, 2 > channel 3: teachingNeedleBlock, 3 > channel 4: teachingNeedleBlock, 4 > channel 5: teachingNeedleBlock, 5 > channel 6: teachingNeedleBlock, 6 > channel 7: teachingNeedleBlock, 7 > channel 8: teachingNeedleBlock, 8
+2020-02-18 11:07:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:32> Microlab® STAR : Firmware Command (Single Step) - complete;  > AL: er00
+2020-02-18 11:07:32> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:34> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:07:34> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:34> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:07:34> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:35> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:07:35> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:37> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:07:37> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:37> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:07:37> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:38> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:07:38> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:39> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:07:39> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:39> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:07:39> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:39> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:07:39> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:42> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:07:42> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:42> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:07:42> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:42> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:07:42> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:43> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:07:43> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:44> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:07:44> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:44> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:07:44> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:07:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:07:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:47> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:07:47> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:48> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:07:48> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:49> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:07:49> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:49> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:07:49> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:52> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:07:52> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:52> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:07:52> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:52> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:07:52> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:54> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:07:54> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:54> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:07:54> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:54> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:07:54> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:57> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:07:57> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:57> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:07:57> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:57> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:07:57> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:59> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:07:59> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:59> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:07:59> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:07:59> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:07:59> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:02> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:08:02> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:02> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:08:02> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:03> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:08:03> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:04> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:08:04> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:05> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:08:05> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:05> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:08:05> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:07> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:08:07> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:07> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:08:07> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:08> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:08:08> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:10> Microlab® STAR : Firmware Command (Single Step) - complete;  > JM: er00/00
+2020-02-18 11:08:10> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:10> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er70
+2020-02-18 11:08:10> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:10> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn0
+2020-02-18 11:08:10> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:13> Microlab® STAR : Firmware Command (Single Step) - complete;  > ZL: er00
+2020-02-18 11:08:13> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:13> Microlab® STAR : Firmware Command (Single Step) - complete;  > RN: rn1
+2020-02-18 11:08:13> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:14> Microlab® STAR : Firmware Command (Single Step) - complete;  > KZ: er00/00
+2020-02-18 11:08:14> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:14> Microlab® STAR : Firmware Command (Single Step) - complete;  > AL: er00
+2020-02-18 11:08:14> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:14> Microlab® STAR : Firmware Command (Single Step) - complete;  > AA: er00
+2020-02-18 11:08:14> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - start;
+2020-02-18 11:08:22> Microlab® STAR : 1000µl Channel Tip Eject (Single Step) - complete;  > channel 1: teachingNeedleBlock, 1 > channel 2: teachingNeedleBlock, 2 > channel 3: teachingNeedleBlock, 3 > channel 4: teachingNeedleBlock, 4 > channel 5: teachingNeedleBlock, 5 > channel 6: teachingNeedleBlock, 6 > channel 7: teachingNeedleBlock, 7 > channel 8: teachingNeedleBlock, 8
+2020-02-18 11:08:22> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:24> Microlab® STAR : Firmware Command (Single Step) - complete;  > DI: er00
+2020-02-18 11:08:24> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:24> Microlab® STAR : Firmware Command (Single Step) - complete;  > RU: er00/00ru00950 13400 30000 30000
+2020-02-18 11:08:24> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:25> Microlab® STAR : Firmware Command (Single Step) - complete;  > KX: er00/00
+2020-02-18 11:08:25> Microlab® STAR : Move Auto Load (Single Step) - start;
+2020-02-18 11:08:25> Microlab® STAR : Move Auto Load (Single Step) - complete;  > position: 54
+2020-02-18 11:08:25> SYSTEM : Message Box - start; <Weekly maintenance - successful>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Weekly maintenance execute successfully completed>
+2020-02-18 11:08:27> SYSTEM : Message Box - complete; <Weekly maintenance - successful>,   Closed with: <OK (1)>
+2020-02-18 11:08:27> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - start;
+2020-02-18 11:08:27> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - complete;  > Front Cover: unlocked
+2020-02-18 11:08:28> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:28> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2020-02-18 11:08:28> Microlab® STAR : Firmware Command (Single Step) - start;
+2020-02-18 11:08:28> Microlab® STAR : Firmware Command (Single Step) - complete;  > AV: er00/00
+2020-02-18 11:08:28> Microlab® STAR : End method command - start;
+2020-02-18 11:08:29> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-02-18 11:08:29> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-02-18 11:08:30> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2020-02-18 11:08:32> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-02-18 11:08:34> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2020-02-18 11:08:34> Microlab® STAR : End method command - complete;
+2020-02-18 11:08:35> SYSTEM : Execute method - complete; 
+2020-02-18 11:08:35> SYSTEM : End method - start; 
+2020-02-18 11:08:35> SYSTEM : End method - complete; 
+2020-02-18 11:08:35> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-02-18 11:08$$checksum=7faecf81$$length=136$$

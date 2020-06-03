@@ -1,0 +1,3 @@
+2019-06-26 10:51:55> SYSTEM : Analyze method - error; An error occurred while running Vector.  The error description is: File 'NanoCoo_20140602.stp' must not be used in routine work! (File not validated) (0x37 - 0x0 - 0x7) , 
+2019-06-26 10:51:55> SYSTEM : Analyze method - complete with error; 
+2019-06-26 10:51:57> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-06-26 10:51$$checksum=801e8889$$length=136$$

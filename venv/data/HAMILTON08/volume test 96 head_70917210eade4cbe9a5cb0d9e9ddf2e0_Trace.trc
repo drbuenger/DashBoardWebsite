@@ -1,0 +1,72 @@
+2019-01-18 13:57:03> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Methods Under Development\volume test 96 head.hsl
+2019-01-18 13:57:04> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-01-18 13:57:05> SYSTEM : Analyze method - complete; 
+2019-01-18 13:57:05> SYSTEM : Start method - start; 
+2019-01-18 13:57:05> SYSTEM : Start method - progress; User name: LabUser
+2019-01-18 13:57:05> SYSTEM : Start method - progress; Phoenix software version: 4.3.5.7377
+2019-01-18 13:57:05> SYSTEM : Start method - progress; Database version: Standard
+2019-01-18 13:57:05> SYSTEM : Start method - progress; Sample tracking: On
+2019-01-18 13:57:05> SYSTEM : Start method - progress; Vector Database: On
+2019-01-18 13:57:05> SYSTEM : Start method - progress; Vector Database connection: Database 'HamiltonVectorDB' on Microsoft SQL Server 'LOCALHOST\HAMILTON' with user 'Hamilton'
+2019-01-18 13:57:06> Microlab® STAR : Start method command - start;
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Microlab® STAR software version: 4.3.5.4785
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Serial number of Instrument: C034
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of main module: 7.1S E 2015-04-01
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of 1000µl channels: 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09, 3.8S j 2016-06-09
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of 5ml channels: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of capper channels: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of X drive: 1.3S 2009-11-13
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of auto load: 3.4S e 2016-05-02
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of iSWAP: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of washer 1: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of washer 2: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 1: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of temperature-controlled carrier 2: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 96 Head: 5.0S d 2013-08-30 (H0 XE167)
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of pump station 1: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of pump station 2: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of pump station 3: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of nano dispenser pressure unit: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of CO-RE 384 Head: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of tube gripper: not installed
+2019-01-18 13:57:06> Microlab® STAR : Start method command - progress; Firmware version of camera channel: not installed
+2019-01-18 13:57:08> Microlab® STAR : Start method command - complete;
+2019-01-18 13:57:08> SYSTEM : Start method - complete; 
+2019-01-18 13:57:08> SYSTEM : Execute method - start; Method file C:\Program Files\HAMILTON\Methods\Methods Under Development\volume test 96 head.hsl
+2019-01-18 13:57:08> Microlab® STAR : Initialize (Single Step) - start;
+2019-01-18 13:57:09> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
+2019-01-18 13:57:09> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Confirm volume for High Volume pipette test >, Default value: <150>, Type: <Integer>, Minimum: <10>, Maximum: <250>,   Input row 2 - Prompt: <Confirm volume for Low Volume pipette test >, Default value: <5>, Type: <Integer>, Minimum: <2>, Maximum: <15>,   Input row 3 - Prompt: <Confirm diluent volume for Low Volume test >, Default value: <150>, Type: <Integer>, Minimum: <50>, Maximum: <150>,   Input row 4 - Prompt: <Confirm volume for Drip Test>, Default value: <150>, Type: <Integer>, Minimum: <50>, Maximum: <150>
+2019-01-18 14:08:22> SYSTEM : User Input Dialog - complete; <>,   Closed with: <OK (1)>,   Input row 1 - Prompt: <Confirm volume for High Volume pipette test >, Value: <150>,   Input row 2 - Prompt: <Confirm volume for Low Volume pipette test >, Value: <10>,   Input row 3 - Prompt: <Confirm diluent volume for Low Volume test >, Value: <140>,   Input row 4 - Prompt: <Confirm volume for Drip Test>, Value: <150>
+2019-01-18 14:08:22> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Low Volume dye is usually 1:10 or 1:5 dilution of Stock Dye  High Volume dye is usually 1:100 dilution of Stock Dye  Diluent is usually 10mM Tris, pH 7-8>
+2019-01-18 14:08:23> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2019-01-18 14:08:23> SYSTEM : User Output Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Message: <Place a trough of 100ml Diluent in the AC carrier on Rail 22, pos 1  Place a trough of 200ml Low Volume Dye in the AC carrier on Rail 22, pos 2  Place a trough of 100ml High Volume Dye in the AC carrier on Rail 22, pos 3  Place empty Greiner 96-well UVTP plates in MD carrier 1 on Rail 16, positions 1,2,4,& 5  Place a full rack of 300ul tips in pos 1,3, & 4 of tip carrier 1  Place a half rack of 300ul tips in pos 2 of tip carrier 1  Place a full rack of 50ul tips in pos 1 and 2 of Tip Carrier 2 1  Place tip adapter in furthest position from you on Tip Carrier 2 1  >
+2019-01-18 14:08:26> SYSTEM : User Output Dialog - complete; <>,   Closed with: <OK (1)>
+2019-01-18 14:08:26> Microlab® STAR : CO-RE 96 Head Tip Pick Up (Single Step) - start;
+2019-01-18 14:08:26> Microlab® STAR : CO-RE 96 Head Tip Pick Up (Single Step) - error;  > CO-RE 96 Head: 1, E:P1:25/36:Cancel
+2019-01-18 14:08:26> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Step canceled.  User-defined error handling will be used.  (Stop detected on instrument.   This error occurs when the cover is open, the cover is opened during a run or a carrier is manually unloaded or loaded) (0x28 - 0x1 - 0x80a) 
+2019-01-18 14:08:26> Microlab® STAR : CO-RE 96 Head Tip Pick Up (Single Step) - progress; Error manual recovered by user.
+2019-01-18 14:08:26> Microlab® STAR : CO-RE 96 Head Tip Pick Up (Single Step) - complete with error; An error occurred while running Vector.  The error description is: Step canceled.  User-defined error handling will be used.  (Stop detected on instrument.   This error occurs when the cover is open, the cover is opened during a run or a carrier is manually unloaded or loaded) (0x28 - 0x1 - 0x80a) ,  > CO-RE 96 Head: STF_L_0001, > channel 1: 1 > channel 2: 2 > channel 3: 3 > channel 4: 4 > channel 5: 5 > channel 6: 6 > channel 7: 7 > channel 8: 8 > channel 9: 9 > channel 10: 10 > channel 11: 11 > channel 12: 12 > channel 13: 13 > channel 14: 14 > channel 15: 15 > channel 16: 16 > channel 17: 17 > channel 18: 18 > channel 19: 19 > channel 20: 20 > channel 21: 21 > channel 22: 22 > channel 23: 23 > channel 24: 24 > channel 25: 25 > channel 26: 26 > channel 27: 27 > channel 28: 28 > channel 29: 29 > channel 30: 30 > channel 31: 31 > channel 32: 32 > channel 33: 33 > channel 34: 34 > channel 35: 35 > channel 36: 36 > channel 37: 37 > channel 38: 38 > channel 39: 39 > channel 40: 40 > channel 41: 41 > channel 42: 42 > channel 43: 43 > channel 44: 44 > channel 45: 45 > channel 46: 46 > channel 47: 47 > channel 48: 48 > channel 49: 49 > channel 50: 50 > channel 51: 51 > channel 52: 52 > channel 53: 53 > channel 54: 54 > channel 55: 55 > channel 56: 56 > channel 57: 57 > channel 58: 58 > channel 59: 59 > channel 60: 60 > channel 61: 61 > channel 62: 62 > channel 63: 63 > channel 64: 64 > channel 65: 65 > channel 66: 66 > channel 67: 67 > channel 68: 68 > channel 69: 69 > channel 70: 70 > channel 71: 71 > channel 72: 72 > channel 73: 73 > channel 74: 74 > channel 75: 75 > channel 76: 76 > channel 77: 77 > channel 78: 78 > channel 79: 79 > channel 80: 80 > channel 81: 81 > channel 82: 82 > channel 83: 83 > channel 84: 84 > channel 85: 85 > channel 86: 86 > channel 87: 87 > channel 88: 88 > channel 89: 89 > channel 90: 90 > channel 91: 91 > channel 92: 92 > channel 93: 93 > channel 94: 94 > channel 95: 95 > channel 96: 96
+2019-01-18 14:08:26> SYSTEM : Method has been aborted by the system - complete; 
+2019-01-18 14:08:26> SYSTEM : Abort method - start; 
+2019-01-18 14:08:26> Microlab® STAR : Abort requested command - start;
+2019-01-18 14:08:26> Microlab® STAR : Abort requested command - complete;
+2019-01-18 14:08:26> Microlab® STAR : Start Method Abort Handler command - start;
+2019-01-18 14:08:26> Microlab® STAR : Start Method Abort Handler command - complete;
+2019-01-18 14:08:26> Microlab® STAR : Abort command - start;
+2019-01-18 14:08:26> Microlab® STAR : Abort command - complete;
+2019-01-18 14:08:27> SYSTEM : Abort method - complete; 
+2019-01-18 14:08:27> SYSTEM : Execute method - complete with error; 
+2019-01-18 14:08:27> SYSTEM : End method - start; 
+2019-01-18 14:08:27> Microlab® STAR : End method command - start;
+2019-01-18 14:08:27> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - progress; Error handling waiting for manual recovery!
+2019-01-18 14:08:37> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - error;  > Front Cover: 1, E:X0:16/60:Repeat
+2019-01-18 14:08:37> Microlab® STAR : Lock/Unlock Front Cover (Single Step) - progress; Error manual recovered by user.
+2019-01-18 14:08:38> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2019-01-18 14:08:38> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2019-01-18 14:08:39> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2019-01-18 14:08:40> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2019-01-18 14:08:40> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2019-01-18 14:08:41> Microlab® STAR : End method command - complete;
+2019-01-18 14:08:41> SYSTEM : End method - complete; 
+2019-01-18 14:08:44> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-01-18 14:08$$checksum=22124d2c$$length=136$$

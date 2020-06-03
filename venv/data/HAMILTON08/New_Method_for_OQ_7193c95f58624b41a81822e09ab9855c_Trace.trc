@@ -1,0 +1,6 @@
+2019-07-25 11:33:36> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\IOQ Created\2019 - July IOQ\New_Method_for_OQ.hsl
+2019-07-25 11:33:37> Microlab® STAR : Communication - progress; Connection to instrument is created.
+2019-07-25 11:33:38> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument configuration described in the instrument configuration file does not match the configuration reported by the instrument.  (Default waste for C0-RE 96 Head is missing.  ) (0x28 - 0x1 - 0x806) 
+2019-07-25 11:33:38> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: The instrument configuration described in the instrument configuration file does not match the configuration reported by the instrument.  (Default waste for C0-RE 96 Head is missing.  ) (0x28 - 0x1 - 0x806) 
+2019-07-25 11:33:38> SYSTEM : Analyze method - complete with error; 
+2019-07-25 11:33:51> SYSTEM : File checksum - written; $$author=gpadilla$$valid=0$$time=2019-07-25 11:33$$checksum=0cf371ea$$length=137$$

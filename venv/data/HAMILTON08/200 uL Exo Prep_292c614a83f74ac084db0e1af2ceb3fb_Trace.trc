@@ -1,0 +1,4 @@
+2019-09-25 16:07:51> SYSTEM : Analyze method - start; Method file C:\Program Files\HAMILTON\Methods\Codeset\200 uL Exo Prep.hsl
+2019-09-25 16:07:51> Microlab® STAR : Main - error; An error occurred while running Vector.  The error description is: Error code 0xE0001005: USB device is already configured. (0x33 - 0x1 - 0x805) 
+2019-09-25 16:07:51> SYSTEM : Analyze method - complete with error; 
+2019-09-25 16:07:53> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2019-09-25 16:07$$checksum=3a71f94c$$length=136$$
