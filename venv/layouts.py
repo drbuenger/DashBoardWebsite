@@ -41,6 +41,12 @@ df.dropna(axis=0, inplace=True)
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'] - df['Time Start']
+#df['Duration'] = pd.Timedelta(df['Time End'] - df['Time Start']).seconds / 60
+#df['Time Start'] = df['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+#df['Time End'] = df['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+#df['Duration'] = pd.Timedelta(['Duration'].dt.str("%Y/%m/%d %H:%M:%S")
+
+
 df = df.loc[(df!=0).any(axis=1)]
 unique_serial_numbers = df['Serial Number'].unique()
 

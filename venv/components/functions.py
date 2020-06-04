@@ -45,6 +45,7 @@ def formatter_percent_2_digits(x):
 def formatter_number(x):
     return "{:,.0f}".format(x) if x >= 0 else "({:,.0f})".format(abs(x))
 
+
 # Read Text File
 def read_trace_file(file):
     method_name = "NA"
@@ -81,20 +82,38 @@ def read_trace_file(file):
 def update_first_datatable(start_date, end_date, serial_number):
 
     df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    df1['Duration'].apply(lambda x: pd.Timedelta(x))
+    df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
     return df1.to_dict('records')
 
 # First Data Table Update Function
 def update_summary_datatable(start_date, end_date, serial_number):
 
     df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
-    dict_of_methods = df1.groupby('Method Name')['Method Name'].count().to_dict()
+    df1['Duration'].apply(lambda x: pd.Timedelta(x))
+    df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df2 = df1.copy()
+    aggregations = {
+        'Method Name': {
+            # get the sum, and call this result 'total_duration'
+            'Count': 'count'
+        }
+        }
+    #df2 = df1.groupby('Method Name', as_index = True).agg(aggregations)
+    #num_minute=pd.NamedAgg(column='Duration',aggfunc=lambda x: pd.to_datetime()),
+    #average=pd.NamedAgg(column='Duration',aggfunc=mean)
+
+    #df2['Count'] = df1.groupby(['Method Name']).count()
+    df2.reset_index()
     # df2 = pd.DataFrame.from_dict(dict_of_methods)
     # df3 = df2.copy()
     # df3['Total Used'] = pd.DataFrame.count(df2['Method Name'])
     # df3['Average'] = df1['Duration'].mean()
-    df2 = pd.DataFrame.from_dict(dict_of_methods, orient='index')
-    df2
-    return df2.to_dict('records')
+    #df2 = pd.DataFrame.from_dict(dict_of_methods, orient='index')
+    df3 = df2.to_dict("record")
+    return df3
 
 
 
