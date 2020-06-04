@@ -41,8 +41,9 @@ df.dropna(axis=0, inplace=True)
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'] - df['Time Start']
-
+df = df.loc[(df!=0).any(axis=1)]
 unique_serial_numbers = df['Serial Number'].unique()
+
 
 dt_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
@@ -53,6 +54,8 @@ dt_columns_total = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'D
 df_columns_calculated = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
 conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
+
+summary_columns = ['Method Name', 'Total']
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
@@ -66,14 +69,13 @@ layout_hamilton = html.Div([
         html.Div([
             dcc.DatePickerRange(
                 id='my-date-picker-range-hamilton-category',
-                # with_portal=True,
+                with_portal=True,
                 min_date_allowed=dt(2018, 1, 1),
                 max_date_allowed=df['Time End'].max().to_pydatetime(),
                 initial_visible_month=dt(df['Time End'].max().to_pydatetime().year, df['Time End'].max().to_pydatetime().month, 1),
-                start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
                 end_date=df['Time End'].max().to_pydatetime(),
-            ),
-            html.Div(id='output-container-date-picker-range-hamilton-category')
+                start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
+            )
         ], className="row ", style={'marginTop': 30, 'marginBottom': 15}),
         # Header Bar
         html.Div([
@@ -85,31 +87,43 @@ layout_hamilton = html.Div([
     '''),
     dcc.Dropdown(
         id='dropdown-input-hamilton',
-        options=[{'label': i, 'value': i} for i in unique_serial_numbers]
+        options=[{'label': i, 'value': i} for i in unique_serial_numbers],
+        value=unique_serial_numbers[0]
     ),
         # Radio Button
+        # html.Div([
+        #     dcc.RadioItems(
+        #         options=[
+        #             {'label': 'Condensed Data Table', 'value': 'Condensed'},
+        #             {'label': 'Complete Data Table', 'value': 'Complete'},
+        #         ], value='Condensed',
+        #         labelStyle={'display': 'inline-block', 'width': '20%', 'margin': 'auto', 'marginTop': 15,
+        #                     'paddingLeft': 15},
+        #         id='radio-button-hamilton-category'
+        #     )]),
         html.Div([
-            dcc.RadioItems(
-                options=[
-                    {'label': 'Condensed Data Table', 'value': 'Condensed'},
-                    {'label': 'Complete Data Table', 'value': 'Complete'},
-                ], value='Condensed',
-                labelStyle={'display': 'inline-block', 'width': '20%', 'margin': 'auto', 'marginTop': 15,
-                            'paddingLeft': 15},
-                id='radio-button-hamilton-category'
-            )]),
+            dash_table.DataTable(
+                id='datatable-hamilton-summary',
+                columns=[{"name": i, "id": i} for i in summary_columns],
+                style_table={'maxWidth': '1500px'},
+                row_selectable="single",
+                style_cell={"fontFamily": "Arial", "size": 10, 'textAlign': 'left'},
+                css=[{'selector': '.dash-cell div.dash-cell-value',
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
+                #,style_cell_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#D5DBDB'}]
+            ),
+        ], className=" twelve columns"),
         # First Data Table
         html.Div([
             dash_table.DataTable(
                 id='datatable-hamilton-category',
-                columns=[{"name": i, "id": i, 'deletable': True} for i in dt_columns],
-                editable=True,
+                columns=[{"name": i, "id": i} for i in df.columns],
+                data=df.to_dict('records'),
                 style_table={'maxWidth': '1500px'},
                 row_selectable="multi",
-                selected_rows=[0],
                 style_cell={"fontFamily": "Arial", "size": 10, 'textAlign': 'left'},
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
                 #,style_cell_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#D5DBDB'}]
             ),
         ], className=" twelve columns"),

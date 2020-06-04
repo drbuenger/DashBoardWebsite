@@ -16,7 +16,7 @@ import flask
 from flask import send_file
 
 from components import formatter_currency, formatter_currency_with_cents, formatter_percent, formatter_percent_2_digits, formatter_number
-from components import update_first_datatable, update_first_download, update_second_datatable, update_graph
+from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable
 
 
 pd.options.mode.chained_assignment = None
@@ -50,40 +50,23 @@ dt_columns_total =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Du
 
 ######################## Hamilton Category Callbacks ########################
 
-#### Date Picker Callback
-@app.callback(Output('output-container-date-picker-range-hamilton-category', 'children'),
-	[Input('my-date-picker-range-hamilton-category', 'start_date'),
-	 Input('my-date-picker-range-hamilton-category', 'end_date')])
-def update_output(start_date, end_date):
-    string_prefix = 'You have selected '
-    if start_date is not None:
-        start_date = dt.strptime(start_date, '%Y-%m-%dT%H:%M:%S')
-        start_date_string = start_date.strftime('%B %d, %Y %H:%M')
-        string_prefix = string_prefix + 'a Start Date of ' + start_date_string + ' | '
-    if end_date is not None:
-        end_date = dt.strptime(end_date, '%Y-%m-%dT%H:%M:%S')
-        end_date_string = end_date.strftime('%B %d, %Y %H:%M')
-        days_selected = (end_date - start_date).days
-        prior_start_date = start_date - timedelta(days_selected + 1)
-        prior_start_date_string = datetime.strftime(prior_start_date, '%B %d, %Y %H:%M')
-        prior_end_date = end_date - timedelta(days_selected + 1)
-        prior_end_date_string = datetime.strftime(prior_end_date, '%B %d, %Y %H:%M')
-        string_prefix = string_prefix + 'End Date of ' + end_date_string + ', for a total of ' + str(days_selected + 1) + ' Days. The prior period Start Date was ' + \
-		prior_start_date_string + ' | End Date: ' + prior_end_date_string + '.'
-    if len(string_prefix) == len('You have selected: '):
-        return 'Select a date to see it displayed here'
-    else:
-        return string_prefix
-
 # Callback and update first data table
 @app.callback(Output('datatable-hamilton-category', 'data'),
 	[Input('my-date-picker-range-hamilton-category', 'start_date'),
 	 Input('my-date-picker-range-hamilton-category', 'end_date'),
-    Input('dropdown-input-hamilton', 'serial_number')
+     Input('dropdown-input-hamilton', 'value')
      ])
 def update_data_1(start_date, end_date, serial_number):
-	data_1 = update_first_datatable(start_date, end_date, serial_number)
-	return data_1
+	return update_first_datatable(start_date, end_date, serial_number)
+# Callback and update first data table
+@app.callback(Output('datatable-hamilton-summary', 'data'),
+	[Input('my-date-picker-range-hamilton-category', 'start_date'),
+	 Input('my-date-picker-range-hamilton-category', 'end_date'),
+     Input('dropdown-input-hamilton', 'value')
+     ])
+def update_data_summary(start_date, end_date, serial_number):
+	return update_summary_datatable(start_date, end_date, serial_number)
+
 
 # Callback and update data table columns
 @app.callback(Output('datatable-hamilton-category', 'columns'),
@@ -152,14 +135,17 @@ def update_data_2(start_date, end_date, serial_number):
    Input('my-date-picker-range-hamilton-category', 'end_date'),
     Input('dropdown-input-hamilton', 'selected_hamilton')])
 def update_hamilton_category(selected_rows, end_date, selected_hamilton):
-	travel_product = []
-	travel_product_list = df['Serial Number'].unique().tolist()
-	for i in selected_rows:
-		travel_product.append(travel_product_list[i])
-		# Filter by specific product
-	filtered_df = df[(df['Serial Number'].isin(travel_product))].groupby(['Serial Number', 'Method Name'])[columns_complete]
-	fig = update_graph(filtered_df, end_date)
-	return fig
+    selected_list = []
+    full_list = df['Serial Number'].unique().tolist()
+    if selected_rows is not None:
+        for i in selected_rows:
+            selected_list.append(full_list[i])
+            # Filter by specific product
+    else:
+        selected_list = full_list
+    filtered_df = df[(df['Serial Number'].isin(selected_list))].groupby(['Serial Number', 'Method Name'])
+    fig = update_graph(filtered_df, end_date)
+    return fig
 
 ######################## Extra Category Callbacks ########################
 

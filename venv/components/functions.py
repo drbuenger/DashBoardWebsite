@@ -80,60 +80,36 @@ def read_trace_file(file):
 # First Data Table Update Function
 def update_first_datatable(start_date, end_date, serial_number):
 
-    if start_date is not None:
-        start_date = dt.strptime(start_date, '%Y-%m-%dT%H:%M:%S')
-        start_date_string = start_date.strftime('%Y-%m-%dT%H:%M:%S')
-    if end_date is not None:
-        end_date = dt.strptime(end_date, '%Y-%m-%dT%H:%M:%S')
-        end_date_string = end_date.strftime('%Y-%m-%dT%H:%M:%S')
-    days_selected = (end_date - start_date).days
+    df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    return df1.to_dict('records')
 
-    prior_start_date = start_date - timedelta(days_selected + 1)
-    prior_start_date_string = datetime.strftime(prior_start_date, '%Y-%m-%dT%H:%M:%S')
-    prior_end_date = end_date - timedelta(days_selected + 1)
-    prior_end_date_string = datetime.strftime(prior_end_date, '%Y-%m-%dT%H:%M:%S')
+# First Data Table Update Function
+def update_summary_datatable(start_date, end_date, serial_number):
 
-    df1 = df[(df['Serial Number'] == serial_number)].reset_index()
-    data_df = df1.to_dict("rows")
-    return data_df
+    df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    dict_of_methods = df1.groupby('Method Name')['Method Name'].count().to_dict()
+    # df2 = pd.DataFrame.from_dict(dict_of_methods)
+    # df3 = df2.copy()
+    # df3['Total Used'] = pd.DataFrame.count(df2['Method Name'])
+    # df3['Average'] = df1['Duration'].mean()
+    df2 = pd.DataFrame.from_dict(dict_of_methods, orient='index')
+    df2
+    return df2.to_dict('records')
+
 
 
 # First Data Table Download Function
 def update_first_download(start_date, end_date, serial_number):
-    if start_date is not None:
-        start_date = dt.strptime(start_date, '%Y-%m-%dT%H:%M:%S')
-        start_date_string = start_date.strftime('%Y-%m-%dT%H:%M:%S')
-    if end_date is not None:
-        end_date = dt.strptime(end_date, '%Y-%m-%dT%H:%M:%S')
-        end_date_string = end_date.strftime('%Y-%m-%dT%H:%M:%S')
-    days_selected = (end_date - start_date).days
-
-    prior_start_date = start_date - timedelta(days_selected + 1)
-    prior_start_date_string = datetime.strftime(prior_start_date, '%Y-%m-%dT%H:%M:%S')
-    prior_end_date = end_date - timedelta(days_selected + 1)
-    prior_end_date_string = datetime.strftime(prior_end_date, '%Y-%m-%dT%H:%M:%S')
-    df1 = df[(df['Serial Number'] == serial_number)].reset_index()
-    data_df = df1.to_dict("rows")
+    df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    data_df = df1.to_dict("record")
     return data_df
 
 
 # Second Data Table Update Function
 def update_second_datatable(start_date, end_date,serial_number):
-    if start_date is not None:
-        start_date = dt.strptime(start_date, '%Y-%m-%dT%H:%M:%S')
-        start_date_string = start_date.strftime('%Y-%m-%dT%H:%M:%S')
-    if end_date is not None:
-        end_date = dt.strptime(end_date, '%Y-%m-%dT%H:%M:%S')
-        end_date_string = end_date.strftime('%Y-%m-%dT%H:%M:%S')
-    days_selected = (end_date - start_date).days
-
-    prior_start_date = start_date - timedelta(days_selected + 1)
-    prior_start_date_string = datetime.strftime(prior_start_date, '%Y-%m-%dT%H:%M:%S')
-    prior_end_date = end_date - timedelta(days_selected + 1)
-    prior_end_date_string = datetime.strftime(prior_end_date, '%Y-%m-%dT%H:%M:%S:%S')
-
-    df1 = df[(df['Serial Number'] == serial_number)].reset_index()
-    data_df = df1.to_dict("rows")
+    df1 = df.loc[
+        (df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    data_df = df1.to_dict("record")
     return data_df
 
 
