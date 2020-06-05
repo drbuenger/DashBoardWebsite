@@ -21,13 +21,20 @@ from components import update_first_datatable, update_first_download, update_sec
 
 pd.options.mode.chained_assignment = None
 
-df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv')
+df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv',
+                 na_values=['Null','NA','nan'],
+                 keep_default_na=False)
 
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
+#df['Duration']=df['Duration'].map('{:,.1f}'.format)
+df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
 df = df.loc[(df!=0).any(axis=1)]
-
+df = df[df['Serial Number'] != '0']
+df = df[df['Serial Number'] != '0000']
+#df.astype({'Tips Used 1000uL': 'int'}).dtypes
+#df.astype({'Duration': 'float64'}).dtypes
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
 

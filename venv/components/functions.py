@@ -10,18 +10,24 @@ import os
 pd.options.mode.chained_assignment = None
 
 # Read in Hamilton Data
-df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv')
-
+df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv',
+                 na_values=['Null','NA','nan'],
+                 keep_default_na=False)
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
+#df['Duration']=df['Duration'].map('{:,.1f}'.format)
+df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
+df = df.loc[(df!=0).any(axis=1)]
 
+df = df[df['Serial Number'] != '0']
+df = df[df['Serial Number'] != '0000']
+
+#df.astype({'Duration': 'float64'}).dtypes
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
 
 unique_serial_numbers = df['Serial Number'].unique()
-
-columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
 
 # Define Formatters
@@ -52,6 +58,10 @@ def read_trace_file(file):
     username = "NA"
     date_start = "NA"
     date_end = "NA"
+    tips_used50uL = 0
+    tips_used300uL = 0
+    tips_used1000uL = 0
+
     if file is not None:
         f = open(file, 'r')
         for readline in f:
@@ -69,13 +79,21 @@ def read_trace_file(file):
                 array_read_line = readline.split(" ")
                 length = len(array_read_line)
                 serialnumber= array_read_line[length - 1].rstrip("'\n\t’")
+            if '1000µl Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used1000uL += 8
+            if '300µl Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used300uL += 8
+            if '50µl Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used50uL += 8
+            if 'CO-RE 96 Head Tip Eject (Single Step) - complete' in readline:
+                tips_used1000uL += 96
             if 'End method - complete' in readline:
                 date_end = readline[0:19]
         f.close()
     if method_name is not None:
         with open('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv', 'a',newline='') as file_write:
             writer = csv.writer(file_write)
-            writer.writerow([method_name, date_start, username, serialnumber, date_end])
+            writer.writerow([method_name, date_start, date_end, username, serialnumber,tips_used1000uL,tips_used300uL,tips_used50uL])
 
 # First Data Table Update Function
 def update_first_datatable(start_date, end_date, serial_number):
@@ -87,21 +105,17 @@ def update_first_datatable(start_date, end_date, serial_number):
 
 # First Data Table Update Function
 def update_summary_datatable(start_date, end_date, serial_number):
-
     df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
     df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
     df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
-    #df2 = df1.groupby(["Method Name", "Serial Number"]).size().reset_index(name='Total')
-    #df2['Average'] = ['Method Name'].mean())
 
     df2 = df1.groupby('Method Name').agg(
-        Average = pd.NamedAgg(column='Duration', aggfunc=np.mean),
-        Total = pd.NamedAgg(column='Method Name', aggfunc='count')
+        Total=pd.NamedAgg(column='Method Name', aggfunc='count'),
+        Average = pd.NamedAgg(column='Duration', aggfunc='mean'),
+        TipsUsed = pd.NamedAgg(column='Tips Used 1000uL', aggfunc=np.sum),
                                ).reset_index()
 
-    print(df2)
-
-    return df2.to_dict("record")
+    return df2.to_dict('records')
 
 
 

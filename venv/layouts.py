@@ -37,20 +37,26 @@ for file in x:
     if file.endswith(".trc"):
         read_trace_file(file)
 
-df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv')
-
+df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv',
+                 na_values=['Null','NA','nan'],
+                 keep_default_na=False)
 df.dropna(axis=0, inplace=True)
 
 
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
+df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
-
+#df['Duration']=df['Duration'].map('{:,.1f}'.format)
+df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
 df = df.loc[(df!=0).any(axis=1)]
+df = df[df['Serial Number'] != '0']
+df = df[df['Serial Number'] != '0000']
+#df.astype({'Tips Used 1000uL': 'int'}).dtypes
+#df.astype({'Duration': 'float64'}).dtypes
 unique_serial_numbers = df['Serial Number'].unique()
 
-
-dt_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
+dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used 1000uL',  'Duration']
 
 conditional_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
@@ -60,7 +66,7 @@ df_columns_calculated = ['Time Start', 'Time End', 'Serial Number', 'Method Name
 
 conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
-summary_columns = ['Method Name', 'Total', 'Average']
+summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed']
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
@@ -114,7 +120,7 @@ html.Div(children='''
         html.Div([
             dash_table.DataTable(
                 id='datatable-hamilton-category',
-                columns=[{"name": i, "id": i} for i in df.columns],
+                columns=[{"name": i, "id": i} for i in dt_columns],
                 data=df.to_dict('records'),
                 style_table={'maxWidth': '1500px'},
                 row_selectable="multi",
