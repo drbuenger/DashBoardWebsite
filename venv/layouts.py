@@ -8,6 +8,9 @@ import pandas as pd
 import os
 import csv
 import shutil
+
+from dateutil.relativedelta import relativedelta
+
 # Read in Data
 
 hamilton_computers = ["\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
@@ -38,14 +41,10 @@ df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\
 
 df.dropna(axis=0, inplace=True)
 
+
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
-df['Duration'] = df['Time End'] - df['Time Start']
-#df['Duration'] = pd.Timedelta(df['Time End'] - df['Time Start']).seconds / 60
-#df['Time Start'] = df['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
-#df['Time End'] = df['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
-#df['Duration'] = pd.Timedelta(['Duration'].dt.str("%Y/%m/%d %H:%M:%S")
-
+df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
 
 df = df.loc[(df!=0).any(axis=1)]
 unique_serial_numbers = df['Serial Number'].unique()
@@ -61,7 +60,7 @@ df_columns_calculated = ['Time Start', 'Time End', 'Serial Number', 'Method Name
 
 conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
-summary_columns = ['Method Name', 'Total']
+summary_columns = ['Method Name', 'Total', 'Average']
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
@@ -72,6 +71,9 @@ layout_hamilton = html.Div([
         # CC Header
         Header(),
         # Date Picker
+html.Div(children='''
+    Pick a Start/End Date
+    '''),
         html.Div([
             dcc.DatePickerRange(
                 id='my-date-picker-range-hamilton-category',
@@ -83,11 +85,6 @@ layout_hamilton = html.Div([
                 start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
             )
         ], className="row ", style={'marginTop': 30, 'marginBottom': 15}),
-        # Header Bar
-        html.Div([
-            html.H6(["Nanostring Level Metrics"], className="gs-header gs-text-header padded", style={'marginTop': 15})
-        ]),
-
     html.Div(children='''
     Pick a Hamilton
     '''),
@@ -96,17 +93,9 @@ layout_hamilton = html.Div([
         options=[{'label': i, 'value': i} for i in unique_serial_numbers],
         value=unique_serial_numbers[0]
     ),
-        # Radio Button
-        # html.Div([
-        #     dcc.RadioItems(
-        #         options=[
-        #             {'label': 'Condensed Data Table', 'value': 'Condensed'},
-        #             {'label': 'Complete Data Table', 'value': 'Complete'},
-        #         ], value='Condensed',
-        #         labelStyle={'display': 'inline-block', 'width': '20%', 'margin': 'auto', 'marginTop': 15,
-        #                     'paddingLeft': 15},
-        #         id='radio-button-hamilton-category'
-        #     )]),
+html.Div(children='''
+    Summary Data
+    '''),
         html.Div([
             dash_table.DataTable(
                 id='datatable-hamilton-summary',
@@ -116,9 +105,11 @@ layout_hamilton = html.Div([
                 style_cell={"fontFamily": "Arial", "size": 10, 'textAlign': 'left'},
                 css=[{'selector': '.dash-cell div.dash-cell-value',
                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
-                #,style_cell_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#D5DBDB'}]
             ),
         ], className=" twelve columns"),
+html.Div(children='''
+    Hamilton Data by Serial Number
+    '''),
         # First Data Table
         html.Div([
             dash_table.DataTable(
@@ -134,19 +125,19 @@ layout_hamilton = html.Div([
             ),
         ], className=" twelve columns"),
         # Download Button
-        html.Div([
-            html.A(html.Button('Download Data', id='download-button'), id='download-link-hamilton-category')
-        ]),
+        # html.Div([
+        #     html.A(html.Button('Download Data', id='download-button'), id='download-link-hamilton-category')
+        # ]),
         # GRAPHS
-        html.Div([
-            html.Div(
-                id='update_graph_1'
-            ),
-            html.Div([
-                dcc.Graph(id='hamilton-category'),
-            ], className=" twelve columns"
-            ), ], className="row "
-        ),
+        # html.Div([
+        #     html.Div(
+        #         id='update_graph_1'
+        #     ),
+        #     html.Div([
+        #         dcc.Graph(id='hamilton-category'),
+        #     ], className=" twelve columns"
+        #     ), ], className="row "
+        # ),
     ], className="subpage")
 ], className="page")
 

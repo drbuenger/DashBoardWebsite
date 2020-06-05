@@ -25,6 +25,8 @@ df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\
 
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
+df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
+df = df.loc[(df!=0).any(axis=1)]
 
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
@@ -33,7 +35,6 @@ current_year = df['Time End'].max().to_pydatetime().year
 
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
-df['Duration'] = df['Time End'] - df['Time Start']
 
 unique_serial_numbers = df['Serial Number'].unique()
 
@@ -58,6 +59,7 @@ dt_columns_total =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Du
      ])
 def update_data_1(start_date, end_date, serial_number):
 	return update_first_datatable(start_date, end_date, serial_number)
+
 # Callback and update first data table
 @app.callback(Output('datatable-hamilton-summary', 'data'),
 	[Input('my-date-picker-range-hamilton-category', 'start_date'),
@@ -66,7 +68,6 @@ def update_data_1(start_date, end_date, serial_number):
      ])
 def update_data_summary(start_date, end_date, serial_number):
 	return update_summary_datatable(start_date, end_date, serial_number)
-
 
 # Callback and update data table columns
 @app.callback(Output('datatable-hamilton-category', 'columns'),
@@ -131,20 +132,12 @@ def update_data_2(start_date, end_date, serial_number):
 # Callback for the Graphs
 @app.callback(
    Output('hamilton-category', 'figure'),
-   [Input('datatable-hamilton-category', "selected_rows"),
-   Input('my-date-picker-range-hamilton-category', 'end_date'),
-    Input('dropdown-input-hamilton', 'selected_hamilton')])
-def update_hamilton_category(selected_rows, end_date, selected_hamilton):
-    selected_list = []
-    full_list = df['Serial Number'].unique().tolist()
-    if selected_rows is not None:
-        for i in selected_rows:
-            selected_list.append(full_list[i])
-            # Filter by specific product
-    else:
-        selected_list = full_list
-    filtered_df = df[(df['Serial Number'].isin(selected_list))].groupby(['Serial Number', 'Method Name'])
-    fig = update_graph(filtered_df, end_date)
+   [Input('my-date-picker-range-hamilton-category', 'start_date'),
+    Input('my-date-picker-range-hamilton-category', 'end_date'),
+    Input('dropdown-input-hamilton', 'value')])
+def update_hamilton_category(start_date,end_date, serial_number):
+    filtered_df = update_first_datatable(start_date, end_date, serial_number)
+    fig = update_graph(filtered_df)
     return fig
 
 ######################## Extra Category Callbacks ########################

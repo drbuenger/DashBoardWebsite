@@ -14,11 +14,10 @@ df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\
 
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
+df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
 
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
-
-df['Duration'] = df['Time End'] - df['Time Start']
 
 unique_serial_numbers = df['Serial Number'].unique()
 
@@ -82,7 +81,6 @@ def read_trace_file(file):
 def update_first_datatable(start_date, end_date, serial_number):
 
     df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
-    df1['Duration'].apply(lambda x: pd.Timedelta(x))
     df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
     df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
     return df1.to_dict('records')
@@ -91,29 +89,19 @@ def update_first_datatable(start_date, end_date, serial_number):
 def update_summary_datatable(start_date, end_date, serial_number):
 
     df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
-    df1['Duration'].apply(lambda x: pd.Timedelta(x))
     df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
     df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
-    df2 = df1.copy()
-    aggregations = {
-        'Method Name': {
-            # get the sum, and call this result 'total_duration'
-            'Count': 'count'
-        }
-        }
-    #df2 = df1.groupby('Method Name', as_index = True).agg(aggregations)
-    #num_minute=pd.NamedAgg(column='Duration',aggfunc=lambda x: pd.to_datetime()),
-    #average=pd.NamedAgg(column='Duration',aggfunc=mean)
+    #df2 = df1.groupby(["Method Name", "Serial Number"]).size().reset_index(name='Total')
+    #df2['Average'] = ['Method Name'].mean())
 
-    #df2['Count'] = df1.groupby(['Method Name']).count()
-    df2.reset_index()
-    # df2 = pd.DataFrame.from_dict(dict_of_methods)
-    # df3 = df2.copy()
-    # df3['Total Used'] = pd.DataFrame.count(df2['Method Name'])
-    # df3['Average'] = df1['Duration'].mean()
-    #df2 = pd.DataFrame.from_dict(dict_of_methods, orient='index')
-    df3 = df2.to_dict("record")
-    return df3
+    df2 = df1.groupby('Method Name').agg(
+        Average = pd.NamedAgg(column='Duration', aggfunc=np.mean),
+        Total = pd.NamedAgg(column='Method Name', aggfunc='count')
+                               ).reset_index()
+
+    print(df2)
+
+    return df2.to_dict("record")
 
 
 
@@ -134,18 +122,13 @@ def update_second_datatable(start_date, end_date,serial_number):
 
 ######################## FOR GRAPHS  ########################
 
-def update_graph(filtered_df, end_date):
-
-    if end_date is not None:
-        end_date = dt.strptime(end_date, '%Y-%m-%dT%H:%M:%S')
-        end_date_string = end_date.strftime('%Y-%m-%dT%H:%M:%S')
-    current_year = end_date_string[0:3]
+def update_graph(filtered_df):
 
     # Sessions Graphs
-    sessions_ty = go.Scatter(
-        x=[1,2,3,4,5],
-        y=[2,4,6,8,10],
-        text='Test Scatter'
+    bar_graph = go.Bar(
+        x=filtered_df[(filtered_df['Method Name'])],
+        y=filtered_df[(filtered_df['Duration'])],
+        text='Duration per Method'
     )
     # sessions_ly = go.Scatter(
     #     x=filtered_df[(filtered_df['Year'] == current_year - 1)]['Week'],

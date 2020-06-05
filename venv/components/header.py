@@ -1,5 +1,9 @@
 import dash_html_components as html
 import dash_core_components as dcc
+import base64
+
+image_filename = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\assets\\NanostringLogo.jpg' # replace with your own image
+encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
 def Header():
     return html.Div([
@@ -11,14 +15,9 @@ def Header():
 
 def get_logo():
     logo = html.Div([
-
-        html.Div([
-            html.Img(src='C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\assets\\NanostringLogo.jpg',height="150",width = "200",title="Logo")
-        ], className="ten columns padded"),
-
-    ], className="row gs-header")
+            html.Img(src='data:image/jpg;base64,{}'.format(encoded_image.decode()))
+        ])
     return logo
-
 
 def get_header():
     header = html.Div([
