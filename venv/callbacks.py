@@ -33,6 +33,7 @@ df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
 df = df.loc[(df!=0).any(axis=1)]
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
+df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
 #df.astype({'Tips Used 1000uL': 'int'}).dtypes
 #df.astype({'Duration': 'float64'}).dtypes
 now = datetime.now()

@@ -22,7 +22,7 @@ df = df.loc[(df!=0).any(axis=1)]
 
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
-
+df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
 #df.astype({'Duration': 'float64'}).dtypes
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
@@ -50,6 +50,8 @@ def formatter_percent_2_digits(x):
 def formatter_number(x):
     return "{:,.0f}".format(x) if x >= 0 else "({:,.0f})".format(abs(x))
 
+def formatter_number_one_dec(x):
+    return "{:,.1f}".format(x) if x >= 0 else "({:,.1f})".format(abs(x))
 
 # Read Text File
 def read_trace_file(file):
@@ -58,6 +60,7 @@ def read_trace_file(file):
     username = "NA"
     date_start = "NA"
     date_end = "NA"
+    method_aborted = "No"
     tips_used50uL = 0
     tips_used300uL = 0
     tips_used1000uL = 0
@@ -89,11 +92,13 @@ def read_trace_file(file):
                 tips_used1000uL += 96
             if 'End method - complete' in readline:
                 date_end = readline[0:19]
+            if 'Abort command - complete' in readline:
+                method_aborted = "Yes"
         f.close()
     if method_name is not None:
         with open('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv', 'a',newline='') as file_write:
             writer = csv.writer(file_write)
-            writer.writerow([method_name, date_start, date_end, username, serialnumber,tips_used1000uL,tips_used300uL,tips_used50uL])
+            writer.writerow([method_name, date_start, date_end, username, serialnumber,tips_used1000uL,tips_used300uL,tips_used50uL,method_aborted])
 
 # First Data Table Update Function
 def update_first_datatable(start_date, end_date, serial_number):
@@ -101,7 +106,13 @@ def update_first_datatable(start_date, end_date, serial_number):
     df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
     df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
     df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1.sort_values(by=['Time End'],inplace=True, ascending=False)
+    df1['Duration']= df1['Duration'].apply(lambda x:formatter_number_one_dec(x))
+
     return df1.to_dict('records')
+
+def count_nos(col):
+    return np.sum(col == 'No')
 
 # First Data Table Update Function
 def update_summary_datatable(start_date, end_date, serial_number):
@@ -112,12 +123,14 @@ def update_summary_datatable(start_date, end_date, serial_number):
     df2 = df1.groupby('Method Name').agg(
         Total=pd.NamedAgg(column='Method Name', aggfunc='count'),
         Average = pd.NamedAgg(column='Duration', aggfunc='mean'),
-        TipsUsed = pd.NamedAgg(column='Tips Used 1000uL', aggfunc=np.sum),
+        TipsUsed = pd.NamedAgg(column='Tips Used', aggfunc=np.sum),
+        SuccessCount=pd.NamedAgg(column='Aborted', aggfunc=count_nos)
                                ).reset_index()
 
+    df2['Success %'] = df2['SuccessCount']/df2['Total'] * 100
+    df2['Average'] = df2['Average'].apply(lambda x: formatter_number_one_dec(x))
+    df2.sort_values(by=['Method Name'],inplace=True)
     return df2.to_dict('records')
-
-
 
 # First Data Table Download Function
 def update_first_download(start_date, end_date, serial_number):

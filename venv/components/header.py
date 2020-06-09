@@ -24,7 +24,7 @@ def get_header():
 
         html.Div([
             html.H5(
-                'Nanostring Reports')
+                'Nanostring MFG Reports')
         ], className="twelve columns padded")
 
     ], className="row gs-header gs-text-header")

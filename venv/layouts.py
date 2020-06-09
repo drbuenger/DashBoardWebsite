@@ -52,11 +52,12 @@ df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
 df = df.loc[(df!=0).any(axis=1)]
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
+df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
 #df.astype({'Tips Used 1000uL': 'int'}).dtypes
 #df.astype({'Duration': 'float64'}).dtypes
 unique_serial_numbers = df['Serial Number'].unique()
 
-dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used 1000uL',  'Duration']
+dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used',  'Duration', 'Aborted']
 
 conditional_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
@@ -66,7 +67,7 @@ df_columns_calculated = ['Time Start', 'Time End', 'Serial Number', 'Method Name
 
 conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
-summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed']
+summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed', 'Success %']
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
@@ -90,15 +91,19 @@ html.Div(children='''
                 end_date=df['Time End'].max().to_pydatetime(),
                 start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
             )
-        ], className="row ", style={'marginTop': 30, 'marginBottom': 15}),
+        ], className="row ", style={'marginTop': 0, 'marginBottom': 15}),
     html.Div(children='''
     Pick a Hamilton
     '''),
-    dcc.Dropdown(
-        id='dropdown-input-hamilton',
-        options=[{'label': i, 'value': i} for i in unique_serial_numbers],
-        value=unique_serial_numbers[0]
-    ),
+        html.Div([
+            dcc.Dropdown(
+                id='dropdown-input-hamilton',
+                style={'maxWidth': '300px'},
+                options=[{'label': i, 'value': i} for i in unique_serial_numbers],
+                value=unique_serial_numbers[0],
+            )
+        ], style={'marginTop': 0, 'marginBottom': 15}),
+
 html.Div(children='''
     Summary Data
     '''),
@@ -107,12 +112,13 @@ html.Div(children='''
                 id='datatable-hamilton-summary',
                 columns=[{"name": i, "id": i} for i in summary_columns],
                 style_table={'maxWidth': '1500px'},
-                row_selectable="single",
+                #row_selectable="single",
+                sort_action="native",
                 style_cell={"fontFamily": "Arial", "size": 10, 'textAlign': 'left'},
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}],
             ),
-        ], className=" twelve columns"),
+        ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 html.Div(children='''
     Hamilton Data by Serial Number
     '''),
@@ -123,13 +129,19 @@ html.Div(children='''
                 columns=[{"name": i, "id": i} for i in dt_columns],
                 data=df.to_dict('records'),
                 style_table={'maxWidth': '1500px'},
-                row_selectable="multi",
+                sort_action="native",
                 style_cell={"fontFamily": "Arial", "size": 10, 'textAlign': 'left'},
                 css=[{'selector': '.dash-cell div.dash-cell-value',
                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
-                #,style_cell_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#D5DBDB'}]
+                ,style_data_conditional=[{
+            'if': {
+                'filter_query': '{Aborted} contains "Yes"',
+                'column_id': 'Aborted'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'
+            ,}]
             ),
-        ], className=" twelve columns"),
+        ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
         # Download Button
         # html.Div([
         #     html.A(html.Button('Download Data', id='download-button'), id='download-link-hamilton-category')
