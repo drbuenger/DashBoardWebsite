@@ -16,7 +16,7 @@
 	  outline: 2cm whitesmoke solid;
  }
 
-#datatable-paid-search > div > div > div.row.row-1 > div.cell.cell-1-0.dash-fixed-column {
+#datatable-hamilton > div > div > div.row.row-1 > div.cell.cell-1-0.dash-fixed-column {
     flex: 0 0 auto;
     left: 0;
     position: sticky;
@@ -222,4 +222,29 @@ input[type="radio"] {
   height: 8px;
   border-radius: 50%;
   background: white;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
 }

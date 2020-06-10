@@ -64,6 +64,26 @@ def read_trace_file(file):
     tips_used50uL = 0
     tips_used300uL = 0
     tips_used1000uL = 0
+    aspirating_count = 0
+    aspirating_time = 0
+    aspirating_start = ""
+    aspirating_end =  ""
+    dispensing_count = 0
+    dispensing_time = 0
+    dispensing_start = ""
+    dispensing_end =  ""
+    pickup_count = 0
+    pickup_time = 0
+    pickup_start = ""
+    pickup_end =  ""
+    eject_count = 0
+    eject_time = 0
+    eject_start = ""
+    eject_end =  ""
+    user_start = ""
+    user_end =  ""
+    user_count = 0
+    user_time = 0
 
     if file is not None:
         f = open(file, 'r')
@@ -71,7 +91,7 @@ def read_trace_file(file):
             if 'Analyze method - start' in readline:
                 array_read_line = readline.split("\\")
                 length = len(array_read_line)
-                method_name = array_read_line[length-1].rstrip("'\n\t’")
+                method_name = array_read_line[length-1].rstrip("'.hsl\n\t’")
             if 'Analyze method - start' in readline:
                 date_start = readline[0:19]
             if 'User name' in readline:
@@ -94,11 +114,75 @@ def read_trace_file(file):
                 date_end = readline[0:19]
             if 'Abort command - complete' in readline:
                 method_aborted = "Yes"
+            if 'Aspirate (Single Step) - start' in readline:
+                aspirating_start = readline[11:19]
+            if 'Aspirate (Single Step) - complete' in readline:
+                aspirating_end = readline[11:19]
+            if aspirating_end != "" and aspirating_start != "":
+                aspirating_count = aspirating_count + 1
+                aspirating_time = aspirating_time + (dt.strptime(aspirating_end, '%H:%M:%S') - dt.strptime(aspirating_start, '%H:%M:%S')).seconds
+                aspirating_start = ""
+                aspirating_end = ""
+            if 'Dispense (Single Step) - start' in readline:
+                dispensing_start = readline[11:19]
+            if 'Dispense (Single Step) - complete' in readline:
+                dispensing_end = readline[11:19]
+            if dispensing_end != "" and dispensing_start != "":
+                dispensing_count = dispensing_count + 1
+                dispensing_time = dispensing_time + (dt.strptime(dispensing_end, '%H:%M:%S') - dt.strptime(dispensing_start, '%H:%M:%S')).seconds
+                dispensing_start = ""
+                dispensing_end = ""
+            if 'Tip Pick Up (Single Step) - start' in readline:
+                pickup_start = readline[11:19]
+            if 'Tip Pick Up (Single Step) - complete' in readline:
+                pickup_end = readline[11:19]
+            if pickup_end != "" and pickup_start != "":
+                pickup_count = pickup_count + 1
+                pickup_time = pickup_time + (dt.strptime(pickup_end, '%H:%M:%S') - dt.strptime(pickup_start, '%H:%M:%S')).seconds
+                pickup_start = ""
+                pickup_end = ""
+            if 'Tip Eject (Single Step) - start' in readline:
+                eject_start = readline[11:19]
+            if 'Tip Eject (Single Step) - complete' in readline:
+                eject_end = readline[11:19]
+            if eject_end != "" and eject_start != "":
+                eject_count = eject_count + 1
+                eject_time = eject_time + (dt.strptime(eject_end, '%H:%M:%S') - dt.strptime(eject_start, '%H:%M:%S')).seconds
+                eject_start = ""
+                eject_end = ""
+            if 'Dialog - start' in readline:
+                user_start = readline[11:19]
+            if 'Dialog - complete' in readline:
+                user_end = readline[11:19]
+            if user_end != "" and user_start != "":
+                user_count = user_count + 1
+                user_time = user_time + (dt.strptime(user_end, '%H:%M:%S') - dt.strptime(user_start, '%H:%M:%S')).seconds
+                user_start = ""
+                user_end = ""
         f.close()
     if method_name is not None:
         with open('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv', 'a',newline='') as file_write:
             writer = csv.writer(file_write)
-            writer.writerow([method_name, date_start, date_end, username, serialnumber,tips_used1000uL,tips_used300uL,tips_used50uL,method_aborted])
+            writer.writerow([method_name,
+                             date_start,
+                             date_end,
+                             username,
+                             serialnumber,
+                             tips_used1000uL,
+                             tips_used300uL,
+                             tips_used50uL,
+                             method_aborted,
+                             aspirating_count,
+                             aspirating_time,
+                             dispensing_count,
+                             dispensing_time,
+                             pickup_count,
+                             pickup_time,
+                             eject_count,
+                             eject_time,
+                             user_count,
+                             user_time
+                             ])
 
 # First Data Table Update Function
 def update_first_datatable(start_date, end_date, serial_number):
@@ -108,8 +192,13 @@ def update_first_datatable(start_date, end_date, serial_number):
     df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
     df1.sort_values(by=['Time End'],inplace=True, ascending=False)
     df1['Duration']= df1['Duration'].apply(lambda x:formatter_number_one_dec(x))
-
-    return df1.to_dict('records')
+    tooltip_data = [
+                       {
+                           column: {'value': str(value), 'type': 'markdown'}
+                           for column, value in row.items()
+                       } for row in df1.to_dict('rows')
+                   ]
+    return df1.to_dict('records'), tooltip_data
 
 def count_nos(col):
     return np.sum(col == 'No')
@@ -130,7 +219,115 @@ def update_summary_datatable(start_date, end_date, serial_number):
     df2['Success %'] = df2['SuccessCount']/df2['Total'] * 100
     df2['Average'] = df2['Average'].apply(lambda x: formatter_number_one_dec(x))
     df2.sort_values(by=['Method Name'],inplace=True)
-    return df2.to_dict('records')
+    tooltip_data = [
+        {
+            column: {'value': str(value), 'type': 'markdown'}
+            for column, value in row.items()
+        } for row in df2.to_dict('rows')
+    ]
+    return df2.to_dict('records'), tooltip_data
+
+
+# First Data Table Update Function
+def update_first_datatable_time(start_date, end_date, serial_number):
+
+    df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1.sort_values(by=['Time End'],inplace=True, ascending=False)
+    tooltip_data = [
+                       {
+                           column: {'value': str(value), 'type': 'markdown'}
+                           for column, value in row.items()
+                       } for row in df1.to_dict('rows')
+                   ]
+    return df1.to_dict('records'), tooltip_data
+
+
+
+# First Data Table Update Function
+def update_summary_datatable_time(start_date, end_date, serial_number):
+    df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+
+    df2 = df1.groupby('Method Name').agg(
+        TotalDispenseTime=pd.NamedAgg(column='Dispensing Time', aggfunc=np.sum),
+        TotalDispenseCount = pd.NamedAgg(column='Dispensing Count', aggfunc=np.sum),
+        TotalAspirateTime=pd.NamedAgg(column='Aspirating Time', aggfunc=np.sum),
+        TotalAspirateCount = pd.NamedAgg(column='Aspirating Count', aggfunc=np.sum),
+        TotalPickupTime=pd.NamedAgg(column='Tip Pickup Time', aggfunc=np.sum),
+        TotalPickupCount=pd.NamedAgg(column='Tip Pickup Count', aggfunc=np.sum),
+        TotalEjectTime=pd.NamedAgg(column='Tip Eject Time', aggfunc=np.sum),
+        TotalEjectCount=pd.NamedAgg(column='Tip Eject Count', aggfunc=np.sum),
+        TotalUserTime=pd.NamedAgg(column='User Time', aggfunc=np.sum),
+        TotalUserCount=pd.NamedAgg(column='User Count', aggfunc=np.sum),
+                               ).reset_index()
+
+    df2['Average Dispense'] = df2['TotalDispenseTime'] / df2['TotalDispenseCount']
+    df2['Average Aspirate'] =df2['TotalAspirateTime'] / df2['TotalAspirateCount']
+    df2['Average Pickup'] =df2['TotalPickupTime'] / df2['TotalPickupCount']
+    df2['Average Eject'] =df2['TotalEjectTime'] / df2['TotalEjectCount']
+    df2['Average User'] = df2['TotalUserTime'] / df2['TotalUserCount']
+
+    df2['Average Dispense'] = df2['Average Dispense'].apply(lambda x: formatter_number_one_dec(x))
+    df2['Average Aspirate'] = df2['Average Aspirate'].apply(lambda x: formatter_number_one_dec(x))
+    df2['Average Pickup'] = df2['Average Pickup'].apply(lambda x: formatter_number_one_dec(x))
+    df2['Average Eject'] = df2['Average Eject'].apply(lambda x: formatter_number_one_dec(x))
+    df2['Average User'] = df2['Average User'].apply(lambda x: formatter_number_one_dec(x))
+
+    df2.sort_values(by=['Method Name'],inplace=True)
+
+    tooltip_data = [
+                       {
+                           column: {'value': str(value), 'type': 'markdown'}
+                           for column, value in row.items()
+                       } for row in df2.to_dict('rows')
+                   ]
+    return df2.to_dict('records'), tooltip_data
+
+def update_summary_datatable_time2(start_date, end_date, serial_number):
+    df1 = df.loc[(df['Serial Number'] == serial_number) & (df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+
+    df2 = df1.groupby('Method Name').agg(
+        TotalDispenseTime=pd.NamedAgg(column='Dispensing Time', aggfunc=np.sum),
+        TotalDispenseCount = pd.NamedAgg(column='Dispensing Count', aggfunc=np.sum),
+        TotalAspirateTime=pd.NamedAgg(column='Aspirating Time', aggfunc=np.sum),
+        TotalAspirateCount = pd.NamedAgg(column='Aspirating Count', aggfunc=np.sum),
+        TotalPickupTime=pd.NamedAgg(column='Tip Pickup Time', aggfunc=np.sum),
+        TotalPickupCount=pd.NamedAgg(column='Tip Pickup Count', aggfunc=np.sum),
+        TotalEjectTime=pd.NamedAgg(column='Tip Eject Time', aggfunc=np.sum),
+        TotalEjectCount=pd.NamedAgg(column='Tip Eject Count', aggfunc=np.sum),
+        TotalUserTime=pd.NamedAgg(column='User Time', aggfunc=np.sum),
+        TotalUserCount=pd.NamedAgg(column='User Count', aggfunc=np.sum),
+        Average=pd.NamedAgg(column='Duration', aggfunc='mean'),
+                               ).reset_index()
+    df2['Total Time Seconds'] = df2['TotalDispenseTime'] + df2['TotalAspirateTime'] + df2['TotalPickupTime'] + df2['TotalEjectTime'] + df2['TotalUserTime']
+
+    df2['% Dispense'] =df2['TotalDispenseTime'] / df2['Total Time Seconds'] * 100
+    df2['% Aspirate'] =df2['TotalAspirateTime'] / df2['Total Time Seconds'] * 100
+    df2['% Pickup'] =df2['TotalPickupTime'] / df2['Total Time Seconds'] * 100
+    df2['% Eject'] = df2['TotalEjectTime'] / df2['Total Time Seconds'] * 100
+    df2['% User'] = df2['TotalUserTime'] / df2['Total Time Seconds'] * 100
+
+    df2['Total Time'] = df2['Average'].apply(lambda x: formatter_number_one_dec(x))
+    df2['% Dispense'] = df2['% Dispense'].apply(lambda x: formatter_number_one_dec(x))
+    df2['% Aspirate'] = df2['% Aspirate'].apply(lambda x: formatter_number_one_dec(x))
+    df2['% Pickup'] = df2['% Pickup'].apply(lambda x: formatter_number_one_dec(x))
+    df2['% Eject'] = df2['% Eject'].apply(lambda x: formatter_number_one_dec(x))
+    df2['% User'] = df2['% User'].apply(lambda x: formatter_number_one_dec(x))
+
+    df2.sort_values(by=['Total Time'],inplace=True)
+
+    tooltip_data = [
+                       {
+                           column: {'value': str(value), 'type': 'markdown'}
+                           for column, value in row.items()
+                       } for row in df2.to_dict('rows')
+                   ]
+    return df2.to_dict('records'), tooltip_data
 
 # First Data Table Download Function
 def update_first_download(start_date, end_date, serial_number):

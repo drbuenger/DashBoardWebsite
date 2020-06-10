@@ -17,7 +17,7 @@ from flask import send_file
 
 from components import formatter_currency, formatter_currency_with_cents, formatter_percent, formatter_percent_2_digits, formatter_number
 from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable
-
+from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
 
 pd.options.mode.chained_assignment = None
 
@@ -60,7 +60,9 @@ dt_columns_total =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Du
 ######################## Hamilton Category Callbacks ########################
 
 # Callback and update first data table
-@app.callback(Output('datatable-hamilton-category', 'data'),
+@app.callback([Output('datatable-hamilton-category', 'data'),
+                Output('datatable-hamilton-category', 'tooltip_data'),
+               ],
 	[Input('my-date-picker-range-hamilton-category', 'start_date'),
 	 Input('my-date-picker-range-hamilton-category', 'end_date'),
      Input('dropdown-input-hamilton', 'value')
@@ -69,7 +71,9 @@ def update_data_1(start_date, end_date, serial_number):
 	return update_first_datatable(start_date, end_date, serial_number)
 
 # Callback and update first data table
-@app.callback(Output('datatable-hamilton-summary', 'data'),
+@app.callback([Output('datatable-hamilton-summary', 'data'),
+                Output('datatable-hamilton-summary', 'tooltip_data'),
+               ],
 	[Input('my-date-picker-range-hamilton-category', 'start_date'),
 	 Input('my-date-picker-range-hamilton-category', 'end_date'),
      Input('dropdown-input-hamilton', 'value')
@@ -148,96 +152,39 @@ def update_hamilton_category(start_date,end_date, serial_number):
     fig = update_graph(filtered_df)
     return fig
 
-######################## Extra Category Callbacks ########################
-
-#### Date Picker Callback
-@app.callback(Output('output-container-date-picker-range-extra-category', 'children'),
-	[Input('my-date-picker-range-extra-category', 'start_date'),
-	 Input('my-date-picker-range-extra-category', 'end_date')])
-def update_output(start_date, end_date):
-	string_prefix = 'You have selected '
-	if start_date is not None:
-		start_date = dt.strptime(start_date, '%Y-%m-%dT%H:%M:%S')
-		start_date_string = start_date.strftime('%B %d, %Y %H:%M')
-		string_prefix = string_prefix + 'a Start Date of ' + start_date_string + ' | '
-	if end_date is not None:
-		end_date = dt.strptime(end_date, '%Y-%m-%dT%H:%M:%S')
-		end_date_string = end_date.strftime('%B %d, %Y %H:%M')
-		days_selected = (end_date - start_date).days
-		prior_start_date = start_date - timedelta(days_selected + 1)
-		prior_start_date_string = datetime.strftime(prior_start_date, '%B %d, %Y %H:%M')
-		prior_end_date = end_date - timedelta(days_selected + 1)
-		prior_end_date_string = datetime.strftime(prior_end_date, '%B %d, %Y %H:%M')
-		string_prefix = string_prefix + 'End Date of ' + end_date_string + ', for a total of ' + str(days_selected + 1) + ' Days. The prior period Start Date was ' + \
-		prior_start_date_string + ' | End Date: ' + prior_end_date_string + '.'
-	if len(string_prefix) == len('You have selected: '):
-		return 'Select a date to see it displayed here'
-	else:
-		return string_prefix
+######################## Hamilton TIME Category Callbacks ########################
+# Callback and update first data table
+@app.callback([Output('datatable-hamilton-category-time', 'data'),
+                Output('datatable-hamilton-category-time', 'tooltip_data'),
+               ],
+	[Input('my-date-picker-range-hamilton-category-time', 'start_date'),
+	 Input('my-date-picker-range-hamilton-category-time', 'end_date'),
+     Input('dropdown-input-hamilton-time', 'value')
+     ])
+def update_data_time(start_date, end_date, serial_number):
+	return update_first_datatable_time(start_date, end_date, serial_number)
 
 # Callback and update first data table
-@app.callback(Output('datatable-extra-category', 'data'),
-	[Input('my-date-picker-range-extra-category', 'start_date'),
-	 Input('my-date-picker-range-extra-category', 'end_date')])
-def update_data_1(start_date, end_date):
-	data_1 = update_first_datatable(start_date, end_date, 'Serial Number')
-	return data_1
+@app.callback([Output('datatable-hamilton-summary-time', 'data'),
+                Output('datatable-hamilton-summary-time', 'tooltip_data'),
+               ],
+	[Input('my-date-picker-range-hamilton-category-time', 'start_date'),
+	 Input('my-date-picker-range-hamilton-category-time', 'end_date'),
+     Input('dropdown-input-hamilton-time', 'value')
+     ])
+def update_data_summary_time(start_date, end_date, serial_number):
+	return update_summary_datatable_time(start_date, end_date, serial_number)
 
-# Callback and update data table columns
-@app.callback(Output('datatable-extra-category', 'columns'),
-    [Input('radio-button-extra-category', 'value')])
-def update_columns(value):
-    if value == 'Complete':
-        column_set=[{"name": i, "id": i, "deletable": True} for i in columns_complete]
-    elif value == 'Condensed':
-        column_set=[{"name": i, "id": i, "deletable": True} for i in columns_condensed]
-    return column_set
-
-# Callback for excel download
-@app.callback(
-    Output('download-link-extra-category', 'href'),
-    [Input('my-date-picker-range-extra-category', 'start_date'),
-	 Input('my-date-picker-range-extra-category', 'end_date')])
-def update_link(start_date, end_date):
-	return '/Reports/Extra/urlToDownload?value={}/{}'.format(dt.strptime(start_date,'%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S'),dt.strptime(end_date,'%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M:%S'))
-@app.server.route("/Reports/Extra/urlToDownload")
-def download_excel_extra_category():
-    value = flask.request.args.get('value')
-    #here is where I split the value
-    value = value.split('/')
-    start_date = value[0]
-    end_date = value[1]
-
-    filename = datestamp + '_extra_category_' + start_date + '_to_' + end_date + '.xlsx'
-	# Dummy Dataframe
-    d = {'col1': [1, 2], 'col2': [3, 4]}
-    df = pd.DataFrame(data=d)
-
-    buf = io.BytesIO()
-    excel_writer = pd.ExcelWriter(buf, engine="xlsxwriter")
-    download_1 = update_first_download(start_date, end_date, None, 'Extra Category')
-    download_1.to_excel(excel_writer, sheet_name="sheet1", index=False)
-    # df.to_excel(excel_writer, sheet_name="sheet1", index=False)
-    excel_writer.save()
-    excel_data = buf.getvalue()
-    buf.seek(0)
-
-    return send_file(
-        buf,
-        mimetype = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        attachment_filename=filename,
-        as_attachment=True,
-        cache_timeout=0
-    )
-
-# Callback and update second data table
-@app.callback(
-	Output('datatable-extra-category-2', 'data'),
-	[Input('my-date-picker-range-extra-category', 'start_date'),
-	 Input('my-date-picker-range-extra-category', 'end_date')])
-def update_data_2(start_date, end_date):
-	data_2 = update_second_datatable(start_date, end_date, None, 'Extra Category')
-	return data_2
+# Callback and update first data table
+@app.callback([Output('datatable-hamilton-summary-time2', 'data'),
+                Output('datatable-hamilton-summary-time2', 'tooltip_data'),
+               ],
+	[Input('my-date-picker-range-hamilton-category-time', 'start_date'),
+	 Input('my-date-picker-range-hamilton-category-time', 'end_date'),
+     Input('dropdown-input-hamilton-time', 'value')
+     ])
+def update_data_summary_time2(start_date, end_date, serial_number):
+	return update_summary_datatable_time2(start_date, end_date, serial_number)
 
 # Callback for the Graphs
 @app.callback(

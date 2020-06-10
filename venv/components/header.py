@@ -34,9 +34,9 @@ def get_header():
 def get_menu():
     menu = html.Div([
 
-        dcc.Link('Overview - Hamilton      ', href='/Reports/Hamilton/', className="tab first"),
+        dcc.Link('Hamilton - Home      ', href='/Reports/Hamilton/', className="tab first"),
 
-        dcc.Link('Extra   ', href='/Reports/Extra/', className="tab"),
+        dcc.Link('  Hamilton - Time Study   ', href='/Reports/HamiltonTime/', className="tab"),
 
     ], className="row ")
     return menu
