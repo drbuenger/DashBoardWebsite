@@ -56,6 +56,9 @@ conditional_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name',
 
 dt_columns_total =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
+######################## Nav Bar Callbacks ########################
+
+######################## Nav Bar Callbacks ########################
 
 ######################## Hamilton Category Callbacks ########################
 

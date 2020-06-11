@@ -71,7 +71,7 @@ conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Nu
 
 summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed', 'Success %']
 summary_columns_time = ['Method Name', 'Average Dispense', 'Average Aspirate', 'Average Pickup', 'Average Eject', 'Average User']
-summary_columns_time2 = ['Method Name', '% Dispense', '% Aspirate', '% Pickup', '% Eject', '% User', 'Total Time']
+summary_columns_time2 = ['Method Name', '% Dispense', '% Aspirate', '% Pickup', '% Eject', '% User', 'Average Total Time (sec)']
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
@@ -80,7 +80,7 @@ layout_hamilton = html.Div([
 
     html.Div([
         # CC Header
-        Header(),
+        Header('100000'),
         # Date Picker
 html.Div(children='''
     Pick a Start/End Date
@@ -95,7 +95,7 @@ html.Div(children='''
                 end_date=df['Time End'].max().to_pydatetime(),
                 start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
             )
-        ], className="row ", style={'marginTop': 0, 'marginBottom': 15}),
+        ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
     html.Div(children='''
     Pick a Hamilton
     '''),
@@ -125,12 +125,12 @@ html.Div(children='''
                     } for row in df.to_dict('rows')
                 ],
                 tooltip_duration=None,
-                style_cell={"fontFamily": "Arial",
-                            "size": 10, 'textAlign': 'left',
+                style_cell={
+                            "fontFamily": "Arial",
+                            "size": 11, 'textAlign': 'left',
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
-
                             },
                 style_header={
                     'whiteSpace': 'normal',
@@ -139,7 +139,8 @@ html.Div(children='''
                     {'if': {'column_id': 'Method Name'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}],
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 html.Div(children='''
@@ -151,7 +152,7 @@ html.Div(children='''
                 id='datatable-hamilton-category',
                 columns=[{"name": i, "id": i} for i in dt_columns],
                 data=df.to_dict('records'),
-                style_table={'maxWidth': '1500px',
+                style_table={'maxWidth': '1450px',
                              'overflowX': 'auto',},
                 sort_action="native",
                 tooltip_data=[
@@ -162,7 +163,7 @@ html.Div(children='''
                 ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
-                            "size": 10, 'textAlign': 'left',
+                            "size": 11, 'textAlign': 'left',
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
@@ -175,7 +176,8 @@ html.Div(children='''
                     {'if': {'column_id': 'Method Name'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}]
                 ,style_data_conditional=[{
             'if': {
                 'filter_query': '{Aborted} contains "Yes"',
@@ -208,7 +210,7 @@ html.Div(children='''
 layout_hamilton_time = html.Div([
     html.Div([
         # CC Header
-        Header(),
+        Header('010000'),
         # Date Picker
 html.Div(children='''
     Pick a Start/End Date
@@ -222,8 +224,9 @@ html.Div(children='''
                 initial_visible_month=dt(df['Time End'].max().to_pydatetime().year, df['Time End'].max().to_pydatetime().month, 1),
                 end_date=df['Time End'].max().to_pydatetime(),
                 start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
+
             )
-        ], className="row ", style={'marginTop': 0, 'marginBottom': 15}),
+        ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
     html.Div(children='''
     Pick a Hamilton
     '''),
@@ -243,7 +246,7 @@ html.Div(children='''
             dash_table.DataTable(
                 id='datatable-hamilton-summary-time',
                 columns=[{"name": i, "id": i} for i in summary_columns_time],
-                style_table={'maxWidth': '1500px',
+                style_table={'maxWidth': '1450px',
                              'overflowX': 'auto',},
                 sort_action="native",
                 tooltip_data=[
@@ -254,7 +257,7 @@ html.Div(children='''
                 ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
-                            "size": 10, 'textAlign': 'left',
+                            "size": 11, 'textAlign': 'left',
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
@@ -267,7 +270,8 @@ html.Div(children='''
                     {'if': {'column_id': 'Method Name'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}],
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 
@@ -278,7 +282,7 @@ html.Div(children='''
             dash_table.DataTable(
                 id='datatable-hamilton-summary-time2',
                 columns=[{"name": i, "id": i} for i in summary_columns_time2],
-                style_table={'maxWidth': '1500px',
+                style_table={'maxWidth': '1450px',
                              'overflowX': 'auto',},
                 sort_action="native",
                 tooltip_data=[
@@ -289,7 +293,7 @@ html.Div(children='''
                 ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
-                            "size": 10, 'textAlign': 'left',
+                            "size": 11, 'textAlign': 'left',
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
@@ -302,7 +306,8 @@ html.Div(children='''
                     {'if': {'column_id': 'Method Name'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}],
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 html.Div(children='''
@@ -325,7 +330,7 @@ html.Div(children='''
                 ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
-                            "size": 10, 'textAlign': 'left',
+                            "size": 11, 'textAlign': 'left',
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
@@ -339,7 +344,8 @@ html.Div(children='''
                      'width': '20%'}
                 ],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'}]
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}]
 
             ),
         ], className="datatable-hamilton", style={'marginTop': 0, 'marginBottom': 15}),
@@ -365,6 +371,6 @@ html.Div(children='''
 ######################## 404 Page ########################
 noPage = html.Div([
     # CC Header
-    Header(),
+    Header('000000'),
     html.P(["404 Page not found"])
 ], className="no-page")

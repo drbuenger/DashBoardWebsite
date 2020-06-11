@@ -312,14 +312,14 @@ def update_summary_datatable_time2(start_date, end_date, serial_number):
     df2['% Eject'] = df2['TotalEjectTime'] / df2['Total Time Seconds'] * 100
     df2['% User'] = df2['TotalUserTime'] / df2['Total Time Seconds'] * 100
 
-    df2['Total Time'] = df2['Average'].apply(lambda x: formatter_number_one_dec(x))
+    df2['Average Total Time (sec)'] = df2['Average'].apply(lambda x: formatter_number_one_dec(x))
     df2['% Dispense'] = df2['% Dispense'].apply(lambda x: formatter_number_one_dec(x))
     df2['% Aspirate'] = df2['% Aspirate'].apply(lambda x: formatter_number_one_dec(x))
     df2['% Pickup'] = df2['% Pickup'].apply(lambda x: formatter_number_one_dec(x))
     df2['% Eject'] = df2['% Eject'].apply(lambda x: formatter_number_one_dec(x))
     df2['% User'] = df2['% User'].apply(lambda x: formatter_number_one_dec(x))
 
-    df2.sort_values(by=['Total Time'],inplace=True)
+    df2.sort_values(by=['Average Total Time (sec)'],inplace=True)
 
     tooltip_data = [
                        {
