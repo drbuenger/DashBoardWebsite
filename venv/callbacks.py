@@ -18,6 +18,7 @@ from flask import send_file
 from components import formatter_currency, formatter_currency_with_cents, formatter_percent, formatter_percent_2_digits, formatter_number
 from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
+from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
 
 pd.options.mode.chained_assignment = None
 
@@ -28,14 +29,11 @@ df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
-#df['Duration']=df['Duration'].map('{:,.1f}'.format)
 df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
 df = df.loc[(df!=0).any(axis=1)]
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
-#df.astype({'Tips Used 1000uL': 'int'}).dtypes
-#df.astype({'Duration': 'float64'}).dtypes
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
 
@@ -204,3 +202,33 @@ def update_extra_category(selected_rows, end_date):
 	fig = update_graph(filtered_df, end_date)
 	return fig
 
+# Callback and update BarTender Tables
+@app.callback([Output('datatable-bartender-summary', 'data'),
+               Output('datatable-bartender-summary', 'tooltip_data')],
+	[Input('my-date-picker-range-bartender', 'start_date'),
+     Input('my-date-picker-range-bartender', 'end_date'),
+Input('bartender-server-select', 'value'),
+     ])
+def update_data_bartender_summary(start_date, end_date, server_list):
+	return update_bartender_summary(start_date, end_date, server_list)
+
+# Callback and update BarTender Tables
+@app.callback([Output('datatable-bartender-summary-2', 'data'),
+                Output('datatable-bartender-summary-2', 'tooltip_data')],
+	[Input('my-date-picker-range-bartender', 'start_date'),
+	 Input('my-date-picker-range-bartender', 'end_date'),
+Input('bartender-server-select', 'value'),
+     ])
+def update_data_bartender_summary2(start_date, end_date,server_list):
+	return update_bartender_summary2(start_date, end_date,server_list)
+
+# Callback and update BarTender Tables
+
+
+@app.callback([Output('datatable-bartender-table','data'),
+               Output('datatable-bartender-table','tooltip_data')],
+              [Input('my-date-picker-range-bartender','start_date'),
+               Input('my-date-picker-range-bartender', 'end_date'),
+Input('bartender-server-select', 'value'),])
+def update_data_bartender_table(start_date, end_date,server_list):
+	return update_bartender_table(start_date, end_date,server_list)

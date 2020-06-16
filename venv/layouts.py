@@ -49,14 +49,11 @@ df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
-#df['Duration']=df['Duration'].map('{:,.1f}'.format)
 df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
 df = df.loc[(df!=0).any(axis=1)]
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
-#df.astype({'Tips Used 1000uL': 'int'}).dtypes
-#df.astype({'Duration': 'float64'}).dtypes
 unique_serial_numbers = df['Serial Number'].unique()
 
 dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used',  'Duration', 'Aborted']
@@ -83,15 +80,33 @@ cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
 
 bt_df = pd.read_sql_query('SELECT btff.Name , p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime FROM BtPrintJobs btp \
 inner join BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
-inner join Printers p on btp.FormatID = p.PrinterID', cnxn)
+inner join Printers p on btp.PrinterID = p.PrinterID', cnxn)
 bt_df['CreatedDateTime']= bt_df['CreatedDateTime'] - 621355968000000000
 bt_df['CreatedDateTime']= bt_df['CreatedDateTime']/10
 bt_df['CreatedDateTime'] = pd.to_datetime(bt_df['CreatedDateTime'],unit='us')
+bt_df['Server'] = 'Internal'
 
-bartender_summary = ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
-bartender_summary2 =  ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
-bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
 
+#Read in BarTender data
+cnxn2 = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
+                      "Server=lbl-controlled\BARTENDER_REG;"
+                      "Database=BarTender_REG;"
+                      "Trusted_Connection=yes;")
+
+bt_df2 = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
+FROM [BarTender_REG].[dbo].[BtPrintJobs] btp \
+inner join [BarTender_REG].[dbo].BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
+inner join [BarTender_REG].[dbo].[Printers] p on btp.PrinterID = p.PrinterID', cnxn2)
+bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime'] - 621355968000000000
+bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime']/10
+bt_df2['CreatedDateTime'] = pd.to_datetime(bt_df2['CreatedDateTime'],unit='us')
+bt_df2['Server'] = 'Controlled'
+
+bartender_summary = ['PrinterName', 'Total', 'LastUsed']
+bartender_summary2 =  ['Name', 'Total', 'LastUsed']
+bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'Print Time', 'Server']
+
+bt_df = bt_df.append(bt_df2)
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
 
@@ -407,30 +422,43 @@ html.Div(children='''
                 start_date=(bt_df['CreatedDateTime'].max() - timedelta(6)).to_pydatetime(),
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
+html.Div(children='''
+Select Internal/Controlled
+'''),
+        html.Div([dcc.Checklist(
+            id='bartender-server-select',
+
+            options=[
+        {'label': 'Controlled', 'value': 'Controlled'},
+        {'label': 'Internal', 'value': 'Internal'}
+    ],
+            value=['Controlled', 'Internal'],
+            labelStyle={'display': 'inline-block'}
+        )]),
 
 html.Div(children='''
-    Table1
+    Labels By Printer
     '''),
         html.Div([
             dash_table.DataTable(
                 id='datatable-bartender-summary',
+                data=bt_df.to_dict('records'),
                 columns=[{"name": i, "id": i} for i in bartender_summary],
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
                 sort_action="native",
-                tooltip_data=[
-                    {
-                        column: {'value': str(value), 'type': 'markdown'}
-                        for column, value in row.items()
-                    } for row in bt_df.to_dict('rows')
-                ],
+                # tooltip_data=[
+                #     {
+                #         column: {'value': str(value), 'type': 'markdown'}
+                #         for column, value in row.items()
+                #     } for row in bt_df.to_dict('rows')
+                # ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
                             "size": 11, 'textAlign': 'left',
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
-
                             },
                 style_header={
                     'whiteSpace': 'normal',
@@ -445,21 +473,22 @@ html.Div(children='''
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 
 html.Div(children='''
-    Table2
+    Labels by Label
     '''),
         html.Div([
             dash_table.DataTable(
                 id='datatable-bartender-summary-2',
+                data=bt_df.to_dict('records'),
                 columns=[{"name": i, "id": i} for i in bartender_summary2],
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
                 sort_action="native",
-                tooltip_data=[
-                    {
-                        column: {'value': str(value), 'type': 'markdown'}
-                        for column, value in row.items()
-                    } for row in bt_df.to_dict('rows')
-                ],
+                # tooltip_data=[
+                #     {
+                #         column: {'value': str(value), 'type': 'markdown'}
+                #         for column, value in row.items()
+                #     } for row in bt_df.to_dict('rows')
+                # ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
                             "size": 11, 'textAlign': 'left',
@@ -480,23 +509,23 @@ html.Div(children='''
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 html.Div(children='''
-    Table3
+    Print History
     '''),
         # First Data Table
         html.Div([
             dash_table.DataTable(
                 id='datatable-bartender-table',
                 columns=[{"name": i, "id": i} for i in bartender_table],
-                data=df.to_dict('records'),
+                data=bt_df.to_dict('records'),
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
                 sort_action="native",
-                tooltip_data=[
-                    {
-                        column: {'value': str(value), 'type': 'markdown'}
-                        for column, value in row.items()
-                    } for row in bt_df.to_dict('rows')
-                ],
+                # tooltip_data=[
+                #     {
+                #         column: {'value': str(value), 'type': 'markdown'}
+                #         for column, value in row.items()
+                #     } for row in bt_df.to_dict('rows')
+                # ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
                             "size": 11, 'textAlign': 'left',

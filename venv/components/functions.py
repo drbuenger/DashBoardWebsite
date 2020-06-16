@@ -7,6 +7,7 @@ import numpy as np
 import pandas as pd
 import csv
 import os
+import pyodbc
 pd.options.mode.chained_assignment = None
 
 # Read in Hamilton Data
@@ -16,18 +17,49 @@ df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
-#df['Duration']=df['Duration'].map('{:,.1f}'.format)
 df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
 df = df.loc[(df!=0).any(axis=1)]
 
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
-#df.astype({'Duration': 'float64'}).dtypes
 now = datetime.now()
 datestamp = now.strftime("%Y%m%d")
 
 unique_serial_numbers = df['Serial Number'].unique()
+
+#Read in BarTender data
+cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
+                      "Server=labels-internal\BARTENDER;"
+                      "Database=BarTender_UNREG;"
+                      "Trusted_Connection=yes;")
+
+bt_df = pd.read_sql_query('SELECT btff.Name , p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime FROM BtPrintJobs btp \
+inner join BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
+inner join Printers p on btp.FormatID = p.PrinterID', cnxn)
+bt_df['CreatedDateTime']= bt_df['CreatedDateTime'] - 621355968000000000
+bt_df['CreatedDateTime']= bt_df['CreatedDateTime']/10
+bt_df['CreatedDateTime'] = pd.to_datetime(bt_df['CreatedDateTime'],unit='us')
+bt_df['Server'] = 'Internal'
+
+cnxn2 = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
+                      "Server=lbl-controlled\BARTENDER_REG;"
+                      "Database=BarTender_REG;"
+                      "Trusted_Connection=yes;")
+
+bt_df2 = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
+FROM [BarTender_REG].[dbo].[BtPrintJobs] btp \
+inner join [BarTender_REG].[dbo].BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
+inner join [BarTender_REG].[dbo].[Printers] p on btp.PrinterID = p.PrinterID', cnxn2)
+bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime'] - 621355968000000000
+bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime']/10
+bt_df2['CreatedDateTime'] = pd.to_datetime(bt_df2['CreatedDateTime'],unit='us')
+bt_df2['Server'] = 'Controlled'
+
+bt_df = bt_df.append(bt_df2)
+bartender_summary = ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
+bartender_summary2 =  ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
+bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
 
 
 # Define Formatters
@@ -38,14 +70,11 @@ def formatter_currency(x):
 def formatter_currency_with_cents(x):
     return "${:,.2f}".format(x) if x >= 0 else "(${:,.2f})".format(abs(x))
 
-
 def formatter_percent(x):
     return "{:,.1f}%".format(x) if x >= 0 else "({:,.1f}%)".format(abs(x))
 
-
 def formatter_percent_2_digits(x):
     return "{:,.2f}%".format(x) if x >= 0 else "({:,.2f}%)".format(abs(x))
-
 
 def formatter_number(x):
     return "{:,.0f}".format(x) if x >= 0 else "({:,.0f})".format(abs(x))
@@ -343,6 +372,62 @@ def update_second_datatable(start_date, end_date,serial_number):
     data_df = df1.to_dict("record")
     return data_df
 
+########################## BARTENDER ########################
+def update_bartender_summary(start_date,end_date,server_list):
+    df1 = bt_df.loc[(bt_df['CreatedDateTime'] >= start_date) & (bt_df['CreatedDateTime'] <= end_date)]
+    df3 = df1[df1['Server'].isin(server_list)]
+    df3['Print Time'] = df3['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+
+    df2 = df3.groupby('PrinterName').agg(
+        Total=pd.NamedAgg(column='TotalLabels', aggfunc=np.sum),
+        LastUsed=pd.NamedAgg(column='Print Time', aggfunc=np.max)).reset_index()
+
+    df2.sort_values(by=['Total'], inplace=True, ascending=False)
+
+    tooltip_data = [
+        {
+            column: {'value': str(value), 'type': 'markdown'}
+            for column, value in row.items()
+        } for row in df2.to_dict('rows')
+    ]
+    return df2.to_dict('records'), tooltip_data
+
+def update_bartender_summary2(start_date,end_date,server_list):
+    df1 = bt_df.loc[(bt_df['CreatedDateTime'] >= start_date) & (bt_df['CreatedDateTime'] <= end_date)]
+    df3 = df1[df1['Server'].isin(server_list)]
+    df3['Print Time'] = df3['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+
+    df2 = df3.groupby(['Name']).agg(
+        Total=pd.NamedAgg(column='TotalLabels', aggfunc=np.sum),
+        LastUsed=pd.NamedAgg(column='Print Time', aggfunc=np.max)).reset_index()
+
+    df2.sort_values(by=['Total'], inplace=True, ascending=False)
+
+    tooltip_data = [
+        {
+            column: {'value': str(value), 'type': 'markdown'}
+            for column, value in row.items()
+        } for row in df2.to_dict('rows')
+    ]
+    return df2.to_dict('records'), tooltip_data
+
+def update_bartender_table(start_date, end_date, server_list):
+    df1 = bt_df.loc[(bt_df['CreatedDateTime'] >= start_date) & (bt_df['CreatedDateTime'] <= end_date)]
+    df3 = df1[df1['Server'].isin(server_list)]
+    df3['Print Time'] = df3['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+
+    df3.sort_values(by=['Print Time'], inplace=True,ascending=False)
+
+    tooltip_data = [
+        {
+            column: {'value': str(value), 'type': 'markdown'}
+            for column, value in row.items()
+        } for row in df3.to_dict('rows')
+    ]
+    return df3.to_dict('records'), tooltip_data
+
+
+########################### BARTENDER ##########################
 
 ######################## FOR GRAPHS  ########################
 
