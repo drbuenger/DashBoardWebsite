@@ -12,8 +12,8 @@ import plotly.subplots as splots
 import csv
 import pyodbc
 cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
-                      "Server=localhost;"
-                      "Database=HamiltonVectorDB_e2f1e32cb3594605886d645ab4c4e8e5;"
+                      "Server=labels-internal\BARTENDER;"
+                      "Database=BarTender_UNREG;"
                       "Trusted_Connection=yes;")
 
 
