@@ -1,8 +1,8 @@
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 from app import app
 import plotly.graph_objs as go
 from plotly import tools
-
+import dash
 from datetime import datetime as dt
 from datetime import date, timedelta
 from datetime import datetime
@@ -91,6 +91,27 @@ def update_columns(value):
     elif value == 'Condensed':
         column_set=[{"name": i, "id": i, "deletable": True} for i in columns_condensed]
     return column_set
+
+@app.callback(
+    [Output("run-detail-page", "is_open"),
+     Output("run-detail-data", "data")],
+    [Input("run-detail-button", "n_clicks"),
+     Input("close-detail-button", "n_clicks"),
+     Input('datatable-hamilton-category', 'derived_virtual_data'),
+     Input('datatable-hamilton-category', 'derived_virtual_selected_rows')],
+    [State("run-detail-page", "is_open")]
+)
+def toggle_modal(n1, n2, rows, selected_rows,is_open):
+    if selected_rows is None:
+        selected_rows = []
+
+    dff = df if rows is None else pd.DataFrame(rows)
+
+    #file = df['File Name'][0]
+
+    if n1 or n2:
+        return not is_open, dff.to_dict('records')
+    return is_open, dff.to_dict('records')
 
 # Callback for excel download
 @app.callback(

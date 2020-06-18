@@ -1,5 +1,6 @@
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_bootstrap_components as dbc
 import dash_table
 from components import Header, print_button, read_trace_file
 from datetime import datetime as dt
@@ -14,7 +15,6 @@ import pyodbc
 from dateutil.relativedelta import relativedelta
 
 # Read in Data
-
 hamilton_computers = ["\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
                       "\\\ZORRANDER\C$\Program Files\Hamilton\LogFiles",
                       "\\\MTGREENMTN\C$\Program Files\Hamilton\LogFiles",
@@ -70,7 +70,7 @@ conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Nu
 
 summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed', 'Success %']
 summary_columns_time = ['Method Name', 'Average Dispense', 'Average Aspirate', 'Average Pickup', 'Average Eject', 'Average User']
-summary_columns_time2 = ['Method Name', '% Dispense', '% Aspirate', '% Pickup', '% Eject', '% User', 'Average Total Time (sec)']
+summary_columns_time2 = ['Method Name', '% Dispense', '% Aspirate', '% Pickup', '% Eject', '% User', 'Average Total Time (min)']
 
 #Read in BarTender data
 cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
@@ -180,6 +180,56 @@ html.Div(children='''
 html.Div(children='''
     Hamilton Data by Serial Number
     '''),
+dbc.Container(
+    [
+        dbc.Button("Run Detail Page", id="run-detail-button"),
+        dbc.Modal(
+            [
+                dbc.ModalHeader("Test!"),
+                dbc.ModalBody(html.Div([
+                    dash_table.DataTable(
+                        id='run-detail-data',
+                        columns=[{"name": i, "id": i} for i in summary_columns],
+                        style_table={'maxWidth': '800px',
+                             'overflowX': 'auto',},
+                        sort_action="native",
+                        tooltip_data=[
+                            {
+                                column: {'value': str(value), 'type': 'markdown'}
+                                for column, value in row.items()
+                            } for row in df.to_dict('rows')
+                        ],
+                        selected_rows=[],
+                        tooltip_duration=None,
+                        style_cell={
+                            "fontFamily": "Arial",
+                            "size": 11, 'textAlign': 'left',
+                            'overflow': 'hidden',
+                            'textOverflow': 'ellipsis',
+                            'maxWidth': 0,
+                            },
+                        style_header={
+                            'whiteSpace': 'normal',
+                            'height': 'auto'},
+                        style_cell_conditional=[
+                            {'if': {'column_id': 'Method Name'},
+                             'width': '15%'}],
+                        css=[{'selector': '.dash-cell div.dash-cell-value',
+                             'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                             {'selector': '.row', 'rule': 'margin: 0'}],
+            ),
+        ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),),
+                dbc.ModalFooter(dbc.Button("Close Detail Page", id="close-detail-button"),)
+            ],
+            size='sm',
+            id="run-detail-page",
+            is_open=False,
+            centered=True
+
+        ),
+    ],
+    className="modal-backdrop",
+),
         # First Data Table
         html.Div([
             dash_table.DataTable(
@@ -203,6 +253,7 @@ html.Div(children='''
                             'maxWidth': 0,
 
                             },
+                row_selectable='single',
                 style_header={
                     'whiteSpace': 'normal',
                     'height': 'auto'},

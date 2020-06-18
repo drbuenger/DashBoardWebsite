@@ -37,3 +37,24 @@
 2020-06-03 07:32:58> Microlab® STAR : Initialize (Single Step) - start;
 2020-06-03 07:32:58> Microlab® STAR : Initialize (Single Step) - complete;  > channel 1: Waste,  > channel 2: Waste,  > channel 3: Waste,  > channel 4: Waste,  > channel 5: Waste,  > channel 6: Waste,  > channel 7: Waste,  > channel 8: Waste, 
 2020-06-03 07:32:58> SYSTEM : User Input Dialog - start; <>,   Available button(s): <OK>,   Default button: <OK>,   Input row 1 - Prompt: <Add HindIII to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 2 - Prompt: <Add Antarctic Phosphatase to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 3 - Prompt: <Add EcoR1 to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>,   Input row 4 - Prompt: <Add Lambda Exonuclease to the rxn?>, Default value: <N>, Type: <String>, Minimum: <>, Maximum: <>
+2020-06-03 09:21:19> SYSTEM : Method has been aborted by the user - complete; 
+2020-06-03 09:21:19> SYSTEM : Abort method - start; 
+2020-06-03 09:21:19> Microlab® STAR : Abort requested command - start;
+2020-06-03 09:21:19> Microlab® STAR : Abort requested command - complete;
+2020-06-03 09:21:19> Microlab® STAR : Start Method Abort Handler command - start;
+2020-06-03 09:21:19> Microlab® STAR : Start Method Abort Handler command - complete;
+2020-06-03 09:21:19> Microlab® STAR : Abort command - start;
+2020-06-03 09:21:19> Microlab® STAR : Abort command - complete;
+2020-06-03 09:21:19> SYSTEM : User Input Dialog - complete; <>,   Automatically closed (timeout) with: <OK (1)>,   Input row 1 - Prompt: <Add HindIII to the rxn?>, Value: <N>,   Input row 2 - Prompt: <Add Antarctic Phosphatase to the rxn?>, Value: <N>,   Input row 3 - Prompt: <Add EcoR1 to the rxn?>, Value: <N>,   Input row 4 - Prompt: <Add Lambda Exonuclease to the rxn?>, Value: <N>
+2020-06-03 09:21:19> SYSTEM : Abort method - complete; 
+2020-06-03 09:21:19> SYSTEM : Execute method - complete; 
+2020-06-03 09:21:19> SYSTEM : End method - start; 
+2020-06-03 09:21:19> Microlab® STAR : End method command - start;
+2020-06-03 09:21:20> Microlab® STAR : Clean up instrument - progress; Move up 1000µl channels
+2020-06-03 09:21:20> Microlab® STAR : Clean up instrument - progress; Move up CO-RE 96 Head
+2020-06-03 09:21:20> Microlab® STAR : Clean up instrument - progress; Move down auto load Y drive
+2020-06-03 09:21:22> Microlab® STAR : Clean up instrument - progress; Spreading channels
+2020-06-03 09:21:22> Microlab® STAR : Clean up instrument - progress; Switch off loading lights
+2020-06-03 09:21:23> Microlab® STAR : End method command - complete;
+2020-06-03 09:21:23> SYSTEM : End method - complete; 
+2020-06-03 09:21:24> SYSTEM : File checksum - written; $$author=LabUser$$valid=0$$time=2020-06-03 09:21$$checksum=309ec2ef$$length=136$$
