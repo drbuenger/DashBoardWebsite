@@ -216,6 +216,171 @@ def read_trace_file(file):
                              file_name
                              ])
 
+# Read Text File
+def read_trace_file_detail(file):
+    method_name = "NA"
+    serialnumber = "NA"
+    username = "NA"
+    date_start = "NA"
+    date_end = "NA"
+    method_aborted = "No"
+    tips_used50uL = 0
+    tips_used300uL = 0
+    tips_used1000uL = 0
+    aspirating_count = 0
+    aspirating_time = 0
+    aspirating_start = ""
+    aspirating_end =  ""
+    dispensing_count = 0
+    dispensing_time = 0
+    dispensing_start = ""
+    dispensing_end =  ""
+    pickup_count = 0
+    pickup_time = 0
+    pickup_start = ""
+    pickup_end =  ""
+    eject_count = 0
+    eject_time = 0
+    eject_start = ""
+    eject_end =  ""
+    user_start = ""
+    user_end =  ""
+    user_count = 0
+    user_time = 0
+    file_name = ""
+    df_detail= pd.DataFrame(columns=['Time Since Start (sec)','Step Type', 'Message'])
+
+    if file is not None:
+        f = open(file, 'r')
+        file_name = f.name
+        for readline in f:
+            if 'Analyze method - start' in readline:
+                array_read_line = readline.split("\\")
+                length = len(array_read_line)
+                method_name = array_read_line[length-1].rstrip("'.hsl\n\t’")
+            if 'Analyze method - start' in readline:
+                date_start = readline[0:19]
+                time_start = readline[11:19]
+                time_since_start = '00'
+                s= pd.Series([time_since_start,"Method Start", date_start],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'User name' in readline:
+                array_read_line = readline.split(" ")
+                length = len(array_read_line)
+                username = array_read_line[length-1].rstrip("'\n\t’")
+            if 'Serial number of Instrument' in readline:
+                array_read_line = readline.split(" ")
+                length = len(array_read_line)
+                serialnumber= array_read_line[length - 1].rstrip("'\n\t’")
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Method Start", 'Serial Number: ' + serialnumber],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if '1000µl Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used1000uL += 8
+            if '300µl Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used300uL += 8
+            if '50µl Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used50uL += 8
+            if 'CO-RE 96 Head Tip Eject (Single Step) - complete' in readline:
+                tips_used1000uL += 96
+            if 'End method - complete' in readline:
+                date_end = readline[0:19]
+            if 'Abort command - complete' in readline:
+                method_aborted = "Yes"
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Method Aborted", "Aborted By User"],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Aspirate (Single Step) - start' in readline:
+                aspirating_start = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Aspirate", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Aspirate (Single Step) - complete' in readline:
+                aspirating_end = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Aspirate", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if aspirating_end != "" and aspirating_start != "":
+                aspirating_count = aspirating_count + 1
+                aspirating_time = aspirating_time + (dt.strptime(aspirating_end, '%H:%M:%S') - dt.strptime(aspirating_start, '%H:%M:%S')).seconds
+                aspirating_start = ""
+                aspirating_end = ""
+            if 'Dispense (Single Step) - start' in readline:
+                dispensing_start = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Dispense", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Dispense (Single Step) - complete' in readline:
+                dispensing_end = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Dispense", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if dispensing_end != "" and dispensing_start != "":
+                dispensing_count = dispensing_count + 1
+                dispensing_time = dispensing_time + (dt.strptime(dispensing_end, '%H:%M:%S') - dt.strptime(dispensing_start, '%H:%M:%S')).seconds
+                dispensing_start = ""
+                dispensing_end = ""
+            if 'Tip Pick Up (Single Step) - start' in readline:
+                pickup_start = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Pick Up Tips", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Tip Pick Up (Single Step) - complete' in readline:
+                pickup_end = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Pick Up Tips", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if pickup_end != "" and pickup_start != "":
+                pickup_count = pickup_count + 1
+                pickup_time = pickup_time + (dt.strptime(pickup_end, '%H:%M:%S') - dt.strptime(pickup_start, '%H:%M:%S')).seconds
+                pickup_start = ""
+                pickup_end = ""
+            if 'Tip Eject (Single Step) - start' in readline:
+                eject_start = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Eject Tips", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Tip Eject (Single Step) - complete' in readline:
+                eject_end = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Eject Tips", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if eject_end != "" and eject_start != "":
+                eject_count = eject_count + 1
+                eject_time = eject_time + (dt.strptime(eject_end, '%H:%M:%S') - dt.strptime(eject_start, '%H:%M:%S')).seconds
+                eject_start = ""
+                eject_end = ""
+            if 'Dialog - start' in readline:
+                user_start = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"User Step", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Dialog - complete' in readline:
+                user_end = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"User Step", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if user_end != "" and user_start != "":
+                user_count = user_count + 1
+                user_time = user_time + (dt.strptime(user_end, '%H:%M:%S') - dt.strptime(user_start, '%H:%M:%S')).seconds
+                user_start = ""
+                user_end = ""
+        f.close()
+        return df_detail
+
+
 # First Data Table Update Function
 def update_first_datatable(start_date, end_date, serial_number):
 

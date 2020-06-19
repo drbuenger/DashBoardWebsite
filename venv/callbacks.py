@@ -16,7 +16,7 @@ import flask
 from flask import send_file
 
 from components import formatter_currency, formatter_currency_with_cents, formatter_percent, formatter_percent_2_digits, formatter_number
-from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable
+from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable, read_trace_file_detail
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
 from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
 
@@ -44,7 +44,7 @@ datestamp = now.strftime("%Y%m%d")
 
 unique_serial_numbers = df['Serial Number'].unique()
 
-columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
+columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name', 'File Name']
 
 columns_complete = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
@@ -97,21 +97,28 @@ def update_columns(value):
      Output("run-detail-data", "data")],
     [Input("run-detail-button", "n_clicks"),
      Input("close-detail-button", "n_clicks"),
-     Input('datatable-hamilton-category', 'derived_virtual_data'),
-     Input('datatable-hamilton-category', 'derived_virtual_selected_rows')],
-    [State("run-detail-page", "is_open")]
+    Input('datatable-hamilton-category', 'data'),
+     ],
+    [State("run-detail-page", "is_open"),
+     State('datatable-hamilton-category', 'selected_rows')]
 )
-def toggle_modal(n1, n2, rows, selected_rows,is_open):
-    if selected_rows is None:
-        selected_rows = []
+def toggle_modal(n1, n2,rows,is_open, selected_rows):
 
-    dff = df if rows is None else pd.DataFrame(rows)
+    df_temp = pd.DataFrame(rows)
 
-    #file = df['File Name'][0]
+    if selected_rows:
+        dff = df_temp.loc[selected_rows]
+        dff.reset_index(inplace=True)
+        filename_col = dff.columns.get_loc('File Name')
+        name = dff.iloc[0, filename_col]
+        df_detail = read_trace_file_detail(name)
+    else:
+        df_detail = pd.DataFrame()
+
 
     if n1 or n2:
-        return not is_open, dff.to_dict('records')
-    return is_open, dff.to_dict('records')
+        return not is_open, df_detail.to_dict('records')
+    return is_open, df_detail.to_dict('records')
 
 # Callback for excel download
 @app.callback(

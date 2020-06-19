@@ -56,7 +56,7 @@ df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
 unique_serial_numbers = df['Serial Number'].unique()
 
-dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used',  'Duration', 'Aborted']
+dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used',  'Duration', 'Aborted', 'File Name']
 
 dt_columns_time = ['Method Name','Dispensing Time','Dispensing Count','Aspirating Time','Aspirating Count', 'Tip Pickup Time','Tip Pickup Count', 'Tip Eject Time','Tip Eject Count', 'User Time','User Count']
 
@@ -71,6 +71,7 @@ conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Nu
 summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed', 'Success %']
 summary_columns_time = ['Method Name', 'Average Dispense', 'Average Aspirate', 'Average Pickup', 'Average Eject', 'Average User']
 summary_columns_time2 = ['Method Name', '% Dispense', '% Aspirate', '% Pickup', '% Eject', '% User', 'Average Total Time (min)']
+ham_detail_columns= ['Time Since Start (sec)','Step Type', 'Message']
 
 #Read in BarTender data
 cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
@@ -179,28 +180,22 @@ html.Div(children='''
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 html.Div(children='''
     Hamilton Data by Serial Number
-    '''),
-dbc.Container(
-    [
+    ''',
+         ),
+
         dbc.Button("Run Detail Page", id="run-detail-button"),
+
         dbc.Modal(
             [
                 dbc.ModalHeader("Test!"),
                 dbc.ModalBody(html.Div([
                     dash_table.DataTable(
                         id='run-detail-data',
-                        columns=[{"name": i, "id": i} for i in summary_columns],
-                        style_table={'maxWidth': '800px',
+                        columns=[{"name": i, "id": i} for i in ham_detail_columns],
+                        style_table={'maxWidth': '1400px',
                              'overflowX': 'auto',},
                         sort_action="native",
-                        tooltip_data=[
-                            {
-                                column: {'value': str(value), 'type': 'markdown'}
-                                for column, value in row.items()
-                            } for row in df.to_dict('rows')
-                        ],
                         selected_rows=[],
-                        tooltip_duration=None,
                         style_cell={
                             "fontFamily": "Arial",
                             "size": 11, 'textAlign': 'left',
@@ -212,8 +207,14 @@ dbc.Container(
                             'whiteSpace': 'normal',
                             'height': 'auto'},
                         style_cell_conditional=[
-                            {'if': {'column_id': 'Method Name'},
-                             'width': '15%'}],
+                            {
+                                'if': {
+                                    'column_id': 'Method Name'
+                                },
+                             'width': '15%'
+                            },
+
+                        ],
                         css=[{'selector': '.dash-cell div.dash-cell-value',
                              'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                              {'selector': '.row', 'rule': 'margin: 0'}],
@@ -221,15 +222,13 @@ dbc.Container(
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),),
                 dbc.ModalFooter(dbc.Button("Close Detail Page", id="close-detail-button"),)
             ],
-            size='sm',
+            size='xl',
             id="run-detail-page",
             is_open=False,
             centered=True
 
         ),
-    ],
-    className="modal-backdrop",
-),
+
         # First Data Table
         html.Div([
             dash_table.DataTable(
@@ -259,7 +258,14 @@ dbc.Container(
                     'height': 'auto'},
                 style_cell_conditional=[
                     {'if': {'column_id': 'Method Name'},
-                     'width': '20%'}],
+                     'width': '20%'},
+                    {
+                        'if': {
+                            'column_id': 'File Name',
+                        },
+                        'display': 'none'
+                    },
+                ],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}]
