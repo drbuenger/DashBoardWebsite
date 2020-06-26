@@ -249,7 +249,7 @@ def read_trace_file_detail(file):
     user_time = 0
     file_name = ""
     df_detail= pd.DataFrame(columns=['Time Since Start (sec)','Step Type', 'Message'])
-
+    tip_total = 0
     if file is not None:
         f = open(file, 'r')
         file_name = f.name
@@ -261,7 +261,7 @@ def read_trace_file_detail(file):
             if 'Analyze method - start' in readline:
                 date_start = readline[0:19]
                 time_start = readline[11:19]
-                time_since_start = '00'
+                time_since_start = '0'
                 s= pd.Series([time_since_start,"Method Start", date_start],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if 'User name' in readline:
@@ -295,14 +295,12 @@ def read_trace_file_detail(file):
             if 'Aspirate (Single Step) - start' in readline:
                 aspirating_start = readline[11:19]
                 read_event_time = readline[11:19]
-                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"Aspirate", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
-                df_detail = df_detail.append(s,ignore_index=True)
             if 'Aspirate (Single Step) - complete' in readline:
                 aspirating_end = readline[11:19]
                 read_event_time = readline[11:19]
+                readline_split = readline.split('uL')
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"Aspirate", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                s= pd.Series([time_since_start,"Aspirate", "Ended"],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if aspirating_end != "" and aspirating_start != "":
                 aspirating_count = aspirating_count + 1
@@ -312,9 +310,6 @@ def read_trace_file_detail(file):
             if 'Dispense (Single Step) - start' in readline:
                 dispensing_start = readline[11:19]
                 read_event_time = readline[11:19]
-                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"Dispense", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
-                df_detail = df_detail.append(s,ignore_index=True)
             if 'Dispense (Single Step) - complete' in readline:
                 dispensing_end = readline[11:19]
                 read_event_time = readline[11:19]
@@ -329,12 +324,10 @@ def read_trace_file_detail(file):
             if 'Tip Pick Up (Single Step) - start' in readline:
                 pickup_start = readline[11:19]
                 read_event_time = readline[11:19]
-                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"Pick Up Tips", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
-                df_detail = df_detail.append(s,ignore_index=True)
             if 'Tip Pick Up (Single Step) - complete' in readline:
                 pickup_end = readline[11:19]
                 read_event_time = readline[11:19]
+                tip_total = tip_total
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
                 s= pd.Series([time_since_start,"Pick Up Tips", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
@@ -346,14 +339,11 @@ def read_trace_file_detail(file):
             if 'Tip Eject (Single Step) - start' in readline:
                 eject_start = readline[11:19]
                 read_event_time = readline[11:19]
-                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"Eject Tips", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
-                df_detail = df_detail.append(s,ignore_index=True)
             if 'Tip Eject (Single Step) - complete' in readline:
                 eject_end = readline[11:19]
                 read_event_time = readline[11:19]
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"Eject Tips", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                s= pd.Series([time_since_start,"Eject Tips", 'Total Tips Ejected: ' + str(tips_used1000uL)],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if eject_end != "" and eject_start != "":
                 eject_count = eject_count + 1
@@ -414,6 +404,7 @@ def update_summary_datatable(start_date, end_date, serial_number):
                                ).reset_index()
 
     df2['Success %'] = df2['SuccessCount']/df2['Total'] * 100
+    df2['Success %'] = df2['Success %'].apply(lambda x: formatter_number_one_dec(x))
     df2['Average'] = df2['Average'].apply(lambda x: formatter_number_one_dec(x))
     df2.sort_values(by=['Method Name'],inplace=True)
     tooltip_data = [

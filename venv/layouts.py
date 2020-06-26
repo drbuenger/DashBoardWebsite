@@ -108,6 +108,27 @@ bartender_summary2 =  ['Name', 'Total', 'LastUsed']
 bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'Print Time', 'Server']
 
 bt_df = bt_df.append(bt_df2)
+
+
+
+# Read in Data
+stretcher_files = ["\\\janetjackson-pc\C$\\NanoFluidics\LogData\Blue",
+                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Green",
+                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Red",
+                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Yellow"]
+
+# r=root, d=directories, f = files
+for folder in stretcher_files:
+    path_split = folder.split("\\")
+    es_color = path_split[6]
+    y = [os.path.join(r,file) for  r,d,f in os.walk(folder) for file in f]
+    for z in y:
+        file_split = z.split("\\")
+        count = len(file_split)
+        destination = storage_location + "\\ES\\" + es_color +"\\" + file_split[count-1]
+        if z.endswith(".CSV") and not os.path.exists(destination):
+            shutil.copy2(z,destination)
+
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
 
@@ -187,7 +208,7 @@ html.Div(children='''
 
         dbc.Modal(
             [
-                dbc.ModalHeader("Test!"),
+                dbc.ModalHeader("Hamilton Method Detail Page"),
                 dbc.ModalBody(html.Div([
                     dash_table.DataTable(
                         id='run-detail-data',
@@ -486,7 +507,7 @@ Select Internal/Controlled
             id='bartender-server-select',
 
             options=[
-        {'label': 'Controlled', 'value': 'Controlled'},
+        {'label': 'Controlled  ', 'value': 'Controlled'},
         {'label': 'Internal', 'value': 'Internal'}
     ],
             value=['Controlled', 'Internal'],
