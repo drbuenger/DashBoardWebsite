@@ -2,6 +2,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 import dash_table
+import numpy as np
 from components import Header, print_button, read_trace_file
 from datetime import datetime as dt
 from datetime import date, timedelta
@@ -128,6 +129,9 @@ for folder in stretcher_files:
         destination = storage_location + "\\ES\\" + es_color +"\\" + file_split[count-1]
         if z.endswith(".CSV") and not os.path.exists(destination):
             shutil.copy2(z,destination)
+
+stretcher_summary = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lane 2 (V)', 'Lane 3 (uA)', 'Lane 3 (V)', 'Lane 4 (uA)', 'Lane 4 (V)', 'Lane 5 (uA)', 'Lane 5 (V)', 'Lane 6 (uA)', 'Lane 6 (V)', 'Total']
+stretcher_table = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lane 2 (V)', 'Lane 3 (uA)', 'Lane 3 (V)', 'Lane 4 (uA)', 'Lane 4 (V)', 'Lane 5 (uA)', 'Lane 5 (V)', 'Lane 6 (uA)', 'Lane 6 (V)', 'Date and Time']
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
@@ -643,6 +647,91 @@ html.Div(children='''
 ], className="page")
 
 ######################## END BarTender Category Layout ########################
+
+######################## START ElectroStretcher Category Layout ########################
+layout_stretcher = html.Div([
+    html.Div([
+        # CC Header
+        Header('000100'),
+        # Date Picker
+html.Div(children='''
+    Pick a Start/End Date
+    '''),
+        html.Div([
+            dcc.DatePickerRange(
+                id='my-date-picker-range-stretcher',
+                with_portal=True,
+                min_date_allowed=dt(2016, 1, 1),
+                max_date_allowed=date.today(),
+                initial_visible_month=dt(date.today().year, date.today().month, 1),
+                end_date= date.today(),
+                start_date=(date.today() - timedelta(6)),
+            )
+        ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
+html.Div(children='''
+    Stretching By Color
+    '''),
+        html.Div([
+            dash_table.DataTable(
+                id='datatable-stretcher-summary',
+                columns=[{"name": i, "id": i} for i in stretcher_summary],
+                style_table={'maxWidth': '1500px',
+                             'overflowX': 'auto',},
+                sort_action="native",
+                tooltip_duration=None,
+                style_cell={"fontFamily": "Arial",
+                            "size": 11, 'textAlign': 'left',
+                            'overflow': 'hidden',
+                            'textOverflow': 'ellipsis',
+                            'maxWidth': 0,
+                            },
+                style_header={
+                    'whiteSpace': 'normal',
+                    'height': 'auto'},
+                style_cell_conditional=[
+                    {'if': {'column_id': 'Stretcher'},
+                     'width': '5%'}],
+                css=[{'selector': '.dash-cell div.dash-cell-value',
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}],
+            ),
+        ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
+
+html.Div(children='''
+    Electrostretcher History
+    '''),
+        # First Data Table
+        html.Div([
+            dash_table.DataTable(
+                id='datatable-stretcher-table',
+                columns=[{"name": i, "id": i} for i in stretcher_table],
+                style_table={'maxWidth': '1500px',
+                             'overflowX': 'auto',},
+                sort_action="native",
+                tooltip_duration=None,
+                style_cell={"fontFamily": "Arial",
+                            "size": 11, 'textAlign': 'left',
+                            'overflow': 'hidden',
+                            'textOverflow': 'ellipsis',
+                            'maxWidth': 0,
+                            },
+                style_header={
+                    'whiteSpace': 'normal',
+                    'height': 'auto'},
+                style_cell_conditional=[
+                    {'if': {'column_id': 'Stretcher'},
+                     'width': '5%'}
+                ],
+                css=[{'selector': '.dash-cell div.dash-cell-value',
+                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}]
+
+            ),
+        ], className="datatable-hamilton", style={'marginTop': 0, 'marginBottom': 15}),
+    ], className="subpage")
+], className="page")
+
+######################## END ElectroStretcher Category Layout ########################
 
 ######################## 404 Page ########################
 noPage = html.Div([

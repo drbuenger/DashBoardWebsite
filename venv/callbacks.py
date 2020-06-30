@@ -19,6 +19,7 @@ from components import formatter_currency, formatter_currency_with_cents, format
 from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable, read_trace_file_detail
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
 from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
+from components import update_summary_stretcher, update_datatable_stretcher
 
 pd.options.mode.chained_assignment = None
 
@@ -260,3 +261,53 @@ def update_data_bartender_summary2(start_date, end_date,server_list):
 Input('bartender-server-select', 'value'),])
 def update_data_bartender_table(start_date, end_date,server_list):
 	return update_bartender_table(start_date, end_date,server_list)
+
+#Update Electrostretcher
+# Callback and update first data table
+@app.callback([Output('datatable-stretcher-table', 'data'),
+                Output('datatable-stretcher-table', 'tooltip_data'),
+               ],
+	[Input('my-date-picker-range-stretcher', 'start_date'),
+	 Input('my-date-picker-range-stretcher', 'end_date')
+     ])
+def update_data_stretcher(start_date, end_date):
+	return update_datatable_stretcher(start_date, end_date)
+
+# Callback and update first data table
+@app.callback([Output('datatable-stretcher-summary', 'data'),
+                Output('datatable-stretcher-summary', 'tooltip_data'),
+               ],
+	[Input('my-date-picker-range-stretcher', 'start_date'),
+	 Input('my-date-picker-range-stretcher', 'end_date')
+     ])
+def update_data_summary_stretcher(start_date, end_date):
+	return update_summary_stretcher(start_date, end_date)
+
+
+# @app.callback(
+#     [Output("run-detail-page", "is_open"),
+#      Output("run-detail-data", "data")],
+#     [Input("run-detail-button", "n_clicks"),
+#      Input("close-detail-button", "n_clicks"),
+#     Input('datatable-hamilton-category', 'data'),
+#      ],
+#     [State("run-detail-page", "is_open"),
+#      State('datatable-hamilton-category', 'selected_rows')]
+# )
+# def toggle_modal(n1, n2,rows,is_open, selected_rows):
+#
+#     df_temp = pd.DataFrame(rows)
+#
+#     if selected_rows:
+#         dff = df_temp.loc[selected_rows]
+#         dff.reset_index(inplace=True)
+#         filename_col = dff.columns.get_loc('File Name')
+#         name = dff.iloc[0, filename_col]
+#         df_detail = read_trace_file_detail(name)
+#     else:
+#         df_detail = pd.DataFrame()
+#
+#
+#     if n1 or n2:
+#         return not is_open, df_detail.to_dict('records')
+#     return is_open, df_detail.to_dict('records')

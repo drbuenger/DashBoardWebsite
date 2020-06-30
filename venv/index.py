@@ -7,7 +7,7 @@ import dash_bootstrap_components as dbc
 # see https://community.plot.ly/t/nolayoutexception-on-deployment-of-multi-page-dash-app-example-code/12463/2?u=dcomfort
 from app import server
 from app import app
-from layouts import layout_hamilton, layout_hamilton_time, layout_BarTender, noPage
+from layouts import layout_hamilton, layout_hamilton_time, layout_BarTender, layout_stretcher, noPage
 import callbacks
 
 # see https://dash.plot.ly/external-resources to alter header, footer and favicon
@@ -48,6 +48,8 @@ def display_page(pathname):
         return layout_hamilton_time
     elif pathname == '/Reports/BarTender/':
         return layout_BarTender
+    elif pathname == '/Reports/Electrostretcher/':
+        return layout_stretcher
     else:
         return noPage
 
