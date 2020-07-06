@@ -116,12 +116,17 @@ bt_df = bt_df.append(bt_df2)
 stretcher_files = ["\\\janetjackson-pc\C$\\NanoFluidics\LogData\Blue",
                       "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Green",
                       "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Red",
-                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Yellow"]
+                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Yellow",
+                   "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Pink",
+                   "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Green",
+                   "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Purple"
+                   ]
 
 # r=root, d=directories, f = files
 for folder in stretcher_files:
     path_split = folder.split("\\")
-    es_color = path_split[6]
+    length_split = len(path_split)
+    es_color = path_split[length_split -1]
     y = [os.path.join(r,file) for  r,d,f in os.walk(folder) for file in f]
     for z in y:
         file_split = z.split("\\")
