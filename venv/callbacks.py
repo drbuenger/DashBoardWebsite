@@ -19,7 +19,7 @@ from components import formatter_currency, formatter_currency_with_cents, format
 from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable, read_trace_file_detail
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
 from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
-from components import update_summary_stretcher, update_datatable_stretcher
+from components import update_summary_stretcher, update_datatable_stretcher, es_graph
 
 pd.options.mode.chained_assignment = None
 
@@ -35,15 +35,6 @@ df = df.loc[(df!=0).any(axis=1)]
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
-now = datetime.now()
-datestamp = now.strftime("%Y%m%d")
-
-current_year = df['Time End'].max().to_pydatetime().year
-
-now = datetime.now()
-datestamp = now.strftime("%Y%m%d")
-
-unique_serial_numbers = df['Serial Number'].unique()
 
 columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name', 'File Name']
 
@@ -51,9 +42,6 @@ columns_complete = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'D
 
 columns_condensed = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
-conditional_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
-
-dt_columns_total =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
 ######################## Nav Bar Callbacks ########################
 
@@ -268,10 +256,11 @@ def update_data_bartender_table(start_date, end_date,server_list):
                 Output('datatable-stretcher-table', 'tooltip_data'),
                ],
 	[Input('my-date-picker-range-stretcher', 'start_date'),
-	 Input('my-date-picker-range-stretcher', 'end_date')
+	 Input('my-date-picker-range-stretcher', 'end_date'),
+    Input('stretcher-color-select', 'value')
      ])
-def update_data_stretcher(start_date, end_date):
-	return update_datatable_stretcher(start_date, end_date)
+def update_data_stretcher(start_date, end_date, colors):
+	return update_datatable_stretcher(start_date, end_date, colors)
 
 # Callback and update first data table
 @app.callback([Output('datatable-stretcher-summary', 'data'),
@@ -284,30 +273,29 @@ def update_data_summary_stretcher(start_date, end_date):
 	return update_summary_stretcher(start_date, end_date)
 
 
-# @app.callback(
-#     [Output("run-detail-page", "is_open"),
-#      Output("run-detail-data", "data")],
-#     [Input("run-detail-button", "n_clicks"),
-#      Input("close-detail-button", "n_clicks"),
-#     Input('datatable-hamilton-category', 'data'),
-#      ],
-#     [State("run-detail-page", "is_open"),
-#      State('datatable-hamilton-category', 'selected_rows')]
-# )
-# def toggle_modal(n1, n2,rows,is_open, selected_rows):
-#
-#     df_temp = pd.DataFrame(rows)
-#
-#     if selected_rows:
-#         dff = df_temp.loc[selected_rows]
-#         dff.reset_index(inplace=True)
-#         filename_col = dff.columns.get_loc('File Name')
-#         name = dff.iloc[0, filename_col]
-#         df_detail = read_trace_file_detail(name)
-#     else:
-#         df_detail = pd.DataFrame()
-#
-#
-#     if n1 or n2:
-#         return not is_open, df_detail.to_dict('records')
-#     return is_open, df_detail.to_dict('records')
+# Callback for the Graphs
+@app.callback(
+   Output('es-graph', 'figure'),
+    [Input('datatable-stretcher-table', 'derived_virtual_data'),
+     Input('datatable-stretcher-table', 'derived_virtual_selected_rows')])
+
+def update_figure(rows, derived_virtual_selected_rows):
+    print(f'Rows: {rows}')
+    print(f'Derived virtual selected rows: {derived_virtual_selected_rows}')
+    if derived_virtual_selected_rows is None:
+        derived_virtual_selected_rows = []
+    df_temp = pd.DataFrame() if rows is None else pd.DataFrame(rows)
+    #df_temp = pd.DataFrame(selected_id_set)
+    all_files = []
+    for index,row in df_temp.iterrows():
+        if index in derived_virtual_selected_rows:
+            name = row['File Path']
+            all_files.append(name)
+    if len(all_files) > 0:
+        df_combine = pd.concat([pd.read_csv(f).assign(name=f) for f in all_files])
+    else:
+        df_combine = pd.DataFrame()
+    fig = es_graph(df_combine)
+    return fig
+
+

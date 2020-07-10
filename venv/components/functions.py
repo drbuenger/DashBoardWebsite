@@ -24,8 +24,6 @@ df = df.loc[(df!=0).any(axis=1)]
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
-now = datetime.now()
-datestamp = now.strftime("%Y%m%d")
 
 unique_serial_numbers = df['Serial Number'].unique()
 
@@ -43,62 +41,65 @@ bt_df['CreatedDateTime']= bt_df['CreatedDateTime']/10
 bt_df['CreatedDateTime'] = pd.to_datetime(bt_df['CreatedDateTime'],unit='us')
 bt_df['Server'] = 'Internal'
 
-cnxn2 = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
+cnxn_controlled = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                       "Server=lbl-controlled\BARTENDER_REG;"
                       "Database=BarTender_REG;"
                       "Trusted_Connection=yes;")
 
-bt_df2 = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
+bt_df_controlled = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
 FROM [BarTender_REG].[dbo].[BtPrintJobs] btp \
 inner join [BarTender_REG].[dbo].BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
-inner join [BarTender_REG].[dbo].[Printers] p on btp.PrinterID = p.PrinterID', cnxn2)
-bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime'] - 621355968000000000
-bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime']/10
-bt_df2['CreatedDateTime'] = pd.to_datetime(bt_df2['CreatedDateTime'],unit='us')
-bt_df2['Server'] = 'Controlled'
+inner join [BarTender_REG].[dbo].[Printers] p on btp.PrinterID = p.PrinterID', cnxn_controlled)
+bt_df_controlled['CreatedDateTime']= bt_df_controlled['CreatedDateTime'] - 621355968000000000
+bt_df_controlled['CreatedDateTime']= bt_df_controlled['CreatedDateTime']/10
+bt_df_controlled['CreatedDateTime'] = pd.to_datetime(bt_df_controlled['CreatedDateTime'],unit='us')
+bt_df_controlled['Server'] = 'Controlled'
 
-bt_df = bt_df.append(bt_df2)
+bt_df = bt_df.append(bt_df_controlled)
 bartender_summary = ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
 bartender_summary2 =  ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
 bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
 
+def get_es_data(start_date, end_date):
+    es_data_location = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\ES'
+    es_data_gather = []
+    for r,d,f in os.walk(es_data_location):
+        for filename in f:
+            fullpath = os.path.join(os.path.abspath(r), filename)
+            modified_time = os.path.getmtime(fullpath)
+            z_date = dt.fromtimestamp(modified_time)
+            if str(z_date) > start_date and str(z_date) < end_date:
+                try:
+                    nm,ext = os.path.splitext(filename)
+                    if ext.lower().endswith('.csv'):
+
+                        es_temp_df = pd.read_csv(fullpath)
+                        if es_temp_df.empty == False:
+                            if es_temp_df.at[0,'t(s)']==5:
+                                fullpath_split =fullpath.split('\\')
+                                list_length =len(fullpath_split)
+                                z_stretcher = fullpath_split[list_length-2]
+                                es_average_df = es_temp_df.mean()
+                                df_temp = pd.DataFrame(data=es_average_df)
+                                df_temp2 = df_temp.T
+                                df_temp2['Stretcher'] = z_stretcher
+                                df_temp2['CreatedDateTime'] = z_date
+                                df_temp2['File Path'] = fullpath
+                                es_data_gather.append(df_temp2)
+                except pd.errors.EmptyDataError:
+                    print("Found empty file: {file}".format(file=filename))
+
+    es_df = pd.concat(es_data_gather)
+    es_df['CreatedDateTime'] = pd.to_datetime(es_df['CreatedDateTime'])
+    es_df.columns = es_df.columns.str.strip()
+    return es_df
+
 stretcher_summary = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lane 2 (V)', 'Lane 3 (uA)', 'Lane 3 (V)', 'Lane 4 (uA)', 'Lane 4 (V)', 'Lane 5 (uA)', 'Lane 5 (V)', 'Lane 6 (uA)', 'Lane 6 (V)']
 stretcher_table = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lane 2 (V)', 'Lane 3 (uA)', 'Lane 3 (V)', 'Lane 4 (uA)', 'Lane 4 (V)', 'Lane 5 (uA)', 'Lane 5 (V)', 'Lane 6 (uA)', 'Lane 6 (V)', 'CreatedDateTime']
 
-es_data_location = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\ES'
-es_data_gather = []
-for r,d,f in os.walk(es_data_location):
-    for filename in f:
-        try:
-            nm,ext = os.path.splitext(filename)
-            if ext.lower().endswith('.csv'):
-                fullpath = os.path.join(os.path.abspath(r), filename)
-                t1 =os.path.getmtime(fullpath)
-                z_date = dt.fromtimestamp(t1)
-                if z_date.date() < date.today():
-                    es_temp_df = pd.read_csv(fullpath)
-                    if es_temp_df.empty == False:
-                        if es_temp_df.at[0,'t(s)']==5:
-                            fullpath_split =fullpath.split('\\')
-                            list_length =len(fullpath_split)
-                            z_stretcher = fullpath_split[list_length-2]
-                            es_average_df = es_temp_df.mean()
-
-                            df_temp = pd.DataFrame(data=es_average_df)
-                            df_temp2 = df_temp.T
-                            df_temp2['Stretcher'] = z_stretcher
-                            df_temp2['CreatedDateTime'] = z_date
-                            es_data_gather.append(df_temp2)
-        except pd.errors.EmptyDataError:
-            print("Found empty file: {file}".format(file=filename))
-
-es_df = pd.concat(es_data_gather)
-es_df['CreatedDateTime'] = pd.to_datetime(es_df['CreatedDateTime'])
-es_df.columns = es_df.columns.str.strip()
 # Define Formatters
 def formatter_currency(x):
     return "${:,.0f}".format(x) if x >= 0 else "(${:,.0f})".format(abs(x))
-
 
 def formatter_currency_with_cents(x):
     return "${:,.2f}".format(x) if x >= 0 else "(${:,.2f})".format(abs(x))
@@ -623,9 +624,11 @@ def update_bartender_table(start_date, end_date, server_list):
 
 ############################ELECTROSTRETCHER###################
 # First Data Table Update Function
-def update_datatable_stretcher(start_date, end_date):
+def update_datatable_stretcher(start_date, end_date, colors):
+    es_df = get_es_data(start_date,end_date)
     df1 = es_df.loc[(es_df['CreatedDateTime'] >= start_date) & (es_df['CreatedDateTime'] <= end_date)]
     df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1 = df1[df1['Stretcher'].isin(colors)]
     df1 = df1.rename(columns={'L1 Current(uA)':'Lane 1 (uA)','L1 Voltage(v)':'Lane 1 (V)',
                         'L2 Current(uA)':'Lane 2 (uA)','L2 Voltage(v)':'Lane 2 (V)',
                         'L3 Current(uA)': 'Lane 3 (uA)', 'L3 Voltage(v)': 'Lane 3 (V)',
@@ -656,6 +659,7 @@ def update_datatable_stretcher(start_date, end_date):
 
 # First Data Table Update Function
 def update_summary_stretcher(start_date, end_date):
+    es_df = get_es_data(start_date, end_date)
     df1 = es_df.loc[(es_df['CreatedDateTime'] >= start_date) & (es_df['CreatedDateTime'] <= end_date)]
     df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
 
@@ -687,18 +691,6 @@ def update_summary_stretcher(start_date, end_date):
     df2['Lane 6 (uA)'] = df2.Lane6uA.apply(lambda x: formatter_number_one_dec(x))
     df2['Lane 6 (V)'] = df2.Lane6V.apply(lambda x: formatter_number_one_dec(x))
     df2.sort_values(by=['Total'],inplace=True, ascending=False)
-    # df2['Lane 1 (uA)'] =  df2['Lane 1 (uA)']
-    # df2['Lane 1 (V)'] = df2['Lane 1 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 2 (uA)'] =  df2['Lane 2 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 2 (V)'] = df2['Lane 2 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 3 (uA)'] =  df2['Lane 3 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 3 (V)'] = df2['Lane 3 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 4 (uA)'] =  df2['Lane 4 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 4 (V)'] = df2['Lane 4 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 5 (uA)'] =  df2['Lane 5 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 5 (V)'] = df2['Lane 5 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 6 (uA)'] =  df2['Lane 6 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    # df2['Lane 6 (V)'] = df2['Lane 6 (V)'].apply(lambda x: formatter_number_one_dec(x))
     df2 = df2.drop(columns=['Lane1uA','Lane2uA','Lane3uA','Lane4uA','Lane5uA','Lane6uA','Lane1V','Lane2V','Lane3V','Lane4V','Lane5V','Lane6V'])
 
     tooltip_data = [
@@ -891,3 +883,10 @@ def update_graph(filtered_df):
     )
     updated_fig = fig
     return updated_fig
+
+def es_graph(es_filtered_df):
+
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'],y=es_filtered_df['L1 Current(uA)'],mode='markers', name='Lane1'))
+    return fig
+

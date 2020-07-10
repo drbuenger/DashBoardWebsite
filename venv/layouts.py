@@ -2,18 +2,14 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 import dash_table
-import numpy as np
-from components import Header, print_button, read_trace_file
+from components import Header, read_trace_file
 from datetime import datetime as dt
 from datetime import date, timedelta
-import time
-
 import pandas as pd
 import os
-import csv
 import shutil
 import pyodbc
-from dateutil.relativedelta import relativedelta
+
 
 # Read in Data
 hamilton_computers = ["\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
@@ -45,7 +41,6 @@ df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\
                  keep_default_na=False)
 df.dropna(axis=0, inplace=True)
 
-
 df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Time End'] = pd.to_datetime(df['Time End'])
@@ -58,16 +53,7 @@ df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
 unique_serial_numbers = df['Serial Number'].unique()
 
 dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used',  'Duration', 'Aborted', 'File Name']
-
 dt_columns_time = ['Method Name','Dispensing Time','Dispensing Count','Aspirating Time','Aspirating Count', 'Tip Pickup Time','Tip Pickup Count', 'Tip Eject Time','Tip Eject Count', 'User Time','User Count']
-
-conditional_columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
-
-dt_columns_total = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
-
-df_columns_calculated = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
-
-conditional_columns_calculated_calculated =['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
 summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed', 'Success %']
 summary_columns_time = ['Method Name', 'Average Dispense', 'Average Aspirate', 'Average Pickup', 'Average Eject', 'Average User']
@@ -90,27 +76,25 @@ bt_df['Server'] = 'Internal'
 
 
 #Read in BarTender data
-cnxn2 = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
+cnxn_controlled = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                       "Server=lbl-controlled\BARTENDER_REG;"
                       "Database=BarTender_REG;"
                       "Trusted_Connection=yes;")
 
-bt_df2 = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
+bt_df_controlled = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
 FROM [BarTender_REG].[dbo].[BtPrintJobs] btp \
 inner join [BarTender_REG].[dbo].BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
-inner join [BarTender_REG].[dbo].[Printers] p on btp.PrinterID = p.PrinterID', cnxn2)
-bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime'] - 621355968000000000
-bt_df2['CreatedDateTime']= bt_df2['CreatedDateTime']/10
-bt_df2['CreatedDateTime'] = pd.to_datetime(bt_df2['CreatedDateTime'],unit='us')
-bt_df2['Server'] = 'Controlled'
+inner join [BarTender_REG].[dbo].[Printers] p on btp.PrinterID = p.PrinterID', cnxn_controlled)
+bt_df_controlled['CreatedDateTime']= bt_df_controlled['CreatedDateTime'] - 621355968000000000
+bt_df_controlled['CreatedDateTime']= bt_df_controlled['CreatedDateTime']/10
+bt_df_controlled['CreatedDateTime'] = pd.to_datetime(bt_df_controlled['CreatedDateTime'],unit='us')
+bt_df_controlled['Server'] = 'Controlled'
 
 bartender_summary = ['PrinterName', 'Total', 'LastUsed']
 bartender_summary2 =  ['Name', 'Total', 'LastUsed']
 bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'Print Time', 'Server']
 
-bt_df = bt_df.append(bt_df2)
-
-
+bt_df = bt_df.append(bt_df_controlled)
 
 # Read in Data
 stretcher_files = ["\\\janetjackson-pc\C$\\NanoFluidics\LogData\Blue",
@@ -124,9 +108,14 @@ stretcher_files = ["\\\janetjackson-pc\C$\\NanoFluidics\LogData\Blue",
 
 # r=root, d=directories, f = files
 for folder in stretcher_files:
+    es_color_dict = {'label':'Blue', 'value':'Blue'}
+    es_color_list = ['Blue']
     path_split = folder.split("\\")
     length_split = len(path_split)
     es_color = path_split[length_split -1]
+    if not es_color in es_color_list:
+        es_color_dict.update({'label': es_color,'value': es_color})
+        es_color_list.append(es_color)
     y = [os.path.join(r,file) for  r,d,f in os.walk(folder) for file in f]
     for z in y:
         file_split = z.split("\\")
@@ -140,8 +129,6 @@ stretcher_table = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lan
 
 ######################## START Hamilton Category Layout ########################
 layout_hamilton = html.Div([
-
-    #    print_button(),
 
     html.Div([
         # CC Header
@@ -534,12 +521,6 @@ html.Div(children='''
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
                 sort_action="native",
-                # tooltip_data=[
-                #     {
-                #         column: {'value': str(value), 'type': 'markdown'}
-                #         for column, value in row.items()
-                #     } for row in bt_df.to_dict('rows')
-                # ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
                             "size": 11, 'textAlign': 'left',
@@ -570,12 +551,6 @@ html.Div(children='''
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
                 sort_action="native",
-                # tooltip_data=[
-                #     {
-                #         column: {'value': str(value), 'type': 'markdown'}
-                #         for column, value in row.items()
-                #     } for row in bt_df.to_dict('rows')
-                # ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
                             "size": 11, 'textAlign': 'left',
@@ -607,12 +582,6 @@ html.Div(children='''
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
                 sort_action="native",
-                # tooltip_data=[
-                #     {
-                #         column: {'value': str(value), 'type': 'markdown'}
-                #         for column, value in row.items()
-                #     } for row in bt_df.to_dict('rows')
-                # ],
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
                             "size": 11, 'textAlign': 'left',
@@ -670,7 +639,7 @@ html.Div(children='''
                 max_date_allowed=date.today(),
                 initial_visible_month=dt(date.today().year, date.today().month, 1),
                 end_date= date.today(),
-                start_date=(date.today() - timedelta(6)),
+                start_date=(date.today() - timedelta(3)),
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
 html.Div(children='''
@@ -705,6 +674,23 @@ html.Div(children='''
 html.Div(children='''
     Electrostretcher History
     '''),
+html.Div(children='''
+Select Stretchers
+'''),
+        html.Div([dcc.Checklist(
+            id='stretcher-color-select',
+            options=        [
+            {'label': 'Blue  ', 'value': 'Blue'},
+                {'label': 'Red', 'value': 'Red'},
+                {'label': 'Green', 'value': 'Green'},
+                {'label': 'Yellow', 'value': 'Yellow'},
+                {'label': 'Purple', 'value': 'Purple'},
+                {'label': 'Pink', 'value': 'Pink'},
+            ],
+            value=['Red','Blue','Yellow','Green','Purple','Pink'],
+            labelStyle={'display': 'inline-block'}
+        )]),
+
         # First Data Table
         html.Div([
             dash_table.DataTable(
@@ -712,6 +698,8 @@ html.Div(children='''
                 columns=[{"name": i, "id": i} for i in stretcher_table],
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
+                row_selectable='multi',
+                selected_rows=[0,1],
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -729,10 +717,78 @@ html.Div(children='''
                 ],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
-                     {'selector': '.row', 'rule': 'margin: 0'}]
+                     {'selector': '.row', 'rule': 'margin: 0'}],
+                style_data_conditional=[{
+                    'if': {
+                        'filter_query': '{Lane 1 (uA)} < 400',
+                        'column_id': 'Lane 1 (uA)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 2 (uA)} < 400',
+                        'column_id': 'Lane 2 (uA)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 3 (uA)} < 400',
+                        'column_id': 'Lane 3 (uA)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 4 (uA)} < 400',
+                        'column_id': 'Lane 4 (uA)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 5 (uA)} < 400',
+                        'column_id': 'Lane 5 (uA)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 6 (uA)} < 400',
+                        'column_id': 'Lane 6 (uA)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold',},
+                    {'if': {
+                        'filter_query': '{Lane 1 (V)} < 140',
+                        'column_id': 'Lane 1 (V)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 2 (V)} < 140',
+                        'column_id': 'Lane 2 (V)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 3 (V)} < 140',
+                        'column_id': 'Lane 3 (V)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 4 (V)} < 140',
+                        'column_id': 'Lane 4 (V)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 5 (V)} < 140',
+                        'column_id': 'Lane 5 (V)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold'},
+                    {'if': {
+                        'filter_query': '{Lane 6 (V)} < 140',
+                        'column_id': 'Lane 6 (V)'},
+                    'backgroundColor': '#FF4136',
+                    'fontWeight': 'bold',}
+                ]
 
             ),
         ], className="datatable-hamilton", style={'marginTop': 0, 'marginBottom': 15}),
+        html.Div([
+
+                dcc.Graph(id='es-graph'),
+            ], className=" twelve columns"
+
+        ),
     ], className="subpage")
 ], className="page")
 

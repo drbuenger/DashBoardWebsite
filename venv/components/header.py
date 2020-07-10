@@ -35,17 +35,6 @@ def get_header():
     ], className="row gs-header gs-text-header" )
     return header
 
-
-# def get_menu():
-#     menu = html.Div([
-#
-#         dcc.Link('Hamilton - Home', href='/Reports/Hamilton/', className="tab first"),
-#
-#         dcc.Link('Hamilton - Time Study', href='/Reports/HamiltonTime/', className="tab"),
-#
-#     ], className="row ")
-#     return menu
-
 def get_menu(navSelector):
     bitmask = list(navSelector)
     array_of_bools = []
@@ -63,13 +52,6 @@ def get_menu(navSelector):
             dbc.NavItem(dbc.NavLink("Time Study",href='/Reports/HamiltonTime/',active=array_of_bools[1])),
             dbc.NavItem(dbc.NavLink("BarTender", href='/Reports/BarTender/', active=array_of_bools[2])),
             dbc.NavItem(dbc.NavLink("Electrostretcher", href='/Reports/Electrostretcher/', active=array_of_bools[3])),
-            # dbc.NavItem(dbc.NavLink("Another link", href="#")),
-            # dbc.NavItem(dbc.NavLink("Disabled", disabled=True, href="#")),
-            # dbc.DropdownMenu(
-            #     [dbc.DropdownMenuItem("Item 1"), dbc.DropdownMenuItem("Item 2")],
-            #     label="Dropdown",
-            #     nav=True,
-            # ),
         ],
         pills=True,
         horizontal=True,

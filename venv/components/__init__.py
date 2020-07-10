@@ -5,4 +5,4 @@ from .functions import formatter_currency, formatter_currency_with_cents, format
 from .functions import update_first_datatable, update_first_download, update_second_datatable, update_graph, read_trace_file, update_summary_datatable, read_trace_file_detail
 from .functions import update_first_datatable_time, update_summary_datatable_time , update_summary_datatable_time2
 from .functions import  update_bartender_table , update_bartender_summary , update_bartender_summary2
-from .functions import  update_summary_stretcher , update_datatable_stretcher
+from .functions import  update_summary_stretcher , update_datatable_stretcher, es_graph
