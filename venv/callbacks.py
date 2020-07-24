@@ -280,12 +280,9 @@ def update_data_summary_stretcher(start_date, end_date):
      Input('datatable-stretcher-table', 'derived_virtual_selected_rows')])
 
 def update_figure(rows, derived_virtual_selected_rows):
-    print(f'Rows: {rows}')
-    print(f'Derived virtual selected rows: {derived_virtual_selected_rows}')
     if derived_virtual_selected_rows is None:
         derived_virtual_selected_rows = []
     df_temp = pd.DataFrame() if rows is None else pd.DataFrame(rows)
-    #df_temp = pd.DataFrame(selected_id_set)
     all_files = []
     for index,row in df_temp.iterrows():
         if index in derived_virtual_selected_rows:
@@ -293,8 +290,19 @@ def update_figure(rows, derived_virtual_selected_rows):
             all_files.append(name)
     if len(all_files) > 0:
         df_combine = pd.concat([pd.read_csv(f).assign(name=f) for f in all_files])
+        df_combine.columns = df_combine.columns.str.strip()
+        new_name = df_combine['name'].str.split("\\", expand=True)
+        new_name_count = len(new_name.columns)
+        df_combine['File Name'] = new_name[new_name_count - 2] + '\\' + new_name[new_name_count - 1]
+        df_combine['Lane 1'] = 'Lane 1'
+        df_combine['Lane 2'] = 'Lane 2'
+        df_combine['Lane 3'] = 'Lane 3'
+        df_combine['Lane 4'] = 'Lane 4'
+        df_combine['Lane 5'] = 'Lane 5'
+        df_combine['Lane 6'] = 'Lane 6'
     else:
         df_combine = pd.DataFrame()
+
     fig = es_graph(df_combine)
     return fig
 

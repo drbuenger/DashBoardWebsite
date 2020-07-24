@@ -2,6 +2,7 @@ from datetime import datetime as dt
 from datetime import date, timedelta
 from datetime import datetime
 import plotly.graph_objs as go
+import plotly.express as px
 from plotly import tools
 import numpy as np
 import pandas as pd
@@ -9,6 +10,7 @@ import csv
 import os
 import pyodbc
 import time
+
 pd.options.mode.chained_assignment = None
 
 # Read in Hamilton Data
@@ -62,7 +64,13 @@ bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'CreatedDateTime']
 
 def get_es_data(start_date, end_date):
     es_data_location = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\ES'
-    es_data_gather = []
+    new_df = pd.DataFrame(columns=['Stretcher','CreatedDateTime','File Path','t(s)','L1 Voltage(v)','L1 Current(uA)',
+                                            'L2 Voltage(v)','L2 Current(uA)',
+                      'L3 Voltage(v)','L3 Current(uA)',
+                      'L4 Voltage(v)','L4 Current(uA)',
+                                    'L5 Voltage(v)', 'L5 Current(uA)',
+                                    'L6 Voltage(v)', 'L6 Current(uA)'])
+    es_data_gather = [new_df]
     for r,d,f in os.walk(es_data_location):
         for filename in f:
             fullpath = os.path.join(os.path.abspath(r), filename)
@@ -88,10 +96,14 @@ def get_es_data(start_date, end_date):
                                 es_data_gather.append(df_temp2)
                 except pd.errors.EmptyDataError:
                     print("Found empty file: {file}".format(file=filename))
-
-    es_df = pd.concat(es_data_gather)
-    es_df['CreatedDateTime'] = pd.to_datetime(es_df['CreatedDateTime'])
-    es_df.columns = es_df.columns.str.strip()
+    new_df_list = [new_df]
+    if len(es_data_gather) == 1:
+        return new_df
+    else:
+        es_df = pd.concat(es_data_gather)
+        es_df.dropna(axis=1,inplace=True,how='all')
+        es_df['CreatedDateTime'] = pd.to_datetime(es_df['CreatedDateTime'])
+        es_df.columns = es_df.columns.str.strip()
     return es_df
 
 stretcher_summary = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lane 2 (V)', 'Lane 3 (uA)', 'Lane 3 (V)', 'Lane 4 (uA)', 'Lane 4 (V)', 'Lane 5 (uA)', 'Lane 5 (V)', 'Lane 6 (uA)', 'Lane 6 (V)']
@@ -626,82 +638,88 @@ def update_bartender_table(start_date, end_date, server_list):
 # First Data Table Update Function
 def update_datatable_stretcher(start_date, end_date, colors):
     es_df = get_es_data(start_date,end_date)
-    df1 = es_df.loc[(es_df['CreatedDateTime'] >= start_date) & (es_df['CreatedDateTime'] <= end_date)]
-    df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
-    df1 = df1[df1['Stretcher'].isin(colors)]
-    df1 = df1.rename(columns={'L1 Current(uA)':'Lane 1 (uA)','L1 Voltage(v)':'Lane 1 (V)',
+    if es_df.empty == False:
+        df1 = es_df.loc[(es_df['CreatedDateTime'] >= start_date) & (es_df['CreatedDateTime'] <= end_date)]
+        df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+        df1 = df1[df1['Stretcher'].isin(colors)]
+        df2 = df1.rename(columns={'L1 Current(uA)':'Lane 1 (uA)','L1 Voltage(v)':'Lane 1 (V)',
                         'L2 Current(uA)':'Lane 2 (uA)','L2 Voltage(v)':'Lane 2 (V)',
                         'L3 Current(uA)': 'Lane 3 (uA)', 'L3 Voltage(v)': 'Lane 3 (V)',
                         'L4 Current(uA)': 'Lane 4 (uA)', 'L4 Voltage(v)': 'Lane 4 (V)',
                         'L5 Current(uA)': 'Lane 5 (uA)', 'L5 Voltage(v)': 'Lane 5 (V)',
                         'L6 Current(uA)': 'Lane 6 (uA)', 'L6 Voltage(v)': 'Lane 6 (V)',
                         })
-    df1.sort_values(by=['Date and Time'],inplace=True, ascending=False)
-    df1['Lane 1 (uA)'] = df1['Lane 1 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 1 (V)'] = df1['Lane 1 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 2 (uA)'] = df1['Lane 2 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 2 (V)'] = df1['Lane 2 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 3 (uA)'] = df1['Lane 3 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 3 (V)'] = df1['Lane 3 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 4 (uA)'] = df1['Lane 4 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 4 (V)'] = df1['Lane 4 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 5 (uA)'] = df1['Lane 5 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 5 (V)'] = df1['Lane 5 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 6 (uA)'] = df1['Lane 6 (uA)'].apply(lambda x: formatter_number_one_dec(x))
-    df1['Lane 6 (V)'] = df1['Lane 6 (V)'].apply(lambda x: formatter_number_one_dec(x))
-    tooltip_data = [
-                       {
-                           column: {'value': str(value), 'type': 'markdown'}
-                           for column, value in row.items()
-                       } for row in df1.to_dict('rows')
-                   ]
-    return df1.to_dict('records'), tooltip_data
+
+        df2['Lane 1 (uA)'] = df2['Lane 1 (uA)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 1 (V)'] = df2['Lane 1 (V)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 2 (uA)'] = df2['Lane 2 (uA)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 2 (V)'] = df2['Lane 2 (V)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 3 (uA)'] = df2['Lane 3 (uA)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 3 (V)'] = df2['Lane 3 (V)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 4 (uA)'] = df2['Lane 4 (uA)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 4 (V)'] = df2['Lane 4 (V)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 5 (uA)'] = df2['Lane 5 (uA)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 5 (V)'] = df2['Lane 5 (V)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 6 (uA)'] = df2['Lane 6 (uA)'].apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 6 (V)'] = df2['Lane 6 (V)'].apply(lambda x: formatter_number_one_dec(x))
+        df2.sort_values(by=['Date and Time'], inplace=True, ascending=False)
+        tooltip_data = [
+                           {
+                               column: {'value': str(value), 'type': 'markdown'}
+                               for column, value in row.items()
+                           } for row in df2.to_dict('rows')
+                       ]
+        return df2.to_dict('records'), tooltip_data
+    else:
+        return pd.DataFrame().to_dict('records') , []
 
 # First Data Table Update Function
 def update_summary_stretcher(start_date, end_date):
     es_df = get_es_data(start_date, end_date)
-    df1 = es_df.loc[(es_df['CreatedDateTime'] >= start_date) & (es_df['CreatedDateTime'] <= end_date)]
-    df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    if es_df.empty == False:
 
-    df2 = df1.groupby('Stretcher').agg(
-        Lane1uA=pd.NamedAgg(column='L1 Current(uA)', aggfunc='mean'),
-        Lane1V = pd.NamedAgg(column='L1 Voltage(v)', aggfunc='mean'),
-        Lane2uA=pd.NamedAgg(column='L2 Current(uA)', aggfunc='mean'),
-        Lane2V=pd.NamedAgg(column='L2 Voltage(v)', aggfunc='mean'),
-        Lane3uA=pd.NamedAgg(column='L3 Current(uA)', aggfunc='mean'),
-        Lane3V=pd.NamedAgg(column='L3 Voltage(v)', aggfunc='mean'),
-        Lane4uA=pd.NamedAgg(column='L4 Current(uA)', aggfunc='mean'),
-        Lane4V=pd.NamedAgg(column='L4 Voltage(v)', aggfunc='mean'),
-        Lane5uA=pd.NamedAgg(column='L5 Current(uA)', aggfunc='mean'),
-        Lane5V=pd.NamedAgg(column='L5 Voltage(v)', aggfunc='mean'),
-        Lane6uA=pd.NamedAgg(column='L6 Current(uA)', aggfunc='mean'),
-        Lane6V=pd.NamedAgg(column='L6 Voltage(v)', aggfunc='mean'),
-        Total=pd.NamedAgg(column='L6 Voltage(v)', aggfunc='count'),
-                               ).reset_index()
-    df2['Lane 1 (uA)'] = df2.Lane1uA.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 1 (V)'] = df2.Lane1V.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 2 (uA)'] = df2.Lane2uA.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 2 (V)'] = df2.Lane2V.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 3 (uA)'] = df2.Lane3uA.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 3 (V)'] = df2.Lane3V.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 4 (uA)'] = df2.Lane4uA.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 4 (V)'] = df2.Lane4V.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 5 (uA)'] = df2.Lane5uA.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 5 (V)'] = df2.Lane5V.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 6 (uA)'] = df2.Lane6uA.apply(lambda x: formatter_number_one_dec(x))
-    df2['Lane 6 (V)'] = df2.Lane6V.apply(lambda x: formatter_number_one_dec(x))
-    df2.sort_values(by=['Total'],inplace=True, ascending=False)
-    df2 = df2.drop(columns=['Lane1uA','Lane2uA','Lane3uA','Lane4uA','Lane5uA','Lane6uA','Lane1V','Lane2V','Lane3V','Lane4V','Lane5V','Lane6V'])
+        df1 = es_df.loc[(es_df['CreatedDateTime'] >= start_date) & (es_df['CreatedDateTime'] <= end_date)]
+        df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
 
-    tooltip_data = [
-        {
-            column: {'value': str(value), 'type': 'markdown'}
-            for column, value in row.items()
-        } for row in df2.to_dict('rows')
-    ]
-    return df2.to_dict('records'), tooltip_data
+        df2 = df1.groupby('Stretcher').agg(
+            Lane1uA=pd.NamedAgg(column='L1 Current(uA)', aggfunc='mean'),
+            Lane1V = pd.NamedAgg(column='L1 Voltage(v)', aggfunc='mean'),
+            Lane2uA=pd.NamedAgg(column='L2 Current(uA)', aggfunc='mean'),
+            Lane2V=pd.NamedAgg(column='L2 Voltage(v)', aggfunc='mean'),
+            Lane3uA=pd.NamedAgg(column='L3 Current(uA)', aggfunc='mean'),
+            Lane3V=pd.NamedAgg(column='L3 Voltage(v)', aggfunc='mean'),
+            Lane4uA=pd.NamedAgg(column='L4 Current(uA)', aggfunc='mean'),
+            Lane4V=pd.NamedAgg(column='L4 Voltage(v)', aggfunc='mean'),
+            Lane5uA=pd.NamedAgg(column='L5 Current(uA)', aggfunc='mean'),
+            Lane5V=pd.NamedAgg(column='L5 Voltage(v)', aggfunc='mean'),
+            Lane6uA=pd.NamedAgg(column='L6 Current(uA)', aggfunc='mean'),
+            Lane6V=pd.NamedAgg(column='L6 Voltage(v)', aggfunc='mean'),
+            Total=pd.NamedAgg(column='L6 Voltage(v)', aggfunc='count'),
+                                   ).reset_index()
+        df2['Lane 1 (uA)'] = df2.Lane1uA.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 1 (V)'] = df2.Lane1V.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 2 (uA)'] = df2.Lane2uA.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 2 (V)'] = df2.Lane2V.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 3 (uA)'] = df2.Lane3uA.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 3 (V)'] = df2.Lane3V.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 4 (uA)'] = df2.Lane4uA.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 4 (V)'] = df2.Lane4V.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 5 (uA)'] = df2.Lane5uA.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 5 (V)'] = df2.Lane5V.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 6 (uA)'] = df2.Lane6uA.apply(lambda x: formatter_number_one_dec(x))
+        df2['Lane 6 (V)'] = df2.Lane6V.apply(lambda x: formatter_number_one_dec(x))
+        df2.sort_values(by=['Total'],inplace=True, ascending=False)
+        df2 = df2.drop(columns=['Lane1uA','Lane2uA','Lane3uA','Lane4uA','Lane5uA','Lane6uA','Lane1V','Lane2V','Lane3V','Lane4V','Lane5V','Lane6V'])
 
-
+        tooltip_data = [
+            {
+                column: {'value': str(value), 'type': 'markdown'}
+                for column, value in row.items()
+            } for row in df2.to_dict('rows')
+        ]
+        return df2.to_dict('records'), tooltip_data
+    else:
+        return pd.DataFrame().to_dict('records') , []
 ########################ELECTROSTRETCHER########################
 
 ######################## FOR GRAPHS  ########################
@@ -886,7 +904,31 @@ def update_graph(filtered_df):
 
 def es_graph(es_filtered_df):
 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'],y=es_filtered_df['L1 Current(uA)'],mode='markers', name='Lane1'))
+    # trace = go.Scatter(xaxis=es_filtered_df['t(s)'],yaxis=es_filtered_df['L1 Current(uA)'],mode='markers', name='Lane1')
+    # layout = dict(
+    #     title='Stretching Graph',
+    #
+    # )
+    #fig = go.Figure(data=[trace], layout = layout)
+    if es_filtered_df.empty == False:
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L1 Current(uA)'], name='Lane 1', line=dict(color='firebrick', width=4)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L2 Current(uA)'], name='Lane 2', line=dict(color='royalblue', width=4)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L3 Current(uA)'], name='Lane 3', line=dict(color='green', width=4)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L4 Current(uA)'], name='Lane 4', line=dict(color='orange', width=4)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L5 Current(uA)'], name='Lane 5', line=dict(color='brown', width=4)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L6 Current(uA)'], name='Lane 6', line=dict(color='grey', width=4)))
+        # fig2 = px.line(es_filtered_df, x='t(s)', y='L2 Current(uA)', color='Lane 2')
+        # fig3 = px.line(es_filtered_df, x='t(s)', y='L3 Current(uA)', color='Lane 3')
+        # fig4 = px.line(es_filtered_df, x='t(s)', y='L4 Current(uA)', color='Lane 4')
+        # fig5 = px.line(es_filtered_df, x='t(s)', y='L5 Current(uA)', color='Lane 5')
+        # fig6 = px.line(es_filtered_df, x='t(s)', y='L6 Current(uA)', color='Lane 6')
+        # fig.append_trace(fig2.data[0],None,None)
+        # fig.append_trace(fig3.data[0], None, None)
+        # fig.append_trace(fig4.data[0], None, None)
+        # fig.append_trace(fig5.data[0], None, None)
+        # fig.append_trace(fig6.data[0], None, None)
+    else:
+        fig = px.line()
     return fig
 

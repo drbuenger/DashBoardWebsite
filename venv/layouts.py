@@ -9,7 +9,7 @@ import pandas as pd
 import os
 import shutil
 import pyodbc
-
+import plotly.express as px
 
 # Read in Data
 hamilton_computers = ["\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
@@ -698,8 +698,8 @@ Select Stretchers
                 columns=[{"name": i, "id": i} for i in stretcher_table],
                 style_table={'maxWidth': '1500px',
                              'overflowX': 'auto',},
-                row_selectable='multi',
-                selected_rows=[0,1],
+                row_selectable='single',
+                selected_rows=[0],
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -785,7 +785,8 @@ Select Stretchers
         ], className="datatable-hamilton", style={'marginTop': 0, 'marginBottom': 15}),
         html.Div([
 
-                dcc.Graph(id='es-graph'),
+                dcc.Graph(id='es-graph',
+                          figure=px.line()),
             ], className=" twelve columns"
 
         ),
