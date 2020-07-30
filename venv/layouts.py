@@ -17,6 +17,11 @@ hamilton_computers = ["\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
                       "\\\MTGREENMTN\C$\Program Files\Hamilton\LogFiles",
                       "\\\MFG-00000833\C$\Program Files\Hamilton\LogFiles",
                       "\\\SANCHEZ\C$\Program Files\Hamilton\LogFiles"]
+hamilton_asset_ids = {"C034":"HAM-05",
+                      "2276":"HAM-02",
+                      "1731":"HAM-01",
+                      "D363":"HAM-09",
+                      "A928":"HAM-03"}
 
 storage_location = 'C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data'
 # r=root, d=directories, f = files
@@ -155,7 +160,7 @@ html.Div(children='''
             dcc.Dropdown(
                 id='dropdown-input-hamilton',
                 style={'maxWidth': '300px'},
-                options=[{'label': i, 'value': i} for i in unique_serial_numbers],
+                options=[{'label': hamilton_asset_ids[i] + " / " + i, 'value': i} for i in unique_serial_numbers],
                 value=unique_serial_numbers[0],
             )
         ], style={'marginTop': 0, 'marginBottom': 15}),
@@ -342,7 +347,7 @@ html.Div(children='''
             dcc.Dropdown(
                 id='dropdown-input-hamilton-time',
                 style={'maxWidth': '300px'},
-                options=[{'label': i, 'value': i} for i in unique_serial_numbers],
+                options=[{'label': hamilton_asset_ids[i] + " / " + i, 'value': i} for i in unique_serial_numbers],
                 value=unique_serial_numbers[0],
             )
         ], style={'marginTop': 0, 'marginBottom': 15}),

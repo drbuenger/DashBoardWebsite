@@ -1,0 +1,4 @@
+t(s), L1 Voltage(v), L1 Current(uA),L2 Voltage(v), L2 Current(uA),L3 Voltage(v), L3 Current(uA),L4 Voltage(v), L4 Current(uA),L5 Voltage(v), L5 Current(uA),L6 Voltage(v), L6 Current(uA),
+5, 150, 483, 149, 494, 150, 482, 149, 483, 150, 518, 150, 481, 
+10, 150, 483, 150, 494, 150, 483, 150, 483, 150, 517, 150, 481, 
+15, 150, 482, 149, 493, 150, 479, 149, 482, 150, 518, 149, 477, 

@@ -912,12 +912,14 @@ def es_graph(es_filtered_df):
     #fig = go.Figure(data=[trace], layout = layout)
     if es_filtered_df.empty == False:
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L1 Current(uA)'], name='Lane 1', line=dict(color='firebrick', width=4)))
-        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L2 Current(uA)'], name='Lane 2', line=dict(color='royalblue', width=4)))
-        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L3 Current(uA)'], name='Lane 3', line=dict(color='green', width=4)))
-        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L4 Current(uA)'], name='Lane 4', line=dict(color='orange', width=4)))
-        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L5 Current(uA)'], name='Lane 5', line=dict(color='brown', width=4)))
-        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L6 Current(uA)'], name='Lane 6', line=dict(color='grey', width=4)))
+
+
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L1 Current(uA)'], name='Lane 1', line=dict(color='firebrick', width=2)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L2 Current(uA)'], name='Lane 2', line=dict(color='royalblue', width=2)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L3 Current(uA)'], name='Lane 3', line=dict(color='green', width=2)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L4 Current(uA)'], name='Lane 4', line=dict(color='orange', width=2)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L5 Current(uA)'], name='Lane 5', line=dict(color='pink', width=2)))
+        fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L6 Current(uA)'], name='Lane 6', line=dict(color='grey', width=2)))
         # fig2 = px.line(es_filtered_df, x='t(s)', y='L2 Current(uA)', color='Lane 2')
         # fig3 = px.line(es_filtered_df, x='t(s)', y='L3 Current(uA)', color='Lane 3')
         # fig4 = px.line(es_filtered_df, x='t(s)', y='L4 Current(uA)', color='Lane 4')
@@ -928,6 +930,8 @@ def es_graph(es_filtered_df):
         # fig.append_trace(fig4.data[0], None, None)
         # fig.append_trace(fig5.data[0], None, None)
         # fig.append_trace(fig6.data[0], None, None)
+        fig.update_layout(title=go.layout.Title(text="Amperage throughout run by Lane"),xaxis_title="Time (s)",yaxis_title="Amps (uA)")
+
     else:
         fig = px.line()
     return fig
