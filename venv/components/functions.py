@@ -400,13 +400,32 @@ def read_trace_file_detail(file):
                 user_start = readline[11:19]
                 read_event_time = readline[11:19]
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"User Step", 'Started'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                message = readline[57:]
+                s= pd.Series([time_since_start,"User Step Start", message],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if 'Dialog - complete' in readline:
                 user_end = readline[11:19]
                 read_event_time = readline[11:19]
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                s= pd.Series([time_since_start,"User Step", 'Ended'],index=['Time Since Start (sec)','Step Type', 'Message'])
+                message = readline[60:]
+                s= pd.Series([time_since_start,"User Step Complete", message],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'HSLMapReport::GenerateMappingReport - progress' in readline:
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                message = readline[108:]
+                s= pd.Series([time_since_start,"Generate Report", 'Report Mapping File: ' + message],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Execute method - start;' in readline:
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                message = readline[66:]
+                s= pd.Series([time_since_start,"Execute Method", 'Method File: ' + message],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if 'Initialize (Single Step) - complete;' in readline:
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                s= pd.Series([time_since_start,"Initialize Robot", 'Initialize Robot completed'],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if user_end != "" and user_start != "":
                 user_count = user_count + 1
@@ -903,33 +922,14 @@ def update_graph(filtered_df):
     return updated_fig
 
 def es_graph(es_filtered_df):
-
-    # trace = go.Scatter(xaxis=es_filtered_df['t(s)'],yaxis=es_filtered_df['L1 Current(uA)'],mode='markers', name='Lane1')
-    # layout = dict(
-    #     title='Stretching Graph',
-    #
-    # )
-    #fig = go.Figure(data=[trace], layout = layout)
     if es_filtered_df.empty == False:
         fig = go.Figure()
-
-
         fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L1 Current(uA)'], name='Lane 1', line=dict(color='firebrick', width=2)))
         fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L2 Current(uA)'], name='Lane 2', line=dict(color='royalblue', width=2)))
         fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L3 Current(uA)'], name='Lane 3', line=dict(color='green', width=2)))
         fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L4 Current(uA)'], name='Lane 4', line=dict(color='orange', width=2)))
         fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L5 Current(uA)'], name='Lane 5', line=dict(color='pink', width=2)))
         fig.add_trace(go.Scatter(x=es_filtered_df['t(s)'], y=es_filtered_df['L6 Current(uA)'], name='Lane 6', line=dict(color='grey', width=2)))
-        # fig2 = px.line(es_filtered_df, x='t(s)', y='L2 Current(uA)', color='Lane 2')
-        # fig3 = px.line(es_filtered_df, x='t(s)', y='L3 Current(uA)', color='Lane 3')
-        # fig4 = px.line(es_filtered_df, x='t(s)', y='L4 Current(uA)', color='Lane 4')
-        # fig5 = px.line(es_filtered_df, x='t(s)', y='L5 Current(uA)', color='Lane 5')
-        # fig6 = px.line(es_filtered_df, x='t(s)', y='L6 Current(uA)', color='Lane 6')
-        # fig.append_trace(fig2.data[0],None,None)
-        # fig.append_trace(fig3.data[0], None, None)
-        # fig.append_trace(fig4.data[0], None, None)
-        # fig.append_trace(fig5.data[0], None, None)
-        # fig.append_trace(fig6.data[0], None, None)
         fig.update_layout(title=go.layout.Title(text="Amperage throughout run by Lane"),xaxis_title="Time (s)",yaxis_title="Amps (uA)")
 
     else:

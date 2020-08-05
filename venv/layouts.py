@@ -12,16 +12,18 @@ import pyodbc
 import plotly.express as px
 
 # Read in Data
-hamilton_computers = ["\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
+hamilton_computers = ["\\\MTGREENMTN\C$\Program Files\Hamilton\LogFiles",
                       "\\\ZORRANDER\C$\Program Files\Hamilton\LogFiles",
-                      "\\\MTGREENMTN\C$\Program Files\Hamilton\LogFiles",
-                      "\\\MFG-00000833\C$\Program Files\Hamilton\LogFiles",
-                      "\\\SANCHEZ\C$\Program Files\Hamilton\LogFiles"]
-hamilton_asset_ids = {"C034":"HAM-05",
+                        "\\\SANCHEZ\C$\Program Files\Hamilton\LogFiles",
+                      "\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
+                      "\\\MFG-00000833\C$\Program Files\Hamilton\LogFiles"]
+
+hamilton_asset_ids = {"1731":"HAM-01",
                       "2276":"HAM-02",
-                      "1731":"HAM-01",
+                      "A928":"HAM-03",
+                      "C034":"HAM-05",
                       "D363":"HAM-09",
-                      "A928":"HAM-03"}
+                      }
 
 storage_location = 'C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data'
 # r=root, d=directories, f = files
@@ -56,7 +58,7 @@ df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
 unique_serial_numbers = df['Serial Number'].unique()
-
+unique_serial_numbers.sort()
 dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used',  'Duration', 'Aborted', 'File Name']
 dt_columns_time = ['Method Name','Dispensing Time','Dispensing Count','Aspirating Time','Aspirating Count', 'Tip Pickup Time','Tip Pickup Count', 'Tip Eject Time','Tip Eject Count', 'User Time','User Count']
 
@@ -108,7 +110,9 @@ stretcher_files = ["\\\janetjackson-pc\C$\\NanoFluidics\LogData\Blue",
                       "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Yellow",
                    "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Pink",
                    "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Green",
-                   "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Purple"
+                   "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Purple",
+                    "\\\\MFG-PC-010\C$\\NanoFluidics\LogData\Gray",
+                    "\\\\MFG-PC-010\C$\\NanoFluidics\LogData\White"
                    ]
 
 # r=root, d=directories, f = files
@@ -224,6 +228,8 @@ html.Div(children='''
                             'overflow': 'hidden',
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
+                            'whiteSpace': 'normal',
+                            'height' : 'auto',
                             },
                         style_header={
                             'whiteSpace': 'normal',
@@ -231,9 +237,16 @@ html.Div(children='''
                         style_cell_conditional=[
                             {
                                 'if': {
-                                    'column_id': 'Method Name'
+                                    'column_id': 'Time Since Start (sec)'
                                 },
-                             'width': '15%'
+                             'width': '8%',
+                            'textAlign': 'center'
+                            },
+{
+                                'if': {
+                                    'column_id': 'Step Type'
+                                },
+                             'width': '8%'
                             },
 
                         ],
@@ -691,9 +704,11 @@ Select Stretchers
                 {'label': 'Yellow', 'value': 'Yellow'},
                 {'label': 'Purple', 'value': 'Purple'},
                 {'label': 'Pink', 'value': 'Pink'},
+                {'label': 'Gray', 'value': 'Gray'},
+                {'label': 'White', 'value': 'White'},
             ],
-            value=['Red','Blue','Yellow','Green','Purple','Pink'],
-            labelStyle={'display': 'inline-block'}
+            value=['Red','Blue','Yellow','Green','Purple','Pink','Gray','White'],
+            labelStyle={'display': 'block'}
         )]),
 
         # First Data Table
