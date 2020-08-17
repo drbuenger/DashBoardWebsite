@@ -52,6 +52,7 @@ def get_menu(navSelector):
             dbc.NavItem(dbc.NavLink("Time Study",href='/Reports/HamiltonTime/',active=array_of_bools[1])),
             dbc.NavItem(dbc.NavLink("BarTender", href='/Reports/BarTender/', active=array_of_bools[2])),
             dbc.NavItem(dbc.NavLink("Electrostretcher", href='/Reports/Electrostretcher/', active=array_of_bools[3])),
+            dbc.NavItem(dbc.NavLink("DX-TCCGT", href='/Reports/DX-TCCGT/', active=array_of_bools[4])),
         ],
         pills=True,
         horizontal=True,

@@ -47,6 +47,7 @@ cnxn_controlled = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                       "Server=lbl-controlled\BARTENDER_REG;"
                       "Database=BarTender_REG;"
                       "Trusted_Connection=yes;")
+bt_df_commander = pd.read_sql_query('SELECT * FROM BtPrintJobCommandLines', cnxn_controlled)
 
 bt_df_controlled = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
 FROM [BarTender_REG].[dbo].[BtPrintJobs] btp \
@@ -936,3 +937,81 @@ def es_graph(es_filtered_df):
         fig = px.line()
     return fig
 
+def get_dx_data(start_date, end_date):
+    dx_data_location = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\DX'
+    new_df = pd.DataFrame(columns=['Num of Tests','Product','Flags','Unique ID','Test Code','CreatedDateTime'])
+    dx_data_gather = [new_df]
+    for r,d,f in os.walk(dx_data_location):
+        for filename in f:
+            fullpath = os.path.join(os.path.abspath(r), filename)
+            modified_time = os.path.getmtime(fullpath)
+            z_date = dt.fromtimestamp(modified_time)
+            if str(z_date) > start_date and str(z_date) < end_date:
+                try:
+                    nm,ext = os.path.splitext(filename)
+                    if ext.lower().endswith('.old'):
+                        dx_temp_df = pd.read_csv(fullpath)
+                        dx_temp_df.drop(dx_temp_df.index[0],inplace=True)
+                        if dx_temp_df.empty == False:
+                            df_temp2 = dx_temp_df
+                            fullpath_split =fullpath.split('\\')
+                            list_length =len(fullpath_split)
+                            df_temp2['File Name'] = nm
+                            df_temp2['CreatedDateTime'] = z_date
+                            dx_data_gather.append(df_temp2)
+                except pd.errors.EmptyDataError:
+                    print("Found empty file: {file}".format(file=filename))
+    new_df_list = [new_df]
+    if len(dx_data_gather) == 1:
+        return new_df
+    else:
+        dx_df = pd.concat(dx_data_gather)
+        dx_df.dropna(axis=1,inplace=True,how='all')
+        dx_df['CreatedDateTime'] = pd.to_datetime(dx_df['CreatedDateTime'])
+        dx_df.columns = dx_df.columns.str.strip()
+        dx_df['Product'].replace('',np.nan, inplace=True)
+        dx_df.dropna(axis=0, inplace=True, how='any', subset=['Product','Num of Tests'])
+    return dx_df
+
+
+# First Data Table Update Function
+def update_generator_duplicates():
+    bt_df_c2 = bt_df_commander.copy()
+    df1 = bt_df_c2[bt_df_c2.duplicated(subset='CommandLine', keep='first')]
+    df1.drop(columns=['SecondaryKey','CommandLineID'],inplace=True)
+    df1['Duplicate Print Jobs'] = df1['CommandLine'].str.split("/").str.get(8)
+    df1['Duplicate Print Jobs'] = df1['Duplicate Print Jobs'].str.strip('"')
+
+
+    df1['Duplicate Print Jobs'] = df1['Duplicate Print Jobs'].str[3:]
+    tooltip_data = [
+        {
+            column: {'value': str(value), 'type': 'markdown'}
+            for column, value in row.items()
+        } for row in df1.to_dict('rows')
+    ]
+    return df1.to_dict('records'), tooltip_data
+
+# First Data Table Update Function
+def update_generator_table(start_date, end_date):
+    dx_df = get_dx_data(start_date,end_date)
+    if dx_df.empty == False:
+        df1 = dx_df.loc[(dx_df['CreatedDateTime'] >= start_date) & (dx_df['CreatedDateTime'] <= end_date)]
+        df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+        # df2 = df1.rename(columns={'L1 Current(uA)':'Lane 1 (uA)','L1 Voltage(v)':'Lane 1 (V)',
+        #                 'L2 Current(uA)':'Lane 2 (uA)','L2 Voltage(v)':'Lane 2 (V)',
+        #                 'L3 Current(uA)': 'Lane 3 (uA)', 'L3 Voltage(v)': 'Lane 3 (V)',
+        #                 'L4 Current(uA)': 'Lane 4 (uA)', 'L4 Voltage(v)': 'Lane 4 (V)',
+        #                 'L5 Current(uA)': 'Lane 5 (uA)', 'L5 Voltage(v)': 'Lane 5 (V)',
+        #                 'L6 Current(uA)': 'Lane 6 (uA)', 'L6 Voltage(v)': 'Lane 6 (V)',
+        #                 })
+        df1.sort_values(by=['Date and Time'], inplace=True, ascending=False)
+        tooltip_data = [
+                           {
+                               column: {'value': str(value), 'type': 'markdown'}
+                               for column, value in row.items()
+                           } for row in df1.to_dict('rows')
+                       ]
+        return df1.to_dict('records'), tooltip_data
+    else:
+        return pd.DataFrame().to_dict('records') , []
