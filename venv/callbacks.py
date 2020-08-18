@@ -20,7 +20,7 @@ from components import update_first_datatable, update_first_download, update_sec
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
 from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
 from components import update_summary_stretcher, update_datatable_stretcher, es_graph
-from components import update_generator_table, update_generator_duplicates
+from components import update_generator_table, update_generator_duplicates, update_generator_duplicates2
 
 pd.options.mode.chained_assignment = None
 
@@ -316,6 +316,16 @@ def update_figure(rows, derived_virtual_selected_rows):
      ])
 def update_gen_duplicates(start_date, end_date):
 	return update_generator_duplicates()
+
+# Callback and update first data table
+@app.callback([Output('datatable-generator-duplicates2', 'data'),
+                Output('datatable-generator-duplicates2', 'tooltip_data'),
+                              ],
+	[Input('my-date-picker-range-generator', 'start_date'),
+	 Input('my-date-picker-range-generator', 'end_date')
+     ])
+def update_gen_duplicates2(start_date, end_date):
+	return update_generator_duplicates2(start_date, end_date)
 
 # Callback and update first data table
 @app.callback([Output('datatable-generator', 'data'),

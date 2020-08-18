@@ -6,4 +6,4 @@ from .functions import update_first_datatable, update_first_download, update_sec
 from .functions import update_first_datatable_time, update_summary_datatable_time , update_summary_datatable_time2
 from .functions import  update_bartender_table , update_bartender_summary , update_bartender_summary2
 from .functions import  update_summary_stretcher , update_datatable_stretcher, es_graph
-from .functions import update_generator_table, update_generator_duplicates
+from .functions import update_generator_table, update_generator_duplicates, update_generator_duplicates2

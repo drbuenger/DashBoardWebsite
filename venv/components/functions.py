@@ -188,6 +188,12 @@ def read_trace_file(file):
                 tips_used50uL += 8
             if 'CO-RE 96 Head Tip Eject (Single Step) - complete' in readline:
                 tips_used1000uL += 96
+            if '1000ul Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used1000uL += 8
+            if '300ul Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used300uL += 8
+            if '50ul Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used50uL += 8
             if 'End method - complete' in readline:
                 date_end = readline[0:19]
             if 'Abort command - complete' in readline:
@@ -331,6 +337,12 @@ def read_trace_file_detail(file):
                 tips_used50uL += 8
             if 'CO-RE 96 Head Tip Eject (Single Step) - complete' in readline:
                 tips_used1000uL += 96
+            if '1000ul Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used1000uL += 8
+            if '300ul Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used300uL += 8
+            if '50ul Channel Tip Eject (Single Step) - complete' in readline:
+                tips_used50uL += 8
             if 'End method - complete' in readline:
                 date_end = readline[0:19]
             if 'Abort command - complete' in readline:
@@ -991,6 +1003,24 @@ def update_generator_duplicates():
         } for row in df1.to_dict('rows')
     ]
     return df1.to_dict('records'), tooltip_data
+
+# First Data Table Update Function
+def update_generator_duplicates2(start_date, end_date):
+    dx_df = get_dx_data(start_date, end_date)
+    if dx_df.empty == False:
+        df1 = dx_df.loc[(dx_df['CreatedDateTime'] >= start_date) & (dx_df['CreatedDateTime'] <= end_date)]
+        df1['Date and Time'] = df1['CreatedDateTime'].dt.strftime("%Y/%m/%d %H:%M:%S")
+        df2 = df1[df1['Unique ID'].duplicated(keep='last')]
+        df2.sort_values(by=['Date and Time'], inplace=True, ascending=False)
+        tooltip_data = [
+            {
+                column: {'value': str(value), 'type': 'markdown'}
+                for column, value in row.items()
+            } for row in df2.to_dict('rows')
+        ]
+        return df2.to_dict('records'), tooltip_data
+    else:
+        return pd.DataFrame().to_dict('records'), []
 
 # First Data Table Update Function
 def update_generator_table(start_date, end_date):
