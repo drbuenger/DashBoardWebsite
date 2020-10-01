@@ -13,43 +13,52 @@ import plotly.express as px
 
 # Read in Data
 hamilton_computers = [
-    "\\\MTGREENMTN\C$\Program Files\Hamilton\LogFiles",
-    "\\\ZORRANDER\C$\Program Files\Hamilton\LogFiles",
-    "\\\SANCHEZ\C$\Program Files\Hamilton\LogFiles",
-    "\\\HAMILTON08\C$\Program Files\Hamilton\LogFiles",
-    "\\\MFG-00000833\C$\Program Files\Hamilton\LogFiles",
-    "\\\\nano-data2.nanostring.local\Emp_Share\Dbuenger\Starlet Trace",
-    ]
+    "\\\MTGREENMTN\\C$\Program Files\\Hamilton\\LogFiles",
+    "\\\ZORRANDER\\C$\\Program Files\\Hamilton\\Logfiles Archive 2276",
+    "\\\SANCHEZ\\C$\\Program Files\\Hamilton\\LogFiles",
+    "\\\HAMILTON08\\C$\\Program Files\\Hamilton\\LogFiles",
+    "\\\MFG-00000833\\C$\\Program Files\\Hamilton\\LogFiles",
+    "\\\MFG-STARLET1\\C$\\Program Files (x86)\\Hamilton\\LogFiles",
+    #"\\\MFG-STARLET2\\C$\\Program Files (x86)\\Hamilton\\LogFiles",
+    #"\\\MFG-STARLET3\\C$\\Program Files (x86)\\Hamilton\\LogFiles",
+]
 
 hamilton_asset_ids = {
-    "1731":"HAM-01",
-    "2276":"HAM-02",
-    "A928":"HAM-03",
-    "C034":"HAM-05",
-    "D363":"HAM-09",
-    "E487":"HAM-10",
-    }
+    "1731": "HAM-01",
+    "2276": "HAM-02",
+    "A928": "HAM-03",
+    "C034": "HAM-05",
+    "D363": "HAM-09",
+    "E487": "HAM-10",
+    "SN1": "HAM-11",
+    "SN2": "HAM-12",
+}
 
 storage_location = 'C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data'
 # r=root, d=directories, f = files
 x = []
 for pc in hamilton_computers:
+
     path_split = pc.split("\\")
     pc_name = path_split[2]
-    y = [os.path.join(r,file) for  r,d,f in os.walk(pc) for file in f]
-    for z in y:
-        file_split = z.split("\\")
-        count = len(file_split)
-        destination = storage_location + "\\" + pc_name +"\\" + file_split[count-1]
-        if z.endswith(".trc") and not os.path.exists(destination):
-            shutil.copy2(z,destination)
-            x.append(destination)
+    try:
+        if os.path.exists(pc):
+            y = [os.path.join(r, file) for r, d, f in os.walk(pc) for file in f]
+            for z in y:
+                file_split = z.split("\\")
+                count = len(file_split)
+                destination = storage_location + "\\" + pc_name + "\\" + file_split[count - 1]
+                if z.endswith(".trc") and not os.path.exists(destination):
+                    shutil.copy2(z, destination)
+                    x.append(destination)
+    except:
+        print("PC Not found: " + pc_name)
 for file in x:
     if file.endswith(".trc"):
         read_trace_file(file)
 
 df = pd.read_csv('C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data\\Hamilton.csv',
-                 na_values=['Null','NA','nan'],
+                 na_values=['Null', 'NA', 'nan'],
                  keep_default_na=False)
 df.dropna(axis=0, inplace=True)
 
@@ -57,116 +66,166 @@ df['Time Start'] = pd.to_datetime(df['Time Start'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Time End'] = pd.to_datetime(df['Time End'])
 df['Duration'] = df['Time End'].sub(df['Time Start']).dt.total_seconds().div(60)
-df = df.drop(columns=['Tips Used 50uL','Tips Used 300uL'])
-df = df.loc[(df!=0).any(axis=1)]
+df = df.drop(columns=['Tips Used 50uL', 'Tips Used 300uL'])
+df = df.loc[(df != 0).any(axis=1)]
 df = df[df['Serial Number'] != '0']
 df = df[df['Serial Number'] != '0000']
 df = df.rename(columns={'Tips Used 1000uL': 'Tips Used'})
 unique_serial_numbers = df['Serial Number'].unique()
 unique_serial_numbers.sort()
-dt_columns = ['Method Name','Time Start', 'Time End', 'User Name', 'Tips Used',  'Duration', 'Aborted', 'File Name']
-dt_columns_time = ['Method Name','Dispensing Time','Dispensing Count','Aspirating Time','Aspirating Count', 'Tip Pickup Time','Tip Pickup Count', 'Tip Eject Time','Tip Eject Count', 'User Time','User Count']
+dt_columns = ['Method Name', 'Time Start', 'Time End', 'User Name', 'Tips Used', 'Duration', 'Aborted', 'File Name']
+dt_columns_time = ['Method Name',
+                   'Dispensing Time',
+                   'Dispensing Count',
+                   'Aspirating Time',
+                   'Aspirating Count',
+                   'Tip Pickup Time',
+                   'Tip Pickup Count',
+                   'Tip Eject Time',
+                   'Tip Eject Count',
+                   'User Time',
+                   'User Count']
 
 summary_columns = ['Method Name', 'Total', 'Average', 'TipsUsed', 'Success %']
-summary_columns_time = ['Method Name', 'Average Dispense', 'Average Aspirate', 'Average Pickup', 'Average Eject', 'Average User']
-summary_columns_time2 = ['Method Name', '% Dispense', '% Aspirate', '% Pickup', '% Eject', '% User', 'Average Total Time (min)']
-ham_detail_columns= ['Time Since Start (sec)','Step Type', 'Message']
+summary_columns_time = ['Method Name',
+                        'Average Dispense',
+                        'Average Aspirate',
+                        'Average Pickup',
+                        'Average Eject',
+                        'Average User']
+summary_columns_time2 = ['Method Name',
+                         '% Dispense',
+                         '% Aspirate',
+                         '% Pickup',
+                         '% Eject',
+                         '% User',
+                         'Average Total Time (min)']
+ham_detail_columns = ['Time Since Start (sec)', 'Step Type', 'Message']
 
-#Read in BarTender data
+# Read in BarTender data
 cnxn = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
                       "Server=labels-internal\BARTENDER;"
                       "Database=BarTender_UNREG;"
                       "Trusted_Connection=yes;")
 
-bt_df = pd.read_sql_query('SELECT btff.Name , p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime FROM BtPrintJobs btp \
-inner join BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
-inner join Printers p on btp.PrinterID = p.PrinterID', cnxn)
-bt_df['CreatedDateTime']= bt_df['CreatedDateTime'] - 621355968000000000
-bt_df['CreatedDateTime']= bt_df['CreatedDateTime']/10
-bt_df['CreatedDateTime'] = pd.to_datetime(bt_df['CreatedDateTime'],unit='us')
+bt_df = pd.read_sql_query('SELECT btff.Name , p.Name as PrinterName, \
+                            btp.TotalLabels, btp.CreatedDateTime FROM BtPrintJobs btp \
+                            inner join BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
+                            inner join Printers p on btp.PrinterID = p.PrinterID', cnxn)
+bt_df['CreatedDateTime'] = bt_df['CreatedDateTime'] - 621355968000000000
+bt_df['CreatedDateTime'] = bt_df['CreatedDateTime'] / 10
+bt_df['CreatedDateTime'] = pd.to_datetime(bt_df['CreatedDateTime'], unit='us')
 bt_df['Server'] = 'Internal'
 
-
-#Read in BarTender data
+# Read in BarTender data
 cnxn_controlled = pyodbc.connect("Driver={SQL Server Native Client 11.0};"
-                      "Server=lbl-controlled\BARTENDER_REG;"
-                      "Database=BarTender_REG;"
-                      "Trusted_Connection=yes;")
+                                 "Server=lbl-controlled\BARTENDER_REG;"
+                                 "Database=BarTender_REG;"
+                                 "Trusted_Connection=yes;")
 bt_df_commander = pd.read_sql_query('SELECT * FROM BtPrintJobCommandLines', cnxn_controlled)
 
 bt_df_controlled = pd.read_sql_query('SELECT btff.Name, p.Name as PrinterName, btp.TotalLabels, btp.CreatedDateTime \
 FROM [BarTender_REG].[dbo].[BtPrintJobs] btp \
 inner join [BarTender_REG].[dbo].BtFormatFileNames btff on btp.FormatFileNameID = btff.FileNameID \
 inner join [BarTender_REG].[dbo].[Printers] p on btp.PrinterID = p.PrinterID', cnxn_controlled)
-bt_df_controlled['CreatedDateTime']= bt_df_controlled['CreatedDateTime'] - 621355968000000000
-bt_df_controlled['CreatedDateTime']= bt_df_controlled['CreatedDateTime']/10
-bt_df_controlled['CreatedDateTime'] = pd.to_datetime(bt_df_controlled['CreatedDateTime'],unit='us')
+bt_df_controlled['CreatedDateTime'] = bt_df_controlled['CreatedDateTime'] - 621355968000000000
+bt_df_controlled['CreatedDateTime'] = bt_df_controlled['CreatedDateTime'] / 10
+bt_df_controlled['CreatedDateTime'] = pd.to_datetime(bt_df_controlled['CreatedDateTime'], unit='us')
 bt_df_controlled['Server'] = 'Controlled'
 
 bartender_summary = ['PrinterName', 'Total', 'LastUsed']
-bartender_summary2 =  ['Name', 'Total', 'LastUsed']
+bartender_summary2 = ['Name', 'Total', 'LastUsed']
 bartender_table = ['PrinterName', 'Name', 'TotalLabels', 'Print Time', 'Server']
 
 bt_df = bt_df.append(bt_df_controlled)
 
-
-
 # Read in Data
 stretcher_files = ["\\\janetjackson-pc\C$\\NanoFluidics\LogData\Blue",
-                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Green",
-                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Red",
-                      "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Yellow",
+                   "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Green",
+                   "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Red",
+                   "\\\janetjackson-pc\C$\\NanoFluidics\LogData\Yellow",
                    "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Pink",
                    "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Green",
                    "\\\\NANO-WIN7MFG1\C$\\NanoFluidics\LogData\Purple",
-                    "\\\\MFG-PC-010\C$\\NanoFluidics\LogData\Gray",
-                    "\\\\MFG-PC-010\C$\\NanoFluidics\LogData\White"
+                   "\\\\MFG-PC-010\C$\\NanoFluidics\LogData\Gray",
+                   "\\\\MFG-PC-010\C$\\NanoFluidics\LogData\White"
                    ]
 
 # r=root, d=directories, f = files
 for folder in stretcher_files:
-    es_color_dict = {'label':'Blue', 'value':'Blue'}
-    es_color_list = ['Blue']
-    path_split = folder.split("\\")
-    length_split = len(path_split)
-    es_color = path_split[length_split -1]
-    if not es_color in es_color_list:
-        es_color_dict.update({'label': es_color,'value': es_color})
-        es_color_list.append(es_color)
-    y = [os.path.join(r,file) for  r,d,f in os.walk(folder) for file in f]
+    try:
+        es_color_dict = {'label': 'Blue', 'value': 'Blue'}
+        es_color_list = ['Blue']
+        path_split = folder.split("\\")
+        length_split = len(path_split)
+        es_color = path_split[length_split - 1]
+        if es_color not in es_color_list:
+            es_color_dict.update({'label': es_color, 'value': es_color})
+            es_color_list.append(es_color)
+        y = [os.path.join(r, file) for r, d, f in os.walk(folder) for file in f]
+    except:
+        print("Folder not Found: " + folder)
     for z in y:
         file_split = z.split("\\")
         count = len(file_split)
-        destination = storage_location + "\\ES\\" + es_color +"\\" + file_split[count-1]
+        destination = storage_location + "\\ES\\" + es_color + "\\" + file_split[count - 1]
         if z.endswith(".CSV") and not os.path.exists(destination):
-            shutil.copy2(z,destination)
+            shutil.copy2(z, destination)
 
-stretcher_summary = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lane 2 (V)', 'Lane 3 (uA)', 'Lane 3 (V)', 'Lane 4 (uA)', 'Lane 4 (V)', 'Lane 5 (uA)', 'Lane 5 (V)', 'Lane 6 (uA)', 'Lane 6 (V)', 'Total']
-stretcher_table = ['Stretcher', 'Lane 1 (uA)', 'Lane 1 (V)', 'Lane 2 (uA)', 'Lane 2 (V)', 'Lane 3 (uA)', 'Lane 3 (V)', 'Lane 4 (uA)', 'Lane 4 (V)', 'Lane 5 (uA)', 'Lane 5 (V)', 'Lane 6 (uA)', 'Lane 6 (V)', 'Date and Time']
+stretcher_summary = ['Stretcher',
+                     'Lane 1 (uA)',
+                     'Lane 1 (V)',
+                     'Lane 2 (uA)',
+                     'Lane 2 (V)',
+                     'Lane 3 (uA)',
+                     'Lane 3 (V)',
+                     'Lane 4 (uA)',
+                     'Lane 4 (V)',
+                     'Lane 5 (uA)',
+                     'Lane 5 (V)',
+                     'Lane 6 (uA)',
+                     'Lane 6 (V)',
+                     'Total']
 
+stretcher_table = ['Stretcher',
+                   'Lane 1 (uA)',
+                   'Lane 1 (V)',
+                   'Lane 2 (uA)',
+                   'Lane 2 (V)',
+                   'Lane 3 (uA)',
+                   'Lane 3 (V)',
+                   'Lane 4 (uA)',
+                   'Lane 4 (V)',
+                   'Lane 5 (uA)',
+                   'Lane 5 (V)',
+                   'Lane 6 (uA)',
+                   'Lane 6 (V)',
+                   'Date and Time']
 
-
-#DX TCCGT
+# DX TCCGT
 dx_tccgt_location_source = 'W:\\Production\\Bartender Trigger Directory'
-y = [os.path.join(r,file) for  r,d,f in os.walk(dx_tccgt_location_source) for file in f]
+y = [os.path.join(r, file) for r, d, f in os.walk(dx_tccgt_location_source) for file in f]
 for z in y:
     file_split = z.split("\\")
     count = len(file_split)
-    destination = storage_location + "\\DX\\" + file_split[count-1]
+    destination = storage_location + "\\DX\\" + file_split[count - 1]
     if z.endswith(".old") and not os.path.exists(destination):
-        shutil.copy2(z,destination)
+        shutil.copy2(z, destination)
 
-generator_columns=['Num of Tests','Product','Unique ID','Test Code','Date and Time']
-generator_columns_duplicates=['Duplicate Print Jobs']
-generator_columns_duplicates2=['Date and Time','Unique ID', 'Test Code','Product', 'File Name']
-######################## START Hamilton Category Layout ########################
+generator_columns = ['Num of Tests', 'Product', 'Unique ID', 'Test Code', 'Date and Time']
+generator_columns_duplicates = ['Duplicate Print Jobs']
+generator_columns_duplicates2 = ['Date and Time', 'Unique ID', 'Test Code', 'Product', 'File Name']
+
+####################### START Hamilton Category Layout ####################
+
+
 layout_hamilton = html.Div([
 
     html.Div([
         # CC Header
         Header('100000'),
         # Date Picker
-html.Div(children='''
+        html.Div(children='''
     Pick a Start/End Date
     '''),
         html.Div([
@@ -175,12 +234,13 @@ html.Div(children='''
                 with_portal=True,
                 min_date_allowed=dt(2018, 1, 1),
                 max_date_allowed=df['Time End'].max().to_pydatetime(),
-                initial_visible_month=dt(df['Time End'].max().to_pydatetime().year, df['Time End'].max().to_pydatetime().month, 1),
+                initial_visible_month=dt(df['Time End'].max().to_pydatetime().year,
+                                         df['Time End'].max().to_pydatetime().month, 1),
                 end_date=df['Time End'].max().to_pydatetime(),
                 start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
-    html.Div(children='''
+        html.Div(children='''
     Pick a Hamilton
     '''),
         html.Div([
@@ -192,7 +252,7 @@ html.Div(children='''
             )
         ], style={'marginTop': 0, 'marginBottom': 15}),
 
-html.Div(children='''
+        html.Div(children='''
     Summary Data
     '''),
         html.Div([
@@ -200,7 +260,7 @@ html.Div(children='''
                 id='datatable-hamilton-summary',
                 columns=[{"name": i, "id": i} for i in summary_columns],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_data=[
                     {
@@ -210,12 +270,12 @@ html.Div(children='''
                 ],
                 tooltip_duration=None,
                 style_cell={
-                            "fontFamily": "Arial",
-                            "size": 11, 'textAlign': 'left',
-                            'overflow': 'hidden',
-                            'textOverflow': 'ellipsis',
-                            'maxWidth': 0,
-                            },
+                    "fontFamily": "Arial",
+                    "size": 11, 'textAlign': 'left',
+                    'overflow': 'hidden',
+                    'textOverflow': 'ellipsis',
+                    'maxWidth': 0,
+                },
                 style_header={
                     'whiteSpace': 'normal',
                     'height': 'auto'},
@@ -223,14 +283,14 @@ html.Div(children='''
                     {'if': {'column_id': 'Method Name'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
-html.Div(children='''
+        html.Div(children='''
     Hamilton Data by Serial Number
     ''',
-         ),
+                 ),
 
         dbc.Button("Run Detail Page", id="run-detail-button"),
 
@@ -242,7 +302,7 @@ html.Div(children='''
                         id='run-detail-data',
                         columns=[{"name": i, "id": i} for i in ham_detail_columns],
                         style_table={'maxWidth': '1400px',
-                             'overflowX': 'auto',},
+                                     'overflowX': 'auto', },
                         sort_action="native",
                         selected_rows=[],
                         style_cell={
@@ -252,8 +312,8 @@ html.Div(children='''
                             'textOverflow': 'ellipsis',
                             'maxWidth': 0,
                             'whiteSpace': 'normal',
-                            'height' : 'auto',
-                            },
+                            'height': 'auto',
+                        },
                         style_header={
                             'whiteSpace': 'normal',
                             'height': 'auto'},
@@ -262,23 +322,23 @@ html.Div(children='''
                                 'if': {
                                     'column_id': 'Time Since Start (sec)'
                                 },
-                             'width': '8%',
-                            'textAlign': 'center'
+                                'width': '8%',
+                                'textAlign': 'center'
                             },
-{
+                            {
                                 'if': {
                                     'column_id': 'Step Type'
                                 },
-                             'width': '8%'
+                                'width': '8%'
                             },
 
                         ],
                         css=[{'selector': '.dash-cell div.dash-cell-value',
-                             'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                              'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                              {'selector': '.row', 'rule': 'margin: 0'}],
-            ),
-        ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),),
-                dbc.ModalFooter(dbc.Button("Close Detail Page", id="close-detail-button"),)
+                    ),
+                ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}), ),
+                dbc.ModalFooter(dbc.Button("Close Detail Page", id="close-detail-button"), )
             ],
             size='xl',
             id="run-detail-page",
@@ -294,7 +354,7 @@ html.Div(children='''
                 columns=[{"name": i, "id": i} for i in dt_columns],
                 data=df.to_dict('records'),
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_data=[
                     {
@@ -325,15 +385,15 @@ html.Div(children='''
                     },
                 ],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}]
-                ,style_data_conditional=[{
-            'if': {
-                'filter_query': '{Aborted} contains "Yes"',
-                'column_id': 'Aborted'},
+                , style_data_conditional=[{
+                    'if': {
+                        'filter_query': '{Aborted} contains "Yes"',
+                        'column_id': 'Aborted'},
                     'backgroundColor': '#FF4136',
                     'fontWeight': 'bold'
-            ,}]
+                    , }]
             ),
         ], className="datatable-hamilton", style={'marginTop': 0, 'marginBottom': 15}),
         # Download Button
@@ -361,7 +421,7 @@ layout_hamilton_time = html.Div([
         # CC Header
         Header('010000'),
         # Date Picker
-html.Div(children='''
+        html.Div(children='''
     Pick a Start/End Date
     '''),
         html.Div([
@@ -370,13 +430,14 @@ html.Div(children='''
                 with_portal=True,
                 min_date_allowed=dt(2018, 1, 1),
                 max_date_allowed=df['Time End'].max().to_pydatetime(),
-                initial_visible_month=dt(df['Time End'].max().to_pydatetime().year, df['Time End'].max().to_pydatetime().month, 1),
+                initial_visible_month=dt(df['Time End'].max().to_pydatetime().year,
+                                         df['Time End'].max().to_pydatetime().month, 1),
                 end_date=df['Time End'].max().to_pydatetime(),
                 start_date=(df['Time Start'].max() - timedelta(6)).to_pydatetime(),
 
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
-    html.Div(children='''
+        html.Div(children='''
     Pick a Hamilton
     '''),
         html.Div([
@@ -388,7 +449,7 @@ html.Div(children='''
             )
         ], style={'marginTop': 0, 'marginBottom': 15}),
 
-html.Div(children='''
+        html.Div(children='''
     Averages Data for Time Study
     '''),
         html.Div([
@@ -396,7 +457,7 @@ html.Div(children='''
                 id='datatable-hamilton-summary-time',
                 columns=[{"name": i, "id": i} for i in summary_columns_time],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_data=[
                     {
@@ -419,12 +480,12 @@ html.Div(children='''
                     {'if': {'column_id': 'Method Name'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 
-html.Div(children='''
+        html.Div(children='''
     Summary Data for Time Study
     '''),
         html.Div([
@@ -432,7 +493,7 @@ html.Div(children='''
                 id='datatable-hamilton-summary-time2',
                 columns=[{"name": i, "id": i} for i in summary_columns_time2],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_data=[
                     {
@@ -455,11 +516,11 @@ html.Div(children='''
                     {'if': {'column_id': 'Method Name'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
-html.Div(children='''
+        html.Div(children='''
     Hamilton Data by Serial Number
     '''),
         # First Data Table
@@ -469,7 +530,7 @@ html.Div(children='''
                 columns=[{"name": i, "id": i} for i in dt_columns_time],
                 data=df.to_dict('records'),
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_data=[
                     {
@@ -493,7 +554,7 @@ html.Div(children='''
                      'width': '20%'}
                 ],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}]
 
             ),
@@ -523,7 +584,7 @@ layout_BarTender = html.Div([
         # CC Header
         Header('001000'),
         # Date Picker
-html.Div(children='''
+        html.Div(children='''
     Pick a Start/End Date
     '''),
         html.Div([
@@ -532,26 +593,27 @@ html.Div(children='''
                 with_portal=True,
                 min_date_allowed=dt(2018, 1, 1),
                 max_date_allowed=bt_df['CreatedDateTime'].max().to_pydatetime(),
-                initial_visible_month=dt(bt_df['CreatedDateTime'].max().to_pydatetime().year, bt_df['CreatedDateTime'].max().to_pydatetime().month, 1),
+                initial_visible_month=dt(bt_df['CreatedDateTime'].max().to_pydatetime().year,
+                                         bt_df['CreatedDateTime'].max().to_pydatetime().month, 1),
                 end_date=bt_df['CreatedDateTime'].max().to_pydatetime(),
                 start_date=(bt_df['CreatedDateTime'].max() - timedelta(6)).to_pydatetime(),
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
-html.Div(children='''
+        html.Div(children='''
 Select Internal/Controlled
 '''),
         html.Div([dcc.Checklist(
             id='bartender-server-select',
 
             options=[
-        {'label': 'Controlled  ', 'value': 'Controlled'},
-        {'label': 'Internal', 'value': 'Internal'}
-    ],
+                {'label': 'Controlled  ', 'value': 'Controlled'},
+                {'label': 'Internal', 'value': 'Internal'}
+            ],
             value=['Controlled', 'Internal'],
             labelStyle={'display': 'inline-block'}
         )]),
 
-html.Div(children='''
+        html.Div(children='''
     Labels By Printer
     '''),
         html.Div([
@@ -560,7 +622,7 @@ html.Div(children='''
                 data=bt_df.to_dict('records'),
                 columns=[{"name": i, "id": i} for i in bartender_summary],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -576,12 +638,12 @@ html.Div(children='''
                     {'if': {'column_id': 'PrinterName'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 
-html.Div(children='''
+        html.Div(children='''
     Labels by Label
     '''),
         html.Div([
@@ -590,7 +652,7 @@ html.Div(children='''
                 data=bt_df.to_dict('records'),
                 columns=[{"name": i, "id": i} for i in bartender_summary2],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -607,11 +669,11 @@ html.Div(children='''
                     {'if': {'column_id': 'PrinterName'},
                      'width': '20%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
-html.Div(children='''
+        html.Div(children='''
     Print History
     '''),
         # First Data Table
@@ -621,7 +683,7 @@ html.Div(children='''
                 columns=[{"name": i, "id": i} for i in bartender_table],
                 data=bt_df.to_dict('records'),
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -639,7 +701,7 @@ html.Div(children='''
                      'width': '20%'}
                 ],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}]
 
             ),
@@ -669,7 +731,7 @@ layout_stretcher = html.Div([
         # CC Header
         Header('000100'),
         # Date Picker
-html.Div(children='''
+        html.Div(children='''
     Pick a Start/End Date
     '''),
         html.Div([
@@ -679,11 +741,11 @@ html.Div(children='''
                 min_date_allowed=dt(2016, 1, 1),
                 max_date_allowed=date.today(),
                 initial_visible_month=dt(date.today().year, date.today().month, 1),
-                end_date= date.today(),
+                end_date=date.today(),
                 start_date=(date.today() - timedelta(3)),
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
-html.Div(children='''
+        html.Div(children='''
     Stretching By Color
     '''),
         html.Div([
@@ -691,7 +753,7 @@ html.Div(children='''
                 id='datatable-stretcher-summary',
                 columns=[{"name": i, "id": i} for i in stretcher_summary],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto'},
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -707,21 +769,21 @@ html.Div(children='''
                     {'if': {'column_id': 'Stretcher'},
                      'width': '5%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 
-html.Div(children='''
+        html.Div(children='''
     Electrostretcher History
     '''),
-html.Div(children='''
+        html.Div(children='''
 Select Stretchers
 '''),
         html.Div([dcc.Checklist(
             id='stretcher-color-select',
-            options=        [
-            {'label': 'Blue  ', 'value': 'Blue'},
+            options=[
+                {'label': 'Blue  ', 'value': 'Blue'},
                 {'label': 'Red', 'value': 'Red'},
                 {'label': 'Green', 'value': 'Green'},
                 {'label': 'Yellow', 'value': 'Yellow'},
@@ -730,7 +792,7 @@ Select Stretchers
                 {'label': 'Gray', 'value': 'Gray'},
                 {'label': 'White', 'value': 'White'},
             ],
-            value=['Red','Blue','Yellow','Green','Purple','Pink','Gray','White'],
+            value=['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Pink', 'Gray', 'White'],
             labelStyle={'display': 'block'}
         )]),
 
@@ -740,7 +802,7 @@ Select Stretchers
                 id='datatable-stretcher-table',
                 columns=[{"name": i, "id": i} for i in stretcher_table],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto', },
                 row_selectable='single',
                 selected_rows=[0],
                 sort_action="native",
@@ -759,7 +821,7 @@ Select Stretchers
                      'width': '5%'}
                 ],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
                 style_data_conditional=[{
                     'if': {
@@ -770,67 +832,67 @@ Select Stretchers
                     {'if': {
                         'filter_query': '{Lane 2 (uA)} < 400',
                         'column_id': 'Lane 2 (uA)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 3 (uA)} < 400',
                         'column_id': 'Lane 3 (uA)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 4 (uA)} < 400',
                         'column_id': 'Lane 4 (uA)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 5 (uA)} < 400',
                         'column_id': 'Lane 5 (uA)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 6 (uA)} < 400',
                         'column_id': 'Lane 6 (uA)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold',},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold', },
                     {'if': {
                         'filter_query': '{Lane 1 (V)} < 140',
                         'column_id': 'Lane 1 (V)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 2 (V)} < 140',
                         'column_id': 'Lane 2 (V)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 3 (V)} < 140',
                         'column_id': 'Lane 3 (V)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 4 (V)} < 140',
                         'column_id': 'Lane 4 (V)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 5 (V)} < 140',
                         'column_id': 'Lane 5 (V)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold'},
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'},
                     {'if': {
                         'filter_query': '{Lane 6 (V)} < 140',
                         'column_id': 'Lane 6 (V)'},
-                    'backgroundColor': '#FF4136',
-                    'fontWeight': 'bold',}
+                        'backgroundColor': '#FF4136',
+                        'fontWeight': 'bold'}
                 ]
 
             ),
         ], className="datatable-hamilton", style={'marginTop': 0, 'marginBottom': 15}),
         html.Div([
 
-                dcc.Graph(id='es-graph',
-                          figure=px.line()),
-            ], className=" twelve columns"
+            dcc.Graph(id='es-graph',
+                      figure=px.line()),
+        ], className=" twelve columns"
 
         ),
     ], className="subpage")
@@ -844,7 +906,7 @@ layout_dxTCCGT = html.Div([
         # CC Header
         Header('000010'),
         # Date Picker
-html.Div(children='''
+        html.Div(children='''
     Pick a Start/End Date
     '''),
         html.Div([
@@ -854,19 +916,19 @@ html.Div(children='''
                 min_date_allowed=dt(2016, 1, 1),
                 max_date_allowed=date.today() + timedelta(1),
                 initial_visible_month=dt(date.today().year, date.today().month, 1),
-                end_date= date.today(),
+                end_date=date.today(),
                 start_date=(date.today() - timedelta(65)),
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
-html.Div(children='''
+        html.Div(children='''
     Duplicate Print Jobs Found
     '''),
-html.Div([
+        html.Div([
             dash_table.DataTable(
                 id='datatable-generator-duplicates',
                 columns=[{"name": i, "id": i} for i in generator_columns_duplicates],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto'},
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -882,19 +944,19 @@ html.Div([
                     {'if': {'column_id': 'Stretcher'},
                      'width': '5%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
-html.Div(children='''
+        html.Div(children='''
     Duplicate Codes Found
     '''),
-html.Div([
+        html.Div([
             dash_table.DataTable(
                 id='datatable-generator-duplicates2',
                 columns=[{"name": i, "id": i} for i in generator_columns_duplicates2],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto'},
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -910,13 +972,12 @@ html.Div([
                     {'if': {'column_id': 'Stretcher'},
                      'width': '5%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
 
-
-html.Div(children='''
+        html.Div(children='''
     All Test Codes Found
     '''),
         html.Div([
@@ -924,7 +985,7 @@ html.Div(children='''
                 id='datatable-generator',
                 columns=[{"name": i, "id": i} for i in generator_columns],
                 style_table={'maxWidth': '1500px',
-                             'overflowX': 'auto',},
+                             'overflowX': 'auto'},
                 sort_action="native",
                 tooltip_duration=None,
                 style_cell={"fontFamily": "Arial",
@@ -940,7 +1001,7 @@ html.Div(children='''
                     {'if': {'column_id': 'Stretcher'},
                      'width': '5%'}],
                 css=[{'selector': '.dash-cell div.dash-cell-value',
-                     'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
@@ -949,6 +1010,7 @@ html.Div(children='''
 ], className="page")
 
 ######################## END DX TCCGTCategory Layout ########################
+######################## 404 Page ########################
 
 ######################## 404 Page ########################
 noPage = html.Div([

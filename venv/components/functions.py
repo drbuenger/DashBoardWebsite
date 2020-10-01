@@ -180,20 +180,42 @@ def read_trace_file(file):
                 array_read_line = readline.split(" ")
                 length = len(array_read_line)
                 serialnumber= array_read_line[length - 1].rstrip("'\n\t’")
-            if '1000µl Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used1000uL += 8
-            if '300µl Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used300uL += 8
-            if '50µl Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used50uL += 8
-            if 'CO-RE 96 Head Tip Eject (Single Step) - complete' in readline:
+            if 'CO-RE 96 Head Tip Pick Up (Single Step) - complete' in readline:
                 tips_used1000uL += 96
-            if '1000ul Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used1000uL += 8
-            if '300ul Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used300uL += 8
-            if '50ul Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used50uL += 8
+            if '1000ul Channel Tip Pick Up (Single Step) - complete' in readline:
+                if 'channel 8' in readline:
+                    tips_used1000uL += 1
+                if 'channel 7' in readline:
+                    tips_used1000uL += 1
+                if 'channel 6' in readline:
+                    tips_used1000uL += 1
+                if 'channel 5' in readline:
+                    tips_used1000uL += 1
+                if 'channel 4' in readline:
+                    tips_used1000uL += 1
+                if 'channel 3' in readline:
+                    tips_used1000uL += 1
+                if 'channel 2' in readline:
+                    tips_used1000uL += 1
+                if 'channel 1' in readline:
+                    tips_used1000uL += 1
+            if '1000µl Channel Tip Pick Up (Single Step) - complete' in readline:
+                if 'channel 8' in readline:
+                    tips_used1000uL += 1
+                if 'channel 7' in readline:
+                    tips_used1000uL += 1
+                if 'channel 6' in readline:
+                    tips_used1000uL += 1
+                if 'channel 5' in readline:
+                    tips_used1000uL += 1
+                if 'channel 4' in readline:
+                    tips_used1000uL += 1
+                if 'channel 3' in readline:
+                    tips_used1000uL += 1
+                if 'channel 2' in readline:
+                    tips_used1000uL += 1
+                if 'channel 1' in readline:
+                    tips_used1000uL += 1
             if 'End method - complete' in readline:
                 date_end = readline[0:19]
             if 'Abort command - complete' in readline:
@@ -329,20 +351,42 @@ def read_trace_file_detail(file):
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
                 s= pd.Series([time_since_start,"Method Start", 'Serial Number: ' + serialnumber],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
-            if '1000µl Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used1000uL += 8
-            if '300µl Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used300uL += 8
-            if '50µl Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used50uL += 8
-            if 'CO-RE 96 Head Tip Eject (Single Step) - complete' in readline:
+            if 'CO-RE 96 Head Tip Pick Up (Single Step) - complete' in readline:
                 tips_used1000uL += 96
-            if '1000ul Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used1000uL += 8
-            if '300ul Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used300uL += 8
-            if '50ul Channel Tip Eject (Single Step) - complete' in readline:
-                tips_used50uL += 8
+            if '1000ul Channel Tip Pick Up (Single Step) - complete' in readline:
+                if 'channel 8' in readline:
+                    tips_used1000uL += 1
+                if 'channel 7' in readline:
+                    tips_used1000uL += 1
+                if 'channel 6' in readline:
+                    tips_used1000uL += 1
+                if 'channel 5' in readline:
+                    tips_used1000uL += 1
+                if 'channel 4' in readline:
+                    tips_used1000uL += 1
+                if 'channel 3' in readline:
+                    tips_used1000uL += 1
+                if 'channel 2' in readline:
+                    tips_used1000uL += 1
+                if 'channel 1' in readline:
+                    tips_used1000uL += 1
+            if '1000µl Channel Tip Pick Up (Single Step) - complete' in readline:
+                if 'channel 8' in readline:
+                    tips_used1000uL += 1
+                if 'channel 7' in readline:
+                    tips_used1000uL += 1
+                if 'channel 6' in readline:
+                    tips_used1000uL += 1
+                if 'channel 5' in readline:
+                    tips_used1000uL += 1
+                if 'channel 4' in readline:
+                    tips_used1000uL += 1
+                if 'channel 3' in readline:
+                    tips_used1000uL += 1
+                if 'channel 2' in readline:
+                    tips_used1000uL += 1
+                if 'channel 1' in readline:
+                    tips_used1000uL += 1
             if 'End method - complete' in readline:
                 date_end = readline[0:19]
             if 'Abort command - complete' in readline:
@@ -409,19 +453,26 @@ def read_trace_file_detail(file):
                 eject_time = eject_time + (dt.strptime(eject_end, '%H:%M:%S') - dt.strptime(eject_start, '%H:%M:%S')).seconds
                 eject_start = ""
                 eject_end = ""
-            if 'Dialog - start' in readline:
+            if 't Dialog - start' in readline:
                 user_start = readline[11:19]
                 read_event_time = readline[11:19]
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
                 message = readline[57:]
                 s= pd.Series([time_since_start,"User Step Start", message],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
-            if 'Dialog - complete' in readline:
+            if 't Dialog - complete' in readline:
                 user_end = readline[11:19]
                 read_event_time = readline[11:19]
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
                 message = readline[60:]
                 s= pd.Series([time_since_start,"User Step Complete", message],index=['Time Since Start (sec)','Step Type', 'Message'])
+                df_detail = df_detail.append(s,ignore_index=True)
+            if ') - progress; Error' in readline:
+                user_end = readline[11:19]
+                read_event_time = readline[11:19]
+                time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
+                message = readline[91:]
+                s= pd.Series([time_since_start,"Error Occurred", message],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if 'HSLMapReport::GenerateMappingReport - progress' in readline:
                 read_event_time = readline[11:19]
