@@ -15,6 +15,7 @@ import plotly.express as px
 hamilton_computers = [
     "\\\MTGREENMTN\\C$\Program Files\\Hamilton\\LogFiles",
     "\\\ZORRANDER\\C$\\Program Files\\Hamilton\\Logfiles Archive 2276",
+    "\\\ZORRANDER\\C$\\Program Files\\Hamilton\\Logfiles",
     "\\\SANCHEZ\\C$\\Program Files\\Hamilton\\LogFiles",
     "\\\HAMILTON08\\C$\\Program Files\\Hamilton\\LogFiles",
     "\\\MFG-00000833\\C$\\Program Files\\Hamilton\\LogFiles",
@@ -202,9 +203,9 @@ stretcher_table = ['Stretcher',
                    'Lane 6 (V)',
                    'Date and Time']
 
-# DX TCCGT
-dx_tccgt_location_source = 'W:\\Production\\Bartender Trigger Directory'
-y = [os.path.join(r, file) for r, d, f in os.walk(dx_tccgt_location_source) for file in f]
+# Duplicate Test Codes
+diag_test_codes_location_source = 'W:\\Production\\Bartender Trigger Directory'
+y = [os.path.join(r, file) for r, d, f in os.walk(diag_test_codes_location_source) for file in f]
 for z in y:
     file_split = z.split("\\")
     count = len(file_split)
@@ -223,7 +224,7 @@ layout_hamilton = html.Div([
 
     html.Div([
         # CC Header
-        Header('100000'),
+        Header(),
         # Date Picker
         html.Div(children='''
     Pick a Start/End Date
@@ -419,7 +420,7 @@ layout_hamilton = html.Div([
 layout_hamilton_time = html.Div([
     html.Div([
         # CC Header
-        Header('010000'),
+        Header(),
         # Date Picker
         html.Div(children='''
     Pick a Start/End Date
@@ -582,7 +583,7 @@ layout_hamilton_time = html.Div([
 layout_BarTender = html.Div([
     html.Div([
         # CC Header
-        Header('001000'),
+        Header(),
         # Date Picker
         html.Div(children='''
     Pick a Start/End Date
@@ -729,7 +730,7 @@ Select Internal/Controlled
 layout_stretcher = html.Div([
     html.Div([
         # CC Header
-        Header('000100'),
+        Header(),
         # Date Picker
         html.Div(children='''
     Pick a Start/End Date
@@ -900,11 +901,11 @@ Select Stretchers
 
 ######################## END ElectroStretcher Category Layout ########################
 
-######################## START DX TCCGT Category Layout ########################
-layout_dxTCCGT = html.Div([
+######################## START duplicate test codes Category Layout ########################
+layout_duplicate_test_codes = html.Div([
     html.Div([
         # CC Header
-        Header('000010'),
+        Header(),
         # Date Picker
         html.Div(children='''
     Pick a Start/End Date
@@ -1009,12 +1010,12 @@ layout_dxTCCGT = html.Div([
     ], className="subpage")
 ], className="page")
 
-######################## END DX TCCGTCategory Layout ########################
+######################## END Duplicate Test Codes Category Layout ########################
 ######################## 404 Page ########################
 
 ######################## 404 Page ########################
 noPage = html.Div([
     # CC Header
-    Header('000000'),
+    Header(),
     html.P(["404 Page not found"])
 ], className="no-page")

@@ -7,7 +7,7 @@ import dash_bootstrap_components as dbc
 # see https://community.plot.ly/t/nolayoutexception-on-deployment-of-multi-page-dash-app-example-code/12463/2?u=dcomfort
 from app import server
 from app import app
-from layouts import layout_hamilton, layout_hamilton_time, layout_BarTender, layout_stretcher, layout_dxTCCGT, noPage
+from layouts import layout_hamilton, layout_hamilton_time, layout_BarTender, layout_stretcher, layout_duplicate_test_codes, noPage
 import callbacks
 
 # see https://dash.plot.ly/external-resources to alter header, footer and favicon
@@ -42,16 +42,16 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/Reports/Hamilton/':
+    if pathname == '/Reports/Hamilton/Methods/':
         return layout_hamilton
-    elif pathname == '/Reports/HamiltonTime/':
+    elif pathname == '/Reports/Hamilton/TimeStudy/':
         return layout_hamilton_time
-    elif pathname == '/Reports/BarTender/':
+    elif pathname == '/Reports/BarTender/PrintJobs/':
         return layout_BarTender
-    elif pathname == '/Reports/Electrostretcher/':
+    elif pathname == '/Reports/Electrostretcher/RunHistory/':
         return layout_stretcher
-    elif pathname == '/Reports/DX-TCCGT/':
-        return layout_dxTCCGT
+    elif pathname == '/Reports/DXTestCodes/Duplicates/':
+        return layout_duplicate_test_codes
     else:
         return noPage
 

@@ -457,14 +457,14 @@ def read_trace_file_detail(file):
                 user_start = readline[11:19]
                 read_event_time = readline[11:19]
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                message = readline[57:]
+                message = readline[63:]
                 s= pd.Series([time_since_start,"User Step Start", message],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if 't Dialog - complete' in readline:
                 user_end = readline[11:19]
                 read_event_time = readline[11:19]
                 time_since_start = (dt.strptime(read_event_time, '%H:%M:%S') - dt.strptime(time_start, '%H:%M:%S')).seconds
-                message = readline[60:]
+                message = readline[66:]
                 s= pd.Series([time_since_start,"User Step Complete", message],index=['Time Since Start (sec)','Step Type', 'Message'])
                 df_detail = df_detail.append(s,ignore_index=True)
             if ') - progress; Error' in readline:

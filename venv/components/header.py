@@ -7,12 +7,12 @@ import dash_bootstrap_components as dbc
 image_filename = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\assets\\NanostringLogo.jpg' # replace with your own image
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
-def Header(navSelector):
+def Header():
     return html.Div([
-        get_header(),
         get_logo(),
+        get_header(),
         html.Br([]),
-        get_menu(navSelector)
+        get_menu(),
     ])
 
 def get_logo():
@@ -28,34 +28,70 @@ def get_header():
 
         html.Div([
             html.H3(
-                'Nanostring MFG Reports'
+                'NanoString Manufacturing Reports'
             )
         ], className="twelve columns padded", style={'marginTop': 0, 'marginBottom': 0, 'marginLeft': 15} )
 
     ], className="row gs-header gs-text-header" )
     return header
 
-def get_menu(navSelector):
-    bitmask = list(navSelector)
-    array_of_bools = []
-    count = 0
-    for char in bitmask:
-        if char == '1':
-            array_of_bools.append(True)
-        else:
-            array_of_bools.append(False)
-        count += 1
-
+def get_menu():
     nav = dbc.Nav(
         [
-            dbc.NavItem(dbc.NavLink("Home", href='/Reports/Hamilton/',active=array_of_bools[0])),
-            dbc.NavItem(dbc.NavLink("Time Study",href='/Reports/HamiltonTime/',active=array_of_bools[1])),
-            dbc.NavItem(dbc.NavLink("BarTender", href='/Reports/BarTender/', active=array_of_bools[2])),
-            dbc.NavItem(dbc.NavLink("Electrostretcher", href='/Reports/Electrostretcher/', active=array_of_bools[3])),
-            dbc.NavItem(dbc.NavLink("DX-TCCGT", href='/Reports/DX-TCCGT/', active=array_of_bools[4])),
+            dbc.NavItem(
+                dbc.DropdownMenu(
+                    children=[
+                        dbc.DropdownMenuItem("Hamilton Method Report", header = True,  href='/Reports/Hamilton/Methods/'),
+                        dbc.DropdownMenuItem(divider=True),
+                        dbc.DropdownMenuItem("Hamilton Time Study Report", header=True, href='/Reports/Hamilton/TimeStudy/'),
+                    ],
+                    nav=True,
+                    in_navbar=False,
+                    label="Hamilton",
+
+                )
+            ),
+            dbc.NavItem(
+                dbc.DropdownMenu(
+                    children=[
+                        dbc.DropdownMenuItem("Bartender Print Jobs", header=True, href='/Reports/BarTender/PrintJobs/'),
+                    ],
+                    nav=True,
+                    in_navbar=False,
+                    label="BarTender",
+
+                )
+            ),
+
+            dbc.NavItem(
+                dbc.DropdownMenu(
+                    children=[
+                        dbc.DropdownMenuItem("Electrostretchers", header=True, href='/Reports/Electrostretcher/RunHistory/'),
+                    ],
+                    nav=True,
+                    in_navbar=False,
+                    label="Electrostretcher",
+
+                )
+            ),
+
+            dbc.NavItem(
+                dbc.DropdownMenu(
+                    children=[
+                        dbc.DropdownMenuItem("Duplicate Codes Report", header=True, href='/Reports/DXTestCodes/Duplicates/'),
+                    ],
+                    nav=True,
+                    in_navbar=False,
+                    label="Diagnostic Test Codes",
+
+                )
+            ),
         ],
         pills=True,
         horizontal=True,
     )
 
+
+
     return nav
+
