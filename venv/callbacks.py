@@ -16,11 +16,12 @@ import flask
 from flask import send_file
 
 from components import formatter_currency, formatter_currency_with_cents, formatter_percent, formatter_percent_2_digits, formatter_number
-from components import update_first_datatable, update_first_download, update_second_datatable, update_graph, update_summary_datatable, read_trace_file_detail
+from components import update_first_datatable, update_second_datatable, update_graph, update_summary_datatable, read_trace_file_detail
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
 from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
 from components import update_summary_stretcher, update_datatable_stretcher, es_graph
 from components import update_generator_table, update_generator_duplicates, update_generator_duplicates2
+
 
 pd.options.mode.chained_assignment = None
 
@@ -44,9 +45,8 @@ columns_complete = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'D
 columns_condensed = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
 
 
-######################## Nav Bar Callbacks ########################
 
-######################## Nav Bar Callbacks ########################
+
 
 ######################## Hamilton Category Callbacks ########################
 
@@ -110,44 +110,6 @@ def toggle_modal(n1, n2,rows,is_open, selected_rows):
         return not is_open, df_detail.to_dict('records')
     return is_open, df_detail.to_dict('records')
 
-# Callback for excel download
-@app.callback(
-    Output('download-link-hamilton-category', 'href'),
-    [Input('my-date-picker-range-hamilton-category', 'start_date'),
-	 Input('my-date-picker-range-hamilton-category', 'end_date'),
-    Input('dropdown-input-hamilton', 'serial_number')
-     ])
-def update_link(start_date, end_date, serial_number):
-	return '/Reports/Hamilton/urlToDownload?value={}/{}'.format(dt.strptime(start_date,'%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M'),dt.strptime(end_date,'%Y-%m-%dT%H:%M:%S').strftime('%Y-%m-%dT%H:%M'))
-@app.server.route("/Reports/Hamilton/urlToDownload")
-def download_excel_hamilton_category():
-    value = flask.request.args.get('value')
-    #here is where I split the value
-    value = value.split('/')
-    start_date = value[0]
-    end_date = value[1]
-
-    filename = datestamp + '_hamilton_category_' + start_date + '_to_' + end_date + '.xlsx'
-	# Dummy Dataframe
-    d = {'col1': [1, 2], 'col2': [3, 4]}
-    df = pd.DataFrame(data=d)
-
-    buf = io.BytesIO()
-    excel_writer = pd.ExcelWriter(buf, engine="xlsxwriter")
-    download_1 = update_first_download(start_date, end_date, serial_number)
-    download_1.to_excel(excel_writer, sheet_name="sheet1", index=False)
-    # df.to_excel(excel_writer, sheet_name="sheet1", index=False)
-    excel_writer.save()
-    excel_data = buf.getvalue()
-    buf.seek(0)
-
-    return send_file(
-        buf,
-        mimetype = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        attachment_filename=filename,
-        as_attachment=True,
-        cache_timeout=0
-    )
 
 # Callback and update second data table
 @app.callback(
