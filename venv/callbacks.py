@@ -18,10 +18,11 @@ from flask import send_file
 from components import formatter_currency, formatter_currency_with_cents, formatter_percent, formatter_percent_2_digits, formatter_number
 from components import update_first_datatable, update_second_datatable, update_graph, update_summary_datatable, read_trace_file_detail
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
+from components import update_summary_datatable_tips
 from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
 from components import update_summary_stretcher, update_datatable_stretcher, es_graph
 from components import update_generator_table, update_generator_duplicates, update_generator_duplicates2
-
+from components import update_inventory_table
 
 pd.options.mode.chained_assignment = None
 
@@ -167,6 +168,16 @@ def update_data_summary_time(start_date, end_date, serial_number):
 def update_data_summary_time2(start_date, end_date, serial_number):
 	return update_summary_datatable_time2(start_date, end_date, serial_number)
 
+# Callback and update first data table
+@app.callback([Output('datatable-hamilton-summary-tips', 'data'),
+                Output('datatable-hamilton-summary-tips', 'tooltip_data'),
+               ],
+	[Input('my-date-picker-range-hamilton-tips', 'start_date'),
+	 Input('my-date-picker-range-hamilton-tips', 'end_date')
+     ])
+def update_data_summary_tips(start_date, end_date):
+	return update_summary_datatable_tips(start_date, end_date)
+
 # Callback for the Graphs
 @app.callback(
    Output('extra-category', 'figure'),
@@ -298,3 +309,12 @@ def update_gen_duplicates2(start_date, end_date):
      ])
 def update_data_table_generator(start_date, end_date):
 	return update_generator_table(start_date, end_date)
+
+@app.callback([Output('datatable-inventory','data'),
+               Output('datatable-inventory','tooltip_data')
+               ],
+              [Input('my-date-picker-range-inventory','start_date'),
+               Input('my-date-picker-range-inventory','end_date')
+               ])
+def update_data_inventory_table(start_date, end_date):
+    return update_inventory_table(start_date, end_date)

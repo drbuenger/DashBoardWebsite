@@ -7,11 +7,13 @@ import dash_bootstrap_components as dbc
 # see https://community.plot.ly/t/nolayoutexception-on-deployment-of-multi-page-dash-app-example-code/12463/2?u=dcomfort
 from app import server
 from app import app
-from layouts.hamilton_layouts import layout_hamilton, layout_hamilton_time
+from layouts.hamilton_layouts import layout_hamilton, layout_hamilton_time, layout_hamilton_tips
 from layouts.noPageFound_layouts import noPage
 from layouts.dx_codes_layouts import layout_duplicate_test_codes
 from layouts.bartender_layouts import layout_BarTender
 from layouts.electrostretcher_layouts import layout_stretcher
+from layouts.inventory_layouts import layout_Inventory
+
 import callbacks
 
 # see https://dash.plot.ly/external-resources to alter header, footer and favicon
@@ -50,12 +52,16 @@ def display_page(pathname):
         return layout_hamilton
     elif pathname == '/Reports/Hamilton/TimeStudy/':
         return layout_hamilton_time
+    elif pathname == '/Reports/Hamilton/Tips/':
+        return layout_hamilton_tips
     elif pathname == '/Reports/BarTender/PrintJobs/':
         return layout_BarTender
     elif pathname == '/Reports/Electrostretcher/RunHistory/':
         return layout_stretcher
     elif pathname == '/Reports/DXTestCodes/Duplicates/':
         return layout_duplicate_test_codes
+    elif pathname == '/Reports/Inventory/Main/':
+        return layout_Inventory
     else:
         return noPage
 

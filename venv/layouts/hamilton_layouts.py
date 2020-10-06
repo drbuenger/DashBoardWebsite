@@ -106,6 +106,9 @@ summary_columns_time2 = ['Method Name',
 ham_detail_columns = ['Time Since Start (sec)', 'Step Type', 'Message']
 
 
+summary_columns_tips = ['Serial Number',
+                        'TipsUsed',
+                        ]
 
 layout_hamilton = html.Div([
 
@@ -465,3 +468,62 @@ layout_hamilton_time = html.Div([
 ], className="page")
 
 ######################## END Hamilton Time Category Layout ########################
+
+layout_hamilton_tips = html.Div([
+    html.Div([
+        # CC Header
+        Header(),
+        # Date Picker
+        html.Div(children='''
+    Pick a Start/End Date
+    '''),
+        html.Div([
+            dcc.DatePickerRange(
+                id='my-date-picker-range-hamilton-tips',
+                with_portal=True,
+                min_date_allowed=dt(2018, 1, 1),
+                max_date_allowed=df['Time End'].max().to_pydatetime(),
+                initial_visible_month=dt(df['Time End'].max().to_pydatetime().year,
+                                         df['Time End'].max().to_pydatetime().month, 1),
+                end_date=df['Time End'].max().to_pydatetime(),
+                start_date=(df['Time Start'].max() - timedelta(30)).to_pydatetime(),
+
+            )
+        ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
+
+        html.Div(children='''
+    Tip Usage
+    '''),
+        html.Div([
+            dash_table.DataTable(
+                id='datatable-hamilton-summary-tips',
+                columns=[{"name": i, "id": i} for i in summary_columns_tips],
+                style_table={'maxWidth': '1500px',
+                             'overflowX': 'auto', },
+                sort_action="native",
+                tooltip_data=[
+                    {
+                        column: {'value': str(value), 'type': 'markdown'}
+                        for column, value in row.items()
+                    } for row in df.to_dict('rows')
+                ],
+                tooltip_duration=None,
+                style_cell={"fontFamily": "Arial",
+                            "size": 11, 'textAlign': 'left',
+                            'overflow': 'hidden',
+                            'textOverflow': 'ellipsis',
+                            'maxWidth': 0,
+                            },
+                style_header={
+                    'whiteSpace': 'normal',
+                    'height': 'auto'},
+                style_cell_conditional=[
+                    {'if': {'column_id': 'Method Name'},
+                     'width': '20%'}],
+                css=[{'selector': '.dash-cell div.dash-cell-value',
+                      'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                     {'selector': '.row', 'rule': 'margin: 0'}],
+            ),
+        ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
+    ], className="subpage")
+], className="page")

@@ -70,7 +70,7 @@ layout_BarTender = html.Div([
                 initial_visible_month=dt(bt_df['CreatedDateTime'].max().to_pydatetime().year,
                                          bt_df['CreatedDateTime'].max().to_pydatetime().month, 1),
                 end_date=bt_df['CreatedDateTime'].max().to_pydatetime(),
-                start_date=(bt_df['CreatedDateTime'].max() - timedelta(6)).to_pydatetime(),
+                start_date=(bt_df['CreatedDateTime'].max() - timedelta(2)).to_pydatetime(),
             )
         ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
         html.Div(children='''

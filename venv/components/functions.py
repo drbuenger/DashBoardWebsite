@@ -660,6 +660,29 @@ def update_second_datatable(start_date, end_date,serial_number):
     data_df = df1.to_dict("record")
     return data_df
 
+
+# First Data Table Update Function
+def update_summary_datatable_tips(start_date, end_date):
+    df1 = df.loc[(df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+
+    df2 = df1.groupby('Serial Number').agg(
+        TipsUsed=pd.NamedAgg(column='Tips Used', aggfunc=np.sum),
+                               ).reset_index()
+
+    df2.sort_values(by=['Serial Number'],inplace=True)
+    sum_of_tips = np.sum(df2.TipsUsed)
+    total_row = ['Total',sum_of_tips]
+    df2.loc[len(df)] = total_row
+    tooltip_data = [
+                       {
+                           column: {'value': str(value), 'type': 'markdown'}
+                           for column, value in row.items()
+                       } for row in df2.to_dict('rows')
+                   ]
+    return df2.to_dict('records'), tooltip_data
+
 ########################## BARTENDER ########################
 def update_bartender_summary(start_date,end_date,server_list):
     df1 = bt_df.loc[(bt_df['CreatedDateTime'] >= start_date) & (bt_df['CreatedDateTime'] <= end_date)]
@@ -1096,3 +1119,29 @@ def update_generator_table(start_date, end_date):
         return df1.to_dict('records'), tooltip_data
     else:
         return pd.DataFrame().to_dict('records') , []
+
+
+# Read from NAV
+server = 'NANO-ERP'
+database = 'NanoString'
+username = 'NAV-RO'
+password = 'r3@d0nly!'
+cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+
+inv_df = pd.read_sql_query('SELECT TOP (1000) [timestamp] ,[Status] ,[No_] ,[Description] ,[Description 2] ,[Creation Date] \
+    [Last Date Modified]       ,[Starting Time]      ,[Starting Date]      ,[Ending Time]      ,[Ending Date]      ,[Due Date]      ,[Finished Date] \
+    ,[Location Code]       ,[Bin Code]       ,[Quantity]       ,[Unit Cost]       ,[Cost Amount]       ,[Assigned User ID] \
+    FROM [NanoString].[dbo].[NanoString$Production Order]', cnxn)
+
+def update_inventory_table(start_date, end_date):
+    df1 = inv_df.loc[(inv_df['Due Date'] >= start_date) & (inv_df['Due Date'] <= end_date)]
+    df1.sort_values(by=['Due Date'], inplace=True, ascending=False)
+    df1.drop(columns=['timestamp', 'Bin Code'],inplace=True)
+    df1['Due Date'] = df1['Due Date'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    tooltip_data = [
+        {
+            column: {'value': str(value), 'type': 'markdown'}
+            for column, value in row.items()
+        } for row in df1.to_dict('rows')
+    ]
+    return df1.to_dict('records') , tooltip_data
