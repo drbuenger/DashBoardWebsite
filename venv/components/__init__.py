@@ -8,4 +8,4 @@ from .functions import update_summary_datatable_tips
 from .functions import  update_bartender_table , update_bartender_summary , update_bartender_summary2
 from .functions import  update_summary_stretcher , update_datatable_stretcher, es_graph
 from .functions import update_generator_table, update_generator_duplicates, update_generator_duplicates2
-from .functions  import update_inventory_table
+from .functions import update_inventory_table

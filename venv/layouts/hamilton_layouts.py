@@ -12,11 +12,9 @@ import pyodbc
 import plotly.express as px
 
 
-
 # Read in Data
 hamilton_computers = [
     "\\\MTGREENMTN\\C$\Program Files\\Hamilton\\LogFiles",
-    "\\\ZORRANDER\\C$\\Program Files\\Hamilton\\Logfiles Archive 2276",
     "\\\ZORRANDER\\C$\\Program Files\\Hamilton\\Logfiles",
     "\\\SANCHEZ\\C$\\Program Files\\Hamilton\\LogFiles",
     "\\\HAMILTON08\\C$\\Program Files\\Hamilton\\LogFiles",
@@ -109,6 +107,7 @@ ham_detail_columns = ['Time Since Start (sec)', 'Step Type', 'Message']
 summary_columns_tips = ['Serial Number',
                         'TipsUsed',
                         ]
+
 
 layout_hamilton = html.Div([
 
@@ -468,6 +467,7 @@ layout_hamilton_time = html.Div([
 ], className="page")
 
 ######################## END Hamilton Time Category Layout ########################
+
 
 layout_hamilton_tips = html.Div([
     html.Div([

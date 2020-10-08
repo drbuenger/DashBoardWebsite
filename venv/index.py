@@ -13,7 +13,6 @@ from layouts.dx_codes_layouts import layout_duplicate_test_codes
 from layouts.bartender_layouts import layout_BarTender
 from layouts.electrostretcher_layouts import layout_stretcher
 from layouts.inventory_layouts import layout_Inventory
-
 import callbacks
 
 # see https://dash.plot.ly/external-resources to alter header, footer and favicon

@@ -4,7 +4,7 @@ import base64
 
 import dash_bootstrap_components as dbc
 
-image_filename = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\assets\\NanostringLogo.jpg'
+image_filename = 'C:\\Users\\Dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\assets\\NanostringLogo.jpg' # replace with your own image
 encoded_image = base64.b64encode(open(image_filename, 'rb').read())
 
 def Header():
@@ -45,7 +45,7 @@ def get_menu():
                         dbc.DropdownMenuItem(divider=True),
                         dbc.DropdownMenuItem("Hamilton Time Study Report", header=True, href='/Reports/Hamilton/TimeStudy/'),
                         dbc.DropdownMenuItem(divider=True),
-                        dbc.DropdownMenuItem("Hamilton Tip Usage Report", header=True, href='/Reports/Hamilton/Tips/'),
+                        dbc.DropdownMenuItem("Hamilton Tip Usage", header=True, href='/Reports/Hamilton/Tips/'),
                     ],
                     nav=True,
                     in_navbar=False,
@@ -88,11 +88,10 @@ def get_menu():
 
                 )
             ),
-
             dbc.NavItem(
                 dbc.DropdownMenu(
                     children=[
-                        dbc.DropdownMenuItem("Main Data", header=True,
+                        dbc.DropdownMenuItem("Inventory", header=True,
                                              href='/Reports/Inventory/Main/'),
                     ],
                     nav=True,
