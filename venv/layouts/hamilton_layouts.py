@@ -1,6 +1,7 @@
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
+import plotly.graph_objects as go
 import dash_table
 from components import Header, read_trace_file
 from datetime import datetime as dt
@@ -8,9 +9,6 @@ from datetime import date, timedelta
 import pandas as pd
 import os
 import shutil
-import pyodbc
-import plotly.express as px
-
 
 # Read in Data
 hamilton_computers = [
@@ -108,6 +106,8 @@ summary_columns_tips = ['Serial Number',
                         'TipsUsed',
                         ]
 
+hamilton_columns_dashboard = ['Serial Number',
+                              'Total']
 
 layout_hamilton = html.Div([
 
@@ -495,6 +495,8 @@ layout_hamilton_tips = html.Div([
     Tip Usage
     '''),
         html.Div([
+
+
             dash_table.DataTable(
                 id='datatable-hamilton-summary-tips',
                 columns=[{"name": i, "id": i} for i in summary_columns_tips],
@@ -525,5 +527,133 @@ layout_hamilton_tips = html.Div([
                      {'selector': '.row', 'rule': 'margin: 0'}],
             ),
         ], className=" twelve columns", style={'marginTop': 0, 'marginBottom': 15}),
+    ], className="subpage")
+], className="page")
+
+
+
+layout_hamilton_dashboard = html.Div([
+    html.Div([
+        # CC Header
+        Header(),
+        # Date Picker
+        html.Div(children='''
+    Pick a Start/End Date
+    '''),
+        html.Div([
+            dcc.DatePickerRange(
+                id='my-date-picker-range-hamilton-dashboard',
+                with_portal=True,
+                min_date_allowed=dt(2018, 1, 1),
+                max_date_allowed=df['Time End'].max().to_pydatetime(),
+                initial_visible_month=dt(df['Time End'].max().to_pydatetime().year,
+                                         df['Time End'].max().to_pydatetime().month, 1),
+                end_date=df['Time End'].max().to_pydatetime(),
+                start_date=(df['Time Start'].max() - timedelta(30)).to_pydatetime(),
+
+            )
+        ], className="row ", style={'marginTop': 0, 'marginBottom': 15, 'marginLeft': 0}),
+        html.Div([
+            html.Div([
+                html.H3('Method Usage'),
+                dcc.Graph(
+                    id="hamilton-serial-number-piechart",
+                    figure={
+                        "data": [
+                            {
+                                "labels": [],
+                                "values": [],
+                                "type": "pie",
+                                "marker": {"line": {"color": "white", "width": 1}},
+                                "hoverinfo": "label",
+                                "textinfo": "label",
+                            }
+                        ],
+                        "layout": {
+                            "margin": dict(l=20, r=20, t=20, b=20),
+                            "showlegend": True,
+                            "paper_bgcolor": "rgba(0,0,0,0)",
+                            "plot_bgcolor": "rgba(0,0,0,0)",
+                            "font": {"color": "white"},
+                            "autosize": True,
+                        },
+                    },
+                ),
+            ],className='six columns'),
+
+            html.Div([
+                html.H3('Tip Usage'),
+                dcc.Graph(
+                        id="hamilton-tips-barchart",
+                        style={"width": "75%", "display": "inline-block"},
+                    ),
+                ],className='six columns'),
+        ]),
+        html.Div([
+            html.Div([
+                dash_table.DataTable(
+                    id='datatable-hamilton-dashboard',
+                    columns=[{"name": i, "id": i} for i in hamilton_columns_dashboard],
+                    style_table={'maxWidth': '600px',
+                                 'overflowX': 'auto', },
+                    sort_action="native",
+                    tooltip_data=[
+                        {
+                            column: {'value': str(value), 'type': 'markdown'}
+                            for column, value in row.items()
+                        } for row in df.to_dict('rows')
+                    ],
+                    tooltip_duration=None,
+                    style_cell={"fontFamily": "Arial",
+                                "size": 11, 'textAlign': 'left',
+                                'overflow': 'hidden',
+                                'textOverflow': 'ellipsis',
+                                'maxWidth': 0,
+                                },
+                    style_header={
+                        'whiteSpace': 'normal',
+                        'height': 'auto'},
+                    style_cell_conditional=[
+                        {'if': {'column_id': 'Method Name'},
+                         'width': '20%'}],
+                    css=[{'selector': '.dash-cell div.dash-cell-value',
+                          'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                         {'selector': '.row', 'rule': 'margin: 0'}],
+                ),
+
+            ], className=" six columns", style={'marginTop': 0, 'marginBottom': 15}),
+            html.Div([
+
+                dash_table.DataTable(
+                    id='datatable-hamilton-summary-tips',
+                    columns=[{"name": i, "id": i} for i in summary_columns_tips],
+                    style_table={'maxWidth': '600px',
+                                 'overflowX': 'auto', },
+                    sort_action="native",
+                    tooltip_data=[
+                        {
+                            column: {'value': str(value), 'type': 'markdown'}
+                            for column, value in row.items()
+                        } for row in df.to_dict('rows')
+                    ],
+                    tooltip_duration=None,
+                    style_cell={"fontFamily": "Arial",
+                                "size": 11, 'textAlign': 'left',
+                                'overflow': 'hidden',
+                                'textOverflow': 'ellipsis',
+                                'maxWidth': 0,
+                                },
+                    style_header={
+                        'whiteSpace': 'normal',
+                        'height': 'auto'},
+                    style_cell_conditional=[
+                        {'if': {'column_id': 'Method Name'},
+                         'width': '20%'}],
+                    css=[{'selector': '.dash-cell div.dash-cell-value',
+                          'rule': 'display: inline; white-space: inherit; overflow: inherit; text-overflow: inherit;'},
+                         {'selector': '.row', 'rule': 'margin: 0'}],
+                ),
+            ], className=" six columns", style={'marginTop': 0, 'marginBottom': 15}),
+        ])
     ], className="subpage")
 ], className="page")

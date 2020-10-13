@@ -1,15 +1,11 @@
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_bootstrap_components as dbc
 import dash_table
 from components import Header, read_trace_file
 from datetime import datetime as dt
 from datetime import date, timedelta
-import pandas as pd
 import os
 import shutil
-import pyodbc
-import plotly.express as px
 
 storage_location = 'C:\\Users\\dbuenger\\PycharmProjects\\DashBoardWebsite\\venv\\data'
 

@@ -672,6 +672,29 @@ def update_summary_datatable_tips(start_date, end_date):
                                ).reset_index()
 
     df2.sort_values(by=['Serial Number'],inplace=True)
+
+    pie_figure = {
+        "data": [
+            {
+                "labels": df2['Serial Number'],
+                "values": df2['TipsUsed'],
+                "type": "pie",
+                "marker": {"line": dict(color="black", width=2)},
+                "hoverinfo": "value",
+                "textinfo": "label",
+            }
+        ],
+        "layout": {
+            "margin": dict(t=20, b=50),
+            "uirevision": True,
+            "font": {"color": "black"},
+            "showlegend": True,
+            "paper_bgcolor": "rgba(0,0,0,0)",
+            "plot_bgcolor": "rgba(0,0,0,0)",
+            "autosize": True,
+        },
+    }
+
     sum_of_tips = np.sum(df2.TipsUsed)
     total_row = ['Total',sum_of_tips]
     df2.loc[len(df)] = total_row
@@ -681,7 +704,50 @@ def update_summary_datatable_tips(start_date, end_date):
                            for column, value in row.items()
                        } for row in df2.to_dict('rows')
                    ]
-    return df2.to_dict('records'), tooltip_data
+
+    return df2.to_dict('records'), tooltip_data, pie_figure
+
+
+# First Data Table Update Function
+def update_hamilton_dashboard(start_date, end_date):
+    df1 = df.loc[(df['Time Start'] >= start_date) & (df['Time End'] <= end_date)]
+    df1['Time Start'] = df1['Time Start'].dt.strftime("%Y/%m/%d %H:%M:%S")
+    df1['Time End'] = df1['Time End'].dt.strftime("%Y/%m/%d %H:%M:%S")
+
+    df2 = df1.groupby('Serial Number').agg(
+        Total=pd.NamedAgg(column='Method Name', aggfunc='count'),
+                               ).reset_index()
+
+    df2.sort_values(by=['Serial Number'],inplace=True)
+    tooltip_data = [
+                       {
+                           column: {'value': str(value), 'type': 'markdown'}
+                           for column, value in row.items()
+                       } for row in df2.to_dict('rows')
+                   ]
+
+    pie_figure = {
+        "data": [
+            {
+                "labels": df2['Serial Number'],
+                "values": df2['Total'],
+                "type": "pie",
+                "marker": {"line": dict(color="black", width=2)},
+                "hoverinfo": "value",
+                "textinfo": "label",
+            }
+        ],
+        "layout": {
+            "margin": dict(t=20, b=50),
+            "uirevision": True,
+            "font": {"color": "black"},
+            "showlegend": True,
+            "paper_bgcolor": "rgba(0,0,0,0)",
+            "plot_bgcolor": "rgba(0,0,0,0)",
+            "autosize": True,
+        },
+    }
+    return df2.to_dict('records'), tooltip_data, pie_figure
 
 ########################## BARTENDER ########################
 def update_bartender_summary(start_date,end_date,server_list):

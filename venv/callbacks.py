@@ -18,7 +18,7 @@ from flask import send_file
 from components import formatter_currency, formatter_currency_with_cents, formatter_percent, formatter_percent_2_digits, formatter_number
 from components import update_first_datatable, update_second_datatable, update_graph, update_summary_datatable, read_trace_file_detail
 from components import update_first_datatable_time , update_summary_datatable_time , update_summary_datatable_time2
-from components import update_summary_datatable_tips
+from components import update_summary_datatable_tips, update_hamilton_dashboard
 from components import update_bartender_table , update_bartender_summary , update_bartender_summary2
 from components import update_summary_stretcher, update_datatable_stretcher, es_graph
 from components import update_generator_table, update_generator_duplicates, update_generator_duplicates2
@@ -44,10 +44,6 @@ columns = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration',
 columns_complete = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name']
 
 columns_condensed = ['Time Start', 'Time End', 'Serial Number', 'Method Name', 'Duration', 'User Name' ]
-
-
-
-
 
 ######################## Hamilton Category Callbacks ########################
 
@@ -171,12 +167,25 @@ def update_data_summary_time2(start_date, end_date, serial_number):
 # Callback and update first data table
 @app.callback([Output('datatable-hamilton-summary-tips', 'data'),
                 Output('datatable-hamilton-summary-tips', 'tooltip_data'),
+                Output('hamilton-tips-barchart', 'figure'),
                ],
-	[Input('my-date-picker-range-hamilton-tips', 'start_date'),
-	 Input('my-date-picker-range-hamilton-tips', 'end_date')
+	[Input('my-date-picker-range-hamilton-dashboard', 'start_date'),
+	 Input('my-date-picker-range-hamilton-dashboard', 'end_date')
      ])
 def update_data_summary_tips(start_date, end_date):
 	return update_summary_datatable_tips(start_date, end_date)
+
+# Callback and update first data table
+@app.callback([Output('datatable-hamilton-dashboard', 'data'),
+                Output('datatable-hamilton-dashboard', 'tooltip_data'),
+                Output('hamilton-serial-number-piechart', 'figure'),
+
+               ],
+	[Input('my-date-picker-range-hamilton-dashboard', 'start_date'),
+	 Input('my-date-picker-range-hamilton-dashboard', 'end_date')
+     ])
+def update_data_hamilton_dashboard(start_date, end_date):
+	return update_hamilton_dashboard(start_date, end_date)
 
 # Callback for the Graphs
 @app.callback(

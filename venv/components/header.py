@@ -46,6 +46,8 @@ def get_menu():
                         dbc.DropdownMenuItem("Hamilton Time Study Report", header=True, href='/Reports/Hamilton/TimeStudy/'),
                         dbc.DropdownMenuItem(divider=True),
                         dbc.DropdownMenuItem("Hamilton Tip Usage", header=True, href='/Reports/Hamilton/Tips/'),
+                        dbc.DropdownMenuItem(divider=True),
+                        dbc.DropdownMenuItem("Hamilton Usage Dashboard", header=True, href='/Reports/Hamilton/Dashboard/'),
                     ],
                     nav=True,
                     in_navbar=False,
